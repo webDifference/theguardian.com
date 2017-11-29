@@ -1,0 +1,946 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="js-off id--signed-out">
+    <head>
+        <meta charset="utf-8">
+        <title> Supporters | The Guardian Members </title>
+
+        <meta name="viewport"                     content="width=device-width, initial-scale=1.0"/>
+<meta name="HandheldFriendly"             content="true"/>
+<meta name="apple-touch-fullscreen"       content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+        <meta name="description" content="Supporters protect our editorial freedom and help us seek out those stories that people are determined to keep hidden."/>
+        <meta name="rating" content="general"/>
+        <meta http-equiv="imagetoolbar" content="no"/>
+        <meta name="Rating" content="general"/>
+        <meta name="Distribution" content="Global"/>
+
+        <meta property="og:title" content="Supporters of the Guardian | The Guardian Members"/>
+        <meta property="og:description" content="Supporters protect our editorial freedom and help us seek out those stories that people are determined to keep hidden."/>
+        
+            <meta property="og:image" content="https://membership.theguardian.com/assets/dist/images/common/4aaba589/mem600.jpg"/>
+        
+        <meta property="og:url" content="https://membership.theguardian.com/int/supporter"/>
+
+        <meta property="og:type" content="website"/>
+        <meta property="fb:app_id" content="180444840287"/>
+        <meta name="twitter:site" content="@gdnmembership"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="google-site-verification" content="qf7V0ceP_mY_0jTl7R7C1wZSKn2gK7TlharWVLr8Ea0" />
+        <meta name="google-site-verification" content="usCUaIJGNg9ijq-htmMAU6yEhAwNm7wdyb_fk_s2LTQ" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "Guardian Members",
+                "url": "https://membership.theguardian.com",
+                "logo": "https://membership.theguardian.com/assets/dist/images/favicons/76653302/152x152.png",
+                "sameAs" : [
+                    "https://www.youtube.com/user/guardianmembership",
+                    "https://plus.google.com/+guardianmembership/",
+                    "https://www.twitter.com/gdnmembership"
+                ]
+            }
+        </script>
+
+        
+
+        
+
+
+
+
+
+<!--[if IE 9]>
+<script src="/assets/dist/javascripts/lib/740675b8/polyfills.min.js"></script>
+<![endif]-->
+<script src="https://polyfill.guim.co.uk/v2/polyfill.min.js?features=Promise,fetch"></script>
+<script id="gu">
+    var guardian = {
+        isModernBrowser: (
+            'querySelector' in document
+            && 'addEventListener' in window
+            && 'localStorage' in window
+            && 'sessionStorage' in window
+            && 'bind' in Function
+            && (('XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest())
+              || 'XDomainRequest' in window)),
+        css: {
+            loaded: false
+        },
+        payPalEnvironment: '',
+        membership: {
+            checkoutForm: {"defaultCountry":"GB","currency":"GBP","billingPeriod":"annual"},
+            buildNumber: '11656',
+            svgSprite: "/assets/dist/images/b195df84/svg-sprite.svg"
+        },
+        abTests: {},
+        googleAnalytics: {
+            trackingId: 'UA-51507017-5',
+            cookieDomain:  'auto' 
+        },
+        analyticsEnabled: true,
+        isDev: false,
+        getStripePublicKeyForCountry: function() {
+            return guardian.membership.checkoutForm.billingCountry === 'AU' ? '' : ''
+        }
+    };
+
+    (function(isModern) {
+
+        
+        var htmlClassNames = ['js-on']; // we know we have JS
+
+        document.documentElement.className = document.documentElement.className.replace(/\bjs-off\b/g, '') + ' ' + htmlClassNames.join(' ');
+
+        if (!isModern) {
+            // we add this class so it's off by default (avoiding FOUC)
+            document.documentElement.className += ' js-ancient-browser';
+        }
+
+        var areClipPathShapesSupported = (function () {
+            var base = 'clipPath',
+                prefixes = [ 'webkit', 'moz', 'ms', 'o' ],
+                properties = [ base ],
+                testElement = document.createElement( 'testelement' ),
+                attribute = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+            for ( var i = 0, l = prefixes.length; i < l; i++ ) {
+                var prefixedProperty = prefixes[i] + base.charAt( 0 ).toUpperCase() + base.slice( 1 );
+                properties.push( prefixedProperty );
+            }
+            for ( var i = 0, l = properties.length; i < l; i++ ) {
+                var property = properties[i];
+                if ( testElement.style[property] === '' ) {
+                    testElement.style[property] = attribute;
+                    if ( testElement.style[property] !== '' ) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }());
+
+        if(areClipPathShapesSupported) {
+            document.documentElement.className += ' supports-clippath-shapes';
+        }
+
+        
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        window.lazySizesConfig.init = false;
+
+        
+        
+
+        /**
+         * Simple XHR abstraction
+         */
+        function loadData( url, cb ) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    if (cb) { cb.call(this, xhr); }
+                }
+            }
+            xhr.timeout = 5000;
+            xhr.send();
+        }
+        /**
+         * Add data to local storage, with buildNumber key
+         * Break cache if buildNumber has changed.
+         */
+        function updateLocalStorage(prefix, data) {
+            var expr = new RegExp('^' + prefix + '.', 'g');
+            Object.keys(localStorage).forEach(function(key) {
+                if (key.match(expr)) {
+                    try {
+                        localStorage.removeItem(key);
+                    } catch(e) { }
+                }
+            });
+            try {
+                localStorage.setItem(prefix + '.' + guardian.membership.buildNumber, data);
+            } catch(e) {}
+        }
+
+        /**
+         * Insert SVG sprite into document
+         */
+        function inlineSvg(data) {
+            var el = document.createElement('div');
+            el.innerHTML = data;
+            var ref = document.getElementsByTagName('script')[0];
+            ref.parentNode.insertBefore(el, ref);
+        }
+
+        function loadSvgIcons() {
+            var data = !guardian.isDev && localStorage.getItem('icons.' + guardian.membership.buildNumber);
+            if (data) {
+                inlineSvg(data);
+            } else {
+                loadData(guardian.membership.svgSprite, function(xhr) {
+                    inlineSvg(xhr.responseText);
+                    updateLocalStorage('icons', xhr.responseText);
+                });
+            }
+        }
+
+        if (isModern) {
+            loadSvgIcons();
+        }
+    })(guardian.isModernBrowser);
+</script>
+
+
+        <!--[if (gt IE 9) | (IEMobile)]><!-->
+        <link rel="stylesheet" media="all" href="/assets/dist/stylesheets/09972afd/style.css">
+        <!--<![endif]-->
+
+        <!--[if (IE 9)&(!IEMobile)]>
+        <link rel="stylesheet" type="text/css" href="/assets/dist/stylesheets/5d65b2a2/ie9.css" />
+        <![endif]-->
+
+        <script>
+    var curl = {
+        apiName: 'curl',
+        paths: {
+            stripe: 'https://js.stripe.com/v2/stripe-dss3',
+            uet: '/assets/dist/javascripts/lib/uet/41174537/uet.js',
+            paypal: 'https://www.paypalobjects.com/api/checkout.js',
+            stripeCheckout: 'https://checkout.stripe.com/checkout.js'
+        }
+    };
+</script>
+<script src='/assets/dist/javascripts/lib/curl/58ce8394/curl.js'></script>
+<noscript><img src="//bat.bing.com/action/0?ti=5039324&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+
+
+        <link rel="shortcut icon" type="image/png" href="/assets/dist/images/favicons/7283d7ef/32x32.ico">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/dist/images/favicons/76653302/152x152.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/dist/images/favicons/96d94ea9/144x144.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/dist/images/favicons/b867afed/120x120.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/dist/images/favicons/7b4d3654/114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/dist/images/favicons/405a87ab/72x72.png">
+        <link rel="apple-touch-icon-precomposed" href="/assets/dist/images/favicons/0e1060e5/57x57.png">
+        <meta name="msapplication-TileColor" content="#214583">
+        <meta name="msapplication-TileImage" content="/assets/dist/images/favicons/f06f6996/windows_tile_144_b.png">
+
+        
+    </head>
+    <body id="top">
+        <a class="u-h skip" href="#container">Skip to main content</a>
+        
+        <noscript>
+            <div class="warning-message copy hidden-print">
+                Please enable JavaScript &ndash; we use it to enhance behaviour for Guardian Members.
+                <a href="http://www.enable-javascript.com/">Click here for instructions to do so in your browser</a>.
+            </div>
+        </noscript>
+        <div class="browser-warning warning-message copy hidden-print">
+            You are using an <strong>outdated</strong> browser.
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+        </div>
+        <div class="container-global">
+            
+
+ 
+
+<header class="global-header hidden-print js-header" role="banner">
+    <div class="global-header__inner ">
+        <div class="global-header__branding l-constrained">
+            <div class="global-header__primary">
+                
+
+
+<ul class="nav-control u-cf" role="menubar">
+    <li class="nav-control__item">
+        <a href="https://profile.theguardian.com/signin?returnUrl=https://membership.theguardian.com&amp;skipConfirmation=true&amp;clientId=members"
+           class="control js-dropdown js-identity-menu-toggle js-identity-menu-url"
+           data-dropdown-menu="js-identity-menu"
+           id="qa-identity-control"
+           title="Your account"
+           role="menuitem"
+        >
+            <span class="control__item">
+                <span class="control__icon icon-holder icon-holder--large icon-holder--neutral">
+                    
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-user"></use>
+</svg>
+
+                </span>
+            </span>
+            <span class="control__item hidden-mobile js-user-detail">
+                <span class="control__info">
+                    <span class="case--lower js-user-displayname">Sign in</span>
+                    <span class="u-h u-parentheses js-user-tier"></span>
+                </span>
+            </span>
+        </a>
+        
+        <nav id="js-identity-menu" role="navigation" class="nav-popup is-hidden js-dropdown-menu" aria-label="Profile menu">
+            <ul class="nav-popup__list">
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/user/id/" class="nav-popup__link js-identity-menu-comment-activity">Comment activity</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a class="nav-popup__link js-identity-menu-edit-profile"
+                       id="qa-identity-nav-edit"
+                       href="https://profile.theguardian.com/public/edit?clientId=members"
+                       data-member-href="https://profile.theguardian.com/membership/edit?clientId=members">Edit profile</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/email-prefs?clientId=members" class="nav-popup__link">Email preferences</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/password/change?clientId=members" class="nav-popup__link">Change password</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/signout?clientId=members&amp;returnUrl=https://membership.theguardian.com/int/supporter" class="nav-popup__link">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    </li>
+    
+        <li class="nav-control__item">
+            <a href="#" class="control js-dropdown" data-dropdown-menu="js-country-switcher" title="Choose country" role="menuitem">
+                <span class="control__item">
+                    <span class="control__icon icon-holder icon-holder--large icon-holder--neutral">
+                    
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-globe"></use>
+</svg>
+
+                    </span>
+                </span>
+                <span class="control__item hidden-mobile js-user-detail">
+                    <span class="control__info">International (US$)</span>
+                </span>
+            </a>
+            <nav id="js-country-switcher" role="navigation" class="js-dropdown-menu nav-popup is-hidden" aria-label="Country switcher">
+                <ul class="nav-popup__list">
+                    
+                        <li class="nav-popup__item">
+                            <a href="/uk/supporter" class="nav-popup__link">United Kingdom (£)</a>
+                        </li>
+                    
+                        <li class="nav-popup__item">
+                            <a href="/eu/supporter" class="nav-popup__link">Europe (€)</a>
+                        </li>
+                    
+                        <li class="nav-popup__item">
+                            <a href="/us/supporter" class="nav-popup__link">United States (US$)</a>
+                        </li>
+                    
+                        <li class="nav-popup__item">
+                            <a href="/ca/supporter" class="nav-popup__link">Canada (CA$)</a>
+                        </li>
+                    
+                        <li class="nav-popup__item">
+                            <a href="/au/supporter" class="nav-popup__link">Australia (AU$)</a>
+                        </li>
+                    
+                        <li class="nav-popup__item">
+                            <a href="/int/supporter" class="nav-popup__link">International (US$)</a>
+                        </li>
+                    
+                </ul>
+            </nav>
+        </li>
+    
+    <li class="nav-control__item nav-control__item--last hidden-mobile">
+        <a class="control" href="http://theguardian.com/" role="menuitem">
+            <span class="control__item">
+                
+
+<svg class="icon-inline icon-inline--large">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-g-mark"></use>
+</svg>
+
+            </span>
+            <span class="control__item">
+                <span class="control__info">the guardian</span>
+            </span>
+        </a>
+    </li>
+</ul>
+
+            </div>
+            
+            <div class="global-header__logo">
+	            <a href="/" class="global-header__logo__link" id="qa-header-logo">
+                    <span class="u-h">The Guardian Members</span>
+                    
+
+
+<div class="inline-svg global-header__logo__image" role="img">
+    <canvas class="inline-svg__canvas" height="90" width="300" aria-hidden="true"></canvas>
+    <img class="inline-svg__image" src="/assets/dist/images/logos/brand/1287f3ce/guardian-members.svg" alt="Guardian Membership">
+</div>
+
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+
+<button role="menuitem" class="mobile-menu mobile-only js-menu-icon" title="Menu">
+    <span class="mobile-menu__icon">
+        <i></i><i></i><i></i>
+    </span>
+</button>
+
+<nav role="navigation" class="global-navigation js-global-nav">
+    <div class="global-navigation__scroll l-constrained">
+        <ul class="global-navigation__list">
+            
+                <li class="global-navigation__item global-navigation__item--home">
+                    <a href="/" class="global-navigation__link js-nav-link-home">
+                        
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-home"></use>
+</svg>
+
+                        <span class="u-h">Home</span>
+                    </a>
+                </li>
+            
+            
+                <li class="global-navigation__item">
+                    <a href="/supporter?INTCMP=gdnwb_copts_memco_internal_supporter_link" class="global-navigation__link" id="qa-nav-become a supporter">Become a supporter</a>
+                </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/events" class="global-navigation__link" id="qa-nav-events">Events</a>
+                </li>
+                
+                    <li class="global-navigation__item global-navigation__item--sub">
+                        <a href="/events/archive" class="global-navigation__link" id="qa-nav-archive">Archive</a>
+                    </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/masterclasses" class="global-navigation__link" id="qa-nav-masterclasses">Masterclasses</a>
+                </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/patrons" class="global-navigation__link" id="qa-nav-patrons">Patrons</a>
+                </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/feedback" class="global-navigation__link" id="qa-nav-feedback">Feedback</a>
+                </li>
+                
+            
+            <li class="global-navigation__item global-navigation__item--right">
+                
+                    <a href="http://www.theguardian.com/membership" class="global-navigation__link global-navigation__link--last js-members-area is-hidden">Members' Area</a>
+                
+            </li>
+        </ul>
+    </div>
+</nav>
+
+</header>
+
+
+
+
+
+    
+
+
+ 
+
+            
+                <div class="l-side-margins" id="container">
+                    
+
+    <section class="elevated-supporter">
+
+        
+
+    <!-- Segment Pixel - Jan17 - DO NOT MODIFY -->
+    <img class="app-nexus-pixel" src="https://secure.adnxs.com/px?add=7269289&t=2" width="1" height="1"/>
+    <!-- End of Segment Pixel -->
+
+
+
+
+        
+        
+
+<section class="elevated-become-supporter-section l-constrained">
+    <div class="u-section-div">
+	    
+
+<div class="elevated-banner l-constrained">
+    <div class="elevated-banner__col u-content-width--left">
+        <div class="elevated-banner__content">
+            <h1 class="elevated-banner__title"><h1 class="elevated-banner__title__h1">Become a<br>Guardian Supporter</h1>
+
+            <p class="elevated-banner__tagline">Be part of the Guardian's future, by helping to secure it</p>
+
+            <div class="elevated-banner__button">
+            	
+
+    
+        <a class="elevated-button action action--no-icon"
+
+            data-metric-trigger="click"
+            data-metric-category="Supporter Landing Page int"
+            data-metric-action="cta click"
+            data-metric-label="Top Button"
+
+            href="/join/supporter/enter-details?countryGroup=int">
+            <div class="elevated-button__text ">
+                Become a Supporter <br/>
+                <span class="elevated-button--pricing-placeholder">for $6.99 a month</span>
+            </div>
+
+            <div class="elevated-button__icon">
+                <div class="elevated-button__icon__border">
+                
+                    <svg width="18" height="17.121" viewBox="0 0 18 17.121"><path d="M0 9.343h14.952L9.09 16.36l.76.76L18 8.95v-.78L9.85 0l-.76.762 5.862 7.016H0"/></svg>
+                
+                </div>
+            </div>
+        </a>
+    
+
+            </div>
+        </div>
+    </div><div class="elevated-banner__col elevated-banner__col--img">
+        <img class="elevated-banner__col__img" src="https://media.guim.co.uk/7b6e7b64f194b1f85bfc0791a23b8a25b72f39ba/0_0_1300_632/500.png" />
+    </div>
+</div>
+
+	    
+
+<div class="elevated-become-supporter-body">
+    
+            <div class="elevated-become-supporter-body__col u-content-width--left">
+                <p class="u-responsive-p">
+                    We want to make the world a better, fairer place. We want to keep the powerful honest. And we believe that doing so means keeping society informed by producing quality, independent journalism, which discovers and tells readers the truth.
+                </p>
+                <p class="u-responsive-p">
+                    It’s essential for the functioning of democracy. And our unique ownership structure means no one can tell us to censor or drop a story.
+                </p>
+            </div>
+
+            
+
+<div class="elevated-become-supporter-body__col elevated-become-supporter-body__video u-content-width--right">
+    <div class="video-preview video-preview--plain">
+        <div class="elevated-preview__video">
+            
+
+<div class="video-player js-video">
+    <iframe class="video-player__iframe js-video__iframe  " src="//www.youtube.com/embed/jn4wAy1Xs5M?enablejsapi=1&amp;wmode=transparent&amp;rel=0" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    
+        <div class="video-player__overlay js-video__overlay">
+            <div class="video-player__overlay__image">
+                <img src="https://media.guim.co.uk/82dbcf960aa2dd780b51ec2829fa3a15304cf921/0_0_2000_1125/500.jpg" srcset="https://media.guim.co.uk/82dbcf960aa2dd780b51ec2829fa3a15304cf921/0_0_2000_1125/500.jpg 500w, https://media.guim.co.uk/82dbcf960aa2dd780b51ec2829fa3a15304cf921/0_0_2000_1125/2000.jpg 2000w" sizes="100vw" alt="If you read the Guardian, join the Guardian" class="responsive-img" />
+            </div>
+            <div class="video-player__overlay__action">
+                <span class="playback">
+                    
+
+<svg class="icon-inline playback__icon">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+</svg>
+
+                    <span class="u-h">Play video</span>
+                </span>
+            </div>
+        </div>
+    
+</div>
+
+        </div>
+    </div>
+    <p class="elevated-become-supporter-body__caption">Katharine Viner, editor-in-chief, explains the Guardian&#x27;s unique ownership model</p>
+</div>
+
+
+            <div class="elevated-become-supporter-body__col u-content-width--left">
+                <p class="u-responsive-p">
+                    But it’s difficult and expensive work. While more people are reading the Guardian than ever before, far fewer are paying for it. And advertising revenues across the media are falling fast.
+                </p>
+                <p class="u-responsive-p">
+                    So if you read us, if you like us, if you value our perspective – then become a Supporter and help make our future more secure.
+                </p>
+            </div>
+        
+</div>
+
+    </div>
+    
+
+<div class="l-constrained elevated-footer-button ">
+	<div class="elevated-footer-button__button u-content-width--left">
+		
+
+    
+        <a class="elevated-button action action--no-icon"
+
+            data-metric-trigger="click"
+            data-metric-category="Supporter Landing Page int"
+            data-metric-action="cta click"
+            data-metric-label="Middle Button 1"
+
+            href="/join/supporter/enter-details?countryGroup=int">
+            <div class="elevated-button__text ">
+                Become a Supporter <br/>
+                <span class="elevated-button--pricing-placeholder">for $6.99 a month</span>
+            </div>
+
+            <div class="elevated-button__icon">
+                <div class="elevated-button__icon__border">
+                
+                    <svg width="18" height="17.121" viewBox="0 0 18 17.121"><path d="M0 9.343h14.952L9.09 16.36l.76.76L18 8.95v-.78L9.85 0l-.76.762 5.862 7.016H0"/></svg>
+                
+                </div>
+            </div>
+        </a>
+    
+
+	</div>
+</div>
+
+</section>
+
+
+
+        
+        
+
+<section class="elevated-closer-guardian-section">
+    
+
+<div class="l-constrained elevated-closer-guardian-body">
+    <h1 class="u-supporter-title u-content-width--left">
+        Supporters get closer<br>to the Guardian
+    </h1>
+
+    <div class="elevated-closer-guardian-body__col elevated-closer-guardian-body__video u-content-width--left">
+        <div class="video-preview video-preview--plain">
+            <div class="elevated-preview__video">
+                
+
+<div class="video-player js-video">
+    <iframe class="video-player__iframe js-video__iframe autoplay loop" src="//www.youtube.com/embed/E3uaUH2XGtE?enablejsapi=1&amp;wmode=transparent" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+    
+        <div class="video-player__overlay js-video__overlay">
+            <div class="video-player__overlay__image">
+                <img src="https://media.guim.co.uk/d6e58ef1af3c7f06477c1f0709c823613bc21f3e/0_0_2000_1125/500.jpg" srcset="https://media.guim.co.uk/d6e58ef1af3c7f06477c1f0709c823613bc21f3e/0_0_2000_1125/500.jpg 500w, https://media.guim.co.uk/d6e58ef1af3c7f06477c1f0709c823613bc21f3e/0_0_2000_1125/2000.jpg 2000w" sizes="100vw" alt="If you read the Guardian, join the Guardian" class="responsive-img" />
+            </div>
+            <div class="video-player__overlay__action">
+                <span class="playback">
+                    
+
+<svg class="icon-inline playback__icon">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-play"></use>
+</svg>
+
+                    <span class="u-h">Play video</span>
+                </span>
+            </div>
+        </div>
+    
+</div>
+
+            </div>
+        </div>
+    </div>
+
+    
+            <div class="elevated-closer-guardian-body__col elevated-closer-guardian-body__text u-content-width--right">
+                <div class="elevated-closer-guardian-body__list">
+
+                    <p class="u-responsive-p">
+                        As a Guardian Supporter, you’ll enjoy a number of benefits, including:
+                    </p>
+
+                    <ul>
+                        <li class="elevated-closer-guardian-body__list_item">
+                            Exclusive emails from Guardian journalists
+                        </li>
+                        <li class="elevated-closer-guardian-body__list_item">
+                            An ad-free experience on our mobile app
+                        </li>
+                        
+                        <li class="elevated-closer-guardian-body__list_item">
+                            Joining the global Guardian Members community
+                        </li>
+                        <li class="elevated-closer-guardian-body__list_item">
+                            A welcome gift
+                        </li>
+                    </ul>
+
+                    <p class="u-responsive-p">
+                        Most importantly of all, you’ll appreciate every word that you read, in the knowledge that you’ve helped to bring it to the page.
+                    </p>
+                </div>
+            </div>
+        
+</div>
+
+
+
+
+    
+
+<div class="l-constrained elevated-footer-button elevated-footer--right-diagonal">
+	<div class="elevated-footer-button__button u-content-width--left">
+		
+
+    
+        <a class="elevated-button action action--no-icon"
+
+            data-metric-trigger="click"
+            data-metric-category="Supporter Landing Page int"
+            data-metric-action="cta click"
+            data-metric-label="Middle Button 2"
+
+            href="/join/supporter/enter-details?countryGroup=int">
+            <div class="elevated-button__text ">
+                Become a Supporter <br/>
+                <span class="elevated-button--pricing-placeholder">for $6.99 a month</span>
+            </div>
+
+            <div class="elevated-button__icon">
+                <div class="elevated-button__icon__border">
+                
+                    <svg width="18" height="17.121" viewBox="0 0 18 17.121"><path d="M0 9.343h14.952L9.09 16.36l.76.76L18 8.95v-.78L9.85 0l-.76.762 5.862 7.016H0"/></svg>
+                
+                </div>
+            </div>
+        </a>
+    
+
+	</div>
+</div>
+
+</section>
+
+
+
+        
+
+        
+
+<section class="elevated-why-support-section l-constrained">
+    
+
+<div class="l-constrained elevated-why-support-body">
+    <div class="u-supporter-title u-content-width--left">
+        Why do we need<br>our Supporters?
+    </div>
+
+    <div class="elevated-why-support-body__col elevated-why-support-body__col--img u-content-width--right">
+        <img class="elevated-why-support-body__col__img" src="https://media.guim.co.uk/dcd0f0f703b1e784a3280438806f2feedf27dfab/0_0_1080_648/500.jpg" />
+        <p class="elevated-why-support-body__caption">The Guardian newsroom during a busy afternoon</p>
+    </div>
+    <div class="elevated-why-support-body__col u-content-width--left">
+        
+            <p class="u-responsive-p">
+                Like many other media organisations, the Guardian is operating in an incredibly challenging financial climate. Our advertising revenues are falling fast. We have huge numbers of readers, and we are increasingly reliant upon their financial support.
+            </p>
+            <p class="u-responsive-p">
+                We don’t have a wealthy owner pulling the strings. No shareholders, advertisers or billionaire owners can edit our editor.
+            </p>
+            <p class="u-responsive-p">
+                Our owner, the Scott Trust, safeguards our editorial independence from commercial or political interference. It reinvests revenue into our journalism, as opposed to into shareholders' pockets.
+            </p>
+            <p class="u-responsive-p">
+                But while the Scott Trust ensures our independence, we need our Supporters, now more than ever before, to help secure our future.
+            </p>
+            <p class="u-responsive-p">
+                We know that not everyone is in a position to become a Supporter. But if you can, you’ll be an integral part of our mission to make the world a better, fairer place, for everyone.
+            </p>
+        
+    </div>
+</div>
+
+    
+
+<div class="l-constrained elevated-footer-button ">
+	<div class="elevated-footer-button__button u-content-width--left">
+		
+
+    
+        <a class="elevated-button action action--no-icon"
+
+            data-metric-trigger="click"
+            data-metric-category="Supporter Landing Page int"
+            data-metric-action="cta click"
+            data-metric-label="Bottom Button"
+
+            href="/join/supporter/enter-details?countryGroup=int">
+            <div class="elevated-button__text ">
+                Become a Supporter <br/>
+                <span class="elevated-button--pricing-placeholder">for $6.99 a month</span>
+            </div>
+
+            <div class="elevated-button__icon">
+                <div class="elevated-button__icon__border">
+                
+                    <svg width="18" height="17.121" viewBox="0 0 18 17.121"><path d="M0 9.343h14.952L9.09 16.36l.76.76L18 8.95v-.78L9.85 0l-.76.762 5.862 7.016H0"/></svg>
+                
+                </div>
+            </div>
+        </a>
+    
+
+	</div>
+</div>
+
+</section>
+
+
+    </section>
+
+                </div>
+            
+        </div>
+
+        
+
+<footer class="global-footer hidden-print " role="contentinfo">
+
+    
+<div class="global-brandbar ">
+    <div class="global-brandbar__inner l-constrained">
+        <div class="global-brandbar__top">
+            
+            <a class="control" href="#top">
+                <span class="control__item">
+                    <span class="control__icon icon-holder icon-holder--large">
+                        
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-up"></use>
+</svg>
+
+                    </span>
+                </span>
+                <span class="control__item">
+                    <span class="control__info">back to top</span>
+                </span>
+            </a>
+        </div>
+        <a href="/" class="global-brandbar__logo">
+            <span class="u-h">The Guardian Members</span>
+            
+
+
+<div class="inline-svg global-brandbar__logo__image" role="img">
+    <canvas class="inline-svg__canvas" height="90" width="300" aria-hidden="true"></canvas>
+    <img class="inline-svg__image" src="/assets/dist/images/logos/brand/1287f3ce/guardian-members.svg" alt="Guardian Membership">
+</div>
+
+        </a>
+    </div>
+</div>
+
+
+    <div class="global-footer__info">
+        <div class="global-footer__info__inner l-constrained">
+            <ul class="colophon">
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-help" href="/help">Help</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-contact" href="http://www.theguardian.com/help/contact-us#Membership">Contact us</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-feedback" href="/feedback">Feedback</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-terms" href="https://www.theguardian.com/info/2016/nov/08/guardian-members-international-terms-and-conditions">Terms &amp; conditions</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-privacy" href="http://www.theguardian.com/help/privacy-policy">Privacy policy</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-cookies" href="http://www.theguardian.com/info/cookies">Cookie policy</a>
+                    </li>
+                
+            </ul>
+            <small class="global-footer__copyright">
+                &copy; 2017 Guardian News and Media Limited or its affiliated companies.
+                All rights reserved.
+            </small>
+        </div>
+    </div>
+</footer>
+
+        <script>
+
+    (function(isModern) {
+
+        if (isModern) {
+            // only load JS if the browser cuts the mustard
+            var newElm = document.createElement('script');
+            newElm.src = '/assets/dist/javascripts/9e1de2a9/main.js';
+            document.getElementsByTagName("head")[0].appendChild(newElm);
+        }
+
+    })(guardian.isModernBrowser);
+
+</script>
+
+        
+    <div class="is-hidden">
+        <script type="text/javascript">
+            var google_conversion_id = 971225648;
+            var google_custom_params = window.google_tag_params;
+            var google_remarketing_only = true;
+        </script>
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/971225648/?value=0&amp;guid=ON&amp;script=0"/>
+            </div>
+        </noscript>
+    </div>
+
+
+        
+<!-- SessionCam Client Integration v6.0 -->
+<script type="text/javascript">
+    //<![CDATA[
+    (function (){
+        var scRec=document.createElement('SCRIPT');
+        scRec.type='text/javascript';
+        scRec.src="//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js";
+        document.getElementsByTagName('head')[0].appendChild(scRec);
+    })();
+    //]]>
+</script>
+<!-- End SessionCam -->
+
+        <!-- build-commit-id: 4b6eee4db653e995b58bfab35e4f574ee9be7a0c -->
+    </body>
+</html>
+
