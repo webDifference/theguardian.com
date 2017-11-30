@@ -198,7 +198,7 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"Belarus villagers prefer hard work to city smoke – in pictures","isImmersive":true,"author":"","series":"From the agencies","toneIds":"","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-pictures-guardian-news","webPublicationDate":1511913619000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Belarus villagers prefer hard work to city smoke – in pictures","isFront":false,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","showRelatedContent":true,"lightboxImages":{"id":"artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","headline":"Belarus villagers prefer hard work to city smoke – in pictures","shouldHideAdverts":false,"standfirst":"<p>Just a few hours’ drive from the Belarus capital of Minsk, many villagers still live off the land. Nearly 80% of the country’s 9.5 million citizens live in urban areas, but for the rest, being close to nature can outweigh the hardships of country life</p>","images":[{"caption":"Ekaterina Panchenya, 75, walks in the snow to her neighbour’s house, in the village of Pogost. “I do everything myself: feed the animals in the barn, the chickens in the yard. The river is nearby, the forest, mushrooms and berries in the summer. No, I’ll never in my life move to town,” she said.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=8c949f25b3938dd14db27e40b4ff3462","srcsets":"https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=c04320f6e02b3ec754401dfcd65d80f4 1920w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6621f28d2c1b4bbf086a528b49b35ad6 1225w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=4e42a5373102f51c18c8780dc547bbef 1065w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=37cb822d8dd78f5f4bf76c188ad914cc 965w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=c9546225e90e5522d47d7a801b846567 725w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=66a8c726472474b2de6a83b97e06bdcd 645w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=7e342b711a6b76e4ad33b3d54ec4def8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Panchenya is also skilled in local folk traditions such as floral embroidery, acappella choral singing and ancient pagan ceremonies, which survived the ideological whitewashing of the Soviet era.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d551d9c29dacdc0b6717c01937b3f9eb","srcsets":"https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=055fd9fe296a5b6f85fe50c7ebbe630f 1920w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=8b3ec6cdcecdf63d9b908de9e12b56a5 1225w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=50bc86ea1a5adc6508a868455a54ecee 1065w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=2c28635f75ef3d90b187fe23a8f3a843 965w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=79878b77c5c85715d3381f92da1901cb 725w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=39436cc30ec7427f9a8a7a9965618134 645w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=c1d579f814ffa4d96745db4a91037a37 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5411712901805372,"role":"None"},{"caption":"Yulia Panchenya, 82, makes Easter cakes on the eve of Orthodox Easter in Pogost.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=b7c75d7fcfa3b8b6e78486daca75c532","srcsets":"https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=8d9e982b3c49667ecb2eeb0ce6d7e8c4 1920w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=1ea89a5d402dd4b8c18f225f31e1f959 1225w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=10b99556d9bf24fe0594c63eb57639da 1065w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=3814fd9360b700cd0c3c7481cc591828 965w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=3e0c5cffa823db5acf63588c1dff191e 725w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=b3a589aaa954f203bf533121b8a07a01 645w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=4a7f3ef23607f98f11df16351d286273 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Villagers take part in a ritual celebrating the pagan god Yurya, a time when they don national dress and make offerings out of colourful ribbons and paper in the hope of plentiful harvests in the future.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=f7f2cdf86682e556406b551a438661a8","srcsets":"https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=76b908d078d44350a044cec45cf70023 1920w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6aab1b05617a1070468494c9d62f9929 1225w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=ea4337d4ad017c1d6001d2bbc5f55ff4 1065w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=bd426bae9143f5b878e168dc6423195b 965w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=8f3dc94f774a9d20f4f06f38121da3dc 725w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=8417295b13a82ec663b5a4bb176f5450 645w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=216efc3c481cba238d70f2435f2027e5 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4067524115755627,"role":"None"},{"caption":"Family photos in wooden frames on display in Yulia Panchenya’s home.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=7de360de902f6cec1686968e84520eeb","srcsets":"https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=b068082a99d1096a6dda7a5a53003e32 1920w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6e8c3119051ac5a98a90c73e2bfe1f26 1225w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=d99e8da770814e981044066eeae17b6c 1065w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=f12b61846fb487853882ef4808e5733e 965w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=64d92d448577dc543d69255751488b3c 725w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=040e751cb073ea4a0b8755b807c68387 645w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=14f1d47d65f6aba282baa95185fb908e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Women gather for the May-time ritual in honour of the pagan god Yurya.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=e223dbb195c97e728a11a6b5edf9145c","srcsets":"https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2fe8e5692fa609991bdaa1632eb35757 1920w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=8a4dd451496988ffb35d090f968d5219 1225w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=b8fb772e91063254912a5eacedf361ad 1065w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=c089bc600ca745dda4165ea5109421f3 965w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=26aa5a5967d73b9c7e64ea0a379a6dbf 725w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=1c6c8381c30c9f1ffdce8d334e12bd78 645w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=b38b6537e66e2a05508cb8998a54d090 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Ekaterina Panchenya visits her relatives’ graves during Orthodox Easter.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d77df8453fe2d2b93457c012f81cb5a8","srcsets":"https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=67d2533f8f0e3c79f54ca7261583a816 1920w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6ecf7558182a3feb4c7199db9405457a 1225w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=8a2d01572c93b621de78d71dbbc4dad4 1065w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=afff77152e202ab765c6a3c3301f9bbb 965w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=74c487b1d94fe2727cf2a1431efe1efc 725w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=46a814405ad35582c064d5df28c6ffe8 645w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=1c7f8c5ac24682b5a5cf43a0c599bbfe 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Villagers in national dress participate in the spring festival.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":false,"src":"https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=f3c60da89bfb3a16c0f477de54f3bd6a","srcsets":"https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=a16a72028698b0a74c145ad54ab2068c 1920w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=fca83d5fe76576ae8afc2ebf0aa5f390 1225w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=85565b8eef514382020cf5990c63ecc6 1065w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=f398a059c101d2c0493fbef4b07c5fde 965w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=92fd83a2e66895e045c1c9f7bdfe95e7 725w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=3f6e858bf76bbe951cf75c22cfa47481 645w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=f15e88dcbda282e86393ef0c4e29b79e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"An icon on display in Yulia Panchenya’s house.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=1d5a2a1ee2414e030680d9c647ccc6fb","srcsets":"https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=bc1dfa0a3f747ec7d97368adb2f8a5f4 1920w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=d8f67032ea475f0c346c625560ae1076 1225w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cf4cbfbe8a599c439beb67be3de1b47b 1065w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=92479c0d8df91bfbad0025cba17c03e4 965w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=82fe11a9d30dc7998be4ed072d049210 725w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=a08e1e6e004450dcf02297958b171e52 645w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=cc63d8de402fd8ce7f1635f6e3e9e9c4 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Villagers buy food at the local grocery store.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=17fb4cef6ef52db998368b1d303d646c","srcsets":"https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=989f5bad4765ee5325165dab23de1204 1920w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=bad4f4cbec06218be5f844362091e422 1225w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=4e05271a87b3df06bd22d15754d398d1 1065w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=c86908f3e6bcdef8f3e43999194f1f4a 965w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=9ba44735acd36dad441403be9d7bddd7 725w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=449b90231230a3e52008de71e35a45ef 645w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=c50dc07eceb6939f36ac475b14bc49e9 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Ekaterina, granddaughter of 75-year old Ekaterina Panchenya, bathes her daughter Dasha in a basin on a hot summer day. It was “cars, noise and dirt” and the sight of city dwellers standing in line to buy groceries that dissuaded her from leaving Pogost.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=fae1e3087278d8e4ac8afed9b3417bc7","srcsets":"https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=e1376f8bff0a4eee19a7a1ca5947b093 1920w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=019d0bec5b85cab9f0614835cfdc7c17 1225w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=2c0797413f33756d664c12d2620498c1 1065w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=2a617047e75b8fda7fba6480b3e0c694 965w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=728fb78afb81557ecfd22231b6393b57 725w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=1b5feabf8b73bc780240a620591f4002 645w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=b847756e182f11c42518eff5cbacf08b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Boys cool off on a hot day playing in the river of Stviga near the village.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=37d481c6f2db3f1f19d18159dc8bda1a","srcsets":"https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2066d17529f8896d693cdeef958433c3 1920w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=52f813337e9339400a33448349537a49 1225w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=98799cd3e20ddbaaf71d45d3a6428610 1065w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=420d18dada4b55ef4f5160fa8ea9494b 965w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=d26fda78be21ad7bc829e40f5ca62d48 725w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=90f45fb1c9b906c2ceacbf12c013855c 645w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e8ea72738c5222e79d37de069df700e2 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"","idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Pictures Guardian News","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"Art and design","fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7jp4k","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":282,"cardStyle":"media","gallerySize":12,"adUnit":"/59666047/theguardian.com/artanddesign/gallery/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"artanddesign","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7jp4k","thumbnail":"https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/412_391_3088_1854/500.jpg?q=55&auto=format&usm=12&fit=max&s=4f2e3177f950aab1640bc276f62bc000","pageId":"artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":true,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/belarus,world/europe-news,world/world,science/agriculture,music/villagers","contentType":"Gallery","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"","isPaidContent":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Belarus,Europe,World news,Agriculture,Villagers","contentId":"artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","nonKeywordTagIds":"artanddesign/series/from-the-agencies,type/gallery,tracking/commissioningdesk/uk-pictures-guardian-news","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"seriesTags":"From the agencies","revisionNumber":"fa8306c64833c2479a56f0112157ccdbc1c301d3","seriesId":"artanddesign/series/from-the-agencies","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[],"pageCode":"4112417","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15217","sharedAdTargeting":{"se":["from-the-agencies"],"ct":"gallery","url":"/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","su":["0"],"edition":"int","p":"ng","k":["belarus","world","europe-news","villagers","agriculture"],"sh":"https://gu.com/p/7jp4k"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"Belarus villagers prefer hard work to city smoke – in pictures","isImmersive":true,"author":"","series":"From the agencies","toneIds":"","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-pictures-guardian-news","webPublicationDate":1511913619000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Belarus villagers prefer hard work to city smoke – in pictures","isFront":false,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","showRelatedContent":true,"lightboxImages":{"id":"artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","headline":"Belarus villagers prefer hard work to city smoke – in pictures","shouldHideAdverts":false,"standfirst":"<p>Just a few hours’ drive from the Belarus capital of Minsk, many villagers still live off the land. Nearly 80% of the country’s 9.5 million citizens live in urban areas, but for the rest, being close to nature can outweigh the hardships of country life</p>","images":[{"caption":"Ekaterina Panchenya, 75, walks in the snow to her neighbour’s house, in the village of Pogost. “I do everything myself: feed the animals in the barn, the chickens in the yard. The river is nearby, the forest, mushrooms and berries in the summer. No, I’ll never in my life move to town,” she said.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=8c949f25b3938dd14db27e40b4ff3462","srcsets":"https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=c04320f6e02b3ec754401dfcd65d80f4 1920w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6621f28d2c1b4bbf086a528b49b35ad6 1225w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=4e42a5373102f51c18c8780dc547bbef 1065w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=37cb822d8dd78f5f4bf76c188ad914cc 965w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=c9546225e90e5522d47d7a801b846567 725w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=66a8c726472474b2de6a83b97e06bdcd 645w, https://i.guim.co.uk/img/media/3f86d0ce7897223a850071fb9cc9b42e693a77db/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=7e342b711a6b76e4ad33b3d54ec4def8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Panchenya is also skilled in local folk traditions such as floral embroidery, acappella choral singing and ancient pagan ceremonies, which survived the ideological whitewashing of the Soviet era.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d551d9c29dacdc0b6717c01937b3f9eb","srcsets":"https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=055fd9fe296a5b6f85fe50c7ebbe630f 1920w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=8b3ec6cdcecdf63d9b908de9e12b56a5 1225w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=50bc86ea1a5adc6508a868455a54ecee 1065w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=2c28635f75ef3d90b187fe23a8f3a843 965w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=79878b77c5c85715d3381f92da1901cb 725w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=39436cc30ec7427f9a8a7a9965618134 645w, https://i.guim.co.uk/img/media/0efbfd5dae32ad5fc2c6408ed55da617862d6fec/0_0_3500_2271/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=c1d579f814ffa4d96745db4a91037a37 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5411712901805372,"role":"None"},{"caption":"Yulia Panchenya, 82, makes Easter cakes on the eve of Orthodox Easter in Pogost.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=b7c75d7fcfa3b8b6e78486daca75c532","srcsets":"https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=8d9e982b3c49667ecb2eeb0ce6d7e8c4 1920w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=1ea89a5d402dd4b8c18f225f31e1f959 1225w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=10b99556d9bf24fe0594c63eb57639da 1065w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=3814fd9360b700cd0c3c7481cc591828 965w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=3e0c5cffa823db5acf63588c1dff191e 725w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=b3a589aaa954f203bf533121b8a07a01 645w, https://i.guim.co.uk/img/media/ec4c929a9f92a3d3f74bee880bf8e3c235b608fc/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=4a7f3ef23607f98f11df16351d286273 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Villagers take part in a ritual celebrating the pagan god Yurya, a time when they don national dress and make offerings out of colourful ribbons and paper in the hope of plentiful harvests in the future.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=f7f2cdf86682e556406b551a438661a8","srcsets":"https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=76b908d078d44350a044cec45cf70023 1920w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6aab1b05617a1070468494c9d62f9929 1225w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=ea4337d4ad017c1d6001d2bbc5f55ff4 1065w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=bd426bae9143f5b878e168dc6423195b 965w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=8f3dc94f774a9d20f4f06f38121da3dc 725w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=8417295b13a82ec663b5a4bb176f5450 645w, https://i.guim.co.uk/img/media/89f387305176b2e4f1750af732ec2fb191b4bf49/0_0_3500_2488/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=216efc3c481cba238d70f2435f2027e5 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4067524115755627,"role":"None"},{"caption":"Family photos in wooden frames on display in Yulia Panchenya’s home.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=7de360de902f6cec1686968e84520eeb","srcsets":"https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=b068082a99d1096a6dda7a5a53003e32 1920w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6e8c3119051ac5a98a90c73e2bfe1f26 1225w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=d99e8da770814e981044066eeae17b6c 1065w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=f12b61846fb487853882ef4808e5733e 965w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=64d92d448577dc543d69255751488b3c 725w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=040e751cb073ea4a0b8755b807c68387 645w, https://i.guim.co.uk/img/media/f4158b22f0346c7dde5a576ae8b56c9ea13beb83/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=14f1d47d65f6aba282baa95185fb908e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Women gather for the May-time ritual in honour of the pagan god Yurya.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=e223dbb195c97e728a11a6b5edf9145c","srcsets":"https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2fe8e5692fa609991bdaa1632eb35757 1920w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=8a4dd451496988ffb35d090f968d5219 1225w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=b8fb772e91063254912a5eacedf361ad 1065w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=c089bc600ca745dda4165ea5109421f3 965w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=26aa5a5967d73b9c7e64ea0a379a6dbf 725w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=1c6c8381c30c9f1ffdce8d334e12bd78 645w, https://i.guim.co.uk/img/media/963607fbe9bc69c02c53f7f3080114ba5e07b9ac/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=b38b6537e66e2a05508cb8998a54d090 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Ekaterina Panchenya visits her relatives’ graves during Orthodox Easter.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d77df8453fe2d2b93457c012f81cb5a8","srcsets":"https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=67d2533f8f0e3c79f54ca7261583a816 1920w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=6ecf7558182a3feb4c7199db9405457a 1225w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=8a2d01572c93b621de78d71dbbc4dad4 1065w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=afff77152e202ab765c6a3c3301f9bbb 965w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=74c487b1d94fe2727cf2a1431efe1efc 725w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=46a814405ad35582c064d5df28c6ffe8 645w, https://i.guim.co.uk/img/media/58f70ba4569fd125f7081f0b8d9943352f62b555/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=1c7f8c5ac24682b5a5cf43a0c599bbfe 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Villagers in national dress participate in the spring festival.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":false,"src":"https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=f3c60da89bfb3a16c0f477de54f3bd6a","srcsets":"https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=a16a72028698b0a74c145ad54ab2068c 1920w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=fca83d5fe76576ae8afc2ebf0aa5f390 1225w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=85565b8eef514382020cf5990c63ecc6 1065w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=f398a059c101d2c0493fbef4b07c5fde 965w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=92fd83a2e66895e045c1c9f7bdfe95e7 725w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=3f6e858bf76bbe951cf75c22cfa47481 645w, https://i.guim.co.uk/img/media/51256c28e451b3c716e7b0226dfa7ef864396704/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=f15e88dcbda282e86393ef0c4e29b79e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"An icon on display in Yulia Panchenya’s house.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=1d5a2a1ee2414e030680d9c647ccc6fb","srcsets":"https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=bc1dfa0a3f747ec7d97368adb2f8a5f4 1920w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=d8f67032ea475f0c346c625560ae1076 1225w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cf4cbfbe8a599c439beb67be3de1b47b 1065w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=92479c0d8df91bfbad0025cba17c03e4 965w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=82fe11a9d30dc7998be4ed072d049210 725w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=a08e1e6e004450dcf02297958b171e52 645w, https://i.guim.co.uk/img/media/f41329494c5991c5318693b888c4fdc07115c4ce/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=cc63d8de402fd8ce7f1635f6e3e9e9c4 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Villagers buy food at the local grocery store.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=17fb4cef6ef52db998368b1d303d646c","srcsets":"https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=989f5bad4765ee5325165dab23de1204 1920w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=bad4f4cbec06218be5f844362091e422 1225w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=4e05271a87b3df06bd22d15754d398d1 1065w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=c86908f3e6bcdef8f3e43999194f1f4a 965w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=9ba44735acd36dad441403be9d7bddd7 725w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=449b90231230a3e52008de71e35a45ef 645w, https://i.guim.co.uk/img/media/9f9aabbb25bbceb36af49d4e23cf5682787babbe/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=c50dc07eceb6939f36ac475b14bc49e9 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Ekaterina, granddaughter of 75-year old Ekaterina Panchenya, bathes her daughter Dasha in a basin on a hot summer day. It was “cars, noise and dirt” and the sight of city dwellers standing in line to buy groceries that dissuaded her from leaving Pogost.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=fae1e3087278d8e4ac8afed9b3417bc7","srcsets":"https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=e1376f8bff0a4eee19a7a1ca5947b093 1920w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=019d0bec5b85cab9f0614835cfdc7c17 1225w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=2c0797413f33756d664c12d2620498c1 1065w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=2a617047e75b8fda7fba6480b3e0c694 965w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=728fb78afb81557ecfd22231b6393b57 725w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=1b5feabf8b73bc780240a620591f4002 645w, https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=b847756e182f11c42518eff5cbacf08b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"},{"caption":"Boys cool off on a hot day playing in the river of Stviga near the village.","credit":"Photograph: Vasily Fedosenko/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=37d481c6f2db3f1f19d18159dc8bda1a","srcsets":"https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2066d17529f8896d693cdeef958433c3 1920w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=52f813337e9339400a33448349537a49 1225w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=98799cd3e20ddbaaf71d45d3a6428610 1065w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=420d18dada4b55ef4f5160fa8ea9494b 965w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=d26fda78be21ad7bc829e40f5ca62d48 725w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=90f45fb1c9b906c2ceacbf12c013855c 645w, https://i.guim.co.uk/img/media/6cd382b5fc0e075fdcf9dff77bb9f354c6946dda/0_0_3500_2334/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e8ea72738c5222e79d37de069df700e2 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4995715509854328,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"","idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Pictures Guardian News","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"Art and design","fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7jp4k","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":282,"cardStyle":"media","gallerySize":12,"adUnit":"/59666047/theguardian.com/artanddesign/gallery/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"UK","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"artanddesign","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7jp4k","thumbnail":"https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/412_391_3088_1854/500.jpg?q=55&auto=format&usm=12&fit=max&s=4f2e3177f950aab1640bc276f62bc000","pageId":"artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":true,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/belarus,world/europe-news,world/world,science/agriculture,music/villagers","contentType":"Gallery","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"","isPaidContent":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Belarus,Europe,World news,Agriculture,Villagers","contentId":"artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","nonKeywordTagIds":"artanddesign/series/from-the-agencies,type/gallery,tracking/commissioningdesk/uk-pictures-guardian-news","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"seriesTags":"From the agencies","revisionNumber":"fa8306c64833c2479a56f0112157ccdbc1c301d3","seriesId":"artanddesign/series/from-the-agencies","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[],"pageCode":"4112417","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15217","sharedAdTargeting":{"se":["from-the-agencies"],"ct":"gallery","url":"/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures","su":["0"],"edition":"uk","p":"ng","k":["belarus","world","europe-news","villagers","agriculture"],"sh":"https://gu.com/p/7jp4k"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
@@ -238,7 +238,7 @@
 </div>
 <header class="new-header new-header--slim" role="banner">
 <nav class="new-header__inner gs-container" data-component="nav2" aria-label="Guardian sections">
-<a href="https://www.theguardian.com/international" class="new-header__logo" data-link-name="nav2 : logo">
+<a href="https://www.theguardian.com/uk" class="new-header__logo" data-link-name="nav2 : logo">
 <span class="u-h">The Guardian - Back to home</span>
 <span class="inline-guardian-logo-160 inline-logo new-header__logo">
 <svg width="160" height="30" viewbox="0 0 320 60" class="new-header__logo__svg inline-guardian-logo-160__svg inline-logo__svg">
@@ -253,7 +253,7 @@
 <input type="checkbox" id="main-menu-toggle" class="veggie-burger-fallback js-enhance-checkbox u-h" data-link-name="nav2 : veggie-burger : show" aria-controls="main-menu">
 <ul class="pillars">
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/international" data-link-name="nav2 : primary : news">
+<a class="pillar-link" href="https://www.theguardian.com/uk" data-link-name="nav2 : primary : news">
 news
 </a>
 </li>
@@ -297,9 +297,9 @@ sections
 <i class="menu-item__toggle"></i>
 news
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu news" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu news" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/international" data-link-name="nav2 : secondary : headlines">
+<a class="menu-item__title" href="https://www.theguardian.com/uk" data-link-name="nav2 : secondary : headlines">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -309,38 +309,13 @@ headlines
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/world" data-link-name="nav2 : secondary : world news">
-world news
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
 UK news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/science" data-link-name="nav2 : secondary : science">
-science
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
-cities
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/global-development" data-link-name="nav2 : secondary : global development">
-global development
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
-football
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
-tech
+<a class="menu-item__title" href="https://www.theguardian.com/world" data-link-name="nav2 : secondary : world news">
+world news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -349,8 +324,38 @@ business
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
+football
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
 environment
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
+tech
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/politics" data-link-name="nav2 : secondary : UK politics">
+UK politics
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/science" data-link-name="nav2 : secondary : science">
+science
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/global-development" data-link-name="nav2 : secondary : global development">
+global development
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
+cities
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -365,7 +370,7 @@ obituaries
 <i class="menu-item__toggle"></i>
 opinion
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu opinion" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu opinion" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav2 : secondary : opinion home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -408,7 +413,7 @@ letters
 <i class="menu-item__toggle"></i>
 sport
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu sport" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu sport" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/sport" data-link-name="nav2 : secondary : sport home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -450,13 +455,23 @@ F1
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
-golf
+<a class="menu-item__title" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav2 : secondary : rugby league">
+rugby league
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/sport/horse-racing" data-link-name="nav2 : secondary : racing">
+racing
 </a>
 </li>
 <li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav2 : secondary : US sports">
 US sports
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
+golf
 </a>
 </li>
 </ul>
@@ -466,7 +481,7 @@ US sports
 <i class="menu-item__toggle"></i>
 arts
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu arts" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu arts" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/culture" data-link-name="nav2 : secondary : culture home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -478,8 +493,8 @@ culture home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
-books
+<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
+tv &amp; radio
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -488,18 +503,18 @@ music
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
-tv &amp; radio
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/artanddesign" data-link-name="nav2 : secondary : art &amp; design">
-art &amp; design
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
 film
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
+stage
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
+books
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -508,13 +523,13 @@ games
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : secondary : classical">
-classical
+<a class="menu-item__title" href="https://www.theguardian.com/artanddesign" data-link-name="nav2 : secondary : art &amp; design">
+art &amp; design
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
-stage
+<a class="menu-item__title" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : secondary : classical">
+classical
 </a>
 </li>
 </ul>
@@ -524,7 +539,7 @@ stage
 <i class="menu-item__toggle"></i>
 lifestyle
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu lifestyle" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu lifestyle" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -551,23 +566,13 @@ recipes
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
+travel
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/love-and-sex" data-link-name="nav2 : secondary : love &amp; sex">
 love &amp; sex
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/health-and-wellbeing" data-link-name="nav2 : secondary : health &amp; fitness">
-health &amp; fitness
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
-home &amp; garden
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav2 : secondary : women">
-women
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -576,8 +581,18 @@ family
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
-travel
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
+home &amp; garden
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/health-and-wellbeing" data-link-name="nav2 : secondary : health &amp; fitness">
+health &amp; fitness
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav2 : secondary : women">
+women
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -607,13 +622,13 @@ money
 </form>
 </div>
 <ul class="menu-group menu-group--membership" role="menubar">
-<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D" data-link-name="nav2 : become a supporter">
+<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : become a supporter">
 become a supporter
 </a>
 </li>
-<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_int_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
+<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : subscribe">
 subscribe
 </a>
 </li>
@@ -660,15 +675,9 @@ Sign out
 <li class="menu-item js-navigation-item">
 <button class="menu-item__title js-navigation-toggle" data-link-name="nav2 : edition picker" aria-haspopup="true" aria-expanded="true">
 <i class="menu-item__toggle"></i>
-International edition
+UK edition
 </button>
 <ul class="menu-group">
-<li class="menu-item">
-<a data-link-name="nav2 : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="menu-item__title">
-<span class="u-h">switch to the </span>
-UK edition
-</a>
-</li>
 <li class="menu-item">
 <a data-link-name="nav2 : edition-picker: US" href="https://www.theguardian.com/preference/edition/us" class="menu-item__title">
 <span class="u-h">switch to the </span>
@@ -681,27 +690,38 @@ US edition
 Australia edition
 </a>
 </li>
+<li class="menu-item">
+<a data-link-name="nav2 : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="menu-item__title">
+<span class="u-h">switch to the </span>
+International edition
+</a>
+</li>
 </ul>
 </li>
 </ul>
-<ul class="menu-group menu-group--footer" data-edition="int" role="menubar">
+<ul class="menu-group menu-group--footer" data-edition="uk" role="menubar">
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" data-link-name="nav2 : jobs">
+<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" data-link-name="nav2 : jobs">
 jobs
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" data-link-name="nav2 : dating">
+<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" data-link-name="nav2 : dating">
 dating
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" data-link-name="nav2 : holidays">
+<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" data-link-name="nav2 : holidays">
 holidays
 </a>
 </li>
+<li class="menu-item hide-from-desktop" role="menuitem">
+<a class="menu-item__title" href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" data-link-name="nav2 : masterclasses">
+masterclasses
+</a>
+</li>
 <li class="hide-from-desktop menu-item" role="menuitem">
-<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_int_web_newheader" data-link-name="nav2 : the guardian app">
+<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_uk_web_newheader" data-link-name="nav2 : the guardian app">
 the guardian app
 </a>
 </li>
@@ -741,6 +761,11 @@ digital archive
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/guardian-professional" data-link-name="nav2 : professional networks">
+professional networks
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/crosswords" data-link-name="nav2 : crosswords">
 crosswords
 </a>
@@ -777,18 +802,23 @@ Twitter
 </span>
 <ul class="menu-brand-extensions__list">
 <li class="menu-brand-extensions__list-item">
-<a href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
+<a href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
 jobs
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
+<a href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
 dating
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
+<a href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
 holidays
+</a>
+</li>
+<li class="menu-brand-extensions__list-item">
+<a href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : masterclasses">
+masterclasses
 </a>
 </li>
 </ul>
@@ -847,12 +877,12 @@ Sign out</a>
 <path d="M21.3 8.8c0-4.9-1.5-5.7-3.3-5.7-1.8 0-3.2.7-3.2 5.7s1.5 5.5 3.2 5.5c1.8-.1 3.3-.6 3.3-5.5m-6.5 18.8c-2.3 0-2.9 1.7-2.9 2.9 0 1.8 1.6 3.4 6.3 3.4 5.3 0 6.8-1.5 6.8-3.4 0-1.7-1.3-2.9-3.4-2.9h-6.8zM10.5 2.4C4.3 5.2 0 11.4 0 18.7c0 4.9 2 9.4 5.2 12.6V31c0-3.2 3.1-4.4 5.9-5-2.6-.6-3.9-2.5-3.9-4.4 0-2.6 2.9-4.8 4.3-5.8l-.2-.1c-2.5-1.4-4.1-3.8-4.1-7 0-2.7 1.2-4.9 3.3-6.3M36 18.8C36 11.4 31.5 5 25.1 2.3c2.1 1.4 3.4 3.5 3.5 6.3l.1.6c0 5.4-4.4 8.2-10.7 8.2-1.6 0-2.7-.1-4.1-.5-.6.4-1.1 1.1-1.1 1.8 0 .9.8 1.6 1.8 1.6h8.8c5.5 0 8.2 2.2 8.2 7.1 0 1.6-.3 3.1-1 4.3 3.3-3.4 5.4-7.9 5.4-12.9"/>
 </svg>
 </span>
-<a href="https://membership.theguardian.com/supporter?INTCMP=DOTCOM_HEADER_BECOMEMEMBER_INT&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;,&quot;campaignCode&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
+<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
 <span class="control__info js-control-info control__info--supporting">
 become a supporter
 </span>
 </a>
-<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_INT_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="int : topNav : subscribe">
+<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="uk : topNav : subscribe">
 <span class="control__info js-control-info">subscribe</span>
 </a>
 </div>
@@ -868,10 +898,10 @@ become a supporter
 </div>
 <div class="brand-bar__item--right" data-component="guardian-services">
 <div class="brand-bar__item brand-bar__item--jobs hide-until-tablet hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
+<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_JOBS">find a job</a>
 </div>
 <div class="brand-bar__item brand-bar__item--soulmates hide-until-desktop hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--more">
 <a class="brand-bar__item--action popup__toggle" data-toggle="top-bar__popup--more" data-link-name="topNav : more" aria-haspopup="true" aria-controls="guardian-services-top-menu">
@@ -892,24 +922,41 @@ become a supporter
 <h3 class="popup__group-header">from the guardian:</h3>
 <ul class="popup__group">
 <li class="popup__item brand-bar__popup--soulmates hide-from-desktop show-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
 </li>
-<li class="popup__item brand-bar__popup--jobs">
-<a class="brand-bar__item--action" data-link-name="int: topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
+<li class="popup__item">
+<a class="brand-bar__item--action" data-link-name="uk : topNav : masterclasses" href="https://membership.theguardian.com/masterclasses?INTCMP=NGW_TOPNAV_UK_GU_MASTERCLASSES">masterclasses</a>
+</li>
+<li class="popup__item">
+<a class="brand-bar__item--action" data-link-name="uk : topNav : courses" href="https://courses.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_COURSES">courses</a>
+</li>
+<li class="popup__item">
+<a class="brand-bar__item--action" data-link-name="uk : topNav : holidays" href="https://holidays.theguardian.com/?utm_source=theguardian&amp;utm_medium=guardian-links&amp;utm_campaign=topnav&amp;INTCMP=topnav">holidays</a>
 </li>
 </ul>
+<div class="brand-bar__popup--membership hide-from-desktop show-on-slim-header">
+<h3 class="popup__group-header">support us:</h3>
+<ul class="popup__group">
+<li class="popup__item">
+<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : membership" href="https://membership.theguardian.com/supporter?INTCMP=NGW_TOPNAV_UK_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;%7D">membership</a>
+</li>
+<li class="popup__item">
+<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : subscribe" href="https://subscribe.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;%7D">subscribe</a>
+</li>
+</ul>
+</div>
 <div class="brand-bar__popup--edition mobile-only show-on-slim-header">
 <h3 class="popup__group-header">change edition:</h3>
 <ul class="popup__group">
 <li class="popup__item">
-<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
-<span class="u-h">switch to the </span> UK <span class="u-h"> edition</span>
-</a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span> US <span class="u-h"> edition</span>
 </a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="AU" data-link-name="switch to AU edition" href="https://www.theguardian.com/preference/edition/au" title="Switch to the AU edition">
 <span class="u-h">switch to the </span> AU <span class="u-h"> edition</span>
+</a>
+<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
+<span class="u-h">switch to the </span> INT <span class="u-h"> edition</span>
 </a>
 </li>
 </ul>
@@ -918,15 +965,9 @@ become a supporter
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--edition hide-until-tablet hide-on-slim-header" data-component="edition">
 <a class="brand-bar__item--action popup__toggle" data-link-name="topNav : edition" data-toggle="top-bar__popup--edition" aria-haspopup="true" aria-controls="guardian-edition-menu">
-International edition
+UK edition
 </a>
 <ul class="popup popup--default popup__group is-off top-bar__popup--edition" id="guardian-edition-menu">
-<li class="popup__item">
-<a class="brand-bar__item--action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
-<span class="u-h">switch to the </span>
-<span class="brand-bar__edition-name">UK edition</span>
-</a>
-</li>
 <li class="popup__item">
 <a class="brand-bar__item--action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span>
@@ -939,6 +980,12 @@ International edition
 <span class="brand-bar__edition-name">Australia edition</span>
 </a>
 </li>
+<li class="popup__item">
+<a class="brand-bar__item--action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
+<span class="u-h">switch to the </span>
+<span class="brand-bar__edition-name">International edition</span>
+</a>
+</li>
 </ul>
 </div>
 </div>
@@ -946,7 +993,7 @@ International edition
 </div>
 <div class="popup popup--default popup--search js-search-old js-search-popup is-off"><div class="js-search-placeholder"></div></div>
 <div class="l-header-main">
-<a href="https://www.theguardian.com/international" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
+<a href="https://www.theguardian.com/uk" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
 <span class="u-h">The Guardian - Back to home</span>
 <!--[if (gt IE 8)|(IEMobile)]><!-->
 <span class="inline-guardian-logo-160 inline-logo ">
@@ -973,7 +1020,7 @@ International edition
 <nav class="navigation__container navigation__container--first" data-component="nav" role="navigation" aria-label="Current section">
 <ul class="signposting">
 <li class="signposting__item signposting__item--home">
-<a class="signposting__action" href="https://www.theguardian.com/international" data-link-name="nav : signposting : home">home</a>
+<a class="signposting__action" href="https://www.theguardian.com/uk" data-link-name="nav : signposting : home">home</a>
 </li>
 <li class="signposting__item signposting__item--parent">
 <span class="signposting__separator" aria-hidden="true"><span class="signposting__separator__inner">›</span></span>
@@ -1011,7 +1058,7 @@ International edition
 <nav class="navigation__container navigation__container--second" data-component="nav" role="navigation" aria-label="Guardian sections">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -1019,6 +1066,11 @@ International edition
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
+politics
 </a>
 </li>
 <li class="top-navigation__item">
@@ -2405,7 +2457,7 @@ View more comments
 <div class="l-footer__primary hide-on-mobile">
 <div id="footer-nav" class="gs-container">
 <div class="brand-bar modern-visible u-cf">
-<a href="https://www.theguardian.com/international" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
+<a href="https://www.theguardian.com/uk" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
 <span class="u-h">The Guardian</span>
 <i class="i i-guardian-logo-160"></i>
 </a>
@@ -2428,7 +2480,7 @@ View more comments
 <div class="navigation__container navigation__container--second" data-component="footer-nav">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -2436,6 +2488,11 @@ View more comments
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
+politics
 </a>
 </li>
 <li class="top-navigation__item">
@@ -2512,7 +2569,7 @@ travel
 <nav role="navigation" aria-label="All sections">
 <ul class="global-navigation js-global-navigation">
 <li class="global-navigation__section global-navigation__section--home">
-<a class="global-navigation__title" href="https://www.theguardian.com/international" data-link-name="nav : globalTop : home">
+<a class="global-navigation__title" href="https://www.theguardian.com/uk" data-link-name="nav : globalTop : home">
 home
 </a>
 </li>
@@ -2557,6 +2614,11 @@ northern ireland
 </a>
 </li>
 </ul>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/politics" data-link-name="nav : globalTop : politics">
+politics
+</a>
 </li>
 <li class="global-navigation__section">
 <a class="global-navigation__title" href="https://www.theguardian.com/world" data-link-name="nav : globalTop : world">
@@ -2663,6 +2725,11 @@ racing
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav : globalSub : rugby league">
 rugby league
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav : globalSub : US sports">
+US sports
 </a>
 </li>
 </ul>
@@ -2803,6 +2870,11 @@ markets
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/business/series/project-syndicate-economists" data-link-name="nav : globalSub : project syndicate">
 project syndicate
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/uk/business-to-business" data-link-name="nav : globalSub : business to business">
+business to business
 </a>
 </li>
 </ul>
@@ -3198,35 +3270,41 @@ global development
 <div class="l-footer__secondary js-footer__secondary  gs-container" role="contentinfo">
 <div class="colophon u-cf">
 <div class="footer__email-container js-footer__email-container">
-<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-int" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
+<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-uk" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
 </div>
 <div class="colophon__lists-container">
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://membership.theguardian.com/supporter?INTCMP=NGW_FOOTER_INT_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">
+jobs</a>
+</li>
+<li class="colophon__item"><a data-link-name="uk : footer : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">
+dating</a>
+</li>
+<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
 become a supporter</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://contribute.theguardian.com?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
 make a contribution</a>
 </li>
-<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
-securedrop</a>
-</li>
-<li class="colophon__item"><a data-link-name="tech feedback" class="international : footer : js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
-ask for help</a>
+<li class="colophon__item"><a data-link-name="uk : footer : guardian labs" href="https://www.theguardian.com/guardian-labs">
+Guardian labs</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="international : footer : advertise with us" href="https://advertising.theguardian.com">
-advertise with us</a>
+<li class="colophon__item"><a data-link-name="uk : footer : about us" href="https://www.theguardian.com/about">
+about us</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : work for us" href="https://workforus.theguardian.com">
+<li class="colophon__item"><a data-link-name="uk : footer : work for us" href="https://workforus.theguardian.com/locations/london">
 work for us</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : contact us" href="https://www.theguardian.com/help/contact-us">
+<li class="colophon__item"><a data-link-name="uk : footer : advertise with us" href="https://advertising.theguardian.com">
+advertise with us</a>
+</li>
+<li class="colophon__item"><a data-link-name="uk : footer : contact us" href="https://www.theguardian.com/help/contact-us">
 contact us</a>
 </li>
-<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
-complaints &amp; corrections</a>
+<li class="colophon__item"><a data-link-name="uk : footer : tech feedback" class="js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
+ask for help</a>
 </li>
 </ul>
 <ul class="colophon__list">
@@ -3234,26 +3312,39 @@ complaints &amp; corrections</a>
 terms &amp; conditions</a>
 </li>
 <li class="colophon__item"><a data-link-name="privacy" href="https://www.theguardian.com/info/privacy">
-privacy policy</a></li>
+privacy policy</a>
+</li>
 <li class="colophon__item"><a data-link-name="cookie" href="https://www.theguardian.com/info/cookies">
 cookie policy</a>
+</li>
+<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
+securedrop</a>
 </li>
 <li class="colophon__item"><a data-link-name="digital newspaper archive" href="https://theguardian.newspapers.com">
 digital newspaper archive</a>
 </li>
+<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
+complaints &amp; corrections</a>
+</li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="international : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
+<li class="colophon__item"><a data-link-name="uk : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
 all topics</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : all contributors" href="https://www.theguardian.com/index/contributors">
+<li class="colophon__item"><a data-link-name="uk : footer : all contributors" href="https://www.theguardian.com/index/contributors">
 all contributors</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : facebook" href="https://www.facebook.com/theguardian">
+<li class="colophon__item"><a data-link-name="uk : footer : modern slavery act statement" href="https://www.theguardian.com/info/2016/jul/27/modern-slavery-and-our-supply-chains?INTCMP=NGW_FOOTER_UK_GU_MODERN_SLAVERY_ACT">
+modern slavery act</a>
+</li>
+<li class="colophon__item"><a data-link-name="uk : footer : facebook" href="https://www.facebook.com/theguardian">
 Facebook</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : twitter" href="https://twitter.com/guardian">
+<li class="colophon__item"><a data-link-name="uk : footer : twitter" href="https://twitter.com/guardian">
 Twitter</a>
+</li>
+<li class="colophon__item"><a data-link-name="uk : footer : subscribe" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+subscribe</a>
 </li>
 </ul>
 </div>

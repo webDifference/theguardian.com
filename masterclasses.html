@@ -1,0 +1,5933 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en-gb" class="js-off id--signed-out">
+    <head>
+        <meta charset="utf-8">
+        <title> Masterclasses | The Guardian Members </title>
+
+        <meta name="viewport"                     content="width=device-width, initial-scale=1.0"/>
+<meta name="HandheldFriendly"             content="true"/>
+<meta name="apple-touch-fullscreen"       content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+        <meta name="description" content="Guardian Masterclasses courses and workshops taught by award-winning professionals, with a 20% discount for partners and patrons."/>
+        <meta name="rating" content="general"/>
+        <meta http-equiv="imagetoolbar" content="no"/>
+        <meta name="Rating" content="general"/>
+        <meta name="Distribution" content="Global"/>
+
+        <meta property="og:title" content="Guardian Masterclasses | The Guardian Members"/>
+        <meta property="og:description" content="Guardian Masterclasses courses and workshops taught by award-winning professionals, with a 20% discount for partners and patrons."/>
+        
+            <meta property="og:image" content="https://membership.theguardian.com/assets/dist/images/common/4aaba589/mem600.jpg"/>
+        
+        <meta property="og:url" content="https://membership.theguardian.com/masterclasses"/>
+
+        <meta property="og:type" content="website"/>
+        <meta property="fb:app_id" content="180444840287"/>
+        <meta name="twitter:site" content="@gdnmembership"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="google-site-verification" content="qf7V0ceP_mY_0jTl7R7C1wZSKn2gK7TlharWVLr8Ea0" />
+        <meta name="google-site-verification" content="usCUaIJGNg9ijq-htmMAU6yEhAwNm7wdyb_fk_s2LTQ" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "Guardian Members",
+                "url": "https://membership.theguardian.com",
+                "logo": "https://membership.theguardian.com/assets/dist/images/favicons/76653302/152x152.png",
+                "sameAs" : [
+                    "https://www.youtube.com/user/guardianmembership",
+                    "https://plus.google.com/+guardianmembership/",
+                    "https://www.twitter.com/gdnmembership"
+                ]
+            }
+        </script>
+
+        
+
+        
+
+
+
+
+
+<!--[if IE 9]>
+<script src="/assets/dist/javascripts/lib/740675b8/polyfills.min.js"></script>
+<![endif]-->
+<script src="https://polyfill.guim.co.uk/v2/polyfill.min.js?features=Promise,fetch"></script>
+<script id="gu">
+    var guardian = {
+        isModernBrowser: (
+            'querySelector' in document
+            && 'addEventListener' in window
+            && 'localStorage' in window
+            && 'sessionStorage' in window
+            && 'bind' in Function
+            && (('XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest())
+              || 'XDomainRequest' in window)),
+        css: {
+            loaded: false
+        },
+        payPalEnvironment: '',
+        membership: {
+            checkoutForm: {"defaultCountry":"GB","currency":"GBP","billingPeriod":"annual"},
+            buildNumber: '11656',
+            svgSprite: "/assets/dist/images/b195df84/svg-sprite.svg"
+        },
+        abTests: {},
+        googleAnalytics: {
+            trackingId: 'UA-51507017-5',
+            cookieDomain:  'auto' 
+        },
+        analyticsEnabled: true,
+        isDev: false,
+        getStripePublicKeyForCountry: function() {
+            return guardian.membership.checkoutForm.billingCountry === 'AU' ? '' : ''
+        }
+    };
+
+    (function(isModern) {
+
+        
+        var htmlClassNames = ['js-on']; // we know we have JS
+
+        document.documentElement.className = document.documentElement.className.replace(/\bjs-off\b/g, '') + ' ' + htmlClassNames.join(' ');
+
+        if (!isModern) {
+            // we add this class so it's off by default (avoiding FOUC)
+            document.documentElement.className += ' js-ancient-browser';
+        }
+
+        var areClipPathShapesSupported = (function () {
+            var base = 'clipPath',
+                prefixes = [ 'webkit', 'moz', 'ms', 'o' ],
+                properties = [ base ],
+                testElement = document.createElement( 'testelement' ),
+                attribute = 'polygon(50% 0%, 0% 100%, 100% 100%)';
+            for ( var i = 0, l = prefixes.length; i < l; i++ ) {
+                var prefixedProperty = prefixes[i] + base.charAt( 0 ).toUpperCase() + base.slice( 1 );
+                properties.push( prefixedProperty );
+            }
+            for ( var i = 0, l = properties.length; i < l; i++ ) {
+                var property = properties[i];
+                if ( testElement.style[property] === '' ) {
+                    testElement.style[property] = attribute;
+                    if ( testElement.style[property] !== '' ) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }());
+
+        if(areClipPathShapesSupported) {
+            document.documentElement.className += ' supports-clippath-shapes';
+        }
+
+        
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        window.lazySizesConfig.init = false;
+
+        
+        
+
+        /**
+         * Simple XHR abstraction
+         */
+        function loadData( url, cb ) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    if (cb) { cb.call(this, xhr); }
+                }
+            }
+            xhr.timeout = 5000;
+            xhr.send();
+        }
+        /**
+         * Add data to local storage, with buildNumber key
+         * Break cache if buildNumber has changed.
+         */
+        function updateLocalStorage(prefix, data) {
+            var expr = new RegExp('^' + prefix + '.', 'g');
+            Object.keys(localStorage).forEach(function(key) {
+                if (key.match(expr)) {
+                    try {
+                        localStorage.removeItem(key);
+                    } catch(e) { }
+                }
+            });
+            try {
+                localStorage.setItem(prefix + '.' + guardian.membership.buildNumber, data);
+            } catch(e) {}
+        }
+
+        /**
+         * Insert SVG sprite into document
+         */
+        function inlineSvg(data) {
+            var el = document.createElement('div');
+            el.innerHTML = data;
+            var ref = document.getElementsByTagName('script')[0];
+            ref.parentNode.insertBefore(el, ref);
+        }
+
+        function loadSvgIcons() {
+            var data = !guardian.isDev && localStorage.getItem('icons.' + guardian.membership.buildNumber);
+            if (data) {
+                inlineSvg(data);
+            } else {
+                loadData(guardian.membership.svgSprite, function(xhr) {
+                    inlineSvg(xhr.responseText);
+                    updateLocalStorage('icons', xhr.responseText);
+                });
+            }
+        }
+
+        if (isModern) {
+            loadSvgIcons();
+        }
+    })(guardian.isModernBrowser);
+</script>
+
+
+        <!--[if (gt IE 9) | (IEMobile)]><!-->
+        <link rel="stylesheet" media="all" href="/assets/dist/stylesheets/09972afd/style.css">
+        <!--<![endif]-->
+
+        <!--[if (IE 9)&(!IEMobile)]>
+        <link rel="stylesheet" type="text/css" href="/assets/dist/stylesheets/5d65b2a2/ie9.css" />
+        <![endif]-->
+
+        <script>
+    var curl = {
+        apiName: 'curl',
+        paths: {
+            stripe: 'https://js.stripe.com/v2/stripe-dss3',
+            uet: '/assets/dist/javascripts/lib/uet/41174537/uet.js',
+            paypal: 'https://www.paypalobjects.com/api/checkout.js',
+            stripeCheckout: 'https://checkout.stripe.com/checkout.js'
+        }
+    };
+</script>
+<script src='/assets/dist/javascripts/lib/curl/58ce8394/curl.js'></script>
+<noscript><img src="//bat.bing.com/action/0?ti=5039324&Ver=2" height="0" width="0" style="display:none; visibility: hidden;" /></noscript>
+
+
+        <link rel="shortcut icon" type="image/png" href="/assets/dist/images/favicons/7283d7ef/32x32.ico">
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/dist/images/favicons/76653302/152x152.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/dist/images/favicons/96d94ea9/144x144.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/dist/images/favicons/b867afed/120x120.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/dist/images/favicons/7b4d3654/114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/dist/images/favicons/405a87ab/72x72.png">
+        <link rel="apple-touch-icon-precomposed" href="/assets/dist/images/favicons/0e1060e5/57x57.png">
+        <meta name="msapplication-TileColor" content="#214583">
+        <meta name="msapplication-TileImage" content="/assets/dist/images/favicons/f06f6996/windows_tile_144_b.png">
+
+        
+    </head>
+    <body id="top">
+        <a class="u-h skip" href="#container">Skip to main content</a>
+        
+        <noscript>
+            <div class="warning-message copy hidden-print">
+                Please enable JavaScript &ndash; we use it to enhance behaviour for Guardian Members.
+                <a href="http://www.enable-javascript.com/">Click here for instructions to do so in your browser</a>.
+            </div>
+        </noscript>
+        <div class="browser-warning warning-message copy hidden-print">
+            You are using an <strong>outdated</strong> browser.
+            Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+        </div>
+        <div class="container-global">
+            
+
+
+        
+
+<header class="global-header hidden-print js-header" role="banner">
+    <div class="global-header__inner master-classes-header__inner">
+        <div class="global-header__branding l-constrained">
+            <div class="global-header__primary">
+                
+
+
+<ul class="nav-control u-cf" role="menubar">
+    <li class="nav-control__item">
+        <a href="https://profile.theguardian.com/signin?returnUrl=https://membership.theguardian.com&amp;skipConfirmation=true&amp;clientId=members"
+           class="control js-dropdown js-identity-menu-toggle js-identity-menu-url"
+           data-dropdown-menu="js-identity-menu"
+           id="qa-identity-control"
+           title="Your account"
+           role="menuitem"
+        >
+            <span class="control__item">
+                <span class="control__icon icon-holder icon-holder--large icon-holder--neutral">
+                    
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-user"></use>
+</svg>
+
+                </span>
+            </span>
+            <span class="control__item hidden-mobile js-user-detail">
+                <span class="control__info">
+                    <span class="case--lower js-user-displayname">Sign in</span>
+                    <span class="u-h u-parentheses js-user-tier"></span>
+                </span>
+            </span>
+        </a>
+        
+        <nav id="js-identity-menu" role="navigation" class="nav-popup is-hidden js-dropdown-menu" aria-label="Profile menu">
+            <ul class="nav-popup__list">
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/user/id/" class="nav-popup__link js-identity-menu-comment-activity">Comment activity</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a class="nav-popup__link js-identity-menu-edit-profile"
+                       id="qa-identity-nav-edit"
+                       href="https://profile.theguardian.com/public/edit?clientId=members"
+                       data-member-href="https://profile.theguardian.com/membership/edit?clientId=members">Edit profile</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/email-prefs?clientId=members" class="nav-popup__link">Email preferences</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/password/change?clientId=members" class="nav-popup__link">Change password</a>
+                </li>
+                <li class="nav-popup__item">
+                    <a href="https://profile.theguardian.com/signout?clientId=members&amp;returnUrl=https://membership.theguardian.com/masterclasses" class="nav-popup__link">Sign out</a>
+                </li>
+            </ul>
+        </nav>
+    </li>
+    
+    <li class="nav-control__item nav-control__item--last hidden-mobile">
+        <a class="control" href="http://theguardian.com/" role="menuitem">
+            <span class="control__item">
+                
+
+<svg class="icon-inline icon-inline--large">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-g-mark"></use>
+</svg>
+
+            </span>
+            <span class="control__item">
+                <span class="control__info">the guardian</span>
+            </span>
+        </a>
+    </li>
+</ul>
+
+            </div>
+            
+            <div class="global-header__logo">
+	            <a href="/" class="global-header__logo__link" id="qa-header-logo">
+                    <span class="u-h">The Guardian Members</span>
+                    
+
+
+<div class="inline-svg global-header__logo__image" role="img">
+    <canvas class="inline-svg__canvas" height="68" width="789" aria-hidden="true"></canvas>
+    <img class="inline-svg__image" src="/assets/dist/images/providers/6abeb8b3/masterclasses-header.svg" alt="Guardian Masterclasses">
+</div>
+
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
+
+<button role="menuitem" class="mobile-menu mobile-only js-menu-icon" title="Menu">
+    <span class="mobile-menu__icon">
+        <i></i><i></i><i></i>
+    </span>
+</button>
+
+<nav role="navigation" class="global-navigation js-global-nav">
+    <div class="global-navigation__scroll l-constrained">
+        <ul class="global-navigation__list">
+            
+                <li class="global-navigation__item global-navigation__item--home">
+                    <a href="/" class="global-navigation__link js-nav-link-home">
+                        
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-home"></use>
+</svg>
+
+                        <span class="u-h">Home</span>
+                    </a>
+                </li>
+            
+            
+                <li class="global-navigation__item">
+                    <a href="/supporter?INTCMP=gdnwb_copts_memco_internal_supporter_link" class="global-navigation__link" id="qa-nav-become a supporter">Become a supporter</a>
+                </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/events" class="global-navigation__link" id="qa-nav-events">Events</a>
+                </li>
+                
+                    <li class="global-navigation__item global-navigation__item--sub">
+                        <a href="/events/archive" class="global-navigation__link" id="qa-nav-archive">Archive</a>
+                    </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/masterclasses" class="global-navigation__link" id="qa-nav-masterclasses">Masterclasses</a>
+                </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/patrons" class="global-navigation__link" id="qa-nav-patrons">Patrons</a>
+                </li>
+                
+            
+                <li class="global-navigation__item">
+                    <a href="/feedback" class="global-navigation__link" id="qa-nav-feedback">Feedback</a>
+                </li>
+                
+            
+            <li class="global-navigation__item global-navigation__item--right">
+                
+                    <a href="http://www.theguardian.com/membership" class="global-navigation__link global-navigation__link--last js-members-area is-hidden">Members' Area</a>
+                
+            </li>
+        </ul>
+    </div>
+</nav>
+
+</header>
+
+
+
+
+
+    
+
+
+
+    
+
+            
+                <div class="l-side-margins" id="container">
+                    
+
+    <main>
+
+        <div class="l-constrained">
+            
+
+<section class="header-bar">
+    <h1 class="header-bar__title">Courses and workshops taught by award-winning professionals, with discounts for Partners and Patrons</h1>
+</section>
+
+        </div>
+
+        <div class="event-filters">
+            <div class="event-filters__container l-constrained">
+                <div class="event-filters__items">
+                    <label class="event-filters__item">
+                        Show:
+                        <select class="select-minimal js-facet-category">
+                            <option value="/masterclasses">All categories</option>
+                            
+                                <option value="/masterclasses/writing" >Writing</option>
+                            
+                                <option value="/masterclasses/publishing" >Publishing</option>
+                            
+                                <option value="/masterclasses/journalism" >Journalism</option>
+                            
+                                <option value="/masterclasses/business" >Business</option>
+                            
+                                <option value="/masterclasses/digital" >Digital</option>
+                            
+                                <option value="/masterclasses/culture" >Culture</option>
+                            
+                                <option value="/masterclasses/food-and-drink" >Food and drink</option>
+                            
+                                <option value="/masterclasses/media" >Media</option>
+                            
+                        </select>
+                    </label>
+
+                    
+
+                    <span class="event-filters__count">
+                        <span class="js-filter-count">94</span> masterclasses
+                        
+                            <span class="hidden-mobile">in 8 categories</span>
+                        
+                    </span>
+                </div>
+                <div class="event-filters__search">
+                    <label class="filter-search">
+                        <input type="text" id="js-filter"
+                               class="filter-search__input"
+                               placeholder="Filter by title"
+                               autocomplete="off"
+                               data-filter-field="title"
+                        />
+                        <span class="filter-search__icon">
+                            
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-search"></use>
+</svg>
+
+                        </span>
+                        <button class="filter-search__cross is-hidden js-filter-clear">
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-filter-clear"></use>
+</svg>
+</button>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="l-constrained">
+            
+
+    <section class="listing listing--bordered listing--lead">
+        <div class="listing__lead-in">
+            <h3 class="listing__title h-intro">Masterclasses</h3>
+        </div>
+        <div class="listing__content">
+            
+                
+                    <div class="listing__no-results js-filter-empty">Sorry, no matching Masterclasses were found.</div>
+                
+                <ul class="grid grid--bordered grid--3up" id="js-filter-container">
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/writing-your-novel-a-sixweek-creative-writing-programme-with-ross-raisin-36266627459" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Writing your novel: A six-week creative writing programme with Ross Raisin</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-11-01T18:30:00.000Z">
+                1 November–6 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-turn-your-idea-into-a-novel-with-jill-dawson-30161270171" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/3/1446549634206/c5f12cda-2b6e-424e-bdad-adddea917f0c-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/3/1446549632666/768e14de-8b68-4432-bbb4-41ec12bfa977-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/3/1446549634944/ae925885-0837-4e68-ba02-1a9484fa42a0-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/3/1446549635242/3c9ea3c0-f542-47ac-8d57-62a888c74119-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/3/1446549633322/9d08570b-f2d1-4d22-91d4-0a623b7f52cd-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/3/1446549633897/2225ab59-7dc5-4e5b-9725-f8f30ed68424-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/3/1446549635454/4502db7c-fdea-4723-aabb-6192a1535c76-620x372.jpeg 620w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Jill Dawson."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to turn your idea into a novel with Jill Dawson</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-02T10:00:00.000Z">
+                2 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/writing-nonfiction-a-oneday-workshop-with-simon-garfield-33042530097" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/a655490a16fa2c0d7837b2196cad899906dfe2e5/0_261_2398_1438/500.jpg 500w, https://media.guim.co.uk/a655490a16fa2c0d7837b2196cad899906dfe2e5/0_261_2398_1438/2398.jpg 2398w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Simon Garfield."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Writing non-fiction: A one-day workshop with Simon Garfield</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-02T10:00:00.000Z">
+                2 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/infographic-storytelling-a-oneday-workshop-34137171198" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716551260/4460db9d-431e-4fbd-b9cd-53f8cf20f46c-140x84.jpeg 140w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716550861/d6ee8b88-9335-4a98-a5b8-d111c92ab627-220x132.jpeg 220w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716551597/fdc3195a-b753-4a3f-b30b-a1ce065ca408-300x180.jpeg 300w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716551703/018c488d-846c-473c-b617-54f19189a99b-380x228.jpeg 380w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716550996/56dc7944-906b-4017-8b08-0cc0bcbbd9db-460x276.jpeg 460w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716551140/b5ad50f8-65d3-4bd8-be7c-937701391aed-540x324.jpeg 540w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716551841/ce4bf04f-06e0-4e33-a904-7615685779c2-620x372.jpeg 620w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429716551396/90bc6edb-0b1a-4289-82e6-a43d57ee6416-1020x612.jpeg 1020w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Infographic storytelling."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Infographic storytelling: A one-day workshop</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-02T10:00:00.000Z">
+                2 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-a-page-turner-a-masterclass-in-creating-suspense-in-fiction-36660777372" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/16ea71f552b763fbb65b247c532ecc2362776537/0_610_3028_1817/500.jpg 500w, https://media.guim.co.uk/16ea71f552b763fbb65b247c532ecc2362776537/0_610_3028_1817/master/3028.jpg 3028w, https://media.guim.co.uk/16ea71f552b763fbb65b247c532ecc2362776537/0_610_3028_1817/3028.jpg 3028w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Claire McGowan."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write a page turner: A masterclass in creating suspense in fiction</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-03T10:00:00.000Z">
+                3 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-find-a-literary-agent-with-juliet-mushens-a-masterclass-for-novelists-31091502521" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/9/1444392542982/4df7a2ff-3f67-4d70-b72d-dffd844a9fce-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/9/1444392544823/68653692-9116-40fc-9f2a-9c27a8eeec1c-2060x1236.jpeg 2060w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to find a literary agent."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to find a literary agent with Juliet Mushens: A masterclass for novelists</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-03T14:00:00.000Z">
+                3 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-better-copy-32467932460" class="event-item event-item--clippath-1">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/32270909129af8fa7f8b55978948e3739d504bbf/9_180_5384_3231/500.jpg 500w, https://media.guim.co.uk/32270909129af8fa7f8b55978948e3739d504bbf/9_180_5384_3231/master/5384.jpg 5384w, https://media.guim.co.uk/32270909129af8fa7f8b55978948e3739d504bbf/9_180_5384_3231/5384.jpg 5384w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to write better copy."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+        <span class="event-status event-status--sold-out" data-filter-key="status">Sold out</span>
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write better copy</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-04T10:00:00.000Z">
+                4 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-pitch-to-editors-32923289445" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/c45fe27522d7b8f40d252c707d476bab5cf1198e/323_2158_4448_2666/500.jpg 500w, https://media.guim.co.uk/c45fe27522d7b8f40d252c707d476bab5cf1198e/323_2158_4448_2666/master/4448.jpg 4448w, https://media.guim.co.uk/c45fe27522d7b8f40d252c707d476bab5cf1198e/323_2158_4448_2666/4448.jpg 4448w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Clare Longrigg."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to pitch to editors</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-04T18:30:00.000Z">
+                4 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/advanced-social-media-for-businesses-31254562237" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/545f5e0382b1697393af5b9becef26f7c3860e5e/0_0_1920_1152/500.jpg 500w, https://media.guim.co.uk/545f5e0382b1697393af5b9becef26f7c3860e5e/0_0_1920_1152/master/1920.jpg 1920w, https://media.guim.co.uk/545f5e0382b1697393af5b9becef26f7c3860e5e/0_0_1920_1152/1920.jpg 1920w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Advanced social media for businesses"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Advanced social media for businesses</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-05T10:00:00.000Z">
+                5 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-secrets-of-storytelling-with-screenwriting-guru-john-yorke-and-author-tim-lott-37876871743" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/9328cad3d44aa24f9ce10c40e9eb20fb9fc13f18/0_622_2156_1292/500.jpg 500w, https://media.guim.co.uk/9328cad3d44aa24f9ce10c40e9eb20fb9fc13f18/0_622_2156_1292/master/2156.jpg 2156w, https://media.guim.co.uk/9328cad3d44aa24f9ce10c40e9eb20fb9fc13f18/0_622_2156_1292/2156.jpg 2156w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="John Yorke."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The secrets of storytelling with screenwriting guru John Yorke and author Tim Lott</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-05T18:30:00.000Z">
+                5 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-an-academic-paper-and-get-it-published-30162045490" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/6/1438856437005/54afbecd-d401-4159-a338-33894703e27f-140x84.jpeg 140w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/6/1438856435859/8426b01c-1f56-44b7-9f9f-06a217136479-220x132.jpeg 220w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/6/1438856437438/391e7b64-df11-4396-b256-1ea737d25eff-300x180.jpeg 300w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/6/1438856437736/a11a8129-9768-4bcc-ada9-3f56798d15c4-380x228.jpeg 380w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/6/1438856436145/e9825a90-9592-4357-9b2f-5cca165f9a10-460x276.jpeg 460w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/6/1438856436803/3d679e6e-f631-41dd-ad9d-aff7ec4b12a5-540x324.jpeg 540w, https://static-secure.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/6/1438856437964/acc70eb3-130d-44a1-bb98-9eeb6455a08b-620x372.jpeg 620w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to write an academic paper masterclass."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write an academic paper and get it published</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-07T10:00:00.000Z">
+                7 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/focus-on-fiction-a-series-of-workshops-with-cambridge-universitys-creative-writing-tutors-37646170710" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/500.jpg 500w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/master/1240.jpg 1240w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/1240.jpg 1240w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Professor Jem Poster and Dr Sarah Burton"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Focus on fiction: A series of workshops with Cambridge University’s creative writing tutors</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-09T10:00:00.000Z">
+                9 December 2017–10 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/character-and-plot-a-masterclass-with-cambridge-universitys-creative-writing-tutors-37649553829" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/500.jpg 500w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/master/1240.jpg 1240w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/1240.jpg 1240w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Professor Jem Poster and Dr Sarah Burton"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Character and plot: A masterclass with Cambridge University’s creative writing tutors</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-09T10:00:00.000Z">
+                9 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/data-visualisation-a-oneday-workshop-37809808154" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082226/2ddc09a3-bbe7-47cd-abe6-f245ddb73850-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082087/d4cc1c57-2ac1-4b93-863c-877ec149a330-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082465/9c6eea28-499d-48b5-b0e1-fb0f187e08f8-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082816/463b8ffe-24d5-41e2-bce6-3bf69f8a32c3-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082636/9a711661-393f-445a-8f2d-eb7e9c79d961-bestSizeAvailable.jpeg 420w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Data visualisation masterclass."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Data visualisation: A one-day workshop</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-09T10:00:00.000Z">
+                9 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/writing-opinion-pieces-with-polly-toynbee-and-tim-dowling-37808831232" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/c7b77898ad11d9121ff54fd344656c7ad2797aa0/0_0_600_360/500.jpg 500w, https://media.guim.co.uk/c7b77898ad11d9121ff54fd344656c7ad2797aa0/0_0_600_360/master/600.jpg 600w, https://media.guim.co.uk/c7b77898ad11d9121ff54fd344656c7ad2797aa0/0_0_600_360/600.jpg 600w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Tim Dowling and Polly Toynbee."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Writing opinion pieces with Polly Toynbee and Tim Dowling</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-11T18:30:00.000Z">
+                11 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-freelancer-bootcamp-pitch-perfection-37036062861" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/500.jpg 500w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/master/1920.jpg 1920w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/1920.jpg 1920w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Natalie Campbell, Samantha Clarke, Mark Leruste and Emma Sexton."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The Freelancer Bootcamp: Pitch perfection</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-13T18:30:00.000Z">
+                13 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-freelancer-bootcamp-a-professional-development-series-to-boost-your-freelance-brand-skills-and-confidence-37034542313" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/500.jpg 500w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/master/1920.jpg 1920w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/1920.jpg 1920w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Natalie Campbell, Samantha Clarke, Mark Leruste and Emma Sexton."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The Freelancer Bootcamp: A professional development series to boost your freelance brand, skills and confidence</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-13T18:30:00.000Z">
+                13 December 2017–28 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-science-of-storytelling-with-will-storr-34980197713" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/4cb6e9c4c4c5a8609f1f24bc17c3b9708ef63a32/0_169_2821_1693/500.jpg 500w, https://media.guim.co.uk/4cb6e9c4c4c5a8609f1f24bc17c3b9708ef63a32/0_169_2821_1693/2821.jpg 2821w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="The science of storytelling with Will Storr"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The science of storytelling with Will Storr</span>
+</h4>
+
+            <time class="event-item__time" datetime="2017-12-16T10:00:00.000Z">
+                16 December 2017
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/point-of-view-and-narrative-voice-a-masterclass-with-cambridge-universitys-creative-writing-tutors-37649656135" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/500.jpg 500w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/master/1240.jpg 1240w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/1240.jpg 1240w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Professor Jem Poster and Dr Sarah Burton"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Point of view and narrative voice: A masterclass with Cambridge University’s creative writing tutors</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-13T10:00:00.000Z">
+                13 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-identify-and-develop-your-personal-style-as-a-photographer-32527678161" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/5c3ae62ceb29143a523513b4b5f029d20f9c2eb4/0_0_4272_2563/140.jpg 140w, https://media.guim.co.uk/5c3ae62ceb29143a523513b4b5f029d20f9c2eb4/0_0_4272_2563/500.jpg 500w, https://media.guim.co.uk/5c3ae62ceb29143a523513b4b5f029d20f9c2eb4/0_0_4272_2563/1000.jpg 1000w, https://media.guim.co.uk/5c3ae62ceb29143a523513b4b5f029d20f9c2eb4/0_0_4272_2563/2000.jpg 2000w, https://media.guim.co.uk/5c3ae62ceb29143a523513b4b5f029d20f9c2eb4/0_0_4272_2563/4272.jpg 4272w, https://media.guim.co.uk/5c3ae62ceb29143a523513b4b5f029d20f9c2eb4/0_0_4272_2563/master/4272.jpg 4272w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="View from Little Shovel Campsite, Canadian Rockies."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to identify and develop your personal style as a photographer</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-13T10:00:00.000Z">
+                13 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/writing-for-women-an-evening-with-cosmopolitan-editorinchief-farrah-storr-39542884833" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/e60c2fd3a31248d4911d3c668b92ad9bb7a0bb3b/105_204_1981_1188/500.jpg 500w, https://media.guim.co.uk/e60c2fd3a31248d4911d3c668b92ad9bb7a0bb3b/105_204_1981_1188/master/1981.jpg 1981w, https://media.guim.co.uk/e60c2fd3a31248d4911d3c668b92ad9bb7a0bb3b/105_204_1981_1188/1981.jpg 1981w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Wellness For Life&lt;br&gt;LONDON, ENGLAND - JULY 06: Farrah Storr attends a celebration of wellness and personal wellbeing at Embassy Gardens on July 6, 2017 in London, England. (Photo by David M Benett/Dave Benett/Getty Images for EcoWorld Ballymore)"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Writing for women: An evening with Cosmopolitan editor-in-chief Farrah Storr</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-15T18:30:00.000Z">
+                15 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-science-of-storytelling-for-business-with-writer-will-storr-34691676739" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/083d4bbb6fb1ea2a7640d6c7ce745686e1ef9138/0_856_3744_2246/500.jpg 500w, https://media.guim.co.uk/083d4bbb6fb1ea2a7640d6c7ce745686e1ef9138/0_856_3744_2246/master/3744.jpg 3744w, https://media.guim.co.uk/083d4bbb6fb1ea2a7640d6c7ce745686e1ef9138/0_856_3744_2246/3744.jpg 3744w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Will Storr."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The science of storytelling for business with writer Will Storr</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-16T10:00:00.000Z">
+                16 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/beginners-guide-to-social-media-for-businesses-39123572659" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/b3f11e3e3848625f413ae354079a823e0624bf1f/0_186_3967_2380/500.jpg 500w, https://media.guim.co.uk/b3f11e3e3848625f413ae354079a823e0624bf1f/0_186_3967_2380/master/3967.jpg 3967w, https://media.guim.co.uk/b3f11e3e3848625f413ae354079a823e0624bf1f/0_186_3967_2380/3967.jpg 3967w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Beginner’s guide to social media for businesses"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Beginner&#x27;s guide to social media for businesses</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-17T10:00:00.000Z">
+                17 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-freelancer-bootcamp-liquid-talent-and-growing-without-the-pain-37036310602" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/500.jpg 500w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/master/1920.jpg 1920w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/1920.jpg 1920w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Natalie Campbell, Samantha Clarke, Mark Leruste and Emma Sexton."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The Freelancer Bootcamp: Liquid talent and growing without the pain</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-17T18:30:00.000Z">
+                17 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-beginners-guide-to-writing-a-novel-39120372086" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/bb11635d774891486629776a68775a40c9ec3b97/0_115_4500_2700/500.jpg 500w, https://media.guim.co.uk/bb11635d774891486629776a68775a40c9ec3b97/0_115_4500_2700/master/4500.jpg 4500w, https://media.guim.co.uk/bb11635d774891486629776a68775a40c9ec3b97/0_115_4500_2700/4500.jpg 4500w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="The beginner’s guide to writing a novel."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The beginner’s guide to writing a novel</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-17T18:30:00.000Z">
+                17 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/data-visualisation-a-oneday-workshop-38339307902" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Data visualisation: A one-day workshop</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-19T10:00:00.000Z">
+                19 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/an-evening-at-the-national-gallery-with-jonathan-jones-39516080661" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/6bb8d338915f7a140454a04a9c368fae6c03fda1/0_0_7360_4420/140.jpg 140w, https://media.guim.co.uk/6bb8d338915f7a140454a04a9c368fae6c03fda1/0_0_7360_4420/500.jpg 500w, https://media.guim.co.uk/6bb8d338915f7a140454a04a9c368fae6c03fda1/0_0_7360_4420/1000.jpg 1000w, https://media.guim.co.uk/6bb8d338915f7a140454a04a9c368fae6c03fda1/0_0_7360_4420/2000.jpg 2000w, https://media.guim.co.uk/6bb8d338915f7a140454a04a9c368fae6c03fda1/0_0_7360_4420/7360.jpg 7360w, https://media.guim.co.uk/6bb8d338915f7a140454a04a9c368fae6c03fda1/0_0_7360_4420/master/7360.jpg 7360w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="National Gallery, London."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">An evening at the National Gallery with Jonathan Jones</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-19T18:30:00.000Z">
+                19 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    National Gallery
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-stories-for-children-with-laura-dockrill-32326735135" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/8419ce725c72078f70c61b4421faa51d348103cd/0_2072_14400_8640/140.jpg 140w, https://media.guim.co.uk/8419ce725c72078f70c61b4421faa51d348103cd/0_2072_14400_8640/500.jpg 500w, https://media.guim.co.uk/8419ce725c72078f70c61b4421faa51d348103cd/0_2072_14400_8640/1000.jpg 1000w, https://media.guim.co.uk/8419ce725c72078f70c61b4421faa51d348103cd/0_2072_14400_8640/2000.jpg 2000w, https://media.guim.co.uk/8419ce725c72078f70c61b4421faa51d348103cd/0_2072_14400_8640/14400.jpg 14400w, https://media.guim.co.uk/8419ce725c72078f70c61b4421faa51d348103cd/0_2072_14400_8640/master/14400.jpg 14400w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Laura Dockrill"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write stories for children with Laura Dockrill</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-20T10:00:00.000Z">
+                20 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/introduction-to-illustration-a-oneday-workshop-35756693232" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/b0538ca82b6b7df4460562d867c4fc9510eb650c/0_0_4896_2938/500.jpg 500w, https://media.guim.co.uk/b0538ca82b6b7df4460562d867c4fc9510eb650c/0_0_4896_2938/master/4896.jpg 4896w, https://media.guim.co.uk/b0538ca82b6b7df4460562d867c4fc9510eb650c/0_0_4896_2938/4896.jpg 4896w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Millie Nice."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Introduction to illustration: A one-day workshop</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-20T10:00:00.000Z">
+                20 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/understanding-the-history-of-feminism-an-evening-class-with-dr-hannah-dawson-32328439232" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/63316c45a896c4ad70de65c10a1534260fbc3e51/3_2_1017_610/500.jpg 500w, https://media.guim.co.uk/63316c45a896c4ad70de65c10a1534260fbc3e51/3_2_1017_610/1017.jpg 1017w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Historian of ideas Hannah Dawson."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Understanding the history of feminism: An evening class with Dr Hannah Dawson</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-22T19:00:00.000Z">
+                22 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    Kings Place, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-create-a-wordpress-website-in-a-day-32495681458" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766220033/541d8c6b-5a3b-40e2-88ee-d967bb8d2e6f-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766219371/57ec3c70-b44e-4533-a1c6-fa5d240f672f-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766220549/3f0ccb94-47bf-4e93-88b6-2b850a5d06b1-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766220718/69eae813-0ab0-49bc-a4cc-83330d623172-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766219627/37d80b8b-0f39-4c05-b0bc-076d895456c9-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766219842/b1decda7-513f-42c6-bb24-0ded553e304a-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766220895/8b79e70d-043a-426d-96e3-b3b55fed4484-620x372.jpeg 620w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/12/10/1449766220240/48035fef-e932-4c9a-88ee-fb0d53343d1d-1020x612.jpeg 1020w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Jamie Marsland."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to create a WordPress website in a day</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-23T10:00:00.000Z">
+                23 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/copywriting-a-twoday-bootcamp-32326635838" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438349358058/60e9c544-fcb3-44cd-92c7-f743dd0d23ab-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438349357525/bfc70c0b-0569-42fa-be9f-837a8d50f745-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438349358251/da1a4750-4fbf-4630-a1ea-130861e628ce-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438349358396/bf563fbb-1b89-4bb7-a8c6-f82b783eba31-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438349357671/9071e571-01d6-4a2b-beb1-efe883cc46ab-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438349357844/4253d907-00af-4d51-bb3e-95d96a00e122-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438349358547/9b05959c-718d-4cf4-a4f3-29c379d57a36-620x372.jpeg 620w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Copywriting: A two-day bootcamp. "
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Copywriting: A two-day bootcamp</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-27T10:00:00.000Z">
+                27–28 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/a-day-with-leading-guardian-writers-everything-you-need-to-know-about-journalism-39327797501" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/e36f578b33b2c2b37dd90a7ee8c66688df292b20/0_0_3840_2304/500.jpg 500w, https://media.guim.co.uk/e36f578b33b2c2b37dd90a7ee8c66688df292b20/0_0_3840_2304/master/3840.jpg 3840w, https://media.guim.co.uk/e36f578b33b2c2b37dd90a7ee8c66688df292b20/0_0_3840_2304/3840.jpg 3840w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Stuart Heritage and Decca Aitkenhead."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">A day with leading Guardian writers: Everything you need to know about journalism</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-27T10:00:00.000Z">
+                27 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/new-year-new-you-how-to-make-2018-your-best-year-yet-39289414697" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/3178eefaf297eefddde4fa738dbddaac288fa698/0_132_4220_2533/500.jpg 500w, https://media.guim.co.uk/3178eefaf297eefddde4fa738dbddaac288fa698/0_132_4220_2533/master/4220.jpg 4220w, https://media.guim.co.uk/3178eefaf297eefddde4fa738dbddaac288fa698/0_132_4220_2533/4220.jpg 4220w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="New year, new you: How to make 2018 your best year yet."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">New year, new you: How to make 2018 your best year yet</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-28T10:00:00.000Z">
+                28 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Royal Society of Medicine, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/love-it-or-leave-it-your-guide-to-finding-true-work-happiness-39288505979" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/a03d486a11092510177b8eafbe9eeb6750bf6899/0_0_5120_3074/500.jpg 500w, https://media.guim.co.uk/a03d486a11092510177b8eafbe9eeb6750bf6899/0_0_5120_3074/master/5120.jpg 5120w, https://media.guim.co.uk/a03d486a11092510177b8eafbe9eeb6750bf6899/0_0_5120_3074/5120.jpg 5120w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Love it or leave it – your guide to finding true work happiness."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Love it or leave it – your guide to finding true work happiness</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-28T10:00:00.000Z">
+                28 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-diet-myth-learn-how-to-make-better-nutritional-choices-with-professor-tim-spector-39693125206" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/487ad4da4c08977bd23ac4a05f60417a2418985b/0_0_4597_2759/500.jpg 500w, https://media.guim.co.uk/487ad4da4c08977bd23ac4a05f60417a2418985b/0_0_4597_2759/master/4597.jpg 4597w, https://media.guim.co.uk/487ad4da4c08977bd23ac4a05f60417a2418985b/0_0_4597_2759/4597.jpg 4597w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Professor Tim Spector."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The Diet Myth: Learn how to make better nutritional choices with professor Tim Spector</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-29T18:30:00.000Z">
+                29 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-start-your-own-street-food-business-39447344068" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0a6ab19d5e78bfbe1615e9fb8f81a4f1fa33943d/0_0_1020_612/500.jpg 500w, https://media.guim.co.uk/0a6ab19d5e78bfbe1615e9fb8f81a4f1fa33943d/0_0_1020_612/master/1020.jpg 1020w, https://media.guim.co.uk/0a6ab19d5e78bfbe1615e9fb8f81a4f1fa33943d/0_0_1020_612/1020.jpg 1020w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Ben Sheinwald and Xochi Balfour."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to start your own street food business</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-30T18:30:00.000Z">
+                30 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/a-masterclass-in-flirting-with-social-and-cultural-anthropologist-jean-smith-37333792378" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/d5ef92c468ca205e2aa65136170b6c95f5e27d7a/0_66_4731_2838/500.jpg 500w, https://media.guim.co.uk/d5ef92c468ca205e2aa65136170b6c95f5e27d7a/0_66_4731_2838/master/4731.jpg 4731w, https://media.guim.co.uk/d5ef92c468ca205e2aa65136170b6c95f5e27d7a/0_66_4731_2838/4731.jpg 4731w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Jean Smith"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">A masterclass in flirting with social and cultural anthropologist Jean Smith</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-01-31T18:30:00.000Z">
+                31 January 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/a-weekend-history-degree-with-kings-college-londons-leading-academics-40708049873" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/c31c7e59fd711d75c695af86641f93d5a814c29c/0_68_7268_4359/500.jpg 500w, https://media.guim.co.uk/c31c7e59fd711d75c695af86641f93d5a814c29c/0_68_7268_4359/master/7268.jpg 7268w, https://media.guim.co.uk/c31c7e59fd711d75c695af86641f93d5a814c29c/0_68_7268_4359/7268.jpg 7268w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Bush House KCL"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">A weekend history degree with King&#x27;s College London’s leading academics</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-03T10:00:00.000Z">
+                3–4 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    Bush House, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/lyricwriting-a-oneday-workshop-with-chris-difford-32326399130" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/f254423e0bfed86a079389ef0b1db766c4eed034/0_215_3600_2160/140.jpg 140w, https://media.guim.co.uk/f254423e0bfed86a079389ef0b1db766c4eed034/0_215_3600_2160/500.jpg 500w, https://media.guim.co.uk/f254423e0bfed86a079389ef0b1db766c4eed034/0_215_3600_2160/1000.jpg 1000w, https://media.guim.co.uk/f254423e0bfed86a079389ef0b1db766c4eed034/0_215_3600_2160/2000.jpg 2000w, https://media.guim.co.uk/f254423e0bfed86a079389ef0b1db766c4eed034/0_215_3600_2160/3600.jpg 3600w, https://media.guim.co.uk/f254423e0bfed86a079389ef0b1db766c4eed034/0_215_3600_2160/master/3600.jpg 3600w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Chris Difford."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Lyric-writing: A one-day workshop with Chris Difford</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-03T10:00:00.000Z">
+                3 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/learn-to-draw-the-human-figure-with-artist-rebecca-ivatts-38343043074" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/9e379eb931923fdbe52aa70da5b8cd20460d1549/0_0_804_482/500.jpg 500w, https://media.guim.co.uk/9e379eb931923fdbe52aa70da5b8cd20460d1549/0_0_804_482/master/804.jpg 804w, https://media.guim.co.uk/9e379eb931923fdbe52aa70da5b8cd20460d1549/0_0_804_482/804.jpg 804w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Learn to draw the human figure with artist Rebecca Ivatts."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Learn to draw the human figure with artist Rebecca Ivatts</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-03T10:00:00.000Z">
+                3 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    Sunny Art Centre, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-get-your-novel-published-a-class-with-literary-agent-ed-wilson-and-publisher-suzie-doore-32499813818" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/4296fc4eaefcce55508bdc0e2ccd2ab5305943cf/25_0_750_450/500.jpg 500w, https://media.guim.co.uk/4296fc4eaefcce55508bdc0e2ccd2ab5305943cf/25_0_750_450/master/750.jpg 750w, https://media.guim.co.uk/4296fc4eaefcce55508bdc0e2ccd2ab5305943cf/25_0_750_450/750.jpg 750w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Ed Wilson and Suzie Dooré."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to get your novel published: A class with literary agent Ed Wilson and publisher Suzie Dooré</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-03T10:00:00.000Z">
+                3 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-a-short-story-in-a-day-32328090188" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/8ad8182af80f2073a391f3403f28def253ff6f0f/0_401_2667_1600/500.jpg 500w, https://media.guim.co.uk/8ad8182af80f2073a391f3403f28def253ff6f0f/0_401_2667_1600/master/2667.jpg 2667w, https://media.guim.co.uk/8ad8182af80f2073a391f3403f28def253ff6f0f/0_401_2667_1600/2667.jpg 2667w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Author and musician Alba Arikha."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write a short story in a day</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-03T10:00:00.000Z">
+                3 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-your-family-history-32468227342" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/789e7f84fa62fbdbddff2f6a826934297e5a64d9/0_34_932_559/500.jpg 500w, https://media.guim.co.uk/789e7f84fa62fbdbddff2f6a826934297e5a64d9/0_34_932_559/master/932.jpg 932w, https://media.guim.co.uk/789e7f84fa62fbdbddff2f6a826934297e5a64d9/0_34_932_559/932.jpg 932w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to write your family history with Nick Barlay."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write your family history</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-04T10:00:00.000Z">
+                4 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/create-engaging-video-a-masterclass-with-video-journalist-rob-glass-36828979469" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/eabef42cd984c26726f6336ee38b961556b59a0e/133_0_3999_2400/500.jpg 500w, https://media.guim.co.uk/eabef42cd984c26726f6336ee38b961556b59a0e/133_0_3999_2400/master/3999.jpg 3999w, https://media.guim.co.uk/eabef42cd984c26726f6336ee38b961556b59a0e/133_0_3999_2400/3999.jpg 3999w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Create engaging video: A masterclass."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Create engaging video: A masterclass with video journalist Rob Glass</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-04T10:00:00.000Z">
+                4 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-use-instagram-to-build-your-brand-32295657180" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0c3434ed8df916bf396df43d844832d09510abc1/0_33_880_528/500.jpg 500w, https://media.guim.co.uk/0c3434ed8df916bf396df43d844832d09510abc1/0_33_880_528/master/880.jpg 880w, https://media.guim.co.uk/0c3434ed8df916bf396df43d844832d09510abc1/0_33_880_528/880.jpg 880w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to use Instagram to build your brand."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to use Instagram to build your brand</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-05T14:00:00.000Z">
+                5 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-essentials-of-infographic-storytelling-37333652961" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718945219/0671b598-c318-4af1-b222-324c84363953-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718944826/831d5e57-c35f-425a-9b12-c214e709ea8d-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718945526/2533676a-e34e-4d88-8197-caa7f0072626-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718945635/32837b35-8752-4a7a-8873-51c3e8d4f45c-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718944934/595cc9fe-ac2d-4e34-9f74-5487ec67dd38-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718945102/a24e6d1c-856f-469b-93de-4ac7f101e081-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718945747/1e5f3f49-2c15-486e-b5df-d5266cdee3f9-620x372.jpeg 620w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/22/1429718945337/0c4e3734-e7fb-439d-beb6-9c568507a616-1020x612.jpeg 1020w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Valentina D’Efilippo."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The essentials of infographic storytelling</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-05T18:30:00.000Z">
+                5 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/feature-writing-and-digital-storytelling-with-jon-henley-33046951321" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/28/1440761121967/59a6cc26-49c4-45ff-9247-236fbae14c7b-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/28/1440761121813/def8a1aa-551a-45d0-99d3-31bd7a9441b1-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/28/1440761122175/2985284f-c5d4-4e59-adbc-a855acbd727f-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/28/1440761122532/31319b07-308e-4750-ab32-6533072b8efd-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/28/1440761122339/9b39d2c2-a4ec-46c3-83d0-bcd374dc0ce8-bestSizeAvailable.jpeg 420w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Feature writing and digital storytelling."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Feature writing and digital storytelling with Jon Henley</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-05T18:30:00.000Z">
+                5 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-turn-your-blog-into-a-brand-33086388278" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/5f6809cc848f61d50ce67fc9ed4ae3177af48bde/0_0_3445_2064/140.jpg 140w, https://media.guim.co.uk/5f6809cc848f61d50ce67fc9ed4ae3177af48bde/0_0_3445_2064/500.jpg 500w, https://media.guim.co.uk/5f6809cc848f61d50ce67fc9ed4ae3177af48bde/0_0_3445_2064/1000.jpg 1000w, https://media.guim.co.uk/5f6809cc848f61d50ce67fc9ed4ae3177af48bde/0_0_3445_2064/2000.jpg 2000w, https://media.guim.co.uk/5f6809cc848f61d50ce67fc9ed4ae3177af48bde/0_0_3445_2064/3445.jpg 3445w, https://media.guim.co.uk/5f6809cc848f61d50ce67fc9ed4ae3177af48bde/0_0_3445_2064/master/3445.jpg 3445w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Charly Lester"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to turn your blog into a brand</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-06T18:30:00.000Z">
+                6 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-freelancer-bootcamp-money-money-money-37036643598" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/500.jpg 500w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/master/1920.jpg 1920w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/1920.jpg 1920w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Natalie Campbell, Samantha Clarke, Mark Leruste and Emma Sexton."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The Freelancer Bootcamp: Money, money, money</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-07T18:30:00.000Z">
+                7 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/time-and-place-a-masterclass-with-cambridge-universitys-creative-writing-tutors-37649736375" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/500.jpg 500w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/master/1240.jpg 1240w, https://media.guim.co.uk/58023b887c4a9867953863935e15a9e1edb40fb6/0_0_1240_744/1240.jpg 1240w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Professor Jem Poster and Dr Sarah Burton"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Time and place: A masterclass with Cambridge University’s creative writing tutors</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-10T10:00:00.000Z">
+                10 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-use-your-digital-camera-a-course-with-guardian-photographer-david-levene-37333513544" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/92cfa84826db9f0e577f2b7c87361b97d91cf79b/0_32_960_576/500.jpg 500w, https://media.guim.co.uk/92cfa84826db9f0e577f2b7c87361b97d91cf79b/0_32_960_576/960.jpg 960w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to use your digital camera: A photography course with David Levene."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to use your digital camera: A course with Guardian photographer David Levene</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-10T10:00:00.000Z">
+                10 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-use-your-digital-camera-a-course-with-guardian-photographer-david-levene-37333567706" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/92cfa84826db9f0e577f2b7c87361b97d91cf79b/0_32_960_576/500.jpg 500w, https://media.guim.co.uk/92cfa84826db9f0e577f2b7c87361b97d91cf79b/0_32_960_576/960.jpg 960w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to use your digital camera: A photography course with David Levene."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to use your digital camera: A course with Guardian photographer David Levene</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-11T10:00:00.000Z">
+                11 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/an-evening-at-tate-modern-with-jonathan-jones-39516079658" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/44b7cf776250ee259fbcb600e2649130e0d37947/0_329_1880_1128/500.jpg 500w, https://media.guim.co.uk/44b7cf776250ee259fbcb600e2649130e0d37947/0_329_1880_1128/1880.jpg 1880w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Tate Modern"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">An evening at Tate Modern with Jonathan Jones</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-16T18:30:00.000Z">
+                16 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    Tate Modern, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-art-of-the-crossword-how-to-solve-clues-and-create-your-own-puzzles-39448568731" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/f3bb9032fef4230e378ad93ffe5eea7f52a8cf3a/0_32_3695_2217/500.jpg 500w, https://media.guim.co.uk/f3bb9032fef4230e378ad93ffe5eea7f52a8cf3a/0_32_3695_2217/master/3695.jpg 3695w, https://media.guim.co.uk/f3bb9032fef4230e378ad93ffe5eea7f52a8cf3a/0_32_3695_2217/3695.jpg 3695w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Close-up of a hand holding a pencil doing a crossword&lt;br&gt;GettyImages-128898662"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The art of the crossword: How to solve clues and create your own puzzles</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-18T10:00:00.000Z">
+                18 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/get-gardening-in-2018-a-masterclass-with-alys-fowler-charles-dowding-hollie-newton-37845835914" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/d5659e09231419191beb1064e6d26c094445cef0/0_0_1500_900/500.jpg 500w, https://media.guim.co.uk/d5659e09231419191beb1064e6d26c094445cef0/0_0_1500_900/master/1500.jpg 1500w, https://media.guim.co.uk/d5659e09231419191beb1064e6d26c094445cef0/0_0_1500_900/1500.jpg 1500w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Alys Fowler, Charles Dowding and Hollie Newton."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Get gardening in 2018: A masterclass with Alys Fowler, Charles Dowding &amp; Hollie Newton</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-18T10:00:00.000Z">
+                18 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/longform-journalism-a-oneday-workshop-with-guardian-writer-will-storr-34691441034" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/1b7638d436d0f9bd7e6960dc1fdf2fb512996f23/0_1656_3840_2302/500.jpg 500w, https://media.guim.co.uk/1b7638d436d0f9bd7e6960dc1fdf2fb512996f23/0_1656_3840_2302/3840.jpg 3840w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Guardian writer and freelance journalist Will Storr. ​"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Long-form journalism: A one-day workshop with Guardian writer Will Storr</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-18T10:00:00.000Z">
+                18 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-better-copy-32467954526" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/32270909129af8fa7f8b55978948e3739d504bbf/9_180_5384_3231/500.jpg 500w, https://media.guim.co.uk/32270909129af8fa7f8b55978948e3739d504bbf/9_180_5384_3231/master/5384.jpg 5384w, https://media.guim.co.uk/32270909129af8fa7f8b55978948e3739d504bbf/9_180_5384_3231/5384.jpg 5384w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to write better copy."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write better copy</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-19T10:00:00.000Z">
+                19 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/advanced-social-media-for-businesses-39123763229" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/545f5e0382b1697393af5b9becef26f7c3860e5e/0_0_1920_1152/500.jpg 500w, https://media.guim.co.uk/545f5e0382b1697393af5b9becef26f7c3860e5e/0_0_1920_1152/master/1920.jpg 1920w, https://media.guim.co.uk/545f5e0382b1697393af5b9becef26f7c3860e5e/0_0_1920_1152/1920.jpg 1920w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Advanced social media for businesses"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Advanced social media for businesses</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-20T10:00:00.000Z">
+                20 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-make-better-decisions-with-lse-fellow-in-decision-science-dr-valentina-ferretti-39731826964" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/a748f38c7e68d6e653f59dfd97bb134fe95206ed/0_326_3065_1839/500.jpg 500w, https://media.guim.co.uk/a748f38c7e68d6e653f59dfd97bb134fe95206ed/0_326_3065_1839/master/3065.jpg 3065w, https://media.guim.co.uk/a748f38c7e68d6e653f59dfd97bb134fe95206ed/0_326_3065_1839/3065.jpg 3065w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Dr Valentina Ferretti."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to make better decisions with LSE fellow in decision science Dr Valentina Ferretti</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-20T18:30:00.000Z">
+                20 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/becoming-an-expert-and-developing-a-personal-brand-an-evening-class-with-charly-lester-33086753370" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/50a6e3833a05045a6d6e135b759b2ca611f15d44/0_1071_4701_2823/140.jpg 140w, https://media.guim.co.uk/50a6e3833a05045a6d6e135b759b2ca611f15d44/0_1071_4701_2823/500.jpg 500w, https://media.guim.co.uk/50a6e3833a05045a6d6e135b759b2ca611f15d44/0_1071_4701_2823/1000.jpg 1000w, https://media.guim.co.uk/50a6e3833a05045a6d6e135b759b2ca611f15d44/0_1071_4701_2823/2000.jpg 2000w, https://media.guim.co.uk/50a6e3833a05045a6d6e135b759b2ca611f15d44/0_1071_4701_2823/4701.jpg 4701w, https://media.guim.co.uk/50a6e3833a05045a6d6e135b759b2ca611f15d44/0_1071_4701_2823/master/4701.jpg 4701w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Charly Lester."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Becoming an expert and developing a personal brand: An evening class with Charly Lester</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-20T18:30:00.000Z">
+                20 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/free-your-creativity-and-get-started-on-your-book-32471488095" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/e154bc644961c6dc83d210226966daf66f6f6033/0_648_4320_2592/500.jpg 500w, https://media.guim.co.uk/e154bc644961c6dc83d210226966daf66f6f6033/0_648_4320_2592/master/4320.jpg 4320w, https://media.guim.co.uk/e154bc644961c6dc83d210226966daf66f6f6033/0_648_4320_2592/4320.jpg 4320w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Philippa Pride"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Free your creativity and get started on your book</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-24T10:00:00.000Z">
+                24–25 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/your-best-years-yet-plan-your-post50-life-in-a-weekend-38072010408" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0c1f16896e2bda2f0ef9d89cfe85955974d79ba3/268_988_2612_1566/500.jpg 500w, https://media.guim.co.uk/0c1f16896e2bda2f0ef9d89cfe85955974d79ba3/268_988_2612_1566/master/2612.jpg 2612w, https://media.guim.co.uk/0c1f16896e2bda2f0ef9d89cfe85955974d79ba3/268_988_2612_1566/2612.jpg 2612w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Adrian and Judy Reith."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Your best years yet: Plan your post-50 life in a weekend</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-24T10:00:00.000Z">
+                24–25 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/data-visualisation-a-oneday-workshop-39517105727" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082226/2ddc09a3-bbe7-47cd-abe6-f245ddb73850-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082087/d4cc1c57-2ac1-4b93-863c-877ec149a330-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082465/9c6eea28-499d-48b5-b0e1-fb0f187e08f8-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082816/463b8ffe-24d5-41e2-bce6-3bf69f8a32c3-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082636/9a711661-393f-445a-8f2d-eb7e9c79d961-bestSizeAvailable.jpeg 420w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Data visualisation masterclass."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Data visualisation: A one-day workshop</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-24T10:00:00.000Z">
+                24 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-develop-your-idea-for-a-documentary-39916648771" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/27/1445964815772/04898c13-1619-4426-938e-bb506e290e42-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/27/1445964815091/3cef55e2-fb5c-4c1e-ae7f-fd8d55ad2c65-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/27/1445964815907/406eb2b9-afb4-419f-9d73-fe87cb6ccd16-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/27/1445964816104/3daf90eb-bb5e-4bcd-bfe1-54f6efabb14e-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/27/1445964815351/6160a791-7335-47c7-8cc5-5e2bd76e9fd6-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/27/1445964815555/27851cd3-e7ec-4fe3-b65e-ae83bb4c05ee-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/27/1445964816295/654838a4-eecc-46fb-b5bb-8f84457beda8-620x372.jpeg 620w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Charlie Phillips."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to develop your idea for a documentary</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-26T18:30:00.000Z">
+                26 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-get-hired-a-masterclass-with-career-coach-corinne-mills-40029552469" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/3a1d077ac1d9c4b339c7549c72aa713070e3a516/0_330_5102_3061/500.jpg 500w, https://media.guim.co.uk/3a1d077ac1d9c4b339c7549c72aa713070e3a516/0_330_5102_3061/master/5102.jpg 5102w, https://media.guim.co.uk/3a1d077ac1d9c4b339c7549c72aa713070e3a516/0_330_5102_3061/5102.jpg 5102w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to get hired: A masterclass with career coach Corinne Mills"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to get hired: A masterclass with career coach Corinne Mills</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-26T18:30:00.000Z">
+                26 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/stuffocation-how-to-declutter-your-life-and-experience-more-39767258942" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/a05583f3d74c7e7e814f1181aefe05b392fb4af5/0_86_1500_899/500.jpg 500w, https://media.guim.co.uk/a05583f3d74c7e7e814f1181aefe05b392fb4af5/0_86_1500_899/master/1500.jpg 1500w, https://media.guim.co.uk/a05583f3d74c7e7e814f1181aefe05b392fb4af5/0_86_1500_899/1500.jpg 1500w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="James Wallman."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Stuffocation: How to declutter your life and experience more</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-28T18:30:00.000Z">
+                28 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-freelancer-bootcamp-futureproofing-your-freelance-life-37036792042" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/500.jpg 500w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/master/1920.jpg 1920w, https://media.guim.co.uk/0d89d659c637176c1caccfc38942d6c3c3d3af81/0_0_1920_1152/1920.jpg 1920w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Natalie Campbell, Samantha Clarke, Mark Leruste and Emma Sexton."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The Freelancer Bootcamp: Future-proofing your freelance life</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-02-28T18:30:00.000Z">
+                28 February 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-beginners-guide-to-creating-a-successful-blog-32294583970" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/1bc25e5276c4bd14ffda9152f37e2b21de931fde/0_0_5760_3456/500.jpg 500w, https://media.guim.co.uk/1bc25e5276c4bd14ffda9152f37e2b21de931fde/0_0_5760_3456/master/5760.jpg 5760w, https://media.guim.co.uk/1bc25e5276c4bd14ffda9152f37e2b21de931fde/0_0_5760_3456/5760.jpg 5760w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="The beginner’s guide to creating a successful blog"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The beginner&#x27;s guide to creating a successful blog</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-05T18:30:00.000Z">
+                5 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/history-the-story-of-england-40028237536" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356843477/54af5162-1a5e-4e95-9456-bef3d49aa75b-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356842727/9ff11665-7526-4388-be68-4cad701a6a1d-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356844226/c3e11daf-289d-4218-8e6c-909ab38c461e-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356844413/bf4b29e6-659f-411f-951b-ce3dabb8012c-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356842906/a9b209c5-07dd-4c46-bcc9-8f35da8dd6c9-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356843297/3cba5fc8-45b3-4611-811a-121528bebc51-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356844595/ee554d12-fc0b-41ee-b840-9f6b4dd31f87-620x372.jpeg 620w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356843824/c91cdc29-7feb-4d16-86e6-0b7bdb70fb0f-1020x612.jpeg 1020w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/7/31/1438356845080/eb065598-bc8a-4fd3-ab4e-af1802ea1461-2060x1236.jpeg 2060w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="History: The story of England."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">History: The story of England</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-05T18:30:00.000Z">
+                5 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/kickstart-your-business-a-masterclass-for-entrepreneurs-33462264534" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/482978530793dbfc0153268ae1a540fa693c816a/316_30_3819_2293/500.jpg 500w, https://media.guim.co.uk/482978530793dbfc0153268ae1a540fa693c816a/316_30_3819_2293/master/3819.jpg 3819w, https://media.guim.co.uk/482978530793dbfc0153268ae1a540fa693c816a/316_30_3819_2293/3819.jpg 3819w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Charly Lester and Caroline Brealey."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Kickstart your business: A masterclass for entrepreneurs</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-06T18:30:00.000Z">
+                6 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-create-a-successful-podcast-40029040939" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/78321c0f33fd80276f1d721d9c0bd27f285a6537/0_400_6000_3600/500.jpg 500w, https://media.guim.co.uk/78321c0f33fd80276f1d721d9c0bd27f285a6537/0_400_6000_3600/master/6000.jpg 6000w, https://media.guim.co.uk/78321c0f33fd80276f1d721d9c0bd27f285a6537/0_400_6000_3600/6000.jpg 6000w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to create a successful podcast."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to create a successful podcast</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-06T18:30:00.000Z">
+                6 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/living-with-presence-using-the-art-and-science-of-mindfulness-in-everyday-life-40027717982" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/eaf982c69201a63a208eed445269cf36340f9208/0_0_1323_794/500.jpg 500w, https://media.guim.co.uk/eaf982c69201a63a208eed445269cf36340f9208/0_0_1323_794/master/1323.jpg 1323w, https://media.guim.co.uk/eaf982c69201a63a208eed445269cf36340f9208/0_0_1323_794/1323.jpg 1323w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Dr. Barbara Mariposa."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Living with presence: Using the art and science of mindfulness in everyday life</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-10T10:00:00.000Z">
+                10–11 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-principles-of-good-garden-design-a-masterclass-with-james-alexandersinclair-39960757702" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/79676c945546a5cbfd6177aae19b1a9fb6f9facb/0_317_960_576/500.jpg 500w, https://media.guim.co.uk/79676c945546a5cbfd6177aae19b1a9fb6f9facb/0_317_960_576/master/960.jpg 960w, https://media.guim.co.uk/79676c945546a5cbfd6177aae19b1a9fb6f9facb/0_317_960_576/960.jpg 960w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="James Alexander-Sinclair."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The principles of good garden design: A masterclass with James Alexander-Sinclair</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-10T10:00:00.000Z">
+                10 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/writing-for-business-how-to-create-copy-that-has-a-real-impact-39726069744" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/8fdc10702c1f645d80ecee1bda764ec3408a4bb9/0_38_5136_3080/500.jpg 500w, https://media.guim.co.uk/8fdc10702c1f645d80ecee1bda764ec3408a4bb9/0_38_5136_3080/master/5136.jpg 5136w, https://media.guim.co.uk/8fdc10702c1f645d80ecee1bda764ec3408a4bb9/0_38_5136_3080/5136.jpg 5136w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Andy Pemberton"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Writing for business: How to create copy that has a real impact</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-12T10:00:00.000Z">
+                12 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-become-a-successful-sports-writer-40146369873" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/6f6cfd5ae223d5be35de02fd716a67e32fe03241/5_18_926_556/500.jpg 500w, https://media.guim.co.uk/6f6cfd5ae223d5be35de02fd716a67e32fe03241/5_18_926_556/master/926.jpg 926w, https://media.guim.co.uk/6f6cfd5ae223d5be35de02fd716a67e32fe03241/5_18_926_556/926.jpg 926w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt=" How to become a successful sports writer."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to become a successful sports writer</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-13T18:30:00.000Z">
+                13 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-improve-your-memory-and-sharpen-your-focus-39922260556" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/30/1446216361714/beb35727-11d2-4b4c-a56a-5c0620f87a8a-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/10/30/1446216362214/a720c9c3-3717-4529-bd5d-901b0473c4e6-1020x612.jpeg 1020w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="How to improve your memory and sharpen your focus."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to improve your memory and sharpen your focus</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-13T18:30:00.000Z">
+                13 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/writing-persuasive-copy-a-oneday-course-39517371522" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/ea51d07125ab2bf305561b2f82627c9df475315d/0_111_3300_1980/500.jpg 500w, https://media.guim.co.uk/ea51d07125ab2bf305561b2f82627c9df475315d/0_111_3300_1980/3300.jpg 3300w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Barnaby Benson."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Writing persuasive copy: A one-day course</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-14T10:00:00.000Z">
+                14 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-a-childrens-book-a-masterclass-with-acclaimed-childrens-authors-and-publishers-39329729279" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/175c1736deb031607701ff7045fdf3c42117ff25/0_674_6525_3916/500.jpg 500w, https://media.guim.co.uk/175c1736deb031607701ff7045fdf3c42117ff25/0_674_6525_3916/master/6525.jpg 6525w, https://media.guim.co.uk/175c1736deb031607701ff7045fdf3c42117ff25/0_674_6525_3916/6525.jpg 6525w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Malorie Blackman."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write a children&#x27;s book: A masterclass with acclaimed children&#x27;s authors and publishers</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-17T10:00:00.000Z">
+                17 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-develop-your-book-and-get-published-32267596249" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/8fd951899b7e7be8dcbc2e3a3cac022079383459/472_465_4756_2855/500.jpg 500w, https://media.guim.co.uk/8fd951899b7e7be8dcbc2e3a3cac022079383459/472_465_4756_2855/master/4756.jpg 4756w, https://media.guim.co.uk/8fd951899b7e7be8dcbc2e3a3cac022079383459/472_465_4756_2855/4756.jpg 4756w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Guardian Masterclasses: Develop your book and get it published."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to develop your book and get published</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-17T10:00:00.000Z">
+                17–18 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/crafting-compelling-characters-for-your-novel-39517463798" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/415cd4c5046aefe4f80fc0a8a4a85eaf4f18bedc/80_222_1630_978/500.jpg 500w, https://media.guim.co.uk/415cd4c5046aefe4f80fc0a8a4a85eaf4f18bedc/80_222_1630_978/master/1630.jpg 1630w, https://media.guim.co.uk/415cd4c5046aefe4f80fc0a8a4a85eaf4f18bedc/80_222_1630_978/1630.jpg 1630w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Tim Lott."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Crafting compelling characters for your novel</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-17T10:00:00.000Z">
+                17–18 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/a-morning-at-the-victoria-and-albert-museum-with-jonathan-jones-39516081664" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/58ddcf64c51bcf133a9c2a656607d3124d00897e/0_188_1313_788/500.jpg 500w, https://media.guim.co.uk/58ddcf64c51bcf133a9c2a656607d3124d00897e/0_188_1313_788/master/1313.jpg 1313w, https://media.guim.co.uk/58ddcf64c51bcf133a9c2a656607d3124d00897e/0_188_1313_788/1313.jpg 1313w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Victoria and Albert Museum"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">A morning at the Victoria and Albert Museum with Jonathan Jones</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-17T10:30:00.000Z">
+                17 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    Victoria and Albert Museum, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/the-science-of-storytelling-with-will-storr-34980423388" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/4cb6e9c4c4c5a8609f1f24bc17c3b9708ef63a32/0_169_2821_1693/500.jpg 500w, https://media.guim.co.uk/4cb6e9c4c4c5a8609f1f24bc17c3b9708ef63a32/0_169_2821_1693/2821.jpg 2821w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="The science of storytelling with Will Storr"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">The science of storytelling with Will Storr</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-18T10:00:00.000Z">
+                18 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/food-styling-and-photography-with-henrietta-clancy-and-jill-mead-39870108568" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/430d519645dc2ad0ef87689fdb54bb446e0713b2/0_0_720_432/500.jpg 500w, https://media.guim.co.uk/430d519645dc2ad0ef87689fdb54bb446e0713b2/0_0_720_432/master/720.jpg 720w, https://media.guim.co.uk/430d519645dc2ad0ef87689fdb54bb446e0713b2/0_0_720_432/720.jpg 720w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Henrietta Clancy."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Food styling and photography with Henrietta Clancy and Jill Mead</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-18T10:00:00.000Z">
+                18 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/stop-procrastinating-and-start-your-own-food-business-33452664821" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513255907/409fff9c-0ede-47e0-99fa-7b54f00544b9-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513255317/f2dbe302-3682-4f0f-980e-bd1aafb5636f-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513256567/3da88787-3da5-44e8-afef-781ad49aa5a9-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513256720/7e13be06-f934-47d3-968c-d6918b8636f5-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513255509/b8607bdc-375d-4a4e-b66b-a28179c7364a-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513255703/9f85f0ef-ecf0-41bb-a583-51efc20560cd-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513256951/4f462869-77db-4527-a58a-9603b4f35bf0-620x372.jpeg 620w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513256274/da8895fe-1230-4cc1-834f-ae0c26a6d55a-1020x612.jpeg 1020w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/25/1440513257526/1ed31731-d43a-4ed2-af23-aa3ea1545c31-2060x1236.jpeg 2060w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Food business masterclass."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Stop procrastinating and start your own food business</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-19T18:30:00.000Z">
+                19 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/beginners-guide-to-social-media-for-businesses-39123636851" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/b3f11e3e3848625f413ae354079a823e0624bf1f/0_186_3967_2380/500.jpg 500w, https://media.guim.co.uk/b3f11e3e3848625f413ae354079a823e0624bf1f/0_186_3967_2380/master/3967.jpg 3967w, https://media.guim.co.uk/b3f11e3e3848625f413ae354079a823e0624bf1f/0_186_3967_2380/3967.jpg 3967w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Beginner’s guide to social media for businesses"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Beginner&#x27;s guide to social media for businesses</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-20T10:00:00.000Z">
+                20 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/advanced-data-visualisation-a-oneday-workshop-32113710974" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/20/1448017237580/3cd68ec6-2331-48e7-a97b-2b7fac8d17e8-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/20/1448017236910/74450ea6-9386-4ff8-811c-28d02abd18d4-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/20/1448017237735/78d0607c-abe5-41b6-82a8-c8a748b092cb-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/20/1448017237990/db41c143-aa71-41dd-9555-5c0222c461c7-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/20/1448017237150/6175811e-8086-430b-b9ea-fc9db12184f9-460x276.jpeg 460w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/20/1448017237360/ed634024-ea20-4578-8fbe-c1fcb0fb10bd-540x324.jpeg 540w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/11/20/1448017238290/1d3a463c-5507-4961-b6e0-b6a88c976deb-620x372.jpeg 620w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Advanced data visualisation."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Advanced data visualisation: A one-day workshop</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-21T10:00:00.000Z">
+                21 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/writing-your-novel-a-sixweek-creative-writing-programme-with-ross-raisin-39921513321" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/14cec30998bccb87d4849af29cb341c4832576f9/0_131_3715_2229/500.jpg 500w, https://media.guim.co.uk/14cec30998bccb87d4849af29cb341c4832576f9/0_131_3715_2229/master/3715.jpg 3715w, https://media.guim.co.uk/14cec30998bccb87d4849af29cb341c4832576f9/0_131_3715_2229/3715.jpg 3715w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Ross Raisin."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Writing your novel: A six-week creative writing programme with Ross Raisin</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-21T18:30:00.000Z">
+                21 March–25 April 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/data-visualisation-a-oneday-workshop-39517142838" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082226/2ddc09a3-bbe7-47cd-abe6-f245ddb73850-140x84.jpeg 140w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082087/d4cc1c57-2ac1-4b93-863c-877ec149a330-220x132.jpeg 220w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082465/9c6eea28-499d-48b5-b0e1-fb0f187e08f8-300x180.jpeg 300w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082816/463b8ffe-24d5-41e2-bce6-3bf69f8a32c3-380x228.jpeg 380w, https://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/8/7/1438954082636/9a711661-393f-445a-8f2d-eb7e9c79d961-bestSizeAvailable.jpeg 420w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Data visualisation masterclass."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Data visualisation: A one-day workshop</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-23T10:00:00.000Z">
+                23 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/learn-to-love-public-speaking-and-presentations-39724713688" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/6fe37d0f61c014bb26f9861b79be57230971a098/0_0_1700_1020/140.jpg 140w, https://media.guim.co.uk/6fe37d0f61c014bb26f9861b79be57230971a098/0_0_1700_1020/500.jpg 500w, https://media.guim.co.uk/6fe37d0f61c014bb26f9861b79be57230971a098/0_0_1700_1020/1000.jpg 1000w, https://media.guim.co.uk/6fe37d0f61c014bb26f9861b79be57230971a098/0_0_1700_1020/1700.jpg 1700w, https://media.guim.co.uk/6fe37d0f61c014bb26f9861b79be57230971a098/0_0_1700_1020/master/1700.jpg 1700w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Ryan Millar."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">Learn to love public speaking and presentations</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-26T10:00:00.000+01:00">
+                26 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/what-journalists-want-a-masterclass-for-prs-and-marketers-32294165719" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/63842bb224ce4503e5a17e417d8c2f8bf5b99d5d/0_346_5184_3110/500.jpg 500w, https://media.guim.co.uk/63842bb224ce4503e5a17e417d8c2f8bf5b99d5d/0_346_5184_3110/master/5184.jpg 5184w, https://media.guim.co.uk/63842bb224ce4503e5a17e417d8c2f8bf5b99d5d/0_346_5184_3110/5184.jpg 5184w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Lauren Razavi"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">What journalists want: A masterclass for PRs and marketers</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-27T14:00:00.000+01:00">
+                27 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-deliver-a-business-pitch-38340926744" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/91d1a67a0a0f32923368af94ffde229bdf5c716f/649_205_1629_978/500.jpg 500w, https://media.guim.co.uk/91d1a67a0a0f32923368af94ffde229bdf5c716f/649_205_1629_978/master/1629.jpg 1629w, https://media.guim.co.uk/91d1a67a0a0f32923368af94ffde229bdf5c716f/649_205_1629_978/1629.jpg 1629w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Jonas Altman"
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to deliver a business pitch</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-03-27T18:30:00.000+01:00">
+                27 March 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/how-to-write-a-short-story-collection-a-sixweek-creative-writing-course-32292630126" class="event-item event-item--clippath-0 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/8e0dc419bd0c282f9c132b0cc0478c08af28d2cf/0_327_4000_2400/500.jpg 500w, https://media.guim.co.uk/8e0dc419bd0c282f9c132b0cc0478c08af28d2cf/0_327_4000_2400/master/4000.jpg 4000w, https://media.guim.co.uk/8e0dc419bd0c282f9c132b0cc0478c08af28d2cf/0_327_4000_2400/4000.jpg 4000w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Alba Arikha."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">How to write a short story collection: A six-week creative writing course</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-04-17T18:30:00.000+01:00">
+                17 April–22 May 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                        <li class="grid__item js-filter-item">
+                            
+
+
+
+
+
+
+<a href="/event/a-creative-approach-to-data-handdrawn-data-visualisation-36266026662" class="event-item event-item--clippath-1 qa-available-event-item">
+    
+        
+    
+        <div class="event-item__media">
+            
+
+<img
+    data-srcset="https://media.guim.co.uk/9bfaf750f311167b398cad189253c146844f8afc/0_191_983_589/500.jpg 500w, https://media.guim.co.uk/9bfaf750f311167b398cad189253c146844f8afc/0_191_983_589/master/983.jpg 983w, https://media.guim.co.uk/9bfaf750f311167b398cad189253c146844f8afc/0_191_983_589/983.jpg 983w"
+    sizes="(min-width: 739px) 33.3vw, (min-width: 479px) 50vw, 20vw"
+    alt="Stefanie Posavec."
+    class="responsive-img  js-lazyload"
+>
+
+        </div>
+    
+
+        
+    <div class="event-item__content">
+        <div class="event-item__meta">
+            
+
+<h4 class="event-item__title">
+    
+    <span data-filter-key="title" class="qa-event-item-title">A creative approach to data: hand-drawn data visualisation</span>
+</h4>
+
+            <time class="event-item__time" datetime="2018-04-23T10:00:00.000+01:00">
+                23 April 2018
+            </time>
+            
+                <div class="event-item__location">
+                    The Guardian, London
+                </div>
+            
+            <div class="event-item__brand"></div>
+            
+        </div>
+    </div>
+
+    
+</a>
+
+                        </li>
+                    
+                </ul>
+            
+        </div>
+    </section>
+
+
+        </div>
+
+    </main>
+
+    
+
+<section class="listing listing--basic tone-tint">
+    <div class="l-constrained">
+        <div class="listing__lead-in">
+            <h3 class="h-intro">Join membership today</h3>
+        </div>
+        <div class="listing__content">
+            <ul class="grid grid--equal-heights grid--bordered grid--3up-stacked">
+                
+                    <li class="grid__item">
+                        
+
+
+
+<div class=" package-promo--reversed package-promo--default  tone-border-supporter">
+    <div class="package-promo__header">
+        <a class="no-underline minimal-link" href="/join/supporter/enter-details?countryGroup=uk" data-metric-trigger=click data-metric-category=join data-metric-action=supporter>
+            <div class="package-promo__tier">
+                <div class="package-promo__tier__title">
+                    
+
+
+<div class="tier-trail">
+    <h3 class="tier-trail__name">
+        
+
+<svg class="icon-inline icon-inline--medium tone-fill-supporter">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-g-mark"></use>
+</svg>
+
+        Supporter
+    </h3>
+    
+</div>
+
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="package-promo__content">
+        
+            <div class="package-promo__description copy">
+                <ul class="o-bulleted-list">
+                    
+                        <li>
+                            
+                            Support the independence of the Guardian and our award-winning journalism
+                        </li>
+                    
+                        <li>
+                            
+                            Get access to tickets and to the live broadcast of events
+                        </li>
+                    
+                </ul>
+                
+            </div>
+        
+
+            <div class="package-promo__actions ">
+                <div class="package-promo__actions__pricing">
+                
+                        
+<div class="price-info price-info--flex ">
+    
+        <div class="price-info__item price-info__item--split">
+            <div class="price-info__detail">
+                <strong class="price-info__value">
+                     £49 
+                </strong>
+                <span class="price-info__date">/year</span>
+            </div>
+            
+                <div class="price-info__saving">Save £11/year</div>
+            
+        </div>
+        <div class="price-info__item price-info__item--split price-info__item--last">
+            <div class="price-info__detail price-info__detail--right">
+                <strong class="price-info__value">
+                     £5 
+                </strong>
+                <span class="price-info__date">/month</span>
+            </div>
+        </div>
+    
+</div>
+
+                    
+                </div>
+                <a class="action qa-package-supporter  u-no-bottom-margin" href="/join/supporter/enter-details?countryGroup=uk">
+                    Become a Supporter
+                </a>
+                
+            </div>
+
+    </div>
+</div>
+
+                    </li>
+                
+                    <li class="grid__item">
+                        
+
+
+
+<div class=" package-promo--reversed package-promo--default  tone-border-partner">
+    <div class="package-promo__header">
+        <a class="no-underline minimal-link" href="/join/partner/enter-details?countryGroup=uk" data-metric-trigger=click data-metric-category=join data-metric-action=partner>
+            <div class="package-promo__tier">
+                <div class="package-promo__tier__title">
+                    
+
+
+<div class="tier-trail">
+    <h3 class="tier-trail__name">
+        
+
+<svg class="icon-inline icon-inline--medium tone-fill-partner">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-g-mark"></use>
+</svg>
+
+        Partner
+    </h3>
+    
+</div>
+
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="package-promo__content">
+        
+            <div class="package-promo__description copy">
+                <ul class="o-bulleted-list">
+                    
+                        <li>
+                            
+                            Includes 6 tickets to Guardian Live events
+ (or 4 Guardian-published books) per year
+                        </li>
+                    
+                        <li>
+                            
+                            Get priority booking and 20% discount on Guardian Live and most Guardian Masterclasses
+                        </li>
+                    
+                        <li>
+                            
+                            Welcome gift
+                        </li>
+                    
+                </ul>
+                
+            </div>
+        
+
+            <div class="package-promo__actions ">
+                <div class="package-promo__actions__pricing">
+                
+                        
+<div class="price-info price-info--flex ">
+    
+        <div class="price-info__item price-info__item--split">
+            <div class="price-info__detail">
+                <strong class="price-info__value">
+                     £149 
+                </strong>
+                <span class="price-info__date">/year</span>
+            </div>
+            
+                <div class="price-info__saving">Save £31/year</div>
+            
+        </div>
+        <div class="price-info__item price-info__item--split price-info__item--last">
+            <div class="price-info__detail price-info__detail--right">
+                <strong class="price-info__value">
+                     £15 
+                </strong>
+                <span class="price-info__date">/month</span>
+            </div>
+        </div>
+    
+</div>
+
+                    
+                </div>
+                <a class="action qa-package-partner  u-no-bottom-margin" href="/join/partner/enter-details?countryGroup=uk">
+                    Become a Partner
+                </a>
+                
+            </div>
+
+    </div>
+</div>
+
+                    </li>
+                
+                    <li class="grid__item">
+                        
+
+
+
+<div class=" package-promo--reversed package-promo--default  tone-border-patron">
+    <div class="package-promo__header">
+        <a class="no-underline minimal-link" href="/join/patron/enter-details?countryGroup=uk" data-metric-trigger=click data-metric-category=join data-metric-action=patron>
+            <div class="package-promo__tier">
+                <div class="package-promo__tier__title">
+                    
+
+
+<div class="tier-trail">
+    <h3 class="tier-trail__name">
+        
+
+<svg class="icon-inline icon-inline--medium tone-fill-patron">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-g-mark"></use>
+</svg>
+
+        Patron
+    </h3>
+    
+</div>
+
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="package-promo__content">
+        
+            <div class="package-promo__description copy">
+                <ul class="o-bulleted-list">
+                    
+                        <li>
+                            
+                            Show deep support for keeping the Guardian open and independent
+                        </li>
+                    
+                        <li>
+                            
+                            Get invited to a small number of exclusive, behind-the-scenes functions
+                        </li>
+                    
+                </ul>
+                
+            </div>
+        
+
+            <div class="package-promo__actions ">
+                <div class="package-promo__actions__pricing">
+                
+                        
+<div class="price-info price-info--flex ">
+    
+        <div class="price-info__item price-info__item--split">
+            <div class="price-info__detail">
+                <strong class="price-info__value">
+                     £599 
+                </strong>
+                <span class="price-info__date">/year</span>
+            </div>
+            
+                <div class="price-info__saving">Save £121/year</div>
+            
+        </div>
+        <div class="price-info__item price-info__item--split price-info__item--last">
+            <div class="price-info__detail price-info__detail--right">
+                <strong class="price-info__value">
+                     £60 
+                </strong>
+                <span class="price-info__date">/month</span>
+            </div>
+        </div>
+    
+</div>
+
+                    
+                </div>
+                <a class="action qa-package-patron  u-no-bottom-margin" href="/join/patron/enter-details?countryGroup=uk">
+                    Become a Patron
+                </a>
+                
+            </div>
+
+    </div>
+</div>
+
+                    </li>
+                
+            </ul>
+            <div class="package-teaser">
+    <h4 class="package-teaser__title">Alternatively, join for free</h4>
+
+    
+        <div class="package-teaser__description copy">
+        Receive regular updates from the membership community,
+ book tickets to Guardian Live and Local events and access the Guardian members area
+        </div>
+    
+    <div class="package-teaser__action">
+        <a href="/join/friend/enter-details"
+            class="action action--secondary qa-friend-join"
+            aria-title="Join as a Friend for free">
+            Become a Friend
+            
+
+<svg class="icon-inline action__icon action__icon--right">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-right"></use>
+</svg>
+
+        </a>
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+
+
+                </div>
+            
+        </div>
+
+        
+
+<footer class="global-footer hidden-print " role="contentinfo">
+
+    
+<div class="global-brandbar global-brandbar__masterclasses">
+    <div class="global-brandbar__inner l-constrained">
+        <div class="global-brandbar__top">
+            
+            <a class="control" href="#top">
+                <span class="control__item">
+                    <span class="control__icon icon-holder icon-holder--large">
+                        
+
+<svg class="icon-inline ">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-up"></use>
+</svg>
+
+                    </span>
+                </span>
+                <span class="control__item">
+                    <span class="control__info">back to top</span>
+                </span>
+            </a>
+        </div>
+        <a href="/" class="global-brandbar__logo">
+            <span class="u-h">The Guardian Members</span>
+            
+
+
+<div class="inline-svg global-brandbar__logo__image" role="img">
+    <canvas class="inline-svg__canvas" height="68" width="789" aria-hidden="true"></canvas>
+    <img class="inline-svg__image" src="/assets/dist/images/providers/6abeb8b3/masterclasses-header.svg" alt="Guardian Masterclasses">
+</div>
+
+        </a>
+    </div>
+</div>
+
+
+    <div class="global-footer__info">
+        <div class="global-footer__info__inner l-constrained">
+            <ul class="colophon">
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-help" href="/help">Help</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-contact" href="http://www.theguardian.com/help/contact-us#Membership">Contact us</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-feedback" href="/feedback">Feedback</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-terms" href="https://www.theguardian.com/info/2016/nov/08/guardian-members-international-terms-and-conditions">Terms &amp; conditions</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-privacy" href="http://www.theguardian.com/help/privacy-policy">Privacy policy</a>
+                    </li>
+                
+                    <li class="colophon__item">
+                        <a class="colophon__link" id="qa-footer-link-cookies" href="http://www.theguardian.com/info/cookies">Cookie policy</a>
+                    </li>
+                
+            </ul>
+            <small class="global-footer__copyright">
+                &copy; 2017 Guardian News and Media Limited or its affiliated companies.
+                All rights reserved.
+            </small>
+        </div>
+    </div>
+</footer>
+
+        <script>
+
+    (function(isModern) {
+
+        if (isModern) {
+            // only load JS if the browser cuts the mustard
+            var newElm = document.createElement('script');
+            newElm.src = '/assets/dist/javascripts/9e1de2a9/main.js';
+            document.getElementsByTagName("head")[0].appendChild(newElm);
+        }
+
+    })(guardian.isModernBrowser);
+
+</script>
+
+        
+    <div class="is-hidden">
+        <script type="text/javascript">
+            var google_conversion_id = 971225648;
+            var google_custom_params = window.google_tag_params;
+            var google_remarketing_only = true;
+        </script>
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script>
+        <noscript>
+            <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/971225648/?value=0&amp;guid=ON&amp;script=0"/>
+            </div>
+        </noscript>
+    </div>
+
+
+        
+<!-- SessionCam Client Integration v6.0 -->
+<script type="text/javascript">
+    //<![CDATA[
+    (function (){
+        var scRec=document.createElement('SCRIPT');
+        scRec.type='text/javascript';
+        scRec.src="//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js";
+        document.getElementsByTagName('head')[0].appendChild(scRec);
+    })();
+    //]]>
+</script>
+<!-- End SessionCam -->
+
+        <!-- build-commit-id: 4b6eee4db653e995b58bfab35e4f574ee9be7a0c -->
+    </body>
+</html>
+
