@@ -173,11 +173,11 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=true;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Middle East and North Africa","isFront":true,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","googleSearchId":"007466294097402385199:m2ealvuxh1i","idUrl":"https://profile.theguardian.com","omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","host":"https://www.theguardian.com","fbAppId":"180444840287","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","cardStyle":"","adUnit":"/59666047/theguardian.com/world/subsection/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"UK","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","discussionApiClientHeader":"nextgen","section":"world","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","pageId":"world/middleeast","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/middleeast","contentType":"Tag","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Middle East and North Africa","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"fa8306c64833c2479a56f0112157ccdbc1c301d3","assetsPath":"https://assets.guim.co.uk/","avatarImagesUrl":"https://avatar.guim.co.uk","sentryHost":"app.getsentry.com/35463","buildNumber":"15217","sharedAdTargeting":{"ct":"tag","url":"/world/middleeast","edition":"uk","p":"ng","k":["middleeast"]},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=true;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Middle East and North Africa","isFront":true,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","googleSearchId":"007466294097402385199:m2ealvuxh1i","idUrl":"https://profile.theguardian.com","omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","host":"https://www.theguardian.com","fbAppId":"180444840287","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","cardStyle":"","adUnit":"/59666047/theguardian.com/world/subsection/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","discussionApiClientHeader":"nextgen","section":"world","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","pageId":"world/middleeast","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/middleeast","contentType":"Tag","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Middle East and North Africa","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"0f26b728dfd8cbeab9d0ad2951a24c579ea20574","assetsPath":"https://assets.guim.co.uk/","avatarImagesUrl":"https://avatar.guim.co.uk","sentryHost":"app.getsentry.com/35463","buildNumber":"15238","sharedAdTargeting":{"ct":"tag","url":"/world/middleeast","edition":"int","p":"ng","k":["middleeast"]},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
-@*/(function(documentElement,window,navigator){var docClass=documentElement.className;var testCssSupportForPropertyAndValue=function(supportsSupports){return supportsSupports?nativeCSSSupports:shimCSSSupports()}("CSS"in window&&"supports"in window.CSS);function nativeCSSSupports(prop,value){return window.CSS.supports(prop,value)}function shimCSSSupports(){var cssToDOMRegExp=/([a-z])-([a-z])/g;var testElem=document.createElement("test");function cssToDOM(name){return name.replace(cssToDOMRegExp,cssToDOMReplacer).replace(/^-/,"")}function cssToDOMReplacer(str,m1,m2){return m1+m2.toUpperCase()}return function(prop,value){try{prop=cssToDOM(prop);var originalValue=testElem.style[prop];if(originalValue===undefined)return false;if(originalValue===value)return true;testElem.style[prop]=value;return testElem.style[prop]!==originalValue}catch(e){return false}}}function testAndAddClass(tests){docClass+=" "+tests.map(function(test){return(test.props.some(function(prop){return test.values.some(function(value){return testCssSupportForPropertyAndValue(prop,value)})})?"has-":"has-no-")+test.feature}).join(" ")}function getCookieValue(name){var val=document.cookie.match("(^|;)\\s*"+name+"\\s*\x3d\\s*([^;]+)");return val?val.pop():undefined}function isRecentContributor(){var value=getCookieValue("gu.contributions.contrib-timestamp");if(!value)return false;var now=(new Date).getTime();var lastContribution=(new Date(value)).getTime();var diffDays=Math.ceil((now-lastContribution)/(1E3*3600*24));return diffDays<=180}function isPayingMember(){return getCookieValue("gu_paying_member")==="true"}if(!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect)docClass+=" svg";else docClass+=" no-svg";testAndAddClass([{feature:"flex",props:["flex","-ms-flex","-webkit-flex","-moz-box-flex","-webkit-box-flex"],values:["inherit"]},{feature:"flex-wrap",props:["flex-wrap","-ms-flex-wrap","-webkit-flex-wrap"],values:["inherit"]},{feature:"fixed",props:["position"],values:["fixed"]},{feature:"sticky",props:["position"],values:["sticky","-webkit-sticky"]}]);if(window.guardian.isEnhanced)docClass=docClass.replace(/\bis-not-modern\b/g,"is-modern");if(window.location.hash!=="#no-kern")docClass+=" should-kern";var baseFontSize=null;if("getComputedStyle"in window)baseFontSize=window.getComputedStyle(documentElement).getPropertyValue("font-size");if(baseFontSize&&parseInt(baseFontSize,10)!==16)documentElement.style.fontSize=baseFontSize;if(isPayingMember())docClass+=" is-paying-member";if(isRecentContributor())docClass+=" is-recent-contributor";documentElement.className=docClass.replace(/\bjs-off\b/g,"js-on")})(document.documentElement,window,navigator);(function(window,document){var ua=navigator.userAgent;var fontHinting=function(){var windowsNT=/Windows NT (\d\.\d+)/.exec(ua);var hinting="Off";try{if(windowsNT){var version=parseFloat(windowsNT[1],10);if(version>=5.1&&version<=6.1)if(/Chrome/.exec(ua)&&version<6)hinting="Auto";else hinting="Cleartype"}}catch(e){}return hinting}();function loadFontsFromStorage(){try{if("localStorage"in window){var saveFont=function(fontName,fontHash,css){for(var i=0,totalItems=localStorage.length;i<totalItems-1;i++){var key=localStorage.key(i);if(key.indexOf(fontStorageKey(fontName))!==-1){localStorage.removeItem(key);break}}localStorage.setItem(fontStorageKey(fontName,fontHash),JSON.stringify({value:css}))};var fetchFont=function(url,el,fontName,fontHash){var xhr=new XMLHttpRequest;this["guFont"]=function(fontData){return fontData.css};xhr.open("GET",url,true);xhr.onreadystatechange=function(){if(xhr.readyState===4&&xhr.status===200){var css=eval(xhr.responseText);useFont(el,css);saveFont(fontName,fontHash,css)}};xhr.send()};var useFont=function(el,css){el.innerHTML=css};var fontStorageKey=function(fontName,fontHash){fontHash=fontHash===undefined?"":fontHash;return"gu.fonts."+fontName+"."+fontHash};var fontFormat=function(){var formatStorageKey="gu.fonts.format";var format=localStorage.getItem(formatStorageKey);function supportsWoff2(){if("FontFace"in window)try{var f=new window.FontFace("t",'url("data:application/font-woff2,") format("woff2")',{});f.load()["catch"](function(){});if(f.status==="loading")return true}catch(e){}if(!/edge\/([0-9]+)/.test(ua.toLowerCase())){var browser=/(chrome|firefox)\/([0-9]+)/.exec(ua.toLowerCase());var supportsWoff2$0={"chrome":36,"firefox":39};return!!browser&&supportsWoff2$0[browser[1]]<parseInt(browser[2],10)}return false}if(/value/.test(format)){format=JSON.parse(format).value;localStorage.setItem(formatStorageKey,format)}if(!format){format=supportsWoff2()?"woff2":ua.indexOf("android")>-1?"ttf":"woff";localStorage.setItem(formatStorageKey,format)}return format}();var fonts=document.querySelectorAll(".webfont");var hinting=fontHinting==="Off"?"":"hinted-"+fontHinting+"-";var urlAttribute="data-cache-file-"+hinting+fontFormat;for(var i=0,j=fonts.length;i<j;++i){var font=fonts[i];var fontURL=font.getAttribute(urlAttribute);var fontInfo=fontURL.match(/fonts\/([^/]*?)\/?([^/]*)\.(woff2|woff|ttf).json$/);var fontName=fontInfo[2];var fontHash=fontInfo[1];var fontData=localStorage.getItem(fontStorageKey(fontName,fontHash));if(fontData)useFont(font,JSON.parse(fontData).value);else fetchFont(fontURL,font,fontName,fontHash)}return true}}catch(e){}return false}function loadFontsAsynchronously(){try{var scripts=document.getElementsByTagName("script");var thisScript=scripts[scripts.length-1];var fonts=document.createElement("link");fonts.rel="stylesheet";fonts.className="webfonts";fonts.href=window.guardian.config.stylesheets.fonts["hinting"+fontHinting].kerningOn;window.setTimeout(function(){thisScript.parentNode.insertBefore(fonts,thisScript)})}catch(e){}}function fontSmoothingEnabled(){try{var saveFontSmoothing=function(state){state=state?"on":"off";document.cookie="GU_fonts_smoothing\x3d "+state+"; domain\x3d"+location.hostname+"; path\x3d/; max-age\x3d"+60*60*24*30};if(document.cookie.indexOf("GU_fonts_smoothing")!==-1&&window.location.hash!=="#check-smoothing")return document.cookie.indexOf("GU_fonts_smoothing\x3don")!==-1;if(/Windows NT (\d\.\d+)/.exec(ua)&&!/MSIE|Trident/.exec(ua)){try{var canvasNode=document.createElement("canvas");canvasNode.width="35";canvasNode.height="35";canvasNode.style.display="none";document.documentElement.appendChild(canvasNode);var ctx=canvasNode.getContext("2d");ctx.textBaseline="top";ctx.font="32px Arial";ctx.fillStyle="black";ctx.strokeStyle="black";ctx.fillText("@",0,0);for(var x=0;x<=16;x++)for(var y=0;y<=16;y++){var alpha=ctx.getImageData(x,y,1,1).data[3];if(alpha>0&&alpha<255){saveFontSmoothing(true);return true}}}catch(e){}saveFontSmoothing(false);return false}else return true}catch(e$1){}}var fontCookie="GU_fonts\x3doff; domain\x3d"+location.hostname+"; path\x3d/";function disableFonts(){document.cookie=fontCookie+"; max-age\x3d"+60*60*24*365}function enableFonts(){document.cookie=fontCookie+"; expires\x3dThu, 01 Jan 1970 00:00:00 GMT"}function checkUserFontDisabling(){if(window.location.hash==="#fonts-off")disableFonts();else if(window.location.hash==="#fonts-on"||window.location.hash==="#check-smoothing")enableFonts()}var fontsEnabled=document.cookie.indexOf("GU_fonts\x3doff")===-1;function loadFonts(){checkUserFontDisabling();if(fontsEnabled)if(fontSmoothingEnabled())loadFontsFromStorage()||loadFontsAsynchronously();else disableFonts()}loadFonts()})(window,document);(function(styleSheetLinks,documentStyleSheets){function setMedia(styleSheet){for(var i=0,totalSheets=documentStyleSheets.length;i<totalSheets;i++){var sheet=documentStyleSheets[i];if(sheet.href&&sheet.href.indexOf(styleSheet.href)>-1){styleSheet.media="screen";window.guardian.css.loaded=true;try{window.guardian.css.onLoad()}catch(e){}return true}}setTimeout(function(){setMedia(styleSheet)})}function useCss(){for(var i=0,totalStyleSheetLinks=styleSheetLinks.length;i<totalStyleSheetLinks;i++)if(styleSheetLinks[i].getAttribute("media")==="only x")setMedia(styleSheetLinks[i])}useCss()})(document.getElementsByTagName("link"),window.document.styleSheets);function guardianPolyfilled(){try{window.guardian.polyfilled=true}catch(e){}}(function(document,window){var src;var script;var pendingScripts=[];var firstScript=document.scripts[0];var scripts=["https://assets.guim.co.uk/polyfill.io/v2/polyfill.min.js?rum\x3d0\x26features\x3des6,es7,es2017,default-3.6,HTMLPictureElement,IntersectionObserver,IntersectionObserverEntry\x26flags\x3dgated\x26callback\x3dguardianPolyfilled\x26unknown\x3dpolyfill","https://assets.guim.co.uk/javascripts/359b02d16544e7ecd7dc/graun.standard.js"];function stateChange(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScript.parentNode.insertBefore(pendingScript,firstScript)}}while(src=scripts.shift())if("async"in firstScript){script=document.createElement("script");script.async=false;script.src=src;document.head.appendChild(script)}else if(firstScript.readyState){script=document.createElement("script");pendingScripts.push(script);script.onreadystatechange=stateChange;script.src=src}else document.write('\x3cscript src\x3d"'+src+'" defer\x3e\x3c/'+"script\x3e")})(document,window);</script>
+@*/(function(documentElement,window,navigator){var docClass=documentElement.className;var testCssSupportForPropertyAndValue=function(supportsSupports){return supportsSupports?nativeCSSSupports:shimCSSSupports()}("CSS"in window&&"supports"in window.CSS);function nativeCSSSupports(prop,value){return window.CSS.supports(prop,value)}function shimCSSSupports(){var cssToDOMRegExp=/([a-z])-([a-z])/g;var testElem=document.createElement("test");function cssToDOM(name){return name.replace(cssToDOMRegExp,cssToDOMReplacer).replace(/^-/,"")}function cssToDOMReplacer(str,m1,m2){return m1+m2.toUpperCase()}return function(prop,value){try{prop=cssToDOM(prop);var originalValue=testElem.style[prop];if(originalValue===undefined)return false;if(originalValue===value)return true;testElem.style[prop]=value;return testElem.style[prop]!==originalValue}catch(e){return false}}}function testAndAddClass(tests){docClass+=" "+tests.map(function(test){return(test.props.some(function(prop){return test.values.some(function(value){return testCssSupportForPropertyAndValue(prop,value)})})?"has-":"has-no-")+test.feature}).join(" ")}function getCookieValue(name){var val=document.cookie.match("(^|;)\\s*"+name+"\\s*\x3d\\s*([^;]+)");return val?val.pop():undefined}function isRecentContributor(){var value=getCookieValue("gu.contributions.contrib-timestamp");if(!value)return false;var now=(new Date).getTime();var lastContribution=(new Date(value)).getTime();var diffDays=Math.ceil((now-lastContribution)/(1E3*3600*24));return diffDays<=180}function isPayingMember(){return getCookieValue("gu_paying_member")==="true"}if(!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect)docClass+=" svg";else docClass+=" no-svg";testAndAddClass([{feature:"flex",props:["flex","-ms-flex","-webkit-flex","-moz-box-flex","-webkit-box-flex"],values:["inherit"]},{feature:"flex-wrap",props:["flex-wrap","-ms-flex-wrap","-webkit-flex-wrap"],values:["inherit"]},{feature:"fixed",props:["position"],values:["fixed"]},{feature:"sticky",props:["position"],values:["sticky","-webkit-sticky"]}]);if(window.guardian.isEnhanced)docClass=docClass.replace(/\bis-not-modern\b/g,"is-modern");if(window.location.hash!=="#no-kern")docClass+=" should-kern";var baseFontSize=null;if("getComputedStyle"in window)baseFontSize=window.getComputedStyle(documentElement).getPropertyValue("font-size");if(baseFontSize&&parseInt(baseFontSize,10)!==16)documentElement.style.fontSize=baseFontSize;if(isPayingMember())docClass+=" is-paying-member";if(isRecentContributor())docClass+=" is-recent-contributor";documentElement.className=docClass.replace(/\bjs-off\b/g,"js-on")})(document.documentElement,window,navigator);(function(window,document){var ua=navigator.userAgent;var fontHinting=function(){var windowsNT=/Windows NT (\d\.\d+)/.exec(ua);var hinting="Off";try{if(windowsNT){var version=parseFloat(windowsNT[1],10);if(version>=5.1&&version<=6.1)if(/Chrome/.exec(ua)&&version<6)hinting="Auto";else hinting="Cleartype"}}catch(e){}return hinting}();function loadFontsFromStorage(){try{if("localStorage"in window){var saveFont=function(fontName,fontHash,css){for(var i=0,totalItems=localStorage.length;i<totalItems-1;i++){var key=localStorage.key(i);if(key.indexOf(fontStorageKey(fontName))!==-1){localStorage.removeItem(key);break}}localStorage.setItem(fontStorageKey(fontName,fontHash),JSON.stringify({value:css}))};var fetchFont=function(url,el,fontName,fontHash){var xhr=new XMLHttpRequest;this["guFont"]=function(fontData){return fontData.css};xhr.open("GET",url,true);xhr.onreadystatechange=function(){if(xhr.readyState===4&&xhr.status===200){var css=eval(xhr.responseText);useFont(el,css);saveFont(fontName,fontHash,css)}};xhr.send()};var useFont=function(el,css){el.innerHTML=css};var fontStorageKey=function(fontName,fontHash){fontHash=fontHash===undefined?"":fontHash;return"gu.fonts."+fontName+"."+fontHash};var fontFormat=function(){var formatStorageKey="gu.fonts.format";var format=localStorage.getItem(formatStorageKey);function supportsWoff2(){if("FontFace"in window)try{var f=new window.FontFace("t",'url("data:application/font-woff2,") format("woff2")',{});f.load()["catch"](function(){});if(f.status==="loading")return true}catch(e){}if(!/edge\/([0-9]+)/.test(ua.toLowerCase())){var browser=/(chrome|firefox)\/([0-9]+)/.exec(ua.toLowerCase());var supportsWoff2$0={"chrome":36,"firefox":39};return!!browser&&supportsWoff2$0[browser[1]]<parseInt(browser[2],10)}return false}if(/value/.test(format)){format=JSON.parse(format).value;localStorage.setItem(formatStorageKey,format)}if(!format){format=supportsWoff2()?"woff2":ua.indexOf("android")>-1?"ttf":"woff";localStorage.setItem(formatStorageKey,format)}return format}();var fonts=document.querySelectorAll(".webfont");var hinting=fontHinting==="Off"?"":"hinted-"+fontHinting+"-";var urlAttribute="data-cache-file-"+hinting+fontFormat;for(var i=0,j=fonts.length;i<j;++i){var font=fonts[i];var fontURL=font.getAttribute(urlAttribute);var fontInfo=fontURL.match(/fonts\/([^/]*?)\/?([^/]*)\.(woff2|woff|ttf).json$/);var fontName=fontInfo[2];var fontHash=fontInfo[1];var fontData=localStorage.getItem(fontStorageKey(fontName,fontHash));if(fontData)useFont(font,JSON.parse(fontData).value);else fetchFont(fontURL,font,fontName,fontHash)}return true}}catch(e){}return false}function loadFontsAsynchronously(){try{var scripts=document.getElementsByTagName("script");var thisScript=scripts[scripts.length-1];var fonts=document.createElement("link");fonts.rel="stylesheet";fonts.className="webfonts";fonts.href=window.guardian.config.stylesheets.fonts["hinting"+fontHinting].kerningOn;window.setTimeout(function(){thisScript.parentNode.insertBefore(fonts,thisScript)})}catch(e){}}function fontSmoothingEnabled(){try{var saveFontSmoothing=function(state){state=state?"on":"off";document.cookie="GU_fonts_smoothing\x3d "+state+"; domain\x3d"+location.hostname+"; path\x3d/; max-age\x3d"+60*60*24*30};if(document.cookie.indexOf("GU_fonts_smoothing")!==-1&&window.location.hash!=="#check-smoothing")return document.cookie.indexOf("GU_fonts_smoothing\x3don")!==-1;if(/Windows NT (\d\.\d+)/.exec(ua)&&!/MSIE|Trident/.exec(ua)){try{var canvasNode=document.createElement("canvas");canvasNode.width="35";canvasNode.height="35";canvasNode.style.display="none";document.documentElement.appendChild(canvasNode);var ctx=canvasNode.getContext("2d");ctx.textBaseline="top";ctx.font="32px Arial";ctx.fillStyle="black";ctx.strokeStyle="black";ctx.fillText("@",0,0);for(var x=0;x<=16;x++)for(var y=0;y<=16;y++){var alpha=ctx.getImageData(x,y,1,1).data[3];if(alpha>0&&alpha<255){saveFontSmoothing(true);return true}}}catch(e){}saveFontSmoothing(false);return false}else return true}catch(e$1){}}var fontCookie="GU_fonts\x3doff; domain\x3d"+location.hostname+"; path\x3d/";function disableFonts(){document.cookie=fontCookie+"; max-age\x3d"+60*60*24*365}function enableFonts(){document.cookie=fontCookie+"; expires\x3dThu, 01 Jan 1970 00:00:00 GMT"}function checkUserFontDisabling(){if(window.location.hash==="#fonts-off")disableFonts();else if(window.location.hash==="#fonts-on"||window.location.hash==="#check-smoothing")enableFonts()}var fontsEnabled=document.cookie.indexOf("GU_fonts\x3doff")===-1;function loadFonts(){checkUserFontDisabling();if(fontsEnabled)if(fontSmoothingEnabled())loadFontsFromStorage()||loadFontsAsynchronously();else disableFonts()}loadFonts()})(window,document);(function(styleSheetLinks,documentStyleSheets){function setMedia(styleSheet){for(var i=0,totalSheets=documentStyleSheets.length;i<totalSheets;i++){var sheet=documentStyleSheets[i];if(sheet.href&&sheet.href.indexOf(styleSheet.href)>-1){styleSheet.media="screen";window.guardian.css.loaded=true;try{window.guardian.css.onLoad()}catch(e){}return true}}setTimeout(function(){setMedia(styleSheet)})}function useCss(){for(var i=0,totalStyleSheetLinks=styleSheetLinks.length;i<totalStyleSheetLinks;i++)if(styleSheetLinks[i].getAttribute("media")==="only x")setMedia(styleSheetLinks[i])}useCss()})(document.getElementsByTagName("link"),window.document.styleSheets);function guardianPolyfilled(){try{window.guardian.polyfilled=true}catch(e){}}(function(document,window){var src;var script;var pendingScripts=[];var firstScript=document.scripts[0];var scripts=["https://assets.guim.co.uk/polyfill.io/v2/polyfill.min.js?rum\x3d0\x26features\x3des6,es7,es2017,default-3.6,HTMLPictureElement,IntersectionObserver,IntersectionObserverEntry\x26flags\x3dgated\x26callback\x3dguardianPolyfilled\x26unknown\x3dpolyfill","https://assets.guim.co.uk/javascripts/7711e47dd14933aedddb/graun.standard.js"];function stateChange(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScript.parentNode.insertBefore(pendingScript,firstScript)}}while(src=scripts.shift())if("async"in firstScript){script=document.createElement("script");script.async=false;script.src=src;document.head.appendChild(script)}else if(firstScript.readyState){script=document.createElement("script");pendingScripts.push(script);script.onreadystatechange=stateChange;script.src=src}else document.write('\x3cscript src\x3d"'+src+'" defer\x3e\x3c/'+"script\x3e")})(document,window);</script>
 </head>
 <body id="top" class="has-localnav" itemscope itemtype="http://schema.org/WebPage">
 <div class="site-message js-site-message is-hidden" data-link-name="release message" role="dialog" aria-label="welcome" aria-describedby="site-message__message">
@@ -216,7 +216,13 @@
 <input type="checkbox" id="edition-picker-toggle" aria-controls="edition-dropdown-menu" class="u-h dropdown-menu-fallback js-enhance-checkbox" data-link-name="nav2 : topbar : edition-picker: toggle">
 <ul class="dropdown-menu js-edition-dropdown-menu" id="edition-dropdown-menu" aria-hidden="true">
 <li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="dropdown-menu__title dropdown-menu__title--active">
+<a data-link-name="nav2 : topbar : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="dropdown-menu__title dropdown-menu__title--active">
+<span class="u-h">switch to the </span>
+International edition
+</a>
+</li>
+<li class="dropdown-menu__item">
+<a data-link-name="nav2 : topbar : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="dropdown-menu__title ">
 <span class="u-h">switch to the </span>
 UK edition
 </a>
@@ -233,19 +239,13 @@ US edition
 Australia edition
 </a>
 </li>
-<li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="dropdown-menu__title ">
-<span class="u-h">switch to the </span>
-International edition
-</a>
-</li>
 </ul>
 <label for="edition-picker-toggle" class="top-bar__item top-bar__item--dropdown js-edition-picker-trigger" data-link-name="nav2 : topnav : edition-picker: toggle">
 <span class="u-h">current edition: </span>
-UK edition
+International edition
 </label>
 </div>
-<a href="https://www.theguardian.com/uk" class="new-header__logo" data-link-name="nav2 : logo">
+<a href="https://www.theguardian.com/international" class="new-header__logo" data-link-name="nav2 : logo">
 <span class="u-h">The Guardian - Back to home</span>
 <span class="inline-guardian-logo-160 inline-logo new-header__logo">
 <svg width="160" height="30" viewbox="0 0 320 60" class="new-header__logo__svg inline-guardian-logo-160__svg inline-logo__svg">
@@ -255,16 +255,16 @@ UK edition
 </span>
 </a>
 <div class="new-header__top-bar hide-until-mobile">
-<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="uk" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D">
+<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="int" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D">
 <span class="top-bar__item--cta--circle"></span>
 <span class="top-bar__item--cta--text">
 become a <br>supporter
 </span>
 </a>
-<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="uk" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D">
+<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="int" href="https://subscribe.theguardian.com?INTCMP=subs_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;subs_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;subs_int_web_newheader&quot;%7D">
 subscribe
 </a>
-<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="uk" href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader">
+<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="int" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader">
 <span class="hide-until-tablet">find a job</span>
 <span class="hide-from-tablet">jobs</span>
 </a>
@@ -312,7 +312,7 @@ search
 <input type="checkbox" id="main-menu-toggle" class="veggie-burger-fallback js-enhance-checkbox u-h" data-link-name="nav2 : veggie-burger : show" aria-controls="main-menu">
 <ul class="pillars">
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/uk" data-link-name="nav2 : primary : news">
+<a class="pillar-link" href="https://www.theguardian.com/international" data-link-name="nav2 : primary : news">
 news
 </a>
 </li>
@@ -356,9 +356,9 @@ sections
 <i class="menu-item__toggle"></i>
 news
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu news" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu news" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk" data-link-name="nav2 : secondary : headlines">
+<a class="menu-item__title" href="https://www.theguardian.com/international" data-link-name="nav2 : secondary : headlines">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -368,38 +368,13 @@ headlines
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
-UK news
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/world" data-link-name="nav2 : secondary : world news">
 world news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : secondary : business">
-business
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
-football
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
-environment
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
-tech
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/politics" data-link-name="nav2 : secondary : UK politics">
-UK politics
+<a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
+UK news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -408,13 +383,33 @@ science
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
+cities
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/global-development" data-link-name="nav2 : secondary : global development">
 global development
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
-cities
+<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
+football
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
+tech
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : secondary : business">
+business
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
+environment
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -429,7 +424,7 @@ obituaries
 <i class="menu-item__toggle"></i>
 opinion
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu opinion" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu opinion" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav2 : secondary : opinion home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -472,7 +467,7 @@ letters
 <i class="menu-item__toggle"></i>
 sport
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu sport" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu sport" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/sport" data-link-name="nav2 : secondary : sport home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -514,23 +509,13 @@ F1
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav2 : secondary : rugby league">
-rugby league
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/horse-racing" data-link-name="nav2 : secondary : racing">
-racing
+<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
+golf
 </a>
 </li>
 <li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav2 : secondary : US sports">
 US sports
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
-golf
 </a>
 </li>
 </ul>
@@ -540,7 +525,7 @@ golf
 <i class="menu-item__toggle"></i>
 arts
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu arts" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu arts" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/culture" data-link-name="nav2 : secondary : culture home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -552,8 +537,8 @@ culture home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
-tv &amp; radio
+<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
+books
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -562,23 +547,8 @@ music
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
-film
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
-stage
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
-books
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
-games
+<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
+tv &amp; radio
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -587,8 +557,23 @@ art &amp; design
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
+film
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
+games
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : secondary : classical">
 classical
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
+stage
 </a>
 </li>
 </ul>
@@ -598,7 +583,7 @@ classical
 <i class="menu-item__toggle"></i>
 lifestyle
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu lifestyle" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu lifestyle" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -625,23 +610,8 @@ recipes
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
-travel
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/love-and-sex" data-link-name="nav2 : secondary : love &amp; sex">
 love &amp; sex
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
-family
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
-home &amp; garden
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -650,8 +620,23 @@ health &amp; fitness
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
+home &amp; garden
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav2 : secondary : women">
 women
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
+family
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
+travel
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -681,13 +666,13 @@ money
 </form>
 </div>
 <ul class="menu-group menu-group--membership" role="menubar">
-<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : become a supporter">
+<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D" data-link-name="nav2 : become a supporter">
 become a supporter
 </a>
 </li>
-<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : subscribe">
+<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_int_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
 subscribe
 </a>
 </li>
@@ -734,9 +719,15 @@ Sign out
 <li class="menu-item js-navigation-item">
 <button class="menu-item__title js-navigation-toggle" data-link-name="nav2 : edition picker" aria-haspopup="true" aria-expanded="true">
 <i class="menu-item__toggle"></i>
-UK edition
+International edition
 </button>
 <ul class="menu-group">
+<li class="menu-item">
+<a data-link-name="nav2 : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="menu-item__title">
+<span class="u-h">switch to the </span>
+UK edition
+</a>
+</li>
 <li class="menu-item">
 <a data-link-name="nav2 : edition-picker: US" href="https://www.theguardian.com/preference/edition/us" class="menu-item__title">
 <span class="u-h">switch to the </span>
@@ -749,38 +740,27 @@ US edition
 Australia edition
 </a>
 </li>
-<li class="menu-item">
-<a data-link-name="nav2 : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="menu-item__title">
-<span class="u-h">switch to the </span>
-International edition
-</a>
-</li>
 </ul>
 </li>
 </ul>
-<ul class="menu-group menu-group--footer" data-edition="uk" role="menubar">
+<ul class="menu-group menu-group--footer" data-edition="int" role="menubar">
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" data-link-name="nav2 : jobs">
+<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" data-link-name="nav2 : jobs">
 jobs
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" data-link-name="nav2 : dating">
+<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" data-link-name="nav2 : dating">
 dating
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" data-link-name="nav2 : holidays">
+<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" data-link-name="nav2 : holidays">
 holidays
 </a>
 </li>
-<li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" data-link-name="nav2 : masterclasses">
-masterclasses
-</a>
-</li>
 <li class="hide-from-desktop menu-item" role="menuitem">
-<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_uk_web_newheader" data-link-name="nav2 : the guardian app">
+<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_int_web_newheader" data-link-name="nav2 : the guardian app">
 the guardian app
 </a>
 </li>
@@ -820,11 +800,6 @@ digital archive
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/guardian-professional" data-link-name="nav2 : professional networks">
-professional networks
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/crosswords" data-link-name="nav2 : crosswords">
 crosswords
 </a>
@@ -861,23 +836,18 @@ Twitter
 </span>
 <ul class="menu-brand-extensions__list">
 <li class="menu-brand-extensions__list-item">
-<a href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
+<a href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
 jobs
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
+<a href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
 dating
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
+<a href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
 holidays
-</a>
-</li>
-<li class="menu-brand-extensions__list-item">
-<a href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : masterclasses">
-masterclasses
 </a>
 </li>
 </ul>
@@ -889,38 +859,13 @@ masterclasses
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
-UK
-</a>
-</li>
-<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/world" data-link-name="nav2 : subnav : world news">
 world
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
-business
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
-football
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
-environment
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
-tech
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/politics" data-link-name="nav2 : subnav : UK politics">
-UK politics
+<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
+UK
 </a>
 </li>
 <li class="subnav__item">
@@ -929,13 +874,33 @@ science
 </a>
 </li>
 <li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
+cities
+</a>
+</li>
+<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/global-development" data-link-name="nav2 : subnav : global development">
 global development
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
-cities
+<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
+football
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
+tech
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
+business
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
+environment
 </a>
 </li>
 <li class="subnav__item">
@@ -1005,12 +970,12 @@ Sign out</a>
 <path d="M21.3 8.8c0-4.9-1.5-5.7-3.3-5.7-1.8 0-3.2.7-3.2 5.7s1.5 5.5 3.2 5.5c1.8-.1 3.3-.6 3.3-5.5m-6.5 18.8c-2.3 0-2.9 1.7-2.9 2.9 0 1.8 1.6 3.4 6.3 3.4 5.3 0 6.8-1.5 6.8-3.4 0-1.7-1.3-2.9-3.4-2.9h-6.8zM10.5 2.4C4.3 5.2 0 11.4 0 18.7c0 4.9 2 9.4 5.2 12.6V31c0-3.2 3.1-4.4 5.9-5-2.6-.6-3.9-2.5-3.9-4.4 0-2.6 2.9-4.8 4.3-5.8l-.2-.1c-2.5-1.4-4.1-3.8-4.1-7 0-2.7 1.2-4.9 3.3-6.3M36 18.8C36 11.4 31.5 5 25.1 2.3c2.1 1.4 3.4 3.5 3.5 6.3l.1.6c0 5.4-4.4 8.2-10.7 8.2-1.6 0-2.7-.1-4.1-.5-.6.4-1.1 1.1-1.1 1.8 0 .9.8 1.6 1.8 1.6h8.8c5.5 0 8.2 2.2 8.2 7.1 0 1.6-.3 3.1-1 4.3 3.3-3.4 5.4-7.9 5.4-12.9"/>
 </svg>
 </span>
-<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
+<a href="https://membership.theguardian.com/supporter?INTCMP=DOTCOM_HEADER_BECOMEMEMBER_INT&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;,&quot;campaignCode&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
 <span class="control__info js-control-info control__info--supporting">
 become a supporter
 </span>
 </a>
-<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="uk : topNav : subscribe">
+<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_INT_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="int : topNav : subscribe">
 <span class="control__info js-control-info">subscribe</span>
 </a>
 </div>
@@ -1026,10 +991,10 @@ become a supporter
 </div>
 <div class="brand-bar__item--right" data-component="guardian-services">
 <div class="brand-bar__item brand-bar__item--jobs hide-until-tablet hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_JOBS">find a job</a>
+<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
 </div>
 <div class="brand-bar__item brand-bar__item--soulmates hide-until-desktop hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--more">
 <a class="brand-bar__item--action popup__toggle" data-toggle="top-bar__popup--more" data-link-name="topNav : more" aria-haspopup="true" aria-controls="guardian-services-top-menu">
@@ -1050,41 +1015,24 @@ become a supporter
 <h3 class="popup__group-header">from the guardian:</h3>
 <ul class="popup__group">
 <li class="popup__item brand-bar__popup--soulmates hide-from-desktop show-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
 </li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : masterclasses" href="https://membership.theguardian.com/masterclasses?INTCMP=NGW_TOPNAV_UK_GU_MASTERCLASSES">masterclasses</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : courses" href="https://courses.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_COURSES">courses</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : holidays" href="https://holidays.theguardian.com/?utm_source=theguardian&amp;utm_medium=guardian-links&amp;utm_campaign=topnav&amp;INTCMP=topnav">holidays</a>
+<li class="popup__item brand-bar__popup--jobs">
+<a class="brand-bar__item--action" data-link-name="int: topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
 </li>
 </ul>
-<div class="brand-bar__popup--membership hide-from-desktop show-on-slim-header">
-<h3 class="popup__group-header">support us:</h3>
-<ul class="popup__group">
-<li class="popup__item">
-<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : membership" href="https://membership.theguardian.com/supporter?INTCMP=NGW_TOPNAV_UK_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;%7D">membership</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : subscribe" href="https://subscribe.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;%7D">subscribe</a>
-</li>
-</ul>
-</div>
 <div class="brand-bar__popup--edition mobile-only show-on-slim-header">
 <h3 class="popup__group-header">change edition:</h3>
 <ul class="popup__group">
 <li class="popup__item">
+<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
+<span class="u-h">switch to the </span> UK <span class="u-h"> edition</span>
+</a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span> US <span class="u-h"> edition</span>
 </a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="AU" data-link-name="switch to AU edition" href="https://www.theguardian.com/preference/edition/au" title="Switch to the AU edition">
 <span class="u-h">switch to the </span> AU <span class="u-h"> edition</span>
-</a>
-<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
-<span class="u-h">switch to the </span> INT <span class="u-h"> edition</span>
 </a>
 </li>
 </ul>
@@ -1093,9 +1041,15 @@ become a supporter
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--edition hide-until-tablet hide-on-slim-header" data-component="edition">
 <a class="brand-bar__item--action popup__toggle" data-link-name="topNav : edition" data-toggle="top-bar__popup--edition" aria-haspopup="true" aria-controls="guardian-edition-menu">
-UK edition
+International edition
 </a>
 <ul class="popup popup--default popup__group is-off top-bar__popup--edition" id="guardian-edition-menu">
+<li class="popup__item">
+<a class="brand-bar__item--action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
+<span class="u-h">switch to the </span>
+<span class="brand-bar__edition-name">UK edition</span>
+</a>
+</li>
 <li class="popup__item">
 <a class="brand-bar__item--action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span>
@@ -1108,12 +1062,6 @@ UK edition
 <span class="brand-bar__edition-name">Australia edition</span>
 </a>
 </li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
-<span class="u-h">switch to the </span>
-<span class="brand-bar__edition-name">International edition</span>
-</a>
-</li>
 </ul>
 </div>
 </div>
@@ -1121,7 +1069,7 @@ UK edition
 </div>
 <div class="popup popup--default popup--search js-search-old js-search-popup is-off"><div class="js-search-placeholder"></div></div>
 <div class="l-header-main">
-<a href="https://www.theguardian.com/uk" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
+<a href="https://www.theguardian.com/international" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
 <span class="u-h">The Guardian - Back to home</span>
 <!--[if (gt IE 8)|(IEMobile)]><!-->
 <span class="inline-guardian-logo-320 inline-logo ">
@@ -1144,7 +1092,7 @@ UK edition
 <nav class="navigation__container navigation__container--first" data-component="nav" role="navigation" aria-label="Current section">
 <ul class="signposting">
 <li class="signposting__item signposting__item--home">
-<a class="signposting__action" href="https://www.theguardian.com/uk" data-link-name="nav : signposting : home">home</a>
+<a class="signposting__action" href="https://www.theguardian.com/international" data-link-name="nav : signposting : home">home</a>
 </li>
 <li class="signposting__item signposting__item--parent">
 <span class="signposting__separator" aria-hidden="true"><span class="signposting__separator__inner">›</span></span>
@@ -1185,7 +1133,7 @@ UK edition
 <nav class="navigation__container navigation__container--second" data-component="nav" role="navigation" aria-label="Guardian sections">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -1193,11 +1141,6 @@ UK edition
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
-politics
 </a>
 </li>
 <li class="top-navigation__item top-navigation__item--current">
@@ -1285,33 +1228,218 @@ travel
 <div class="fc-container__header js-container__header">
 <a href="https://www.theguardian.com/world/middleeast/2017/nov/30/all" data-link-name="date header | 2017-11-30"> <time datetime="2017-11-30" class="fc-date-headline">30 November 2017</time> </a>
 </div>
-<div class="fc-container--rolled-up-hide fc-container__body" data-title="30 November 2017" data-id="30 November 2017">
+<div class="fc-container--rolled-up-hide fc-container__body fc-show-more--mobile-only" data-title="30 November 2017" data-id="30 November 2017">
 <div class="fc-slice-wrapper">
-<ul class="u-unstyled l-row  l-row--cols-1 fc-slice fc-slice--f">
+<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--q-q-q-q">
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-feature--item fc-item--list-media-mobile fc-item--full-media-50-tablet js-snappable" data-link-name="feature | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="media/2017/nov/30/journalists-living-in-fear-states-crack-down-press-freedom" data-loyalty-short-url="/p/7kx4c">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/30/us-court-alleged-iran-scheme-avoid-sanctions-turkey" data-loyalty-short-url="/p/7kf4p">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio inlined-image">
 <picture>
 <!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="470px" srcset="https://i.guim.co.uk/img/media/894c834c2c91e61c0aef6ce44e2b9d04dfe75937/0_51_4800_2880/master/4800.jpg?w=470&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=7231ff2133f6672410520aab15f97bf9 940w">
-<source media="(min-width: 980px)" sizes="470px" srcset="https://i.guim.co.uk/img/media/894c834c2c91e61c0aef6ce44e2b9d04dfe75937/0_51_4800_2880/master/4800.jpg?w=470&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=72c014c20f0ae764ac6e1f0db0ebec84 470w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="350px" srcset="https://i.guim.co.uk/img/media/894c834c2c91e61c0aef6ce44e2b9d04dfe75937/0_51_4800_2880/master/4800.jpg?w=350&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=0814c60a84fd7ddd4486aeb30ca6185e 700w">
-<source media="(min-width: 740px)" sizes="350px" srcset="https://i.guim.co.uk/img/media/894c834c2c91e61c0aef6ce44e2b9d04dfe75937/0_51_4800_2880/master/4800.jpg?w=350&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=9107d87bd37a6cc96843fc515ee6d850 350w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/894c834c2c91e61c0aef6ce44e2b9d04dfe75937/0_51_4800_2880/master/4800.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=8c923e987e5a3aa1aea1268d5e3db973 254w">
-<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/894c834c2c91e61c0aef6ce44e2b9d04dfe75937/0_51_4800_2880/master/4800.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=cfe6f319df63197939a6c583df2ba80b 127w">
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/96c5cf901eb424155eb7eedd8822475690ea30b8/49_0_1875_1125/master/1875.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=4b95b7bd66b613b93b5e50e7846ec341 440w">
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/96c5cf901eb424155eb7eedd8822475690ea30b8/49_0_1875_1125/master/1875.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=0bc3b0d685b7168720e0136a48062185 220w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/96c5cf901eb424155eb7eedd8822475690ea30b8/49_0_1875_1125/master/1875.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=ebd348803606c969eb11a710f0892171 320w">
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/96c5cf901eb424155eb7eedd8822475690ea30b8/49_0_1875_1125/master/1875.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=8bc96ecb0bd28f6ab64136b54baed4c3 160w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/96c5cf901eb424155eb7eedd8822475690ea30b8/49_0_1875_1125/master/1875.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=b680f82de9197e43258454620727c3c0 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/96c5cf901eb424155eb7eedd8822475690ea30b8/49_0_1875_1125/master/1875.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=7c76a9bc0f7702158b1188d2a9987a6c 127w">
 <!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/894c834c2c91e61c0aef6ce44e2b9d04dfe75937/0_51_4800_2880/master/4800.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=1fc19cd3a885a253be6bd5791c72e468">
+<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/96c5cf901eb424155eb7eedd8822475690ea30b8/49_0_1875_1125/master/1875.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6b860c2ef2d9c7d2cbbf66ae960911d4">
 </picture>
 </div>
 </div>
 <div class="fc-item__content">
 <div class="fc-item__header">
-<h1 class="fc-item__title"><a href="https://www.theguardian.com/media/2017/nov/30/journalists-living-in-fear-states-crack-down-press-freedom" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">'You can get killed': journalists living in fear as states crack down</span></span> </a></h1>
+<h1 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/30/us-court-alleged-iran-scheme-avoid-sanctions-turkey" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">US court told of alleged Iranian scheme to evade sanctions via Turkey</span></span> </a></h1>
 </div>
 <div class="fc-item__standfirst">
-Independent journalists are under siege in a growing list of supposedly freer countries such as Brazil, Turkey, India and Mexico
+Turkish-Iranian businessman Reza Zarrab tells court Iran gained access to markets through vast money-laundering network
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp" datetime="2017-11-30T13:28:35+0000" data-timestamp="1512048515000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>1:28 PM </span> </time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/30/us-court-alleged-iran-scheme-avoid-sanctions-turkey" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">US court told of alleged Iranian scheme to evade sanctions via Turkey</a>
+</div>
+</div> </li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps" data-loyalty-short-url="/p/7kbmf">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio inlined-image">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/125c6c9a9296c46fdd50c00fe5f42ba31d4e3065/0_234_3500_2100/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=69978c46b74ab189b6bf177874863597 440w">
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/125c6c9a9296c46fdd50c00fe5f42ba31d4e3065/0_234_3500_2100/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=60b635dfaa6d13c11397fbc8498268db 220w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/125c6c9a9296c46fdd50c00fe5f42ba31d4e3065/0_234_3500_2100/master/3500.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=040b785db6269b916367fec813b12dcb 320w">
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/125c6c9a9296c46fdd50c00fe5f42ba31d4e3065/0_234_3500_2100/master/3500.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=cb3b8cd18b7e51fe3f834dc9fb6e1c63 160w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/125c6c9a9296c46fdd50c00fe5f42ba31d4e3065/0_234_3500_2100/master/3500.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=3dde6f3d5893bec92efee9aaf810a35c 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/125c6c9a9296c46fdd50c00fe5f42ba31d4e3065/0_234_3500_2100/master/3500.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=bc291bf8a262071ab8a378f7da5c9bdb 127w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/125c6c9a9296c46fdd50c00fe5f42ba31d4e3065/0_234_3500_2100/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=3da8bddb05e8ad68646ef7bf0de461d6">
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Voluntary evacuation planned for migrants as Libya battles slavery claims</span></span> </a></h2>
+</div>
+<div class="fc-item__standfirst">
+Migration is top of the agenda as summit between European and African leaders gets under way in Ivory Coast
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp" datetime="2017-11-30T13:05:40+0000" data-timestamp="1512047140000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>1:05 PM </span> </time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Voluntary evacuation planned for migrants as Libya battles slavery claims</a>
+</div>
+</div> </li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/30/israel-threatens-giro-ditalia-bike-race-west-jerusalem-cycling" data-loyalty-short-url="/p/7kekd">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio inlined-image">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/77f6edbaef9f2501bf6cab4da2a74ff186794ba3/0_173_3500_2100/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=e4bd7d090c4f83a75af630b37a207786 440w">
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/77f6edbaef9f2501bf6cab4da2a74ff186794ba3/0_173_3500_2100/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e0f42f10591380c4751757a65866fb8c 220w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/77f6edbaef9f2501bf6cab4da2a74ff186794ba3/0_173_3500_2100/master/3500.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=11dfff443df5dd868bc95a29da7e4345 320w">
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/77f6edbaef9f2501bf6cab4da2a74ff186794ba3/0_173_3500_2100/master/3500.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f38cdf849820393a3d91f504bcab41d8 160w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/77f6edbaef9f2501bf6cab4da2a74ff186794ba3/0_173_3500_2100/master/3500.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=3b54a10d8176aa2b7d536a8b9a9d926e 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/77f6edbaef9f2501bf6cab4da2a74ff186794ba3/0_173_3500_2100/master/3500.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=7da2bb5d239efb0534e136badad97af6 127w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/77f6edbaef9f2501bf6cab4da2a74ff186794ba3/0_173_3500_2100/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=b0682d37e1238cf34a85ffd4f79fabda">
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/30/israel-threatens-giro-ditalia-bike-race-west-jerusalem-cycling" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Giro d'Italia backs down in Israel row over calling start 'west Jerusalem'</span></span> </a></h2>
+</div>
+<div class="fc-item__standfirst">
+Israeli ministers had threatened to drop backing for cycling race, scheduled to begin in Israel, if wording did not change
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp" datetime="2017-11-30T12:31:04+0000" data-timestamp="1512045064000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>12:31 PM </span> </time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/30/israel-threatens-giro-ditalia-bike-race-west-jerusalem-cycling" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Giro d'Italia backs down in Israel row over calling start 'west Jerusalem'</a>
+</div>
+</div> </li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/30/us-coalition-airstrikes-iraqi-syrian-civilians" data-loyalty-short-url="/p/7kf4d">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio inlined-image">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/84e4e4f6f04880f4bb4adb10c8ebb42ef62f1665/0_0_2906_1743/master/2906.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=7f0d34fcff57ab02ff3e3ba4c35fbacb 440w">
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/84e4e4f6f04880f4bb4adb10c8ebb42ef62f1665/0_0_2906_1743/master/2906.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=05b240a9c0c3b2563676fc8060c0571e 220w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/84e4e4f6f04880f4bb4adb10c8ebb42ef62f1665/0_0_2906_1743/master/2906.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=dedbb0e819ad352857ef1e32ed313787 320w">
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/84e4e4f6f04880f4bb4adb10c8ebb42ef62f1665/0_0_2906_1743/master/2906.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=10093e1cba3193b5bb6b5e6cc2878900 160w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/84e4e4f6f04880f4bb4adb10c8ebb42ef62f1665/0_0_2906_1743/master/2906.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=20f3984eaa98d3f8841a60eb260fb5ad 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/84e4e4f6f04880f4bb4adb10c8ebb42ef62f1665/0_0_2906_1743/master/2906.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=152fe12996686869f5163c8338ce2826 127w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/84e4e4f6f04880f4bb4adb10c8ebb42ef62f1665/0_0_2906_1743/master/2906.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6ebdf4449670bac9158f27c57063e251">
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/30/us-coalition-airstrikes-iraqi-syrian-civilians" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">US-led coalition says its strikes have killed 800 Iraqi and Syrian civilians</span></span> </a></h2>
+</div>
+<div class="fc-item__standfirst">
+Estimate of deaths since 2014 is far lower than those provided by monitoring groups
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp" datetime="2017-11-30T11:39:27+0000" data-timestamp="1512041967000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>11:39 AM </span> </time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/30/us-coalition-airstrikes-iraqi-syrian-civilians" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">US-led coalition says its strikes have killed 800 Iraqi and Syrian civilians</a>
+</div>
+</div> </li>
+</ul>
+</div>
+<div class="fc-slice-wrapper">
+<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--ql-ql-ql-ql">
+<li class="fc-slice__item l-row__item l-row__item--span-4">
+<ul class="u-unstyled l-list l-list--columns-4 l-list--rows-1">
+<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-comment--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="comment | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="commentisfree/2017/nov/30/theresa-may-yemen-arms-saudi-arabia-boris-johnson" data-loyalty-short-url="/p/7kbkf">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title fc-item__title--quoted"><a href="https://www.theguardian.com/commentisfree/2017/nov/30/theresa-may-yemen-arms-saudi-arabia-boris-johnson" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="inline-quote inline-icon ">
+<svg width="17" height="10" viewbox="0 0 33 20" class="inline-quote__svg inline-icon__svg">
+<path d="M9.002 20c3.85.068 6.932-3.104 7-6.994.068-3.892-3.15-6.937-7-7.006-2.016-.036-3.59.694-4.888 2.053A9.968 9.968 0 0 1 4.001 6.5C4.064 2.97 7.414.937 11.003 1l-1-1C3.98 0 .098 4.447.002 10.006c-.097 5.557 3.35 9.892 9 9.994zm17 0c3.85.068 6.932-3.104 7-6.994.068-3.892-3.15-6.937-7-7.006-2.016-.036-3.59.694-4.888 2.053a9.968 9.968 0 0 1-.113-1.553c.063-3.53 3.413-5.563 7.002-5.5l-1-1c-6.022 0-9.904 4.447-10 10.006-.097 5.557 3.35 9.892 9 9.994z"/>
+</svg> </span> <span class="js-headline-text">Theresa May, help end Yemen’s agony – stop selling arms to Saudi Arabia</span></span> </a></h2>
+<div class="fc-item__byline">
+Andrew Smith
+</div>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp" datetime="2017-11-30T09:00:09+0000" data-timestamp="1512032409000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>9:00 AM </span> </time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/commentisfree/2017/nov/30/theresa-may-yemen-arms-saudi-arabia-boris-johnson" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Theresa May, help end Yemen’s agony – stop selling arms to Saudi Arabia</a>
+</div>
+</div> </li>
+<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-6" data-item-visibility="all" data-test-id="facia-card" data-id="politics/2017/nov/30/theresa-may-to-outline-post-brexit-vision-for-uk-role-in-middle-east" data-loyalty-short-url="/p/7kd6q">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/politics/2017/nov/30/theresa-may-to-outline-post-brexit-vision-for-uk-role-in-middle-east" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Theresa May to outline post-Brexit vision for UK role in Middle East</span></span> </a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp" datetime="2017-11-30T07:00:01+0000" data-timestamp="1512025201000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>7:00 AM </span> </time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/politics/2017/nov/30/theresa-may-to-outline-post-brexit-vision-for-uk-role-in-middle-east" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Theresa May to outline post-Brexit vision for UK role in Middle East</a>
+</div>
+</div> </li>
+<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-7" data-item-visibility="desktop" data-test-id="facia-card" data-id="world/2017/nov/30/british-man-ollie-hall-fighting-isis-in-syria-has-been-killed-in-raqqa-sources-say" data-loyalty-short-url="/p/7kcxg">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/30/british-man-ollie-hall-fighting-isis-in-syria-has-been-killed-in-raqqa-sources-say" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">British man fighting Isis in Syria has been killed in Raqqa, sources say</span></span> </a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp" datetime="2017-11-30T06:00:21+0000" data-timestamp="1512021621000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>6:00 AM </span> </time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/30/british-man-ollie-hall-fighting-isis-in-syria-has-been-killed-in-raqqa-sources-say" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">British man fighting Isis in Syria has been killed in Raqqa, sources say</a>
+</div>
+</div> </li>
+<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-feature--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="feature | group-0 | card-8" data-item-visibility="desktop" data-test-id="facia-card" data-id="media/2017/nov/30/journalists-living-in-fear-states-crack-down-press-freedom" data-loyalty-short-url="/p/7kx4c">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/media/2017/nov/30/journalists-living-in-fear-states-crack-down-press-freedom" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">'You can get killed': journalists living in fear as states crack down</span></span> </a></h2>
 </div>
 <aside class="fc-item__meta js-item__meta">
 <time class="fc-item__timestamp" datetime="2017-11-30T00:01:14+0000" data-timestamp="1512000074000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
@@ -1323,6 +1451,7 @@ Independent journalists are under siege in a growing list of supposedly freer co
 <a href="https://www.theguardian.com/media/2017/nov/30/journalists-living-in-fear-states-crack-down-press-freedom" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">'You can get killed': journalists living in fear as states crack down</a>
 </div>
 </div> </li>
+</ul> </li>
 </ul>
 </div>
 </div>
@@ -1339,15 +1468,31 @@ Independent journalists are under siege in a growing list of supposedly freer co
 </div>
 <div class="fc-container--rolled-up-hide fc-container__body" data-title="29 November 2017" data-id="29 November 2017">
 <div class="fc-slice-wrapper">
-<ul class="u-unstyled l-row  l-row--cols-3 fc-slice fc-slice--tl-tl-mpu">
-<li class="fc-slice__item l-row__item l-row__item--span-2">
-<ul class="u-unstyled l-list l-list--columns-2 l-list--rows-3">
-<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp fc-item--is-commentable js-fc-item tone-editorial--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-discussion-id="/p/7kcxf" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls#comments" data-link-name="editorial | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls" data-loyalty-short-url="/p/7kcxf">
+<ul class="u-unstyled l-row  l-row--cols-3 fc-slice fc-slice--t-t-tl4">
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp fc-item--is-commentable js-fc-item tone-editorial--item fc-item--standard-mobile fc-item--third-tablet js-snappable" data-discussion-id="/p/7kcxf" data-discussion-closed="true" data-discussion-url="https://www.theguardian.com/commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls#comments" data-link-name="editorial | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls" data-loyalty-short-url="/p/7kcxf">
 <div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="300px" srcset="https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=8c9730d24bd8394cc4799af3db5e21d6 600w">
+<source media="(min-width: 980px)" sizes="300px" srcset="https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=34c38b3084ae51bc2620db0796acbc82 300w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=14973aa946f3e54972ceb759fe756449 440w">
+<source media="(min-width: 740px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f14b056251eadb64ccc78090cfa128f5 220w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=8c9730d24bd8394cc4799af3db5e21d6 600w, https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=14973aa946f3e54972ceb759fe756449 440w, https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=445&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=eb885517c2fa70e6e097e79ffa564237 890w, https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=605&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=9a33a0f325ef40e1bb8f8d8fb522b464 1210w">
+<source media="(min-width: 0px)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=34c38b3084ae51bc2620db0796acbc82 300w, https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f14b056251eadb64ccc78090cfa128f5 220w, https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=445&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f5568210a9212fc337ac09984235896b 445w, https://i.guim.co.uk/img/media/03eceec6a26dbd391be7466ccbf38ef39fd4495b/0_53_3500_2101/master/3500.jpg?w=605&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=551b6ff2d6250a6dd76e76f62d015d51 605w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="">
+</picture>
+</div>
+</div>
 <div class="fc-item__content">
 <div class="fc-item__header">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">The Guardian view on child marriage: wedlock is a padlock for girls</span></span> </a></h2>
+</div>
+<div class="fc-item__standfirst">
+<strong>Editorial:</strong> From the US to Bangladesh, underage brides are likely to leave education and face increased risks of poverty, domestic violence, and high rates of maternal mortality
 </div>
 <aside class="fc-item__meta js-item__meta">
 <time class="fc-item__timestamp" datetime="2017-11-29T19:13:02+0000" data-timestamp="1511982782000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
@@ -1359,26 +1504,24 @@ Independent journalists are under siege in a growing list of supposedly freer co
 <a href="https://www.theguardian.com/commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">The Guardian view on child marriage: wedlock is a padlock for girls</a>
 </div>
 </div> </li>
-<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps" data-loyalty-short-url="/p/7kbmf">
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--third-tablet js-snappable" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="politics/2017/nov/29/theresa-may-makes-secret-visit-to-iraq" data-loyalty-short-url="/p/7kb4z">
 <div class="fc-item__container">
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Voluntary evacuation planned for migrants in Libya detention camps</span></span> </a></h2>
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="300px" srcset="https://i.guim.co.uk/img/media/cc9827d2d3dcd152f74d7ee6a68ccb5c70977a8f/0_211_3500_2100/master/3500.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=356edf01445584e3eaf7ad079ae0f0d7 600w">
+<source media="(min-width: 980px)" sizes="300px" srcset="https://i.guim.co.uk/img/media/cc9827d2d3dcd152f74d7ee6a68ccb5c70977a8f/0_211_3500_2100/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=85123d4184b6d6d0bf7fd5d5b22127ed 300w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/cc9827d2d3dcd152f74d7ee6a68ccb5c70977a8f/0_211_3500_2100/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=2c3044942b0b3091875215e926f7b2ad 440w">
+<source media="(min-width: 740px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/cc9827d2d3dcd152f74d7ee6a68ccb5c70977a8f/0_211_3500_2100/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e4f2809a7e95ad8149ae2118d570f01f 220w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/cc9827d2d3dcd152f74d7ee6a68ccb5c70977a8f/0_211_3500_2100/master/3500.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=4bc9470ac702150efc956f10ce1bf968 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/cc9827d2d3dcd152f74d7ee6a68ccb5c70977a8f/0_211_3500_2100/master/3500.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=d0a810961dcb9473027526e9340ff2d4 127w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="">
+</picture>
 </div>
-<aside class="fc-item__meta js-item__meta">
-<time class="fc-item__timestamp" datetime="2017-11-29T18:56:27+0000" data-timestamp="1511981787000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
-<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
-<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
-</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>6:56 PM </span> </time>
-</aside>
 </div>
-<a href="https://www.theguardian.com/world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Voluntary evacuation planned for migrants in Libya detention camps</a>
-</div>
-</div> </li>
-<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="politics/2017/nov/29/theresa-may-makes-secret-visit-to-iraq" data-loyalty-short-url="/p/7kb4z">
-<div class="fc-item__container">
 <div class="fc-item__content">
 <div class="fc-item__header">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/politics/2017/nov/29/theresa-may-makes-secret-visit-to-iraq" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Theresa May makes secret visit to Iraq</span></span> </a></h2>
@@ -1393,8 +1536,10 @@ Independent journalists are under siege in a growing list of supposedly freer co
 <a href="https://www.theguardian.com/politics/2017/nov/29/theresa-may-makes-secret-visit-to-iraq" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Theresa May makes secret visit to Iraq</a>
 </div>
 </div> </li>
+<li class="fc-slice__item l-row__item l-row__item--span-1">
+<ul class="u-unstyled l-list l-list--columns-1 l-list--rows-3">
 <li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-analysis--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="analysis | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="politics/2017/nov/29/theresa-may-travels-to-saudi-arabia-powerless-to-rein-in-impulsive-ally" data-loyalty-short-url="/p/7kb63">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-analysis--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="analysis | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="politics/2017/nov/29/theresa-may-travels-to-saudi-arabia-powerless-to-rein-in-impulsive-ally" data-loyalty-short-url="/p/7kb63">
 <div class="fc-item__container">
 <div class="fc-item__content">
 <div class="fc-item__header">
@@ -1411,7 +1556,7 @@ Independent journalists are under siege in a growing list of supposedly freer co
 </div>
 </div> </li>
 <li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/29/saudi-prince-miteb-bin-abdullah-pays-1bn-in-corruption-settlement" data-loyalty-short-url="/p/7k9qy">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/29/saudi-prince-miteb-bin-abdullah-pays-1bn-in-corruption-settlement" data-loyalty-short-url="/p/7k9qy">
 <div class="fc-item__container">
 <div class="fc-item__content">
 <div class="fc-item__header">
@@ -1428,7 +1573,7 @@ Independent journalists are under siege in a growing list of supposedly freer co
 </div>
 </div> </li>
 <li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-6" data-item-visibility="all" data-test-id="facia-card" data-id="music/2017/nov/29/roger-waters-broadcasts-cancelled-in-germany-over-accusations-of-antisemitism" data-loyalty-short-url="/p/7k8tq">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="music/2017/nov/29/roger-waters-broadcasts-cancelled-in-germany-over-accusations-of-antisemitism" data-loyalty-short-url="/p/7k8tq">
 <div class="fc-item__container">
 <div class="fc-item__content">
 <div class="fc-item__header">
@@ -1445,20 +1590,17 @@ Independent journalists are under siege in a growing list of supposedly freer co
 </div>
 </div> </li>
 </ul> </li>
-<li class="fc-slice__item l-row__item l-row__item--span-1 fc-slice__item--mpu-candidate">
-<div id="dfp-ad--inline1" class="js-ad-slot ad-slot ad-slot--inline1 ad-slot--container-inline hide-until-tablet" data-link-name="ad slot inline1" data-name="inline1" data-mobile="1,1|2,2|300,250|fluid">
-</div> </li>
 </ul>
 </div>
 </div>
 </div>
 </section>
-<section id="28-november-2017" class="fc-container fc-container--has-show-more fc-container--tag " data-link-name="container-3 | 28-november-2017" data-id="28 November 2017" data-component="28-november-2017" aria-expanded="true">
+<section id="28-november-2017" class="fc-container fc-container--tag " data-link-name="container-3 | 28-november-2017" data-id="28 November 2017" data-component="28-november-2017" aria-expanded="true">
 <div class="fc-container__inner">
 <div class="fc-container__header js-container__header">
 <a href="https://www.theguardian.com/world/middleeast/2017/nov/28/all" data-link-name="date header | 2017-11-28"> <time datetime="2017-11-28" class="fc-date-headline">28 November 2017</time> </a>
 </div>
-<div class="fc-container--rolled-up-hide fc-container__body" data-title="28 November 2017" data-id="28 November 2017">
+<div class="fc-container--rolled-up-hide fc-container__body fc-show-more--mobile-only" data-title="28 November 2017" data-id="28 November 2017">
 <div class="fc-slice-wrapper">
 <ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--q-q-q-q">
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
@@ -1605,9 +1747,9 @@ Letters:
 </ul>
 </div>
 <div class="fc-slice-wrapper">
-<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--ql-ql-ql-ql">
-<li class="fc-slice__item l-row__item l-row__item--span-4">
-<ul class="u-unstyled l-list l-list--columns-4 l-list--rows-1">
+<ul class="u-unstyled l-row  l-row--cols-1 fc-slice fc-slice--tl-tl-tl">
+<li class="fc-slice__item l-row__item l-row__item--span-1">
+<ul class="u-unstyled l-list l-list--columns-3 l-list--rows-2">
 <li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
 <div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp fc-item--is-commentable js-fc-item tone-editorial--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-discussion-id="/p/7k7da" data-discussion-closed="true" data-discussion-url="https://www.theguardian.com/commentisfree/2017/nov/28/the-guardian-view-on-syria-putin-tests-the-west#comments" data-link-name="editorial | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="commentisfree/2017/nov/28/the-guardian-view-on-syria-putin-tests-the-west" data-loyalty-short-url="/p/7k7da">
 <div class="fc-item__container">
@@ -1659,71 +1801,8 @@ Letters:
 <a href="https://www.theguardian.com/stage/2017/nov/28/goats-martyr-surreal-cost-syria-civil-war-liwaa-yazji-royal-court" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">A goat for every martyr: the bitterly funny play about the surreal cost of Syria's civil war</a>
 </div>
 </div> </li>
-<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-8" data-item-visibility="desktop" data-test-id="facia-card" data-id="world/2017/nov/28/syrian-government-to-join-un-peace-talks-in-geneva" data-loyalty-short-url="/p/7k6fd">
-<div class="fc-item__container">
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/28/syrian-government-to-join-un-peace-talks-in-geneva" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Syrian government to join UN peace talks in Geneva</span></span> </a></h2>
-</div>
-<aside class="fc-item__meta js-item__meta">
-<time class="fc-item__timestamp" datetime="2017-11-28T15:15:47+0000" data-timestamp="1511882147000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
-<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
-<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
-</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>3:15 PM </span> </time>
-</aside>
-</div>
-<a href="https://www.theguardian.com/world/2017/nov/28/syrian-government-to-join-un-peace-talks-in-geneva" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Syrian government to join UN peace talks in Geneva</a>
-</div>
-</div> </li>
 </ul> </li>
 </ul>
-</div>
-<div class="fc-slice-wrapper js-show-more">
-<div class="linkslist-container">
-<ul class="linkslist u-unstyled l-list fc-slice">
-<li class="fc-show-more--hide js-hide fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp fc-item--is-commentable js-fc-item tone-comment--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-discussion-id="/p/7kxta" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/commentisfree/2017/nov/28/extremism-egypt-terror-attack-sufi-islam-extremist-ideology#comments" data-link-name="comment | group-0 | card-9" data-item-visibility="hidden" data-test-id="facia-card" data-id="commentisfree/2017/nov/28/extremism-egypt-terror-attack-sufi-islam-extremist-ideology" data-loyalty-short-url="/p/7kxta">
-<div class="fc-item__container">
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title fc-item__title--quoted"><a href="https://www.theguardian.com/commentisfree/2017/nov/28/extremism-egypt-terror-attack-sufi-islam-extremist-ideology" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="inline-quote inline-icon ">
-<svg width="17" height="10" viewbox="0 0 33 20" class="inline-quote__svg inline-icon__svg">
-<path d="M9.002 20c3.85.068 6.932-3.104 7-6.994.068-3.892-3.15-6.937-7-7.006-2.016-.036-3.59.694-4.888 2.053A9.968 9.968 0 0 1 4.001 6.5C4.064 2.97 7.414.937 11.003 1l-1-1C3.98 0 .098 4.447.002 10.006c-.097 5.557 3.35 9.892 9 9.994zm17 0c3.85.068 6.932-3.104 7-6.994.068-3.892-3.15-6.937-7-7.006-2.016-.036-3.59.694-4.888 2.053a9.968 9.968 0 0 1-.113-1.553c.063-3.53 3.413-5.563 7.002-5.5l-1-1c-6.022 0-9.904 4.447-10 10.006-.097 5.557 3.35 9.892 9 9.994z"/>
-</svg> </span> <span class="js-headline-text">To find the extremism behind the Egypt terror attack, start with anti-Sufi preachers</span></span> </a></h2>
-<div class="fc-item__byline">
-HA Hellyer
-</div>
-</div>
-<aside class="fc-item__meta js-item__meta">
-<time class="fc-item__timestamp" datetime="2017-11-28T11:41:00+0000" data-timestamp="1511869260000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
-<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
-<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
-</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>11:41 AM </span> </time>
-</aside>
-</div>
-<a href="https://www.theguardian.com/commentisfree/2017/nov/28/extremism-egypt-terror-attack-sufi-islam-extremist-ideology" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">To find the extremism behind the Egypt terror attack, start with anti-Sufi preachers</a>
-</div>
-</div> </li>
-<li class="fc-show-more--hide js-hide fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-10" data-item-visibility="hidden" data-test-id="facia-card" data-id="world/2017/nov/28/nudity-israeli-dancers-conflict-culture-minister-jerusalem" data-loyalty-short-url="/p/7kx8j">
-<div class="fc-item__container">
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/28/nudity-israeli-dancers-conflict-culture-minister-jerusalem" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Nudity lands Israeli dancers in fresh conflict with culture minister</span></span> </a></h2>
-</div>
-<aside class="fc-item__meta js-item__meta">
-<time class="fc-item__timestamp" datetime="2017-11-28T05:00:21+0000" data-timestamp="1511845221000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
-<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
-<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
-</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>5:00 AM </span> </time>
-</aside>
-</div>
-<a href="https://www.theguardian.com/world/2017/nov/28/nudity-israeli-dancers-conflict-culture-minister-jerusalem" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Nudity lands Israeli dancers in fresh conflict with culture minister</a>
-</div>
-</div> </li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -1732,138 +1811,16 @@ HA Hellyer
 <div id="dfp-ad--merchandising-high" class="js-ad-slot ad-slot ad-slot--merchandising-high ad-slot--commercial-component-high " data-link-name="ad slot merchandising-high" data-name="merchandising-high" data-label="false" data-refresh="false" data-mobile="1,1|2,2|88,87|fluid">
 </div>
 </div>
-<section id="27-november-2017" class="fc-container fc-container--tag " data-link-name="container-4 | 27-november-2017" data-id="27 November 2017" data-component="27-november-2017" aria-expanded="true">
-<div class="fc-container__inner">
-<div class="fc-container__header js-container__header">
-<a href="https://www.theguardian.com/world/middleeast/2017/nov/27/all" data-link-name="date header | 2017-11-27"> <time datetime="2017-11-27" class="fc-date-headline">27 November 2017</time> </a>
-</div>
-<div class="fc-container--rolled-up-hide fc-container__body" data-title="27 November 2017" data-id="27 November 2017">
-<div class="fc-slice-wrapper">
-<ul class="u-unstyled l-row  l-row--cols-3 fc-slice fc-slice--t-t-t">
-<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-letters--item fc-item--standard-mobile fc-item--third-tablet js-snappable" data-link-name="letters | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/27/scrutiny-of-the-arms-trade-is-much-needed" data-loyalty-short-url="/p/7k2bt">
-<div class="fc-item__container">
-<div class="fc-item__media-wrapper">
-<div class="fc-item__image-container u-responsive-ratio ">
-<picture>
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="300px" srcset="https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=54af9a4dc6aa94cfed1c856e8e5872b8 600w">
-<source media="(min-width: 980px)" sizes="300px" srcset="https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=d1d23d145a80ef29577cd8014bd34d00 300w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=baba03abf58dea0c74501e4a0772bd26 440w">
-<source media="(min-width: 740px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6095dd1d871c1b26e04828eed23d7278 220w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=54af9a4dc6aa94cfed1c856e8e5872b8 600w, https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=baba03abf58dea0c74501e4a0772bd26 440w, https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=445&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=271b6bfa83dba040fa4206d6e8753c28 890w, https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=605&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=1dfb2fa33658b89a2246338b10252ccc 1210w">
-<source media="(min-width: 0px)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=d1d23d145a80ef29577cd8014bd34d00 300w, https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6095dd1d871c1b26e04828eed23d7278 220w, https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=445&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=10adb51daa517f706a4baa2a698c9317 445w, https://i.guim.co.uk/img/media/f58645948fad35ed82cac2c00464c44e0c17364d/0_0_3500_2099/master/3500.jpg?w=605&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=26e8b502cc4e755dfbb1be3c8099fba1 605w">
-<!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="">
-</picture>
-</div>
-</div>
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/27/scrutiny-of-the-arms-trade-is-much-needed" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Scrutiny of the arms trade is much needed</span></span> </a></h2>
-</div>
-<div class="fc-item__standfirst">
-<strong>Letters: </strong>The arms trade is deeply unpopular with many people while at the same time fulfilling a major role in the UK economy, writes Ben Willems
-</div>
-<aside class="fc-item__meta js-item__meta">
-<time class="fc-item__timestamp" datetime="2017-11-27T19:03:46+0000" data-timestamp="1511809426000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
-<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
-<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
-</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>7:03 PM </span> </time>
-</aside>
-</div>
-<a href="https://www.theguardian.com/world/2017/nov/27/scrutiny-of-the-arms-trade-is-much-needed" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Scrutiny of the arms trade is much needed</a>
-</div>
-</div> </li>
-<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--third-tablet js-snappable" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/27/egypts-sufis-mark-muhammads-birth-indoor-celebrations-mosque" data-loyalty-short-url="/p/7k2hx">
-<div class="fc-item__container">
-<div class="fc-item__media-wrapper">
-<div class="fc-item__image-container u-responsive-ratio ">
-<picture>
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="300px" srcset="https://i.guim.co.uk/img/media/446da81848dc948423e4896590493e5050857717/0_66_7360_4416/master/7360.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=b9cc248f8aff36079ea5e260fa7eed7f 600w">
-<source media="(min-width: 980px)" sizes="300px" srcset="https://i.guim.co.uk/img/media/446da81848dc948423e4896590493e5050857717/0_66_7360_4416/master/7360.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=2f76e1386b1bc320c3a20e167a103e2a 300w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/446da81848dc948423e4896590493e5050857717/0_66_7360_4416/master/7360.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=53ce1fc1394205a24b4ff177ece61bae 440w">
-<source media="(min-width: 740px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/446da81848dc948423e4896590493e5050857717/0_66_7360_4416/master/7360.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=7471b6283eee5ad3775f074d0b141340 220w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/446da81848dc948423e4896590493e5050857717/0_66_7360_4416/master/7360.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=23cf3530f4bba4ff676b40ff59735358 254w">
-<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/446da81848dc948423e4896590493e5050857717/0_66_7360_4416/master/7360.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=d31243e26646298eb073bf58f318f87b 127w">
-<!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="">
-</picture>
-</div>
-</div>
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/27/egypts-sufis-mark-muhammads-birth-indoor-celebrations-mosque" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Egypt's Sufis will stay indoors to mark birth of prophet Muhammad</span></span> </a></h2>
-</div>
-<aside class="fc-item__meta js-item__meta">
-<time class="fc-item__timestamp" datetime="2017-11-27T18:15:32+0000" data-timestamp="1511806532000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
-<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
-<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
-</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>6:15 PM </span> </time>
-</aside>
-</div>
-<a href="https://www.theguardian.com/world/2017/nov/27/egypts-sufis-mark-muhammads-birth-indoor-celebrations-mosque" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Egypt's Sufis will stay indoors to mark birth of prophet Muhammad</a>
-</div>
-</div> </li>
-<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp fc-item--is-commentable js-fc-item tone-comment--item fc-item--list-media-mobile fc-item--third-tablet js-snappable" data-discussion-id="/p/7jfd8" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/global-development/2017/nov/27/syria-war-shattered-society-shock-damaged-country-women-building-peace-mouna-ghanem#comments" data-link-name="comment | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="global-development/2017/nov/27/syria-war-shattered-society-shock-damaged-country-women-building-peace-mouna-ghanem" data-loyalty-short-url="/p/7jfd8">
-<div class="fc-item__container">
-<div class="fc-item__media-wrapper">
-<div class="fc-item__image-container u-responsive-ratio ">
-<picture>
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="300px" srcset="https://i.guim.co.uk/img/media/1d89376eddf1f8f652a9f1a9bab112046be5f013/250_13_3235_1941/master/3235.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=f2d635e6eedfd29dc539cfbcfd00e0c1 600w">
-<source media="(min-width: 980px)" sizes="300px" srcset="https://i.guim.co.uk/img/media/1d89376eddf1f8f652a9f1a9bab112046be5f013/250_13_3235_1941/master/3235.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=eaafaf2f33ed187c77eea4ed4e32c176 300w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/1d89376eddf1f8f652a9f1a9bab112046be5f013/250_13_3235_1941/master/3235.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=947a6beb46393029741404e2f1ea8836 440w">
-<source media="(min-width: 740px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/1d89376eddf1f8f652a9f1a9bab112046be5f013/250_13_3235_1941/master/3235.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f7918e7f86c3a5886b9b7d39d25f8da1 220w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/1d89376eddf1f8f652a9f1a9bab112046be5f013/250_13_3235_1941/master/3235.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=da0634580ee0368593ed84b043ac990b 254w">
-<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/1d89376eddf1f8f652a9f1a9bab112046be5f013/250_13_3235_1941/master/3235.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f979944d8e590e703f5c0e27f74fa467 127w">
-<!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="">
-</picture>
-</div>
-</div>
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title fc-item__title--quoted"><a href="https://www.theguardian.com/global-development/2017/nov/27/syria-war-shattered-society-shock-damaged-country-women-building-peace-mouna-ghanem" class="fc-item__link" data-link-name="article"><span class="fc-item__kicker">Women's rights and gender equality</span> <span class="u-faux-block-link__cta fc-item__headline"> <span class="inline-quote inline-icon ">
-<svg width="17" height="10" viewbox="0 0 33 20" class="inline-quote__svg inline-icon__svg">
-<path d="M9.002 20c3.85.068 6.932-3.104 7-6.994.068-3.892-3.15-6.937-7-7.006-2.016-.036-3.59.694-4.888 2.053A9.968 9.968 0 0 1 4.001 6.5C4.064 2.97 7.414.937 11.003 1l-1-1C3.98 0 .098 4.447.002 10.006c-.097 5.557 3.35 9.892 9 9.994zm17 0c3.85.068 6.932-3.104 7-6.994.068-3.892-3.15-6.937-7-7.006-2.016-.036-3.59.694-4.888 2.053a9.968 9.968 0 0 1-.113-1.553c.063-3.53 3.413-5.563 7.002-5.5l-1-1c-6.022 0-9.904 4.447-10 10.006-.097 5.557 3.35 9.892 9 9.994z"/>
-</svg> </span> <span class="js-headline-text">We pressed pause the day we had to leave Syria. The shock never goes away</span></span> </a></h2>
-<div class="fc-item__byline">
-Mouna Ghanem
-</div>
-</div>
-<aside class="fc-item__meta js-item__meta">
-<time class="fc-item__timestamp" datetime="2017-11-27T13:36:42+0000" data-timestamp="1511789802000" data-relativeformat="short"> <span class="inline-clock inline-icon ">
-<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
-<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
-</svg> </span> <span class="fc-timestamp__text"> <span class="u-h">Published: </span>1:36 PM </span> </time>
-</aside>
-</div>
-<a href="https://www.theguardian.com/global-development/2017/nov/27/syria-war-shattered-society-shock-damaged-country-women-building-peace-mouna-ghanem" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">We pressed pause the day we had to leave Syria. The shock never goes away</a>
-</div>
-</div> </li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="fc-container__mpu--mobile">
-<div id="dfp-ad--inline1--mobile" class="js-ad-slot ad-slot ad-slot--inline1 ad-slot--container-inline ad-slot--mobile mobile-only" data-link-name="ad slot inline1" data-name="inline1" data-mobile="1,1|2,2|300,250|fluid">
-</div>
-</section>
 <div class="fc-container__pagination">
 <div class="pagination pagination--full u-cf">
-<span class="pagination__legend hide-on-mobile-inline">About 63,976 results for Middle East and North Africa</span>
+<span class="pagination__legend hide-on-mobile-inline">About 63,982 results for Middle East and North Africa</span>
 <div class="pagination__list">
 <span class="button button--small button--tertiary pagination__action is-active" aria-label="Current page" tabindex="0">1</span>
 <a class="button button--small button--tertiary pagination__action " data-page="2" href="https://www.theguardian.com/world/middleeast?page=2" data-link-name="Pagination view page 2" aria-label=" page 2">2</a>
 <a class="button button--small button--tertiary pagination__action " data-page="3" href="https://www.theguardian.com/world/middleeast?page=3" data-link-name="Pagination view page 3" aria-label=" page 3">3</a>
 <a class="button button--small button--tertiary pagination__action " data-page="4" href="https://www.theguardian.com/world/middleeast?page=4" data-link-name="Pagination view page 4" aria-label=" page 4">4</a>
 <span class="pagination__text">…</span>
-<a class="button button--small button--tertiary pagination__action pagination__action--last " href="https://www.theguardian.com/world/middleeast?page=3199" data-page="3199" data-link-name="Pagination view page 3199" aria-label=" last page">3199</a>
+<a class="button button--small button--tertiary pagination__action pagination__action--last " href="https://www.theguardian.com/world/middleeast?page=3200" data-page="3200" data-link-name="Pagination view page 3200" aria-label=" last page">3200</a>
 <a class="button button--small button--tertiary pagination__action--static " data-page="2" rel="next" href="https://www.theguardian.com/world/middleeast?page=2" data-link-name="Pagination view next" aria-label=" next page"> <span class="inline-arrow-left inline-icon pagination__icon pagination__icon--next">
 <svg width="6" height="12" viewbox="0 0 6 12" class="pagination__icon__svg pagination__icon--next__svg inline-arrow-left__svg inline-icon__svg">
 <path d="M6 11.5L1.5 6 6 .5 5.5 0 0 5.75v.5L5.5 12l.5-.5z"/>
@@ -1877,9 +1834,9 @@ Mouna Ghanem
 <div class="submeta__keywords">
 <ul class="submeta__links">
 <li class="submeta__link-item"> <a class="  submeta__link" href="https://www.theguardian.com/world/syria" data-link-name="keyword: world/syria" itemprop="keywords"> Syria </a> </li>
-<li class="submeta__link-item"> <a class="  submeta__link" href="https://www.theguardian.com/world/africa" data-link-name="keyword: world/africa" itemprop="keywords"> Africa </a> </li>
+<li class="submeta__link-item"> <a class="  submeta__link" href="https://www.theguardian.com/politics/theresamay" data-link-name="keyword: politics/theresamay" itemprop="keywords"> Theresa May </a> </li>
+<li class="submeta__link-item"> <a class="  submeta__link" href="https://www.theguardian.com/world/iraq" data-link-name="keyword: world/iraq" itemprop="keywords"> Iraq </a> </li>
 <li class="submeta__link-item"> <a class="  submeta__link" href="https://www.theguardian.com/world/europe-news" data-link-name="keyword: world/europe-news" itemprop="keywords"> Europe </a> </li>
-<li class="submeta__link-item"> <a class="  submeta__link" href="https://www.theguardian.com/us-news/donaldtrump" data-link-name="keyword: us-news/donaldtrump" itemprop="keywords"> Donald Trump </a> </li>
 <li class="submeta__link-item"> <a class="  submeta__link" href="https://www.theguardian.com/world/saudiarabia" data-link-name="keyword: world/saudiarabia" itemprop="keywords"> Saudi Arabia </a> </li>
 </ul>
 </div>
@@ -1890,7 +1847,7 @@ Mouna Ghanem
 </div>
 </div>
 <script data-schema="ItemList" type="application/ld+json">
-                        {"url":"https://www.theguardian.com/world/middleeast","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/media/2017/nov/30/journalists-living-in-fear-states-crack-down-press-freedom"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/politics/2017/nov/29/theresa-may-makes-secret-visit-to-iraq"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/politics/2017/nov/29/theresa-may-travels-to-saudi-arabia-powerless-to-rein-in-impulsive-ally"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/world/2017/nov/29/saudi-prince-miteb-bin-abdullah-pays-1bn-in-corruption-settlement"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/music/2017/nov/29/roger-waters-broadcasts-cancelled-in-germany-over-accusations-of-antisemitism"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/us-news/2017/nov/28/benghazi-attack-not-guilty-murder-ahmed-abu-khattala"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/politics/2017/nov/28/may-to-demand-saudi-arabia-ends-blockade-on-yemens-ports"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/world/2017/nov/28/libya-slave-trade-cnn-report-trump-fake-news"},{"@type":"ListItem","position":10,"url":"https://www.theguardian.com/us-news/2017/nov/28/susan-sarandon-is-wrong-about-hillary-clinton"},{"@type":"ListItem","position":11,"url":"https://www.theguardian.com/commentisfree/2017/nov/28/the-guardian-view-on-syria-putin-tests-the-west"},{"@type":"ListItem","position":12,"url":"https://www.theguardian.com/world/2017/nov/28/mehmet-aksoy-obituary"},{"@type":"ListItem","position":13,"url":"https://www.theguardian.com/stage/2017/nov/28/goats-martyr-surreal-cost-syria-civil-war-liwaa-yazji-royal-court"},{"@type":"ListItem","position":14,"url":"https://www.theguardian.com/world/2017/nov/28/syrian-government-to-join-un-peace-talks-in-geneva"},{"@type":"ListItem","position":15,"url":"https://www.theguardian.com/commentisfree/2017/nov/28/extremism-egypt-terror-attack-sufi-islam-extremist-ideology"},{"@type":"ListItem","position":16,"url":"https://www.theguardian.com/world/2017/nov/28/nudity-israeli-dancers-conflict-culture-minister-jerusalem"},{"@type":"ListItem","position":17,"url":"https://www.theguardian.com/world/2017/nov/27/scrutiny-of-the-arms-trade-is-much-needed"},{"@type":"ListItem","position":18,"url":"https://www.theguardian.com/world/2017/nov/27/egypts-sufis-mark-muhammads-birth-indoor-celebrations-mosque"},{"@type":"ListItem","position":19,"url":"https://www.theguardian.com/global-development/2017/nov/27/syria-war-shattered-society-shock-damaged-country-women-building-peace-mouna-ghanem"}],"@type":"ItemList","@context":"http://schema.org"}
+                        {"url":"https://www.theguardian.com/world/middleeast","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/world/2017/nov/30/us-court-alleged-iran-scheme-avoid-sanctions-turkey"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/world/2017/nov/29/voluntary-evacuation-planned-for-migrants-in-libya-detention-camps"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/world/2017/nov/30/israel-threatens-giro-ditalia-bike-race-west-jerusalem-cycling"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/world/2017/nov/30/us-coalition-airstrikes-iraqi-syrian-civilians"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/commentisfree/2017/nov/30/theresa-may-yemen-arms-saudi-arabia-boris-johnson"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/politics/2017/nov/30/theresa-may-to-outline-post-brexit-vision-for-uk-role-in-middle-east"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/world/2017/nov/30/british-man-ollie-hall-fighting-isis-in-syria-has-been-killed-in-raqqa-sources-say"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/media/2017/nov/30/journalists-living-in-fear-states-crack-down-press-freedom"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/commentisfree/2017/nov/29/the-guardian-view-on-child-marriage-wedlock-is-a-padlock-for-girls"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/politics/2017/nov/29/theresa-may-makes-secret-visit-to-iraq"},{"@type":"ListItem","position":10,"url":"https://www.theguardian.com/politics/2017/nov/29/theresa-may-travels-to-saudi-arabia-powerless-to-rein-in-impulsive-ally"},{"@type":"ListItem","position":11,"url":"https://www.theguardian.com/world/2017/nov/29/saudi-prince-miteb-bin-abdullah-pays-1bn-in-corruption-settlement"},{"@type":"ListItem","position":12,"url":"https://www.theguardian.com/music/2017/nov/29/roger-waters-broadcasts-cancelled-in-germany-over-accusations-of-antisemitism"},{"@type":"ListItem","position":13,"url":"https://www.theguardian.com/us-news/2017/nov/28/benghazi-attack-not-guilty-murder-ahmed-abu-khattala"},{"@type":"ListItem","position":14,"url":"https://www.theguardian.com/politics/2017/nov/28/may-to-demand-saudi-arabia-ends-blockade-on-yemens-ports"},{"@type":"ListItem","position":15,"url":"https://www.theguardian.com/world/2017/nov/28/libya-slave-trade-cnn-report-trump-fake-news"},{"@type":"ListItem","position":16,"url":"https://www.theguardian.com/us-news/2017/nov/28/susan-sarandon-is-wrong-about-hillary-clinton"},{"@type":"ListItem","position":17,"url":"https://www.theguardian.com/commentisfree/2017/nov/28/the-guardian-view-on-syria-putin-tests-the-west"},{"@type":"ListItem","position":18,"url":"https://www.theguardian.com/world/2017/nov/28/mehmet-aksoy-obituary"},{"@type":"ListItem","position":19,"url":"https://www.theguardian.com/stage/2017/nov/28/goats-martyr-surreal-cost-syria-civil-war-liwaa-yazji-royal-court"}],"@type":"ItemList","@context":"http://schema.org"}
                     </script>
 </div>
 </div>
@@ -1898,7 +1855,7 @@ Mouna Ghanem
 <div class="l-footer__primary hide-on-mobile">
 <div id="footer-nav" class="gs-container">
 <div class="brand-bar modern-visible u-cf">
-<a href="https://www.theguardian.com/uk" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
+<a href="https://www.theguardian.com/international" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
 <span class="u-h">The Guardian</span>
 <i class="i i-guardian-logo-160"></i>
 </a>
@@ -1921,7 +1878,7 @@ Mouna Ghanem
 <div class="navigation__container navigation__container--second" data-component="footer-nav">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -1929,11 +1886,6 @@ Mouna Ghanem
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
-politics
 </a>
 </li>
 <li class="top-navigation__item top-navigation__item--current">
@@ -2010,7 +1962,7 @@ travel
 <nav role="navigation" aria-label="All sections">
 <ul class="global-navigation js-global-navigation">
 <li class="global-navigation__section global-navigation__section--home">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk" data-link-name="nav : globalTop : home">
+<a class="global-navigation__title" href="https://www.theguardian.com/international" data-link-name="nav : globalTop : home">
 home
 </a>
 </li>
@@ -2055,11 +2007,6 @@ northern ireland
 </a>
 </li>
 </ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/politics" data-link-name="nav : globalTop : politics">
-politics
-</a>
 </li>
 <li class="global-navigation__section global-navigation__section--current">
 <a class="global-navigation__title" href="https://www.theguardian.com/world" data-link-name="nav : globalTop : world">
@@ -2168,11 +2115,6 @@ racing
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav : globalSub : rugby league">
 rugby league
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav : globalSub : US sports">
-US sports
 </a>
 </li>
 </ul>
@@ -2311,11 +2253,6 @@ markets
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/business/series/project-syndicate-economists" data-link-name="nav : globalSub : project syndicate">
 project syndicate
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/business-to-business" data-link-name="nav : globalSub : business to business">
-business to business
 </a>
 </li>
 </ul>
@@ -2619,38 +2556,13 @@ digital archive
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
-UK
-</a>
-</li>
-<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/world" data-link-name="nav2 : subnav : world news">
 world
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
-business
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
-football
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
-environment
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
-tech
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/politics" data-link-name="nav2 : subnav : UK politics">
-UK politics
+<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
+UK
 </a>
 </li>
 <li class="subnav__item">
@@ -2659,13 +2571,33 @@ science
 </a>
 </li>
 <li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
+cities
+</a>
+</li>
+<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/global-development" data-link-name="nav2 : subnav : global development">
 global development
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
-cities
+<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
+football
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
+tech
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
+business
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
+environment
 </a>
 </li>
 <li class="subnav__item">
@@ -2692,41 +2624,35 @@ obituaries
 <div class="l-footer__secondary js-footer__secondary  gs-container" role="contentinfo">
 <div class="colophon u-cf">
 <div class="footer__email-container js-footer__email-container">
-<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-uk" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
+<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-int" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
 </div>
 <div class="colophon__lists-container">
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">
-jobs</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">
-dating</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://membership.theguardian.com/supporter?INTCMP=NGW_FOOTER_INT_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;%7D">
 become a supporter</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://contribute.theguardian.com?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
 make a contribution</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : guardian labs" href="https://www.theguardian.com/guardian-labs">
-Guardian labs</a>
+<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
+securedrop</a>
+</li>
+<li class="colophon__item"><a data-link-name="tech feedback" class="international : footer : js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
+ask for help</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : about us" href="https://www.theguardian.com/about">
-about us</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : work for us" href="https://workforus.theguardian.com/locations/london">
-work for us</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : advertise with us" href="https://advertising.theguardian.com">
+<li class="colophon__item"><a data-link-name="international : footer : advertise with us" href="https://advertising.theguardian.com">
 advertise with us</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contact us" href="https://www.theguardian.com/help/contact-us">
+<li class="colophon__item"><a data-link-name="international : footer : work for us" href="https://workforus.theguardian.com">
+work for us</a>
+</li>
+<li class="colophon__item"><a data-link-name="international : footer : contact us" href="https://www.theguardian.com/help/contact-us">
 contact us</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : tech feedback" class="js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
-ask for help</a>
+<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
+complaints &amp; corrections</a>
 </li>
 </ul>
 <ul class="colophon__list">
@@ -2734,39 +2660,26 @@ ask for help</a>
 terms &amp; conditions</a>
 </li>
 <li class="colophon__item"><a data-link-name="privacy" href="https://www.theguardian.com/info/privacy">
-privacy policy</a>
-</li>
+privacy policy</a></li>
 <li class="colophon__item"><a data-link-name="cookie" href="https://www.theguardian.com/info/cookies">
 cookie policy</a>
-</li>
-<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
-securedrop</a>
 </li>
 <li class="colophon__item"><a data-link-name="digital newspaper archive" href="https://theguardian.newspapers.com">
 digital newspaper archive</a>
 </li>
-<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
-complaints &amp; corrections</a>
-</li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
+<li class="colophon__item"><a data-link-name="international : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
 all topics</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : all contributors" href="https://www.theguardian.com/index/contributors">
+<li class="colophon__item"><a data-link-name="international : footer : all contributors" href="https://www.theguardian.com/index/contributors">
 all contributors</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : modern slavery act statement" href="https://www.theguardian.com/info/2016/jul/27/modern-slavery-and-our-supply-chains?INTCMP=NGW_FOOTER_UK_GU_MODERN_SLAVERY_ACT">
-modern slavery act</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : facebook" href="https://www.facebook.com/theguardian">
+<li class="colophon__item"><a data-link-name="international : footer : facebook" href="https://www.facebook.com/theguardian">
 Facebook</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : twitter" href="https://twitter.com/guardian">
+<li class="colophon__item"><a data-link-name="international : footer : twitter" href="https://twitter.com/guardian">
 Twitter</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : subscribe" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
-subscribe</a>
 </li>
 </ul>
 </div>

@@ -175,11 +175,11 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=true;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","isProd":true,"discussionFrontendUrl":"","membershipAccess":"","allowUserGeneratedContent":false,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Art and design","isFront":true,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","googleSearchId":"007466294097402385199:m2ealvuxh1i","idUrl":"https://profile.theguardian.com","omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","host":"https://www.theguardian.com","fbAppId":"180444840287","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","cardStyle":"","adUnit":"/59666047/theguardian.com/artanddesign/front/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"UK","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"artanddesign","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","pageId":"artanddesign","sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"artanddesign/artanddesign","contentType":"Section","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","isPaidContent":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Art and design","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"fa8306c64833c2479a56f0112157ccdbc1c301d3","assetsPath":"https://assets.guim.co.uk/","avatarImagesUrl":"https://avatar.guim.co.uk","sentryHost":"app.getsentry.com/35463","buildNumber":"15217","sharedAdTargeting":{"ct":"section","url":"/artanddesign","edition":"uk","p":"ng","k":["artanddesign"]},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=true;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","isProd":true,"discussionFrontendUrl":"","membershipAccess":"","allowUserGeneratedContent":false,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Art and design","isFront":true,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","googleSearchId":"007466294097402385199:m2ealvuxh1i","idUrl":"https://profile.theguardian.com","omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","host":"https://www.theguardian.com","fbAppId":"180444840287","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","cardStyle":"","adUnit":"/59666047/theguardian.com/artanddesign/front/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"artanddesign","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","pageId":"artanddesign","sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"artanddesign/artanddesign","contentType":"Section","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","isPaidContent":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Art and design","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"0f26b728dfd8cbeab9d0ad2951a24c579ea20574","assetsPath":"https://assets.guim.co.uk/","avatarImagesUrl":"https://avatar.guim.co.uk","sentryHost":"app.getsentry.com/35463","buildNumber":"15238","sharedAdTargeting":{"ct":"section","url":"/artanddesign","edition":"int","p":"ng","k":["artanddesign"]},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
-@*/(function(documentElement,window,navigator){var docClass=documentElement.className;var testCssSupportForPropertyAndValue=function(supportsSupports){return supportsSupports?nativeCSSSupports:shimCSSSupports()}("CSS"in window&&"supports"in window.CSS);function nativeCSSSupports(prop,value){return window.CSS.supports(prop,value)}function shimCSSSupports(){var cssToDOMRegExp=/([a-z])-([a-z])/g;var testElem=document.createElement("test");function cssToDOM(name){return name.replace(cssToDOMRegExp,cssToDOMReplacer).replace(/^-/,"")}function cssToDOMReplacer(str,m1,m2){return m1+m2.toUpperCase()}return function(prop,value){try{prop=cssToDOM(prop);var originalValue=testElem.style[prop];if(originalValue===undefined)return false;if(originalValue===value)return true;testElem.style[prop]=value;return testElem.style[prop]!==originalValue}catch(e){return false}}}function testAndAddClass(tests){docClass+=" "+tests.map(function(test){return(test.props.some(function(prop){return test.values.some(function(value){return testCssSupportForPropertyAndValue(prop,value)})})?"has-":"has-no-")+test.feature}).join(" ")}function getCookieValue(name){var val=document.cookie.match("(^|;)\\s*"+name+"\\s*\x3d\\s*([^;]+)");return val?val.pop():undefined}function isRecentContributor(){var value=getCookieValue("gu.contributions.contrib-timestamp");if(!value)return false;var now=(new Date).getTime();var lastContribution=(new Date(value)).getTime();var diffDays=Math.ceil((now-lastContribution)/(1E3*3600*24));return diffDays<=180}function isPayingMember(){return getCookieValue("gu_paying_member")==="true"}if(!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect)docClass+=" svg";else docClass+=" no-svg";testAndAddClass([{feature:"flex",props:["flex","-ms-flex","-webkit-flex","-moz-box-flex","-webkit-box-flex"],values:["inherit"]},{feature:"flex-wrap",props:["flex-wrap","-ms-flex-wrap","-webkit-flex-wrap"],values:["inherit"]},{feature:"fixed",props:["position"],values:["fixed"]},{feature:"sticky",props:["position"],values:["sticky","-webkit-sticky"]}]);if(window.guardian.isEnhanced)docClass=docClass.replace(/\bis-not-modern\b/g,"is-modern");if(window.location.hash!=="#no-kern")docClass+=" should-kern";var baseFontSize=null;if("getComputedStyle"in window)baseFontSize=window.getComputedStyle(documentElement).getPropertyValue("font-size");if(baseFontSize&&parseInt(baseFontSize,10)!==16)documentElement.style.fontSize=baseFontSize;if(isPayingMember())docClass+=" is-paying-member";if(isRecentContributor())docClass+=" is-recent-contributor";documentElement.className=docClass.replace(/\bjs-off\b/g,"js-on")})(document.documentElement,window,navigator);(function(window,document){var ua=navigator.userAgent;var fontHinting=function(){var windowsNT=/Windows NT (\d\.\d+)/.exec(ua);var hinting="Off";try{if(windowsNT){var version=parseFloat(windowsNT[1],10);if(version>=5.1&&version<=6.1)if(/Chrome/.exec(ua)&&version<6)hinting="Auto";else hinting="Cleartype"}}catch(e){}return hinting}();function loadFontsFromStorage(){try{if("localStorage"in window){var saveFont=function(fontName,fontHash,css){for(var i=0,totalItems=localStorage.length;i<totalItems-1;i++){var key=localStorage.key(i);if(key.indexOf(fontStorageKey(fontName))!==-1){localStorage.removeItem(key);break}}localStorage.setItem(fontStorageKey(fontName,fontHash),JSON.stringify({value:css}))};var fetchFont=function(url,el,fontName,fontHash){var xhr=new XMLHttpRequest;this["guFont"]=function(fontData){return fontData.css};xhr.open("GET",url,true);xhr.onreadystatechange=function(){if(xhr.readyState===4&&xhr.status===200){var css=eval(xhr.responseText);useFont(el,css);saveFont(fontName,fontHash,css)}};xhr.send()};var useFont=function(el,css){el.innerHTML=css};var fontStorageKey=function(fontName,fontHash){fontHash=fontHash===undefined?"":fontHash;return"gu.fonts."+fontName+"."+fontHash};var fontFormat=function(){var formatStorageKey="gu.fonts.format";var format=localStorage.getItem(formatStorageKey);function supportsWoff2(){if("FontFace"in window)try{var f=new window.FontFace("t",'url("data:application/font-woff2,") format("woff2")',{});f.load()["catch"](function(){});if(f.status==="loading")return true}catch(e){}if(!/edge\/([0-9]+)/.test(ua.toLowerCase())){var browser=/(chrome|firefox)\/([0-9]+)/.exec(ua.toLowerCase());var supportsWoff2$0={"chrome":36,"firefox":39};return!!browser&&supportsWoff2$0[browser[1]]<parseInt(browser[2],10)}return false}if(/value/.test(format)){format=JSON.parse(format).value;localStorage.setItem(formatStorageKey,format)}if(!format){format=supportsWoff2()?"woff2":ua.indexOf("android")>-1?"ttf":"woff";localStorage.setItem(formatStorageKey,format)}return format}();var fonts=document.querySelectorAll(".webfont");var hinting=fontHinting==="Off"?"":"hinted-"+fontHinting+"-";var urlAttribute="data-cache-file-"+hinting+fontFormat;for(var i=0,j=fonts.length;i<j;++i){var font=fonts[i];var fontURL=font.getAttribute(urlAttribute);var fontInfo=fontURL.match(/fonts\/([^/]*?)\/?([^/]*)\.(woff2|woff|ttf).json$/);var fontName=fontInfo[2];var fontHash=fontInfo[1];var fontData=localStorage.getItem(fontStorageKey(fontName,fontHash));if(fontData)useFont(font,JSON.parse(fontData).value);else fetchFont(fontURL,font,fontName,fontHash)}return true}}catch(e){}return false}function loadFontsAsynchronously(){try{var scripts=document.getElementsByTagName("script");var thisScript=scripts[scripts.length-1];var fonts=document.createElement("link");fonts.rel="stylesheet";fonts.className="webfonts";fonts.href=window.guardian.config.stylesheets.fonts["hinting"+fontHinting].kerningOn;window.setTimeout(function(){thisScript.parentNode.insertBefore(fonts,thisScript)})}catch(e){}}function fontSmoothingEnabled(){try{var saveFontSmoothing=function(state){state=state?"on":"off";document.cookie="GU_fonts_smoothing\x3d "+state+"; domain\x3d"+location.hostname+"; path\x3d/; max-age\x3d"+60*60*24*30};if(document.cookie.indexOf("GU_fonts_smoothing")!==-1&&window.location.hash!=="#check-smoothing")return document.cookie.indexOf("GU_fonts_smoothing\x3don")!==-1;if(/Windows NT (\d\.\d+)/.exec(ua)&&!/MSIE|Trident/.exec(ua)){try{var canvasNode=document.createElement("canvas");canvasNode.width="35";canvasNode.height="35";canvasNode.style.display="none";document.documentElement.appendChild(canvasNode);var ctx=canvasNode.getContext("2d");ctx.textBaseline="top";ctx.font="32px Arial";ctx.fillStyle="black";ctx.strokeStyle="black";ctx.fillText("@",0,0);for(var x=0;x<=16;x++)for(var y=0;y<=16;y++){var alpha=ctx.getImageData(x,y,1,1).data[3];if(alpha>0&&alpha<255){saveFontSmoothing(true);return true}}}catch(e){}saveFontSmoothing(false);return false}else return true}catch(e$1){}}var fontCookie="GU_fonts\x3doff; domain\x3d"+location.hostname+"; path\x3d/";function disableFonts(){document.cookie=fontCookie+"; max-age\x3d"+60*60*24*365}function enableFonts(){document.cookie=fontCookie+"; expires\x3dThu, 01 Jan 1970 00:00:00 GMT"}function checkUserFontDisabling(){if(window.location.hash==="#fonts-off")disableFonts();else if(window.location.hash==="#fonts-on"||window.location.hash==="#check-smoothing")enableFonts()}var fontsEnabled=document.cookie.indexOf("GU_fonts\x3doff")===-1;function loadFonts(){checkUserFontDisabling();if(fontsEnabled)if(fontSmoothingEnabled())loadFontsFromStorage()||loadFontsAsynchronously();else disableFonts()}loadFonts()})(window,document);(function(styleSheetLinks,documentStyleSheets){function setMedia(styleSheet){for(var i=0,totalSheets=documentStyleSheets.length;i<totalSheets;i++){var sheet=documentStyleSheets[i];if(sheet.href&&sheet.href.indexOf(styleSheet.href)>-1){styleSheet.media="screen";window.guardian.css.loaded=true;try{window.guardian.css.onLoad()}catch(e){}return true}}setTimeout(function(){setMedia(styleSheet)})}function useCss(){for(var i=0,totalStyleSheetLinks=styleSheetLinks.length;i<totalStyleSheetLinks;i++)if(styleSheetLinks[i].getAttribute("media")==="only x")setMedia(styleSheetLinks[i])}useCss()})(document.getElementsByTagName("link"),window.document.styleSheets);function guardianPolyfilled(){try{window.guardian.polyfilled=true}catch(e){}}(function(document,window){var src;var script;var pendingScripts=[];var firstScript=document.scripts[0];var scripts=["https://assets.guim.co.uk/polyfill.io/v2/polyfill.min.js?rum\x3d0\x26features\x3des6,es7,es2017,default-3.6,HTMLPictureElement,IntersectionObserver,IntersectionObserverEntry\x26flags\x3dgated\x26callback\x3dguardianPolyfilled\x26unknown\x3dpolyfill","https://assets.guim.co.uk/javascripts/359b02d16544e7ecd7dc/graun.standard.js"];function stateChange(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScript.parentNode.insertBefore(pendingScript,firstScript)}}while(src=scripts.shift())if("async"in firstScript){script=document.createElement("script");script.async=false;script.src=src;document.head.appendChild(script)}else if(firstScript.readyState){script=document.createElement("script");pendingScripts.push(script);script.onreadystatechange=stateChange;script.src=src}else document.write('\x3cscript src\x3d"'+src+'" defer\x3e\x3c/'+"script\x3e")})(document,window);</script>
+@*/(function(documentElement,window,navigator){var docClass=documentElement.className;var testCssSupportForPropertyAndValue=function(supportsSupports){return supportsSupports?nativeCSSSupports:shimCSSSupports()}("CSS"in window&&"supports"in window.CSS);function nativeCSSSupports(prop,value){return window.CSS.supports(prop,value)}function shimCSSSupports(){var cssToDOMRegExp=/([a-z])-([a-z])/g;var testElem=document.createElement("test");function cssToDOM(name){return name.replace(cssToDOMRegExp,cssToDOMReplacer).replace(/^-/,"")}function cssToDOMReplacer(str,m1,m2){return m1+m2.toUpperCase()}return function(prop,value){try{prop=cssToDOM(prop);var originalValue=testElem.style[prop];if(originalValue===undefined)return false;if(originalValue===value)return true;testElem.style[prop]=value;return testElem.style[prop]!==originalValue}catch(e){return false}}}function testAndAddClass(tests){docClass+=" "+tests.map(function(test){return(test.props.some(function(prop){return test.values.some(function(value){return testCssSupportForPropertyAndValue(prop,value)})})?"has-":"has-no-")+test.feature}).join(" ")}function getCookieValue(name){var val=document.cookie.match("(^|;)\\s*"+name+"\\s*\x3d\\s*([^;]+)");return val?val.pop():undefined}function isRecentContributor(){var value=getCookieValue("gu.contributions.contrib-timestamp");if(!value)return false;var now=(new Date).getTime();var lastContribution=(new Date(value)).getTime();var diffDays=Math.ceil((now-lastContribution)/(1E3*3600*24));return diffDays<=180}function isPayingMember(){return getCookieValue("gu_paying_member")==="true"}if(!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect)docClass+=" svg";else docClass+=" no-svg";testAndAddClass([{feature:"flex",props:["flex","-ms-flex","-webkit-flex","-moz-box-flex","-webkit-box-flex"],values:["inherit"]},{feature:"flex-wrap",props:["flex-wrap","-ms-flex-wrap","-webkit-flex-wrap"],values:["inherit"]},{feature:"fixed",props:["position"],values:["fixed"]},{feature:"sticky",props:["position"],values:["sticky","-webkit-sticky"]}]);if(window.guardian.isEnhanced)docClass=docClass.replace(/\bis-not-modern\b/g,"is-modern");if(window.location.hash!=="#no-kern")docClass+=" should-kern";var baseFontSize=null;if("getComputedStyle"in window)baseFontSize=window.getComputedStyle(documentElement).getPropertyValue("font-size");if(baseFontSize&&parseInt(baseFontSize,10)!==16)documentElement.style.fontSize=baseFontSize;if(isPayingMember())docClass+=" is-paying-member";if(isRecentContributor())docClass+=" is-recent-contributor";documentElement.className=docClass.replace(/\bjs-off\b/g,"js-on")})(document.documentElement,window,navigator);(function(window,document){var ua=navigator.userAgent;var fontHinting=function(){var windowsNT=/Windows NT (\d\.\d+)/.exec(ua);var hinting="Off";try{if(windowsNT){var version=parseFloat(windowsNT[1],10);if(version>=5.1&&version<=6.1)if(/Chrome/.exec(ua)&&version<6)hinting="Auto";else hinting="Cleartype"}}catch(e){}return hinting}();function loadFontsFromStorage(){try{if("localStorage"in window){var saveFont=function(fontName,fontHash,css){for(var i=0,totalItems=localStorage.length;i<totalItems-1;i++){var key=localStorage.key(i);if(key.indexOf(fontStorageKey(fontName))!==-1){localStorage.removeItem(key);break}}localStorage.setItem(fontStorageKey(fontName,fontHash),JSON.stringify({value:css}))};var fetchFont=function(url,el,fontName,fontHash){var xhr=new XMLHttpRequest;this["guFont"]=function(fontData){return fontData.css};xhr.open("GET",url,true);xhr.onreadystatechange=function(){if(xhr.readyState===4&&xhr.status===200){var css=eval(xhr.responseText);useFont(el,css);saveFont(fontName,fontHash,css)}};xhr.send()};var useFont=function(el,css){el.innerHTML=css};var fontStorageKey=function(fontName,fontHash){fontHash=fontHash===undefined?"":fontHash;return"gu.fonts."+fontName+"."+fontHash};var fontFormat=function(){var formatStorageKey="gu.fonts.format";var format=localStorage.getItem(formatStorageKey);function supportsWoff2(){if("FontFace"in window)try{var f=new window.FontFace("t",'url("data:application/font-woff2,") format("woff2")',{});f.load()["catch"](function(){});if(f.status==="loading")return true}catch(e){}if(!/edge\/([0-9]+)/.test(ua.toLowerCase())){var browser=/(chrome|firefox)\/([0-9]+)/.exec(ua.toLowerCase());var supportsWoff2$0={"chrome":36,"firefox":39};return!!browser&&supportsWoff2$0[browser[1]]<parseInt(browser[2],10)}return false}if(/value/.test(format)){format=JSON.parse(format).value;localStorage.setItem(formatStorageKey,format)}if(!format){format=supportsWoff2()?"woff2":ua.indexOf("android")>-1?"ttf":"woff";localStorage.setItem(formatStorageKey,format)}return format}();var fonts=document.querySelectorAll(".webfont");var hinting=fontHinting==="Off"?"":"hinted-"+fontHinting+"-";var urlAttribute="data-cache-file-"+hinting+fontFormat;for(var i=0,j=fonts.length;i<j;++i){var font=fonts[i];var fontURL=font.getAttribute(urlAttribute);var fontInfo=fontURL.match(/fonts\/([^/]*?)\/?([^/]*)\.(woff2|woff|ttf).json$/);var fontName=fontInfo[2];var fontHash=fontInfo[1];var fontData=localStorage.getItem(fontStorageKey(fontName,fontHash));if(fontData)useFont(font,JSON.parse(fontData).value);else fetchFont(fontURL,font,fontName,fontHash)}return true}}catch(e){}return false}function loadFontsAsynchronously(){try{var scripts=document.getElementsByTagName("script");var thisScript=scripts[scripts.length-1];var fonts=document.createElement("link");fonts.rel="stylesheet";fonts.className="webfonts";fonts.href=window.guardian.config.stylesheets.fonts["hinting"+fontHinting].kerningOn;window.setTimeout(function(){thisScript.parentNode.insertBefore(fonts,thisScript)})}catch(e){}}function fontSmoothingEnabled(){try{var saveFontSmoothing=function(state){state=state?"on":"off";document.cookie="GU_fonts_smoothing\x3d "+state+"; domain\x3d"+location.hostname+"; path\x3d/; max-age\x3d"+60*60*24*30};if(document.cookie.indexOf("GU_fonts_smoothing")!==-1&&window.location.hash!=="#check-smoothing")return document.cookie.indexOf("GU_fonts_smoothing\x3don")!==-1;if(/Windows NT (\d\.\d+)/.exec(ua)&&!/MSIE|Trident/.exec(ua)){try{var canvasNode=document.createElement("canvas");canvasNode.width="35";canvasNode.height="35";canvasNode.style.display="none";document.documentElement.appendChild(canvasNode);var ctx=canvasNode.getContext("2d");ctx.textBaseline="top";ctx.font="32px Arial";ctx.fillStyle="black";ctx.strokeStyle="black";ctx.fillText("@",0,0);for(var x=0;x<=16;x++)for(var y=0;y<=16;y++){var alpha=ctx.getImageData(x,y,1,1).data[3];if(alpha>0&&alpha<255){saveFontSmoothing(true);return true}}}catch(e){}saveFontSmoothing(false);return false}else return true}catch(e$1){}}var fontCookie="GU_fonts\x3doff; domain\x3d"+location.hostname+"; path\x3d/";function disableFonts(){document.cookie=fontCookie+"; max-age\x3d"+60*60*24*365}function enableFonts(){document.cookie=fontCookie+"; expires\x3dThu, 01 Jan 1970 00:00:00 GMT"}function checkUserFontDisabling(){if(window.location.hash==="#fonts-off")disableFonts();else if(window.location.hash==="#fonts-on"||window.location.hash==="#check-smoothing")enableFonts()}var fontsEnabled=document.cookie.indexOf("GU_fonts\x3doff")===-1;function loadFonts(){checkUserFontDisabling();if(fontsEnabled)if(fontSmoothingEnabled())loadFontsFromStorage()||loadFontsAsynchronously();else disableFonts()}loadFonts()})(window,document);(function(styleSheetLinks,documentStyleSheets){function setMedia(styleSheet){for(var i=0,totalSheets=documentStyleSheets.length;i<totalSheets;i++){var sheet=documentStyleSheets[i];if(sheet.href&&sheet.href.indexOf(styleSheet.href)>-1){styleSheet.media="screen";window.guardian.css.loaded=true;try{window.guardian.css.onLoad()}catch(e){}return true}}setTimeout(function(){setMedia(styleSheet)})}function useCss(){for(var i=0,totalStyleSheetLinks=styleSheetLinks.length;i<totalStyleSheetLinks;i++)if(styleSheetLinks[i].getAttribute("media")==="only x")setMedia(styleSheetLinks[i])}useCss()})(document.getElementsByTagName("link"),window.document.styleSheets);function guardianPolyfilled(){try{window.guardian.polyfilled=true}catch(e){}}(function(document,window){var src;var script;var pendingScripts=[];var firstScript=document.scripts[0];var scripts=["https://assets.guim.co.uk/polyfill.io/v2/polyfill.min.js?rum\x3d0\x26features\x3des6,es7,es2017,default-3.6,HTMLPictureElement,IntersectionObserver,IntersectionObserverEntry\x26flags\x3dgated\x26callback\x3dguardianPolyfilled\x26unknown\x3dpolyfill","https://assets.guim.co.uk/javascripts/7711e47dd14933aedddb/graun.standard.js"];function stateChange(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScript.parentNode.insertBefore(pendingScript,firstScript)}}while(src=scripts.shift())if("async"in firstScript){script=document.createElement("script");script.async=false;script.src=src;document.head.appendChild(script)}else if(firstScript.readyState){script=document.createElement("script");pendingScripts.push(script);script.onreadystatechange=stateChange;script.src=src}else document.write('\x3cscript src\x3d"'+src+'" defer\x3e\x3c/'+"script\x3e")})(document,window);</script>
 </head>
 <body id="top" class="has-localnav" itemscope itemtype="http://schema.org/WebPage">
 <div class="site-message js-site-message is-hidden" data-link-name="release message" role="dialog" aria-label="welcome" aria-describedby="site-message__message">
@@ -218,7 +218,13 @@
 <input type="checkbox" id="edition-picker-toggle" aria-controls="edition-dropdown-menu" class="u-h dropdown-menu-fallback js-enhance-checkbox" data-link-name="nav2 : topbar : edition-picker: toggle">
 <ul class="dropdown-menu js-edition-dropdown-menu" id="edition-dropdown-menu" aria-hidden="true">
 <li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="dropdown-menu__title dropdown-menu__title--active">
+<a data-link-name="nav2 : topbar : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="dropdown-menu__title dropdown-menu__title--active">
+<span class="u-h">switch to the </span>
+International edition
+</a>
+</li>
+<li class="dropdown-menu__item">
+<a data-link-name="nav2 : topbar : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="dropdown-menu__title ">
 <span class="u-h">switch to the </span>
 UK edition
 </a>
@@ -235,19 +241,13 @@ US edition
 Australia edition
 </a>
 </li>
-<li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="dropdown-menu__title ">
-<span class="u-h">switch to the </span>
-International edition
-</a>
-</li>
 </ul>
 <label for="edition-picker-toggle" class="top-bar__item top-bar__item--dropdown js-edition-picker-trigger" data-link-name="nav2 : topnav : edition-picker: toggle">
 <span class="u-h">current edition: </span>
-UK edition
+International edition
 </label>
 </div>
-<a href="https://www.theguardian.com/uk" class="new-header__logo" data-link-name="nav2 : logo">
+<a href="https://www.theguardian.com/international" class="new-header__logo" data-link-name="nav2 : logo">
 <span class="u-h">The Guardian - Back to home</span>
 <span class="inline-guardian-logo-160 inline-logo new-header__logo">
 <svg width="160" height="30" viewbox="0 0 320 60" class="new-header__logo__svg inline-guardian-logo-160__svg inline-logo__svg">
@@ -257,16 +257,16 @@ UK edition
 </span>
 </a>
 <div class="new-header__top-bar hide-until-mobile">
-<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="uk" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D">
+<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="int" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D">
 <span class="top-bar__item--cta--circle"></span>
 <span class="top-bar__item--cta--text">
 become a <br>supporter
 </span>
 </a>
-<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="uk" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D">
+<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="int" href="https://subscribe.theguardian.com?INTCMP=subs_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;subs_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;subs_int_web_newheader&quot;%7D">
 subscribe
 </a>
-<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="uk" href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader">
+<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="int" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader">
 <span class="hide-until-tablet">find a job</span>
 <span class="hide-from-tablet">jobs</span>
 </a>
@@ -314,7 +314,7 @@ search
 <input type="checkbox" id="main-menu-toggle" class="veggie-burger-fallback js-enhance-checkbox u-h" data-link-name="nav2 : veggie-burger : show" aria-controls="main-menu">
 <ul class="pillars">
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/uk" data-link-name="nav2 : primary : news">
+<a class="pillar-link" href="https://www.theguardian.com/international" data-link-name="nav2 : primary : news">
 news
 </a>
 </li>
@@ -358,9 +358,9 @@ sections
 <i class="menu-item__toggle"></i>
 news
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu news" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu news" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk" data-link-name="nav2 : secondary : headlines">
+<a class="menu-item__title" href="https://www.theguardian.com/international" data-link-name="nav2 : secondary : headlines">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -370,38 +370,13 @@ headlines
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
-UK news
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/world" data-link-name="nav2 : secondary : world news">
 world news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : secondary : business">
-business
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
-football
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
-environment
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
-tech
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/politics" data-link-name="nav2 : secondary : UK politics">
-UK politics
+<a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
+UK news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -410,13 +385,33 @@ science
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
+cities
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/global-development" data-link-name="nav2 : secondary : global development">
 global development
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
-cities
+<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
+football
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
+tech
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : secondary : business">
+business
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
+environment
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -431,7 +426,7 @@ obituaries
 <i class="menu-item__toggle"></i>
 opinion
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu opinion" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu opinion" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav2 : secondary : opinion home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -474,7 +469,7 @@ letters
 <i class="menu-item__toggle"></i>
 sport
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu sport" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu sport" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/sport" data-link-name="nav2 : secondary : sport home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -516,23 +511,13 @@ F1
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav2 : secondary : rugby league">
-rugby league
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/horse-racing" data-link-name="nav2 : secondary : racing">
-racing
+<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
+golf
 </a>
 </li>
 <li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav2 : secondary : US sports">
 US sports
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
-golf
 </a>
 </li>
 </ul>
@@ -542,7 +527,7 @@ golf
 <i class="menu-item__toggle"></i>
 arts
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu arts" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu arts" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/culture" data-link-name="nav2 : secondary : culture home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -554,8 +539,8 @@ culture home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
-tv &amp; radio
+<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
+books
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -564,23 +549,8 @@ music
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
-film
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
-stage
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
-books
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
-games
+<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
+tv &amp; radio
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -589,8 +559,23 @@ art &amp; design
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
+film
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
+games
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : secondary : classical">
 classical
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
+stage
 </a>
 </li>
 </ul>
@@ -600,7 +585,7 @@ classical
 <i class="menu-item__toggle"></i>
 lifestyle
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu lifestyle" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu lifestyle" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -627,23 +612,8 @@ recipes
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
-travel
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/love-and-sex" data-link-name="nav2 : secondary : love &amp; sex">
 love &amp; sex
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
-family
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
-home &amp; garden
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -652,8 +622,23 @@ health &amp; fitness
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
+home &amp; garden
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav2 : secondary : women">
 women
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
+family
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
+travel
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -683,13 +668,13 @@ money
 </form>
 </div>
 <ul class="menu-group menu-group--membership" role="menubar">
-<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : become a supporter">
+<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D" data-link-name="nav2 : become a supporter">
 become a supporter
 </a>
 </li>
-<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : subscribe">
+<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_int_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
 subscribe
 </a>
 </li>
@@ -736,9 +721,15 @@ Sign out
 <li class="menu-item js-navigation-item">
 <button class="menu-item__title js-navigation-toggle" data-link-name="nav2 : edition picker" aria-haspopup="true" aria-expanded="true">
 <i class="menu-item__toggle"></i>
-UK edition
+International edition
 </button>
 <ul class="menu-group">
+<li class="menu-item">
+<a data-link-name="nav2 : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="menu-item__title">
+<span class="u-h">switch to the </span>
+UK edition
+</a>
+</li>
 <li class="menu-item">
 <a data-link-name="nav2 : edition-picker: US" href="https://www.theguardian.com/preference/edition/us" class="menu-item__title">
 <span class="u-h">switch to the </span>
@@ -751,38 +742,27 @@ US edition
 Australia edition
 </a>
 </li>
-<li class="menu-item">
-<a data-link-name="nav2 : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="menu-item__title">
-<span class="u-h">switch to the </span>
-International edition
-</a>
-</li>
 </ul>
 </li>
 </ul>
-<ul class="menu-group menu-group--footer" data-edition="uk" role="menubar">
+<ul class="menu-group menu-group--footer" data-edition="int" role="menubar">
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" data-link-name="nav2 : jobs">
+<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" data-link-name="nav2 : jobs">
 jobs
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" data-link-name="nav2 : dating">
+<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" data-link-name="nav2 : dating">
 dating
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" data-link-name="nav2 : holidays">
+<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" data-link-name="nav2 : holidays">
 holidays
 </a>
 </li>
-<li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" data-link-name="nav2 : masterclasses">
-masterclasses
-</a>
-</li>
 <li class="hide-from-desktop menu-item" role="menuitem">
-<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_uk_web_newheader" data-link-name="nav2 : the guardian app">
+<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_int_web_newheader" data-link-name="nav2 : the guardian app">
 the guardian app
 </a>
 </li>
@@ -822,11 +802,6 @@ digital archive
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/guardian-professional" data-link-name="nav2 : professional networks">
-professional networks
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/crosswords" data-link-name="nav2 : crosswords">
 crosswords
 </a>
@@ -863,23 +838,18 @@ Twitter
 </span>
 <ul class="menu-brand-extensions__list">
 <li class="menu-brand-extensions__list-item">
-<a href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
+<a href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
 jobs
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
+<a href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
 dating
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
+<a href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
 holidays
-</a>
-</li>
-<li class="menu-brand-extensions__list-item">
-<a href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : masterclasses">
-masterclasses
 </a>
 </li>
 </ul>
@@ -891,8 +861,8 @@ masterclasses
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="arts">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : subnav : tv &amp; radio">
-tv &amp; radio
+<a class="subnav-link" href="https://www.theguardian.com/books" data-link-name="nav2 : subnav : books">
+books
 </a>
 </li>
 <li class="subnav__item">
@@ -901,23 +871,8 @@ music
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : subnav : film">
-film
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/stage" data-link-name="nav2 : subnav : stage">
-stage
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/books" data-link-name="nav2 : subnav : books">
-books
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/games" data-link-name="nav2 : subnav : games">
-games
+<a class="subnav-link" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : subnav : tv &amp; radio">
+tv &amp; radio
 </a>
 </li>
 <li class="subnav__item subnav__item--current-section">
@@ -926,8 +881,23 @@ art &amp; design
 </a>
 </li>
 <li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : subnav : film">
+film
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/games" data-link-name="nav2 : subnav : games">
+games
+</a>
+</li>
+<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : subnav : classical">
 classical
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/stage" data-link-name="nav2 : subnav : stage">
+stage
 </a>
 </li>
 </ul>
@@ -992,12 +962,12 @@ Sign out</a>
 <path d="M21.3 8.8c0-4.9-1.5-5.7-3.3-5.7-1.8 0-3.2.7-3.2 5.7s1.5 5.5 3.2 5.5c1.8-.1 3.3-.6 3.3-5.5m-6.5 18.8c-2.3 0-2.9 1.7-2.9 2.9 0 1.8 1.6 3.4 6.3 3.4 5.3 0 6.8-1.5 6.8-3.4 0-1.7-1.3-2.9-3.4-2.9h-6.8zM10.5 2.4C4.3 5.2 0 11.4 0 18.7c0 4.9 2 9.4 5.2 12.6V31c0-3.2 3.1-4.4 5.9-5-2.6-.6-3.9-2.5-3.9-4.4 0-2.6 2.9-4.8 4.3-5.8l-.2-.1c-2.5-1.4-4.1-3.8-4.1-7 0-2.7 1.2-4.9 3.3-6.3M36 18.8C36 11.4 31.5 5 25.1 2.3c2.1 1.4 3.4 3.5 3.5 6.3l.1.6c0 5.4-4.4 8.2-10.7 8.2-1.6 0-2.7-.1-4.1-.5-.6.4-1.1 1.1-1.1 1.8 0 .9.8 1.6 1.8 1.6h8.8c5.5 0 8.2 2.2 8.2 7.1 0 1.6-.3 3.1-1 4.3 3.3-3.4 5.4-7.9 5.4-12.9"/>
 </svg>
 </span>
-<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
+<a href="https://membership.theguardian.com/supporter?INTCMP=DOTCOM_HEADER_BECOMEMEMBER_INT&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;,&quot;campaignCode&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
 <span class="control__info js-control-info control__info--supporting">
 become a supporter
 </span>
 </a>
-<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="uk : topNav : subscribe">
+<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_INT_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="int : topNav : subscribe">
 <span class="control__info js-control-info">subscribe</span>
 </a>
 </div>
@@ -1013,10 +983,10 @@ become a supporter
 </div>
 <div class="brand-bar__item--right" data-component="guardian-services">
 <div class="brand-bar__item brand-bar__item--jobs hide-until-tablet hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_JOBS">find a job</a>
+<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
 </div>
 <div class="brand-bar__item brand-bar__item--soulmates hide-until-desktop hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--more">
 <a class="brand-bar__item--action popup__toggle" data-toggle="top-bar__popup--more" data-link-name="topNav : more" aria-haspopup="true" aria-controls="guardian-services-top-menu">
@@ -1037,41 +1007,24 @@ become a supporter
 <h3 class="popup__group-header">from the guardian:</h3>
 <ul class="popup__group">
 <li class="popup__item brand-bar__popup--soulmates hide-from-desktop show-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
 </li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : masterclasses" href="https://membership.theguardian.com/masterclasses?INTCMP=NGW_TOPNAV_UK_GU_MASTERCLASSES">masterclasses</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : courses" href="https://courses.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_COURSES">courses</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : holidays" href="https://holidays.theguardian.com/?utm_source=theguardian&amp;utm_medium=guardian-links&amp;utm_campaign=topnav&amp;INTCMP=topnav">holidays</a>
+<li class="popup__item brand-bar__popup--jobs">
+<a class="brand-bar__item--action" data-link-name="int: topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
 </li>
 </ul>
-<div class="brand-bar__popup--membership hide-from-desktop show-on-slim-header">
-<h3 class="popup__group-header">support us:</h3>
-<ul class="popup__group">
-<li class="popup__item">
-<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : membership" href="https://membership.theguardian.com/supporter?INTCMP=NGW_TOPNAV_UK_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;%7D">membership</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : subscribe" href="https://subscribe.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;%7D">subscribe</a>
-</li>
-</ul>
-</div>
 <div class="brand-bar__popup--edition mobile-only show-on-slim-header">
 <h3 class="popup__group-header">change edition:</h3>
 <ul class="popup__group">
 <li class="popup__item">
+<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
+<span class="u-h">switch to the </span> UK <span class="u-h"> edition</span>
+</a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span> US <span class="u-h"> edition</span>
 </a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="AU" data-link-name="switch to AU edition" href="https://www.theguardian.com/preference/edition/au" title="Switch to the AU edition">
 <span class="u-h">switch to the </span> AU <span class="u-h"> edition</span>
-</a>
-<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
-<span class="u-h">switch to the </span> INT <span class="u-h"> edition</span>
 </a>
 </li>
 </ul>
@@ -1080,9 +1033,15 @@ become a supporter
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--edition hide-until-tablet hide-on-slim-header" data-component="edition">
 <a class="brand-bar__item--action popup__toggle" data-link-name="topNav : edition" data-toggle="top-bar__popup--edition" aria-haspopup="true" aria-controls="guardian-edition-menu">
-UK edition
+International edition
 </a>
 <ul class="popup popup--default popup__group is-off top-bar__popup--edition" id="guardian-edition-menu">
+<li class="popup__item">
+<a class="brand-bar__item--action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
+<span class="u-h">switch to the </span>
+<span class="brand-bar__edition-name">UK edition</span>
+</a>
+</li>
 <li class="popup__item">
 <a class="brand-bar__item--action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span>
@@ -1095,12 +1054,6 @@ UK edition
 <span class="brand-bar__edition-name">Australia edition</span>
 </a>
 </li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
-<span class="u-h">switch to the </span>
-<span class="brand-bar__edition-name">International edition</span>
-</a>
-</li>
 </ul>
 </div>
 </div>
@@ -1108,7 +1061,7 @@ UK edition
 </div>
 <div class="popup popup--default popup--search js-search-old js-search-popup is-off"><div class="js-search-placeholder"></div></div>
 <div class="l-header-main">
-<a href="https://www.theguardian.com/uk" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
+<a href="https://www.theguardian.com/international" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
 <span class="u-h">The Guardian - Back to home</span>
 <!--[if (gt IE 8)|(IEMobile)]><!-->
 <span class="inline-guardian-logo-320 inline-logo ">
@@ -1131,7 +1084,7 @@ UK edition
 <nav class="navigation__container navigation__container--first" data-component="nav" role="navigation" aria-label="Current section">
 <ul class="signposting">
 <li class="signposting__item signposting__item--home">
-<a class="signposting__action" href="https://www.theguardian.com/uk" data-link-name="nav : signposting : home">home</a>
+<a class="signposting__action" href="https://www.theguardian.com/international" data-link-name="nav : signposting : home">home</a>
 </li>
 <li class="signposting__item signposting__item--parent">
 <span class="signposting__separator" aria-hidden="true"><span class="signposting__separator__inner">›</span></span>
@@ -1169,7 +1122,7 @@ UK edition
 <nav class="navigation__container navigation__container--second" data-component="nav" role="navigation" aria-label="Guardian sections">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -1177,11 +1130,6 @@ UK edition
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
-politics
 </a>
 </li>
 <li class="top-navigation__item">
@@ -1272,18 +1220,84 @@ travel
 <div class="fc-slice-wrapper">
 <ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--h-q-q">
 <li class="fc-slice__item l-row__item l-row__item--span-2 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--has-image js-fc-item tone-review--item fc-item--standard-mobile fc-item--half-tablet js-snappable" data-link-name="review | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london" data-loyalty-short-url="/p/7kajk">
+<div class="fc-item fc-item--force-image-upgrade fc-item--gallery fc-item--has-image fc-item--is-media-link js-fc-item tone-media--item fc-item--standard-mobile fc-item--half-tablet js-snappable" data-link-name="media | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures" data-loyalty-short-url="/p/7k738">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio inlined-image">
 <picture>
 <!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="460px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=460&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=300be7d2fa09514d9807ec3686c2615d 920w">
-<source media="(min-width: 980px)" sizes="460px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=460&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=4c276b8466b8db56af7205c2a073016f 460w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="340px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=340&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=72ef2db66639812aaf73238e331f4712 680w">
-<source media="(min-width: 740px)" sizes="340px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=340&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=3febf1709ae2881ed9b7014d6381e136 340w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=460&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=300be7d2fa09514d9807ec3686c2615d 920w, https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=340&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=72ef2db66639812aaf73238e331f4712 680w, https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=445&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=f9b76aa103c0c352c5ab910d08ccbeba 890w, https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=605&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=e4cdf2072bd8340acea00d1249d5a6fe 1210w">
-<source media="(min-width: 0px)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=460&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=4c276b8466b8db56af7205c2a073016f 460w, https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=340&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=3febf1709ae2881ed9b7014d6381e136 340w, https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=445&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=4f3ea8c1ba7962feaca37c1ce79d3231 445w, https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=605&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=5784bdae9c9926eeb264800db063999e 605w">
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="460px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=460&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=8861a88e0a3d41592c14523274d10c23 920w">
+<source media="(min-width: 980px)" sizes="460px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=460&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=06a9240f75ad884647c182207b737424 460w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="340px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=340&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=628664dc480a2ea8d46bba3250315bc2 680w">
+<source media="(min-width: 740px)" sizes="340px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=340&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=b29cf6146b95ec7231c00056845231cd 340w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=460&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=8861a88e0a3d41592c14523274d10c23 920w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=340&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=628664dc480a2ea8d46bba3250315bc2 680w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=445&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=462eaab74bdd943071b529e21b16ae21 890w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=605&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=1be52e8043d2316c36a30774ba1f05f8 1210w">
+<source media="(min-width: 0px)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=460&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=06a9240f75ad884647c182207b737424 460w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=340&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=b29cf6146b95ec7231c00056845231cd 340w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=445&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e7085d2d51827f0e0a8483bf8a52e973 445w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=605&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=eae915b7221959727d560da0ec1170e6 605w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6340fff61f3ecafb443f64b96f5b08b7">
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h1 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="inline-camera inline-icon ">
+<svg width="18" height="13" viewbox="0 0 18 13" class="inline-camera__svg inline-icon__svg">
+<path d="M18 3.5v8L16.5 13h-15L0 11.5v-8L1.5 2H5l2-2h4l2 2h3.5L18 3.5zM9 11c1.9 0 3.5-1.6 3.5-3.5S10.9 4 9 4 5.5 5.6 5.5 7.5 7.1 11 9 11z"/>
+</svg> </span> <span class="js-headline-text">Shadows and stolen moments: street photography –&nbsp;in pictures</span></span> </a></h1>
+</div>
+<div class="fc-item__standfirst">
+From intimate personal narratives to teeming markets and the world from a dog’s perspective, the LensCulture street photography awards celebrate the explosion in popularity of the form over the past decade
+</div>
+<aside class="fc-item__meta js-item__meta">
+</aside>
+</div>
+<a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Shadows and stolen moments: street photography –&nbsp;in pictures</a>
+</div>
+</div> </li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-feature--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/79p5j" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/artanddesign/2017/nov/30/hunter-barnes-my-best-shot-carnival-gibsonton-florida#comments" data-link-name="feature | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/30/hunter-barnes-my-best-shot-carnival-gibsonton-florida" data-loyalty-short-url="/p/79p5j">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio inlined-image">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/9dba44639be6f3147715971fda54a0c3f362ceff/0_524_1292_775/master/1292.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=c83d3f2aa85d9d0d0f31dd27189a8c13 440w">
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/9dba44639be6f3147715971fda54a0c3f362ceff/0_524_1292_775/master/1292.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=9695cca7e7b9035592cb44cf4a38f98f 220w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/9dba44639be6f3147715971fda54a0c3f362ceff/0_524_1292_775/master/1292.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=640c68929ec1aa4794eeb83303b1ce91 320w">
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/9dba44639be6f3147715971fda54a0c3f362ceff/0_524_1292_775/master/1292.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=26e1620eadd8196bd271b25e0969cf03 160w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/9dba44639be6f3147715971fda54a0c3f362ceff/0_524_1292_775/master/1292.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=788f285fc7b48f8d2ba51cc29974afe6 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/9dba44639be6f3147715971fda54a0c3f362ceff/0_524_1292_775/master/1292.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=3aa39bd3be6eaba843145f87ac26fafe 127w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/9dba44639be6f3147715971fda54a0c3f362ceff/0_524_1292_775/master/1292.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=558a801ccac76c7d852d5bbd5d27c73d">
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/30/hunter-barnes-my-best-shot-carnival-gibsonton-florida" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Hunter Barnes's best photograph: the bar for off-season sideshow performers</span></span> </a></h2>
+</div>
+<div class="fc-item__standfirst">
+‘She’s a barmaid in Gibsonton, a town built for circus folk. “Honey, I’m cooking!” she said, but let me go ahead’
+<br>
+</div>
+<aside class="fc-item__meta js-item__meta">
+</aside>
+</div>
+<a href="https://www.theguardian.com/artanddesign/2017/nov/30/hunter-barnes-my-best-shot-carnival-gibsonton-florida" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Hunter Barnes's best photograph: the bar for off-season sideshow performers</a>
+</div>
+</div> </li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image js-fc-item tone-review--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="review | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london" data-loyalty-short-url="/p/7kajk">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio inlined-image">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=7088b8824b9bbe7c0a6a025499b5dcb9 440w">
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e70a8b59ed6afecd622b33113664c458 220w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=c508f97b618678bcd5eef80fffe8ed4b 320w">
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e7533102bf39ec98f1c93e346a33cf8e 160w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=bbacee833c05a333b16821ccbe2f08b9 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=cbab24f59ae145df9f7fab05f0a00eb5 127w">
 <!--[if IE 9]></video><![endif]-->
 <img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/5fa0c67594ce3065a2107f5ab80fbbbc4dcb5d1b/1009_282_5976_3586/master/5976.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f489c69c2f0b317bb4e93e5a9901cf45">
 </picture>
@@ -1291,7 +1305,7 @@ travel
 </div>
 <div class="fc-item__content">
 <div class="fc-item__header">
-<h1 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Rose Wylie review – childlike bursts of freedom and joy</span></span> </a></h1>
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Rose Wylie review – childlike bursts of freedom and joy</span></span> </a></h2>
 <div class="stars" role="presentation">
 <span class="inline-star inline-icon star__item star__item--golden">
 <svg width="14" height="13" viewbox="0 0 14 13" class="star__item__svg star__item--golden__svg inline-star__svg inline-icon__svg">
@@ -1324,8 +1338,12 @@ With her colourful dollops and scrawled captions, the late-blooming painter chan
 <a href="https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Rose Wylie review – childlike bursts of freedom and joy</a>
 </div>
 </div> </li>
+</ul>
+</div>
+<div class="fc-slice-wrapper">
+<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--q-q-q-q">
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--has-image js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/29/amber-rowlands-obituary" data-loyalty-short-url="/p/7kbyb">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-image js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/29/amber-rowlands-obituary" data-loyalty-short-url="/p/7kbyb">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio inlined-image">
@@ -1356,10 +1374,10 @@ With her colourful dollops and scrawled captions, the late-blooming painter chan
 </div>
 </div> </li>
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--gallery fc-item--has-image fc-item--is-media-link js-fc-item tone-media--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="media | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures" data-loyalty-short-url="/p/7gqzj">
+<div class="fc-item fc-item--force-image-upgrade fc-item--gallery fc-item--has-image fc-item--is-media-link js-fc-item tone-media--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="media | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures" data-loyalty-short-url="/p/7gqzj">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
-<div class="fc-item__image-container u-responsive-ratio inlined-image">
+<div class="fc-item__image-container u-responsive-ratio ">
 <picture>
 <!--[if IE 9]><video style="display: none;"><![endif]-->
 <source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=f4445454141812dc9659a75c63efc672 440w">
@@ -1369,7 +1387,7 @@ With her colourful dollops and scrawled captions, the late-blooming painter chan
 <source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=de6d7b614a0fec959a7a69f964fc694e 254w">
 <source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f74f192cd1b39615d8cd48596453ee5e 127w">
 <!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=1be91907d69de4e332a07ae5b02353e3">
+<img class="responsive-img" alt="">
 </picture>
 </div>
 </div>
@@ -1389,15 +1407,11 @@ The Scottish photographer began taking pictures of celebrities in 1973. He now h
 <a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Albert Watson's celebrity portraits – in pictures</a>
 </div>
 </div> </li>
-</ul>
-</div>
-<div class="fc-slice-wrapper">
-<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--q-q-q-q">
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--gallery fc-item--has-image fc-item--has-metadata fc-item--is-commentable fc-item--is-media-link js-fc-item tone-media--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7jp4k" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures#comments" data-link-name="media | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures" data-loyalty-short-url="/p/7jp4k">
+<div class="fc-item fc-item--force-image-upgrade fc-item--gallery fc-item--has-image fc-item--has-metadata fc-item--is-commentable fc-item--is-media-link js-fc-item tone-media--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7jp4k" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures#comments" data-link-name="media | group-0 | card-6" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures" data-loyalty-short-url="/p/7jp4k">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
-<div class="fc-item__image-container u-responsive-ratio inlined-image">
+<div class="fc-item__image-container u-responsive-ratio ">
 <picture>
 <!--[if IE 9]><video style="display: none;"><![endif]-->
 <source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/412_391_3088_1854/master/3088.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=cc53f094a567607f40c3a1af0a2289a0 440w">
@@ -1407,7 +1421,7 @@ The Scottish photographer began taking pictures of celebrities in 1973. He now h
 <source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/412_391_3088_1854/master/3088.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=9b1bdec725d6747efbdc144473ec4ae4 254w">
 <source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/412_391_3088_1854/master/3088.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=794ed606a3a525408751cdfdcf3bae23 127w">
 <!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="" src="https://i.guim.co.uk/img/media/84f6f972e8c66c8d1768b6b8a25d2d8644e7b608/412_391_3088_1854/master/3088.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=cc6ecb8b57f2ff8b977c658e02575898">
+<img class="responsive-img" alt="">
 </picture>
 </div>
 </div>
@@ -1427,8 +1441,8 @@ Just a few hours’ drive from the Belarus capital of Minsk, many villagers stil
 <a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Belarus villagers prefer hard work to city smoke – in pictures</a>
 </div>
 </div> </li>
-<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--has-cutout fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-comment--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7jfek" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool#comments" data-link-name="comment | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool" data-loyalty-short-url="/p/7jfek">
+<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--force-image-upgrade fc-item--has-cutout fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-comment--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7jfek" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool#comments" data-link-name="comment | group-0 | card-7" data-item-visibility="desktop" data-test-id="facia-card" data-id="artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool" data-loyalty-short-url="/p/7jfek">
 <div class="fc-item__container">
 <div class="fc-item__content">
 <div class="fc-item__header">
@@ -1460,67 +1474,6 @@ The Tate wants to wrestle surrealism away from the clutches of the west. But thi
 </picture>
 </div>
 <a href="https://www.theguardian.com/artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Was there more to Egyptian surrealism than suggestive mosques and rotten meat?</a>
-</div>
-</div> </li>
-<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--is-media-link fc-item--video js-fc-item tone-media--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="media | group-0 | card-6" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/video/2017/nov/28/cultures-collide-as-18-metre-statue-of-buddha-comes-together-at-the-ngv-video" data-loyalty-short-url="/p/7k3mx">
-<div class="fc-item__container">
-<div class="fc-item__media-wrapper">
-<div class="fc-item__video-container">
-<div data-media-atom-id="b009d5cf-adf1-447b-ad0a-2819ed3591fd" class="no-player u-responsive-ratio youtube-media-atom">
-<div class="vjs-big-play-button youtube-media-atom__overlay" style="background-image: url(https://i.guim.co.uk/img/media/a2f2c3e295f89869a576e311be6f55cd014f3ba5/0_132_3969_2381/master/3969.jpg?w=700&amp;h=394&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=46ea68f1f6a854e34a63fd59f846fb08)">
-<div class="youtube-media-atom__play-button vjs-control-text">
-Play Video
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/video/2017/nov/28/cultures-collide-as-18-metre-statue-of-buddha-comes-together-at-the-ngv-video" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="inline-video-icon inline-icon ">
-<svg width="36" height="23" viewbox="0 0 36 23" class="inline-video-icon__svg inline-icon__svg">
-<path d="M3.2 0L0 3.3v16.4L3.3 23H22V0H3.2m30.4 1L25 9v5l8.6 8H36V1h-2.4"/>
-</svg> </span> <span class="js-headline-text">Giant Buddha reclines with western statues in National Gallery of Victoria foyer – video </span></span> </a></h2>
-</div>
-<div class="fc-item__standfirst">
-East collides with west as a giant sculpture by Chinese artist Xu Zhen is installed in the NGV forecourt in Melbourne and draped with replicas of Greco-Roman, Renaissance and Neoclassical statues
-</div>
-<aside class="fc-item__meta js-item__meta">
-</aside>
-</div>
-<a href="https://www.theguardian.com/artanddesign/video/2017/nov/28/cultures-collide-as-18-metre-statue-of-buddha-comes-together-at-the-ngv-video" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Giant Buddha reclines with western statues in National Gallery of Victoria foyer – video </a>
-</div>
-</div> </li>
-<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--force-image-upgrade fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-feature--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7kxdt" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles#comments" data-link-name="feature | group-0 | card-7" data-item-visibility="desktop" data-test-id="facia-card" data-id="artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles" data-loyalty-short-url="/p/7kxdt">
-<div class="fc-item__container">
-<div class="fc-item__media-wrapper">
-<div class="fc-item__image-container u-responsive-ratio ">
-<picture>
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/e6513b411ee1b90ea653d213c262687ba558846c/443_194_4292_2575/master/4292.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=0925b57d831ec8e5e7d6fc0d2e6ee072 440w">
-<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/e6513b411ee1b90ea653d213c262687ba558846c/443_194_4292_2575/master/4292.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=336e289206ea404d7ae98f97f5bccbc7 220w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/e6513b411ee1b90ea653d213c262687ba558846c/443_194_4292_2575/master/4292.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=a091223dbdcfb0e034cbfeece0d29758 320w">
-<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/e6513b411ee1b90ea653d213c262687ba558846c/443_194_4292_2575/master/4292.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=20a56f6062a51f623ac566685aaf5c97 160w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/e6513b411ee1b90ea653d213c262687ba558846c/443_194_4292_2575/master/4292.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=70b4c597b6621c69fa11e755ff4d019d 254w">
-<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/e6513b411ee1b90ea653d213c262687ba558846c/443_194_4292_2575/master/4292.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=dbf9ec39c0d85baa44ef529e4f9548b9 127w">
-<!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="">
-</picture>
-</div>
-</div>
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">John Baldessari on his giant emoji paintings: 'I just wondered what they'd look like large'</span></span> </a></h2>
-</div>
-<div class="fc-item__standfirst">
-The great conceptual artist finds the animal icons so stupid and fascinating, he has turned them into a vast menagerie, full of cheesy lines from films. We visit his Venice studio – and find icebergs are next
-</div>
-<aside class="fc-item__meta js-item__meta">
-</aside>
-</div>
-<a href="https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">John Baldessari on his giant emoji paintings: 'I just wondered what they'd look like large'</a>
 </div>
 </div> </li>
 </ul>
@@ -1802,7 +1755,7 @@ A new exhibition in New York is positioning Munch as a revolutionary who advance
 <div class="fc-slice-wrapper">
 <ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--qqq-q">
 <li class="fc-slice__item l-row__item l-row__item--span-3 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-review--item fc-item--standard-mobile fc-item--three-quarters-tablet js-snappable" data-discussion-id="/p/7j8b4" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review#comments" data-link-name="review | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review" data-loyalty-short-url="/p/7j8b4">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-review--item fc-item--standard-mobile fc-item--three-quarters-tablet js-snappable" data-discussion-id="/p/7j8b4" data-discussion-closed="true" data-discussion-url="https://www.theguardian.com/artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review#comments" data-link-name="review | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review" data-loyalty-short-url="/p/7j8b4">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio ">
@@ -2226,7 +2179,38 @@ With sales of vinyl and print on the up, British artist Mark Vessey celebrates t
 <div class="fc-slice-wrapper">
 <ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--q-q-q-q">
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7hke5" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/cities/2017/nov/29/teatro-oficina-theatre-sao-paulo-counterculture-silvio-santos#comments" data-link-name="news | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="cities/2017/nov/29/teatro-oficina-theatre-sao-paulo-counterculture-silvio-santos" data-loyalty-short-url="/p/7hke5">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-feature--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7kdxn" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/cities/2017/nov/30/copan-building-oscar-niemeyer-sao-paulo-tiles#comments" data-link-name="feature | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="cities/2017/nov/30/copan-building-oscar-niemeyer-sao-paulo-tiles" data-loyalty-short-url="/p/7kdxn">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/5ccb13ade3c6720d6020c46e469ecf02d83abb73/0_0_4807_2886/master/4807.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=34a30f80b9eaf90a5691d64db7e8bf6b 440w">
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/5ccb13ade3c6720d6020c46e469ecf02d83abb73/0_0_4807_2886/master/4807.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=7b110e55569a48d4489fef0a6e69b347 220w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/5ccb13ade3c6720d6020c46e469ecf02d83abb73/0_0_4807_2886/master/4807.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=6473287737412cdc3d8dce5938a9ebe9 320w">
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/5ccb13ade3c6720d6020c46e469ecf02d83abb73/0_0_4807_2886/master/4807.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e5c7d2df9f5b07e6390c83eb38c8197e 160w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/5ccb13ade3c6720d6020c46e469ecf02d83abb73/0_0_4807_2886/master/4807.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=3efc3de5d8d6c56ca6fc272e4597e508 254w">
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/5ccb13ade3c6720d6020c46e469ecf02d83abb73/0_0_4807_2886/master/4807.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=3b3eb9133e03f7359762e3931cc04437 127w">
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt="">
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/cities/2017/nov/30/copan-building-oscar-niemeyer-sao-paulo-tiles" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">Copan strategy: the wild plan to revamp the ‘coolest building in Latin America’</span></span> </a></h2>
+</div>
+<div class="fc-item__standfirst">
+Once a crime-ridden mess, Oscar Niemeyer’s colossal curving structure has flourished thanks to the efforts of its fabled administrator. But can he push through his last, greatest scheme – the replacement of 72 million tiles?
+</div>
+<aside class="fc-item__meta js-item__meta">
+</aside>
+</div>
+<a href="https://www.theguardian.com/cities/2017/nov/30/copan-building-oscar-niemeyer-sao-paulo-tiles" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Copan strategy: the wild plan to revamp the ‘coolest building in Latin America’</a>
+</div>
+</div> </li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7hke5" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/cities/2017/nov/29/teatro-oficina-theatre-sao-paulo-counterculture-silvio-santos#comments" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="cities/2017/nov/29/teatro-oficina-theatre-sao-paulo-counterculture-silvio-santos" data-loyalty-short-url="/p/7hke5">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio ">
@@ -2257,7 +2241,7 @@ Dreamed up by architect Lina Bo Bardi, Teatro Oficina’s experimental, drug-fue
 </div>
 </div> </li>
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-comment--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7jgcx" data-discussion-closed="false" data-discussion-url="https://www.theguardian.com/commentisfree/2017/nov/27/budget-million-homes-lonely-people-community#comments" data-link-name="comment | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="commentisfree/2017/nov/27/budget-million-homes-lonely-people-community" data-loyalty-short-url="/p/7jgcx">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-comment--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7jgcx" data-discussion-closed="true" data-discussion-url="https://www.theguardian.com/commentisfree/2017/nov/27/budget-million-homes-lonely-people-community#comments" data-link-name="comment | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="commentisfree/2017/nov/27/budget-million-homes-lonely-people-community" data-loyalty-short-url="/p/7jgcx">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio ">
@@ -2294,7 +2278,7 @@ New housing is good news – but it must be designed to increase community, not 
 </div>
 </div> </li>
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="uk-news/2017/nov/27/telegraph-owners-accused-of-washing-hands-of-historic-leeds-building" data-loyalty-short-url="/p/7jzxq">
+<div class="fc-item fc-item--has-image js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="uk-news/2017/nov/27/telegraph-owners-accused-of-washing-hands-of-historic-leeds-building" data-loyalty-short-url="/p/7jzxq">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio ">
@@ -2324,37 +2308,6 @@ Temple Works, which once boasted the biggest room in the world, has been put up 
 <a href="https://www.theguardian.com/uk-news/2017/nov/27/telegraph-owners-accused-of-washing-hands-of-historic-leeds-building" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Telegraph owners accused of ‘washing hands’ of historic Leeds building</a>
 </div>
 </div> </li>
-<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--is-commentable js-fc-item tone-feature--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-discussion-id="/p/7j2p4" data-discussion-closed="true" data-discussion-url="https://www.theguardian.com/lifeandstyle/2017/nov/26/how-architecture-shapes-our-cities-and-our-lives#comments" data-link-name="feature | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="lifeandstyle/2017/nov/26/how-architecture-shapes-our-cities-and-our-lives" data-loyalty-short-url="/p/7j2p4">
-<div class="fc-item__container">
-<div class="fc-item__media-wrapper">
-<div class="fc-item__image-container u-responsive-ratio ">
-<picture>
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/3a369153668de130cad28806cbf5e32bdc5611c9/0_118_4256_2555/master/4256.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=6734be9c777b71fe0830bb98930f1793 440w">
-<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/3a369153668de130cad28806cbf5e32bdc5611c9/0_118_4256_2555/master/4256.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=8b5eb6626852f17586b6b317abf70842 220w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/3a369153668de130cad28806cbf5e32bdc5611c9/0_118_4256_2555/master/4256.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=b1f5bb00fbadb648469d7baab29a23c3 320w">
-<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/3a369153668de130cad28806cbf5e32bdc5611c9/0_118_4256_2555/master/4256.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=191c61e80da5d2daa8cc3e27373b173b 160w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/3a369153668de130cad28806cbf5e32bdc5611c9/0_118_4256_2555/master/4256.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=e1091739426dcab70d6ea63d4268586b 254w">
-<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/3a369153668de130cad28806cbf5e32bdc5611c9/0_118_4256_2555/master/4256.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=692e088015abfedfbebb7dc8dd5d238a 127w">
-<!--[if IE 9]></video><![endif]-->
-<img class="responsive-img" alt="">
-</picture>
-</div>
-</div>
-<div class="fc-item__content">
-<div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/lifeandstyle/2017/nov/26/how-architecture-shapes-our-cities-and-our-lives" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="js-headline-text">How architecture shapes our cities - and our lives</span></span> </a></h2>
-</div>
-<div class="fc-item__standfirst">
-Communities which design their own buildings are more likely to be happy and healthy, says Lily Bernheimer
-</div>
-<aside class="fc-item__meta js-item__meta">
-</aside>
-</div>
-<a href="https://www.theguardian.com/lifeandstyle/2017/nov/26/how-architecture-shapes-our-cities-and-our-lives" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">How architecture shapes our cities - and our lives</a>
-</div>
-</div> </li>
 </ul>
 </div>
 </div>
@@ -2377,18 +2330,18 @@ Communities which design their own buildings are more likely to be happy and hea
 <div class="fc-slice-wrapper">
 <ul class="u-unstyled l-row  l-row--cols-1 fc-slice fc-slice--f">
 <li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
-<div class="fc-item fc-item--gallery fc-item--has-image fc-item--is-media-link js-fc-item tone-media--item fc-item--standard-mobile fc-item--full-media-75-tablet js-snappable" data-link-name="media | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures" data-loyalty-short-url="/p/7gqzj">
+<div class="fc-item fc-item--gallery fc-item--has-image fc-item--is-media-link js-fc-item tone-media--item fc-item--standard-mobile fc-item--full-media-75-tablet js-snappable" data-link-name="media | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures" data-loyalty-short-url="/p/7k738">
 <div class="fc-item__container">
 <div class="fc-item__media-wrapper">
 <div class="fc-item__image-container u-responsive-ratio ">
 <picture>
 <!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="700px" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=700&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=81e08036588872ce4e64d4b602949655 1400w">
-<source media="(min-width: 980px)" sizes="700px" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=700&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=9b3ed86361eead7b4671f07e187164dd 700w">
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="520px" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=520&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=56fed476e54fe5f277d0e610798d29c4 1040w">
-<source media="(min-width: 740px)" sizes="520px" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=520&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=0058a976cc7783ff7eeefef733515f8b 520w">
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=520&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=56fed476e54fe5f277d0e610798d29c4 1040w, https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=445&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=7eb859365d527c8c9885c6ae85d022a7 890w, https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=605&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=9aa2ece8668659e093beaf138ff473ff 1210w">
-<source media="(min-width: 0px)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=520&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=0058a976cc7783ff7eeefef733515f8b 520w, https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=445&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=5fda6b0fca4c3ea508d4771a5df6ff7b 445w, https://i.guim.co.uk/img/media/a876db21ce8e4ae6287f457676af8e67f51c56f6/57_500_2186_1311/master/2186.jpg?w=605&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=52f396fa364ec9cf615695e5907eb2ea 605w">
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="700px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=700&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=95fe25157597cc69dc253b74bb5cfe69 1400w">
+<source media="(min-width: 980px)" sizes="700px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=700&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=3275e7d44a8765a029e0ef5ed384ec6a 700w">
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="520px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=520&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=00f6b22d63e5c328d46e5c315e2cd558 1040w">
+<source media="(min-width: 740px)" sizes="520px" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=520&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6723b73f0867ed2567895bc9f47f5e3f 520w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=520&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=00f6b22d63e5c328d46e5c315e2cd558 1040w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=445&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=462eaab74bdd943071b529e21b16ae21 890w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=605&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=1be52e8043d2316c36a30774ba1f05f8 1210w">
+<source media="(min-width: 0px)" sizes="95vw" srcset="https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=520&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6723b73f0867ed2567895bc9f47f5e3f 520w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=445&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e7085d2d51827f0e0a8483bf8a52e973 445w, https://i.guim.co.uk/img/media/f8602d9f74084ee27d3bd7e84a1ce829e3862cb2/112_210_1876_1126/master/1876.jpg?w=605&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=eae915b7221959727d560da0ec1170e6 605w">
 <!--[if IE 9]></video><![endif]-->
 <img class="responsive-img" alt="">
 </picture>
@@ -2396,18 +2349,18 @@ Communities which design their own buildings are more likely to be happy and hea
 </div>
 <div class="fc-item__content">
 <div class="fc-item__header">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="inline-camera inline-icon ">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures" class="fc-item__link" data-link-name="article"> <span class="u-faux-block-link__cta fc-item__headline"> <span class="inline-camera inline-icon ">
 <svg width="18" height="13" viewbox="0 0 18 13" class="inline-camera__svg inline-icon__svg">
 <path d="M18 3.5v8L16.5 13h-15L0 11.5v-8L1.5 2H5l2-2h4l2 2h3.5L18 3.5zM9 11c1.9 0 3.5-1.6 3.5-3.5S10.9 4 9 4 5.5 5.6 5.5 7.5 7.1 11 9 11z"/>
-</svg> </span> <span class="js-headline-text">Albert Watson's celebrity portraits – in pictures</span></span> </a></h2>
+</svg> </span> <span class="js-headline-text">Shadows and stolen moments: street photography –&nbsp;in pictures</span></span> </a></h2>
 </div>
 <div class="fc-item__standfirst">
-The Scottish photographer began taking pictures of celebrities in 1973. He now has over a hundred Vogue covers to his credit and continues to work at the age of 75
+From intimate personal narratives to teeming markets and the world from a dog’s perspective, the LensCulture street photography awards celebrate the explosion in popularity of the form over the past decade
 </div>
 <aside class="fc-item__meta js-item__meta">
 </aside>
 </div>
-<a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Albert Watson's celebrity portraits – in pictures</a>
+<a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Shadows and stolen moments: street photography –&nbsp;in pictures</a>
 </div>
 </div> </li>
 </ul>
@@ -2640,22 +2593,32 @@ East collides with west as a giant sculpture by Chinese artist Xu Zhen is instal
 <div class="headline-list__link" data-link-name="1 | text">
 <p class="headline-list__count">1</p>
 <div class="headline-list__text">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="inline-camera inline-icon ">
+<svg width="18" height="13" viewbox="0 0 18 13" class="inline-camera__svg inline-icon__svg">
+<path d="M18 3.5v8L16.5 13h-15L0 11.5v-8L1.5 2H5l2-2h4l2 2h3.5L18 3.5zM9 11c1.9 0 3.5-1.6 3.5-3.5S10.9 4 9 4 5.5 5.6 5.5 7.5 7.1 11 9 11z"/>
+</svg> </span> <span class="js-headline-text">Shadows and stolen moments: street photography –&nbsp;in pictures</span></span> </a></h2>
+</div>
+</div> </li>
+<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-media--most-popular">
+<div class="headline-list__link" data-link-name="2 | text">
+<p class="headline-list__count">2</p>
+<div class="headline-list__text">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="inline-camera inline-icon ">
 <svg width="18" height="13" viewbox="0 0 18 13" class="inline-camera__svg inline-icon__svg">
 <path d="M18 3.5v8L16.5 13h-15L0 11.5v-8L1.5 2H5l2-2h4l2 2h3.5L18 3.5zM9 11c1.9 0 3.5-1.6 3.5-3.5S10.9 4 9 4 5.5 5.6 5.5 7.5 7.1 11 9 11z"/>
 </svg> </span> <span class="js-headline-text">Albert Watson's celebrity portraits – in pictures</span></span> </a></h2>
 </div>
 </div> </li>
-<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-review--most-popular">
-<div class="headline-list__link" data-link-name="2 | text">
-<p class="headline-list__count">2</p>
+<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-feature--most-popular">
+<div class="headline-list__link" data-link-name="3 | text">
+<p class="headline-list__count">3</p>
 <div class="headline-list__text">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">Rose Wylie review – childlike bursts of freedom and joy</span></span> </a></h2>
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/30/hunter-barnes-my-best-shot-carnival-gibsonton-florida" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">Hunter Barnes's best photograph: the bar for off-season sideshow performers</span></span> </a></h2>
 </div>
 </div> </li>
 <li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-media--most-popular">
-<div class="headline-list__link" data-link-name="3 | text">
-<p class="headline-list__count">3</p>
+<div class="headline-list__link" data-link-name="4 | text">
+<p class="headline-list__count">4</p>
 <div class="headline-list__text">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="inline-camera inline-icon ">
 <svg width="18" height="13" viewbox="0 0 18 13" class="inline-camera__svg inline-icon__svg">
@@ -2663,9 +2626,16 @@ East collides with west as a giant sculpture by Chinese artist Xu Zhen is instal
 </svg> </span> <span class="js-headline-text">Belarus villagers prefer hard work to city smoke – in pictures</span></span> </a></h2>
 </div>
 </div> </li>
+<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-review--most-popular">
+<div class="headline-list__link" data-link-name="5 | text">
+<p class="headline-list__count">5</p>
+<div class="headline-list__text">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">Rose Wylie review – childlike bursts of freedom and joy</span></span> </a></h2>
+</div>
+</div> </li>
 <li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-media--most-popular">
-<div class="headline-list__link" data-link-name="4 | text">
-<p class="headline-list__count">4</p>
+<div class="headline-list__link" data-link-name="6 | text">
+<p class="headline-list__count">6</p>
 <div class="headline-list__text">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/video/2017/nov/21/city-the-photographs-of-david-levene" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="inline-video-icon inline-icon ">
 <svg width="36" height="23" viewbox="0 0 36 23" class="inline-video-icon__svg inline-icon__svg">
@@ -2674,48 +2644,37 @@ East collides with west as a giant sculpture by Chinese artist Xu Zhen is instal
 </div>
 </div> </li>
 <li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-news--most-popular">
-<div class="headline-list__link" data-link-name="5 | text">
-<p class="headline-list__count">5</p>
+<div class="headline-list__link" data-link-name="7 | text">
+<p class="headline-list__count">7</p>
 <div class="headline-list__text">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/29/amber-rowlands-obituary" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">Amber Rowlands obituary</span></span> </a></h2>
 </div>
 </div> </li>
+<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-media--most-popular">
+<div class="headline-list__link" data-link-name="8 | text">
+<p class="headline-list__count">8</p>
+<div class="headline-list__text">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2017/nov/16/own-limited-edition-print-photographer-david-levene" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="inline-camera inline-icon ">
+<svg width="18" height="13" viewbox="0 0 18 13" class="inline-camera__svg inline-icon__svg">
+<path d="M18 3.5v8L16.5 13h-15L0 11.5v-8L1.5 2H5l2-2h4l2 2h3.5L18 3.5zM9 11c1.9 0 3.5-1.6 3.5-3.5S10.9 4 9 4 5.5 5.6 5.5 7.5 7.1 11 9 11z"/>
+</svg> </span> <span class="js-headline-text">Own a limited edition print by Guardian photographer David Levene</span></span> </a></h2>
+</div>
+</div> </li>
 <li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-feature--most-popular">
-<div class="headline-list__link" data-link-name="6 | text">
-<p class="headline-list__count">6</p>
+<div class="headline-list__link" data-link-name="9 | text">
+<p class="headline-list__count">9</p>
 <div class="headline-list__text">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/22/rose-wylie-i-want-to-be-known-for-my-paintings-not-because-im-old-serpentine" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">Rose Wylie: 'I want to be known for my paintings – not because I'm old'</span></span> </a></h2>
 </div>
 </div> </li>
 <li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-media--most-popular">
-<div class="headline-list__link" data-link-name="7 | text">
-<p class="headline-list__count">7</p>
+<div class="headline-list__link" data-link-name="10 | text">
+<p class="headline-list__count">10</p>
 <div class="headline-list__text">
 <h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/gallery/2016/dec/01/marc-hom-hollywood-celebrity-portraits-in-pictures" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="inline-camera inline-icon ">
 <svg width="18" height="13" viewbox="0 0 18 13" class="inline-camera__svg inline-icon__svg">
 <path d="M18 3.5v8L16.5 13h-15L0 11.5v-8L1.5 2H5l2-2h4l2 2h3.5L18 3.5zM9 11c1.9 0 3.5-1.6 3.5-3.5S10.9 4 9 4 5.5 5.6 5.5 7.5 7.1 11 9 11z"/>
 </svg> </span> <span class="js-headline-text">The beautiful people: Marc Hom's celebrity portraits –&nbsp;in pictures</span></span> </a></h2>
-</div>
-</div> </li>
-<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-feature--most-popular">
-<div class="headline-list__link" data-link-name="8 | text">
-<p class="headline-list__count">8</p>
-<div class="headline-list__text">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">John Baldessari on his giant emoji paintings: 'I just wondered what they'd look like large'</span></span> </a></h2>
-</div>
-</div> </li>
-<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-review--most-popular">
-<div class="headline-list__link" data-link-name="9 | text">
-<p class="headline-list__count">9</p>
-<div class="headline-list__text">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/jun/11/caring-wood-house-kent-architecture-review-rebirth-english-country-house" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">Caring Wood, Kent review – rebirth of the English country house</span></span> </a></h2>
-</div>
-</div> </li>
-<li class="headline-list__item headline-column__item headline-column--tablet__item headline-column--desktop__item tone-feature--most-popular">
-<div class="headline-list__link" data-link-name="10 | text">
-<p class="headline-list__count">10</p>
-<div class="headline-list__text">
-<h2 class="fc-item__title"><a href="https://www.theguardian.com/artanddesign/2017/sep/24/teotihuacan-pyramids-treasures-secret-de-young-museum-san-francisco" class="fc-item__link" data-link-name="article"> <span class="headline-list__body fc-item__headline"> <span class="js-headline-text">Lakes of mercury and human sacrifices – after 1,800 years, Teotihuacan reveals its treasures</span></span> </a></h2>
 </div>
 </div> </li>
 </ul>
@@ -2739,7 +2698,7 @@ East collides with west as a giant sculpture by Chinese artist Xu Zhen is instal
 </div>
 </section>
 <script data-schema="ItemList" type="application/ld+json">
-                            {"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/amber-rowlands-obituary"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/28/cultures-collide-as-18-metre-statue-of-buddha-comes-together-at-the-ngv-video"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/27/illuminating-india-photography-1857-2017"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/2017/nov/26/kehinde-wiley-creating-portrait-barack-obama-huge-responsibility"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":1,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/nov/24/art-weekly-serpentine-tate-met-munch-david-lachappelle"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/23/va-futuristic-show-explores-power-clothes-space-factories-and-a-slo-mo-towel-chum"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/22/london-gallery-honours-tarantino-precursor-jusepe-de-ribera-exhibition-art-of-violence-dulwich"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/21/largest-collection-of-modigliani-nudes-ever-seen-in-uk-go-on-show"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/19/spanish-artists-bartolome-esteban-murillo-lost-masterpiece-found-welsh-penrhyn-castle"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/leonardo-da-vinci-art-trump-manhattan-skyline"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/art-weekly-da-vinci-modigliani-tate-modern-facebook"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/chapman-brothers-reunite-francisco-de-goya-art-spanish-exhibition"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/emily-kame-kngwarreye-painting-sells-for-21m-in-sydney"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/2017/nov/15/leonardo-da-vinci-salvator-mundi-auction"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":2,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/nov/22/cheeky-cartoonish-under-threat-postmodern-buildings-must-be-saved"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/22/edvard-munch-between-the-clock-and-the-bed-in-pictures"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/20/oreet-ashery-derek-jarman-filmmaking-award-2017-video-art"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/19/william-eggleston-interview-i-play-the-piano-musik-photography"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/art-weekly-da-vinci-modigliani-tate-modern-facebook"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/16/all-leonardo-da-vinci-painting-rated-salvator-mundi"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/15/gilbert-and-george-50-years-interview"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/10/art-weekly-russia-louvre-van-gogh-andrew-grassie"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":3,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/26/modigliani-tate-modern-review"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/24/kehinde-wiley-review-in-search-of-the-miraculous"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/21/mary-reid-kelley-and-patrick-kelley-we-are-ghosts-review-tate-liverpool"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/21/modigliani-review-tate-modern-a-gorgeous-show-about-a-slightly-silly-artist"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/19/john-piper-surrealism-in-egypt-tate-liverpool-review"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/16/john-piper-review-tate-liverpool"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/14/taylor-wessing-photographic-portrait-prize-review-national-portrait-gallery"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/2017/nov/14/hannah-ryggen-woven-histories-review-modern-art-oxford"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":4,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/27/illuminating-india-photography-1857-2017"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/magazine-vinyl-record-book-collections-mark-vessey-photographs"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/25/collectors-corner-book-and-music-libraries-vinyl-in-pictures"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/trevor-paglen-art-in-age-of-mass-surveillance-drones-spy-satellites"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/25/merry-little-christmases-one-couples-tableau-tradition-in-pictures"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/25/the-20-photographs-of-the-week"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":5,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/cities/2017/nov/29/teatro-oficina-theatre-sao-paulo-counterculture-silvio-santos"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/commentisfree/2017/nov/27/budget-million-homes-lonely-people-community"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/uk-news/2017/nov/27/telegraph-owners-accused-of-washing-hands-of-historic-leeds-building"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/lifeandstyle/2017/nov/26/how-architecture-shapes-our-cities-and-our-lives"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/cities/2017/nov/24/3bn-subway-station-toronto-alaska-bridge-pyongyang-hotel-valencia-city-arts-sciences"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/science/2017/nov/21/francis-crick-institutes-700m-building-too-noisy-to-concentrate"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/lifeandstyle/2017/nov/19/an-eye-for-detail-architect-john-pawsons-photographs"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/australia-news/2017/nov/15/nsw-art-gallery-hopes-for-more-visitors-as-it-crosses-expressway"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":6,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/film/gallery/2017/nov/27/the-worlds-most-expensive-film-props-and-costumes-in-pictures"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/27/illuminating-india-photography-1857-2017"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/music/gallery/2017/nov/27/shahrokh-hatamis-beatles-photographs-1963-cavern-club"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/magazine-vinyl-record-book-collections-mark-vessey-photographs"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/24/dublin-in-1991-by-krass-clement-in-pictures"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/music/gallery/2017/nov/23/the-forgotten-women-of-the-1980s-indie-boom-in-pictures"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/22/edvard-munch-between-the-clock-and-the-bed-in-pictures"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/21/ruined-temples-and-forgotten-places-historic-photographer-of-the-year-in-pictures"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/2017/nov/20/gorgeous-creatures-nyc-downlow-glastonbury-captured-3d"},{"@type":"ListItem","position":10,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/18/states-of-disgrace-strange-american-laws-in-pictures"},{"@type":"ListItem","position":11,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/16/portrait-salon-2017-photographs-pictures-drag-queens-taylor-wessing-prize"},{"@type":"ListItem","position":12,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/15/into-the-woods-trees-in-photography"},{"@type":"ListItem","position":13,"url":"https://www.theguardian.com/politics/2017/nov/10/brexit-axel-scheffler-gruffalo-co-creator-and-eu-illustrators-draw-for-europe"},{"@type":"ListItem","position":14,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/11/oh-sister-sibling-relationships-in-pictures"},{"@type":"ListItem","position":15,"url":"https://www.theguardian.com/world/2017/nov/10/drum-majorettes-of-cape-town-a-photo-essay"},{"@type":"ListItem","position":16,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/09/forged-by-revolution-a-day-in-the-life-of-russia-in-pictures"},{"@type":"ListItem","position":17,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/09/scenes-from-devon-rural-past-james-ravilious-beaford-in-pictures"},{"@type":"ListItem","position":18,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/08/children-colour-blind-island-in-pictures-micronesia-sanne-de-wilde"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":7,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/may/30/alternative-election-posters-artists-cornelia-parker-bedwyr-williams"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/may/25/judy-chicago-beatles-sgt-pepper-50-fixing-a-hole-mural-liverpool-feminist-art"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/gallery/2017/jun/08/neil-libbert-north-south-british-streets-postwar-austerity-in-pictures"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/jun/05/bonnie-prince-charlie-jacobites-exhibition-national-museum-of-scotland-diana-gabaldon-outlander"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":8,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/28/cultures-collide-as-18-metre-statue-of-buddha-comes-together-at-the-ngv-video"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/16/leonardos-salvator-mundi-restored-timelapse-video"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/16/leonardo-da-vincis-salvator-mundi-sold-for-4503m-video"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/09/cos-x-snarkitecture-loop-art-installation-takes-marble-run-to-the-next-level-video"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/video/2017/oct/07/patricia-piccinini-on-how-to-undercut-reality-my-ideas-are-just-normal-to-me-video"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/video/2017/sep/30/our-culture-is-still-strong-parrtjima-light-festival-illuminates-aboriginal-culture-video"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/video/2017/sep/08/watch-a-timelapse-video-of-the-creation-of-angels-palace"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/video/2017/jul/20/hes-definitely-captured-me-lisa-wilkinson-portrait-wins-archibald-packing-room-prize-video"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/video/2017/jul/11/the-indigenous-community-making-art-from-garbage-video"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/video/2017/may/07/leviathan-episode-1-ben-trailer-shezad-dawood-video"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":9,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/21/city-the-photographs-of-david-levene"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/amber-rowlands-obituary"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/22/rose-wylie-i-want-to-be-known-for-my-paintings-not-because-im-old-serpentine"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/gallery/2016/dec/01/marc-hom-hollywood-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/2017/jun/11/caring-wood-house-kent-architecture-review-rebirth-english-country-house"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/2017/sep/24/teotihuacan-pyramids-treasures-secret-de-young-museum-san-francisco"},{"@type":"ListItem","position":10,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/trevor-paglen-art-in-age-of-mass-surveillance-drones-spy-satellites"},{"@type":"ListItem","position":11,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/25/merry-little-christmases-one-couples-tableau-tradition-in-pictures"},{"@type":"ListItem","position":12,"url":"https://www.theguardian.com/artanddesign/gallery/2016/nov/03/yukio-mishima-erotic-portraits-eikoh-hosoe-ordeal-by-roses-in-pictures"},{"@type":"ListItem","position":13,"url":"https://www.theguardian.com/artanddesign/shortcuts/2017/mar/22/millennial-pink-is-the-colour-of-now-but-what-exactly-is-it"},{"@type":"ListItem","position":14,"url":"https://www.theguardian.com/artanddesign/costume-and-culture/gallery/2017/jun/22/double-take-reimagining-famous-photographs-catherine-balet-in-pictures"},{"@type":"ListItem","position":15,"url":"https://www.theguardian.com/artanddesign/2017/nov/15/leonardo-da-vinci-salvator-mundi-auction"},{"@type":"ListItem","position":16,"url":"https://www.theguardian.com/artanddesign/2017/nov/24/gay-men-dying-aids-chris-mazeika-hiv-ward"},{"@type":"ListItem","position":17,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool"},{"@type":"ListItem","position":18,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review"},{"@type":"ListItem","position":19,"url":"https://www.theguardian.com/artanddesign/2017/nov/21/david-lachapelle-photographer-hawaii-warhol"}],"@type":"ItemList","@context":"http://schema.org"}}],"@type":"ItemList","@context":"http://schema.org"}
+                            {"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/30/hunter-barnes-my-best-shot-carnival-gibsonton-florida"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/amber-rowlands-obituary"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/surrealism-in-egypt-tate-liverpool"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/28/cultures-collide-as-18-metre-statue-of-buddha-comes-together-at-the-ngv-video"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":1,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/nov/24/art-weekly-serpentine-tate-met-munch-david-lachappelle"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/23/va-futuristic-show-explores-power-clothes-space-factories-and-a-slo-mo-towel-chum"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/22/london-gallery-honours-tarantino-precursor-jusepe-de-ribera-exhibition-art-of-violence-dulwich"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/21/largest-collection-of-modigliani-nudes-ever-seen-in-uk-go-on-show"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/19/spanish-artists-bartolome-esteban-murillo-lost-masterpiece-found-welsh-penrhyn-castle"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/leonardo-da-vinci-art-trump-manhattan-skyline"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/art-weekly-da-vinci-modigliani-tate-modern-facebook"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/chapman-brothers-reunite-francisco-de-goya-art-spanish-exhibition"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/emily-kame-kngwarreye-painting-sells-for-21m-in-sydney"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/2017/nov/15/leonardo-da-vinci-salvator-mundi-auction"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":2,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/nov/22/cheeky-cartoonish-under-threat-postmodern-buildings-must-be-saved"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/22/edvard-munch-between-the-clock-and-the-bed-in-pictures"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/20/oreet-ashery-derek-jarman-filmmaking-award-2017-video-art"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/19/william-eggleston-interview-i-play-the-piano-musik-photography"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/17/art-weekly-da-vinci-modigliani-tate-modern-facebook"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/16/all-leonardo-da-vinci-painting-rated-salvator-mundi"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/15/gilbert-and-george-50-years-interview"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/10/art-weekly-russia-louvre-van-gogh-andrew-grassie"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":3,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/robert-rauschenberg-sfmoma-erasing-the-rules-review"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/26/modigliani-tate-modern-review"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/24/kehinde-wiley-review-in-search-of-the-miraculous"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/21/mary-reid-kelley-and-patrick-kelley-we-are-ghosts-review-tate-liverpool"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/21/modigliani-review-tate-modern-a-gorgeous-show-about-a-slightly-silly-artist"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/19/john-piper-surrealism-in-egypt-tate-liverpool-review"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/16/john-piper-review-tate-liverpool"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/2017/nov/14/taylor-wessing-photographic-portrait-prize-review-national-portrait-gallery"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/2017/nov/14/hannah-ryggen-woven-histories-review-modern-art-oxford"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":4,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/27/illuminating-india-photography-1857-2017"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/magazine-vinyl-record-book-collections-mark-vessey-photographs"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/25/collectors-corner-book-and-music-libraries-vinyl-in-pictures"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/trevor-paglen-art-in-age-of-mass-surveillance-drones-spy-satellites"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":5,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/cities/2017/nov/30/copan-building-oscar-niemeyer-sao-paulo-tiles"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/cities/2017/nov/29/teatro-oficina-theatre-sao-paulo-counterculture-silvio-santos"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/commentisfree/2017/nov/27/budget-million-homes-lonely-people-community"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/uk-news/2017/nov/27/telegraph-owners-accused-of-washing-hands-of-historic-leeds-building"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/lifeandstyle/2017/nov/26/how-architecture-shapes-our-cities-and-our-lives"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/cities/2017/nov/24/3bn-subway-station-toronto-alaska-bridge-pyongyang-hotel-valencia-city-arts-sciences"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/science/2017/nov/21/francis-crick-institutes-700m-building-too-noisy-to-concentrate"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/lifeandstyle/2017/nov/19/an-eye-for-detail-architect-john-pawsons-photographs"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":6,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/film/gallery/2017/nov/27/the-worlds-most-expensive-film-props-and-costumes-in-pictures"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/27/illuminating-india-photography-1857-2017"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/music/gallery/2017/nov/27/shahrokh-hatamis-beatles-photographs-1963-cavern-club"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/magazine-vinyl-record-book-collections-mark-vessey-photographs"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/24/dublin-in-1991-by-krass-clement-in-pictures"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/music/gallery/2017/nov/23/the-forgotten-women-of-the-1980s-indie-boom-in-pictures"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/22/edvard-munch-between-the-clock-and-the-bed-in-pictures"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/21/ruined-temples-and-forgotten-places-historic-photographer-of-the-year-in-pictures"},{"@type":"ListItem","position":10,"url":"https://www.theguardian.com/artanddesign/2017/nov/20/gorgeous-creatures-nyc-downlow-glastonbury-captured-3d"},{"@type":"ListItem","position":11,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/18/states-of-disgrace-strange-american-laws-in-pictures"},{"@type":"ListItem","position":12,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/16/portrait-salon-2017-photographs-pictures-drag-queens-taylor-wessing-prize"},{"@type":"ListItem","position":13,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/15/into-the-woods-trees-in-photography"},{"@type":"ListItem","position":14,"url":"https://www.theguardian.com/politics/2017/nov/10/brexit-axel-scheffler-gruffalo-co-creator-and-eu-illustrators-draw-for-europe"},{"@type":"ListItem","position":15,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/11/oh-sister-sibling-relationships-in-pictures"},{"@type":"ListItem","position":16,"url":"https://www.theguardian.com/world/2017/nov/10/drum-majorettes-of-cape-town-a-photo-essay"},{"@type":"ListItem","position":17,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/09/forged-by-revolution-a-day-in-the-life-of-russia-in-pictures"},{"@type":"ListItem","position":18,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/09/scenes-from-devon-rural-past-james-ravilious-beaford-in-pictures"},{"@type":"ListItem","position":19,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/08/children-colour-blind-island-in-pictures-micronesia-sanne-de-wilde"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":7,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/2017/may/30/alternative-election-posters-artists-cornelia-parker-bedwyr-williams"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/2017/may/25/judy-chicago-beatles-sgt-pepper-50-fixing-a-hole-mural-liverpool-feminist-art"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/gallery/2017/jun/08/neil-libbert-north-south-british-streets-postwar-austerity-in-pictures"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/2017/jun/05/bonnie-prince-charlie-jacobites-exhibition-national-museum-of-scotland-diana-gabaldon-outlander"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":8,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/28/cultures-collide-as-18-metre-statue-of-buddha-comes-together-at-the-ngv-video"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/16/leonardos-salvator-mundi-restored-timelapse-video"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/16/leonardo-da-vincis-salvator-mundi-sold-for-4503m-video"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/09/cos-x-snarkitecture-loop-art-installation-takes-marble-run-to-the-next-level-video"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/video/2017/oct/07/patricia-piccinini-on-how-to-undercut-reality-my-ideas-are-just-normal-to-me-video"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/video/2017/sep/30/our-culture-is-still-strong-parrtjima-light-festival-illuminates-aboriginal-culture-video"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/video/2017/sep/08/watch-a-timelapse-video-of-the-creation-of-angels-palace"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/video/2017/jul/20/hes-definitely-captured-me-lisa-wilkinson-portrait-wins-archibald-packing-room-prize-video"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/video/2017/jul/11/the-indigenous-community-making-art-from-garbage-video"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/video/2017/may/07/leviathan-episode-1-ben-trailer-shezad-dawood-video"}],"@type":"ItemList","@context":"http://schema.org"}},{"@type":"ListItem","position":9,"item":{"url":"https://www.theguardian.com/artanddesign","itemListElement":[{"@type":"ListItem","position":0,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/30/street-photography-lensculture-awards-in-pictures"},{"@type":"ListItem","position":1,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/albert-watson-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":2,"url":"https://www.theguardian.com/artanddesign/2017/nov/30/hunter-barnes-my-best-shot-carnival-gibsonton-florida"},{"@type":"ListItem","position":3,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/29/belarus-villagers-prefer-hard-work-to-city-smoke-in-pictures"},{"@type":"ListItem","position":4,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/rose-wylie-review-quack-quack-serpentine-gallery-london"},{"@type":"ListItem","position":5,"url":"https://www.theguardian.com/artanddesign/video/2017/nov/21/city-the-photographs-of-david-levene"},{"@type":"ListItem","position":6,"url":"https://www.theguardian.com/artanddesign/2017/nov/29/amber-rowlands-obituary"},{"@type":"ListItem","position":7,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/16/own-limited-edition-print-photographer-david-levene"},{"@type":"ListItem","position":8,"url":"https://www.theguardian.com/artanddesign/2017/nov/22/rose-wylie-i-want-to-be-known-for-my-paintings-not-because-im-old-serpentine"},{"@type":"ListItem","position":9,"url":"https://www.theguardian.com/artanddesign/gallery/2016/dec/01/marc-hom-hollywood-celebrity-portraits-in-pictures"},{"@type":"ListItem","position":10,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/27/illuminating-india-photography-1857-2017"},{"@type":"ListItem","position":11,"url":"https://www.theguardian.com/artanddesign/2017/nov/27/john-baldessari-emoji-exhibition-spruth-magers-gallery-los-angeles"},{"@type":"ListItem","position":12,"url":"https://www.theguardian.com/artanddesign/2017/nov/24/gay-men-dying-aids-chris-mazeika-hiv-ward"},{"@type":"ListItem","position":13,"url":"https://www.theguardian.com/artanddesign/2017/nov/15/leonardo-da-vinci-salvator-mundi-auction"},{"@type":"ListItem","position":14,"url":"https://www.theguardian.com/artanddesign/gallery/2017/apr/20/a-decade-of-award-winning-british-landscape-photography-in-pictures"},{"@type":"ListItem","position":15,"url":"https://www.theguardian.com/artanddesign/2017/nov/25/trevor-paglen-art-in-age-of-mass-surveillance-drones-spy-satellites"},{"@type":"ListItem","position":16,"url":"https://www.theguardian.com/artanddesign/gallery/2016/nov/03/yukio-mishima-erotic-portraits-eikoh-hosoe-ordeal-by-roses-in-pictures"},{"@type":"ListItem","position":17,"url":"https://www.theguardian.com/artanddesign/gallery/2017/nov/25/merry-little-christmases-one-couples-tableau-tradition-in-pictures"},{"@type":"ListItem","position":18,"url":"https://www.theguardian.com/artanddesign/video/2015/jun/25/damien-hirst-paintings-john-hoyland-newport-street-gallery-london-video"},{"@type":"ListItem","position":19,"url":"https://www.theguardian.com/artanddesign/2017/nov/26/modigliani-tate-modern-review"}],"@type":"ItemList","@context":"http://schema.org"}}],"@type":"ItemList","@context":"http://schema.org"}
                         </script>
 <section class="fc-container__inner fc-trending-topics" data-component="trending-topics">
 <div class="submeta submeta--borderless-bottom" data-link-name="keywords">
@@ -2765,7 +2724,7 @@ East collides with west as a giant sculpture by Chinese artist Xu Zhen is instal
 <div class="l-footer__primary hide-on-mobile">
 <div id="footer-nav" class="gs-container">
 <div class="brand-bar modern-visible u-cf">
-<a href="https://www.theguardian.com/uk" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
+<a href="https://www.theguardian.com/international" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
 <span class="u-h">The Guardian</span>
 <i class="i i-guardian-logo-160"></i>
 </a>
@@ -2788,7 +2747,7 @@ East collides with west as a giant sculpture by Chinese artist Xu Zhen is instal
 <div class="navigation__container navigation__container--second" data-component="footer-nav">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -2796,11 +2755,6 @@ East collides with west as a giant sculpture by Chinese artist Xu Zhen is instal
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
-politics
 </a>
 </li>
 <li class="top-navigation__item">
@@ -2877,7 +2831,7 @@ travel
 <nav role="navigation" aria-label="All sections">
 <ul class="global-navigation js-global-navigation">
 <li class="global-navigation__section global-navigation__section--home">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk" data-link-name="nav : globalTop : home">
+<a class="global-navigation__title" href="https://www.theguardian.com/international" data-link-name="nav : globalTop : home">
 home
 </a>
 </li>
@@ -2922,11 +2876,6 @@ northern ireland
 </a>
 </li>
 </ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/politics" data-link-name="nav : globalTop : politics">
-politics
-</a>
 </li>
 <li class="global-navigation__section">
 <a class="global-navigation__title" href="https://www.theguardian.com/world" data-link-name="nav : globalTop : world">
@@ -3033,11 +2982,6 @@ racing
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav : globalSub : rugby league">
 rugby league
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav : globalSub : US sports">
-US sports
 </a>
 </li>
 </ul>
@@ -3178,11 +3122,6 @@ markets
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/business/series/project-syndicate-economists" data-link-name="nav : globalSub : project syndicate">
 project syndicate
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/business-to-business" data-link-name="nav : globalSub : business to business">
-business to business
 </a>
 </li>
 </ul>
@@ -3486,8 +3425,8 @@ digital archive
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="arts">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : subnav : tv &amp; radio">
-tv &amp; radio
+<a class="subnav-link" href="https://www.theguardian.com/books" data-link-name="nav2 : subnav : books">
+books
 </a>
 </li>
 <li class="subnav__item">
@@ -3496,23 +3435,8 @@ music
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : subnav : film">
-film
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/stage" data-link-name="nav2 : subnav : stage">
-stage
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/books" data-link-name="nav2 : subnav : books">
-books
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/games" data-link-name="nav2 : subnav : games">
-games
+<a class="subnav-link" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : subnav : tv &amp; radio">
+tv &amp; radio
 </a>
 </li>
 <li class="subnav__item subnav__item--current-section">
@@ -3521,8 +3445,23 @@ art &amp; design
 </a>
 </li>
 <li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : subnav : film">
+film
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/games" data-link-name="nav2 : subnav : games">
+games
+</a>
+</li>
+<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : subnav : classical">
 classical
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/stage" data-link-name="nav2 : subnav : stage">
+stage
 </a>
 </li>
 </ul>
@@ -3544,41 +3483,35 @@ classical
 <div class="l-footer__secondary js-footer__secondary  gs-container" role="contentinfo">
 <div class="colophon u-cf">
 <div class="footer__email-container js-footer__email-container">
-<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-uk" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
+<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-int" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
 </div>
 <div class="colophon__lists-container">
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">
-jobs</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">
-dating</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://membership.theguardian.com/supporter?INTCMP=NGW_FOOTER_INT_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;%7D">
 become a supporter</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://contribute.theguardian.com?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
 make a contribution</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : guardian labs" href="https://www.theguardian.com/guardian-labs">
-Guardian labs</a>
+<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
+securedrop</a>
+</li>
+<li class="colophon__item"><a data-link-name="tech feedback" class="international : footer : js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
+ask for help</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : about us" href="https://www.theguardian.com/about">
-about us</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : work for us" href="https://workforus.theguardian.com/locations/london">
-work for us</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : advertise with us" href="https://advertising.theguardian.com">
+<li class="colophon__item"><a data-link-name="international : footer : advertise with us" href="https://advertising.theguardian.com">
 advertise with us</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contact us" href="https://www.theguardian.com/help/contact-us">
+<li class="colophon__item"><a data-link-name="international : footer : work for us" href="https://workforus.theguardian.com">
+work for us</a>
+</li>
+<li class="colophon__item"><a data-link-name="international : footer : contact us" href="https://www.theguardian.com/help/contact-us">
 contact us</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : tech feedback" class="js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
-ask for help</a>
+<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
+complaints &amp; corrections</a>
 </li>
 </ul>
 <ul class="colophon__list">
@@ -3586,39 +3519,26 @@ ask for help</a>
 terms &amp; conditions</a>
 </li>
 <li class="colophon__item"><a data-link-name="privacy" href="https://www.theguardian.com/info/privacy">
-privacy policy</a>
-</li>
+privacy policy</a></li>
 <li class="colophon__item"><a data-link-name="cookie" href="https://www.theguardian.com/info/cookies">
 cookie policy</a>
-</li>
-<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
-securedrop</a>
 </li>
 <li class="colophon__item"><a data-link-name="digital newspaper archive" href="https://theguardian.newspapers.com">
 digital newspaper archive</a>
 </li>
-<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
-complaints &amp; corrections</a>
-</li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
+<li class="colophon__item"><a data-link-name="international : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
 all topics</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : all contributors" href="https://www.theguardian.com/index/contributors">
+<li class="colophon__item"><a data-link-name="international : footer : all contributors" href="https://www.theguardian.com/index/contributors">
 all contributors</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : modern slavery act statement" href="https://www.theguardian.com/info/2016/jul/27/modern-slavery-and-our-supply-chains?INTCMP=NGW_FOOTER_UK_GU_MODERN_SLAVERY_ACT">
-modern slavery act</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : facebook" href="https://www.facebook.com/theguardian">
+<li class="colophon__item"><a data-link-name="international : footer : facebook" href="https://www.facebook.com/theguardian">
 Facebook</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : twitter" href="https://twitter.com/guardian">
+<li class="colophon__item"><a data-link-name="international : footer : twitter" href="https://twitter.com/guardian">
 Twitter</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : subscribe" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
-subscribe</a>
 </li>
 </ul>
 </div>

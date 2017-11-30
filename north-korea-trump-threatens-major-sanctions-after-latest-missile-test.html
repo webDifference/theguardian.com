@@ -66,7 +66,7 @@
 <meta property="article:tag" content="Donald Trump,North Korea,US news,Asia Pacific,World news,Nuclear weapons"/>
 <meta property="al:ios:app_name" content="The Guardian"/>
 <meta property="og:site_name" content="the Guardian"/>
-<meta property="article:modified_time" content="2017-11-29T23:25:34.000Z"/>
+<meta property="article:modified_time" content="2017-11-30T12:46:57.000Z"/>
 <meta name="twitter:app:id:iphone" content="409128287"/>
 <meta name="twitter:app:name:googleplay" content="The Guardian"/>
 <meta name="twitter:app:name:ipad" content="The Guardian"/>
@@ -188,11 +188,11 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"North Korea: Trump threatens 'major sanctions' after latest missile test","isImmersive":false,"author":"Julian Borger","toneIds":"tone/news","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"us-news","webPublicationDate":1511997934000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"North Korea: Trump threatens 'major sanctions' after latest missile test","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":2,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":1,"showRelatedContent":true,"lightboxImages":{"id":"us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","headline":"North Korea: Trump threatens 'major sanctions' after latest missile test","shouldHideAdverts":false,"standfirst":"<p>The president said he had spoken with China’s leader Xi Jinping, and ‘this situation will be handled’ after North Korea fired a powerful, ballistic missile</p>","images":[{"caption":"Donald Trump at the White House on Tuesday.","credit":"Photograph: UPI/Barcroft Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=2008cd265bc894772ea0bfd430365a59","srcsets":"https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=4859bfe01231013889976b914253405f 1920w, https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=32ffa84ebbd6a8af3a800cf3e6fda6d4 1225w, https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=2879eabcdfef1fbb6d93d534a69b9d5d 1065w, https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=a87e11b4a069c5e95cc5a879bae10809 965w, https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=d0b7e0f63f663e88f4ddb2586f955b14 725w, https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=b9ce3eae82c84b807bd8afdd5eda6fb7 645w, https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=20ef8b22f4c7ff161218be54d78e4cb2 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6674606955693188,"role":"None"},{"caption":"","credit":"Photograph: Chung Sung-Jun/Getty Images AsiaPac","displayCredit":false,"src":"https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=6c173aee028700b9fda447b83bd905ce","srcsets":"https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=daa54ac6730a9196594368a07e2db161 1920w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=a45a93956cb277d71b689f93ca17fa8b 1225w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cf2832723e0488be99bc5ba8d500244f 1065w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=5a709601250f1b5c84391916152b8b31 965w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=2685f8ed20a1ba7a99d7d1924acab259 725w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=240e02718a40e08a42dcaa6f2062f79f 645w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=1bf29b896ae680a27b740bda2792b3c5 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.0003286230693396,"role":"None"},{"caption":"","credit":"Photograph: Kim Hong-Ji/X90173","displayCredit":false,"src":"https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=459cbceab471f4842f75b29e4bdfcd37","srcsets":"https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=ee3af67be9aa44b239356d4accd49510 1920w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=26d13fdb7365a0d823a6ec7cf8eeda1a 1225w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fd333ae2c6eafd6cd38a096100f712ed 1065w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=e4f3ef570f4c01c45ca5edaf75848ec4 965w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=67a74b5690a78f61761b87b3126b5f8f 725w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=133900d1a0c62efa117332fb66a0cd3e 645w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=8b4a036b8ef6a4767b034bfa81b40b35 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":0.9995539696699376,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"News","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"US News","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"US news","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7kbbf","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":1237,"cardStyle":"news","adUnit":"/59666047/theguardian.com/us-news/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"UK","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"us-news","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7kbbf","thumbnail":"https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/500.jpg?q=55&auto=format&usm=12&fit=max&s=63fd5b366fc74a8be63c139a9f02dff4","pageId":"us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"us-news/donaldtrump,world/north-korea,us-news/us-news,world/asia-pacific,world/world,world/nuclear-weapons","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/julianborger","isPaidContent":false,"hasYouTubeAtom":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Donald Trump,North Korea,US news,Asia Pacific,World news,Nuclear weapons","contentId":"us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","nonKeywordTagIds":"type/article,tone/news,profile/julianborger,publication/theguardian,theguardian/mainsection,theguardian/mainsection/international,tracking/commissioningdesk/us-news","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"fa8306c64833c2479a56f0112157ccdbc1c301d3","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[{"id":"dccb0e4e-bcd9-4614-9ddf-37715d603b8d","name":"ContributionsEpicBrexit_2017_01","rules":[{"requiredTags":["us-news/trump-administration","world/donald-trump-inauguration","us-news/donaldtrump","world/series/global-laundromat"],"lackingTags":["world/series/guardian-morning-briefing"],"matchAllTags":false}],"priority":0,"activeFrom":1483660800000,"activeUntil":1583020800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_brexit_2017_01","_type":"epic"}},{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4122078","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"The Guardian","sentryHost":"app.getsentry.com/35463","buildNumber":"15217","atomTypes":{"guide":false,"storyquestions":false,"profile":false,"timeline":false,"qanda":true},"sharedAdTargeting":{"ct":"article","co":["julianborger"],"url":"/us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","su":["4","5"],"edition":"uk","tn":["news"],"p":"ng","k":["asia-pacific","world","north-korea","nuclear-weapons","us-news","donaldtrump"],"sh":"https://gu.com/p/7kbbf"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Us","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","atoms":["5c2207f8-3658-4c42-be2d-b7ba73ea75c4","ec820614-d66e-4573-921b-d775d9628f26"],"isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"North Korea: Trump threatens 'major sanctions' after latest missile test","isImmersive":false,"author":"Julian Borger","toneIds":"tone/news","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"us-news","webPublicationDate":1511997934000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"North Korea: Trump threatens 'major sanctions' after latest missile test","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":2,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":1,"showRelatedContent":true,"lightboxImages":{"id":"us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","headline":"North Korea: Trump threatens 'major sanctions' after latest missile test","shouldHideAdverts":false,"standfirst":"<p>The president said he had spoken with China’s leader Xi Jinping, and ‘this situation will be handled’ after North Korea fired a powerful, ballistic missile</p>","images":[{"caption":"","credit":"Photograph: Chung Sung-Jun/Getty Images AsiaPac","displayCredit":false,"src":"https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=6c173aee028700b9fda447b83bd905ce","srcsets":"https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=daa54ac6730a9196594368a07e2db161 1920w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=a45a93956cb277d71b689f93ca17fa8b 1225w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cf2832723e0488be99bc5ba8d500244f 1065w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=5a709601250f1b5c84391916152b8b31 965w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=2685f8ed20a1ba7a99d7d1924acab259 725w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=240e02718a40e08a42dcaa6f2062f79f 645w, https://i.guim.co.uk/img/media/ce89b2fd4610ab16b450ee73b21d89fa96b6e0f2/971_253_3044_3043/3044.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=1bf29b896ae680a27b740bda2792b3c5 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.0003286230693396,"role":"None"},{"caption":"","credit":"Photograph: Kim Hong-Ji/X90173","displayCredit":false,"src":"https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=459cbceab471f4842f75b29e4bdfcd37","srcsets":"https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=ee3af67be9aa44b239356d4accd49510 1920w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=26d13fdb7365a0d823a6ec7cf8eeda1a 1225w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fd333ae2c6eafd6cd38a096100f712ed 1065w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=e4f3ef570f4c01c45ca5edaf75848ec4 965w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=67a74b5690a78f61761b87b3126b5f8f 725w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=133900d1a0c62efa117332fb66a0cd3e 645w, https://i.guim.co.uk/img/media/27779cee3f68f535de405cd835386923b91fe4ad/713_0_2241_2242/2241.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=8b4a036b8ef6a4767b034bfa81b40b35 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":0.9995539696699376,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"News","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"US News","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"US news","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7kbbf","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":1236,"cardStyle":"news","adUnit":"/59666047/theguardian.com/us-news/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"us-news","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7kbbf","thumbnail":"https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/500.jpg?q=55&auto=format&usm=12&fit=max&s=63fd5b366fc74a8be63c139a9f02dff4","pageId":"us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"us-news/donaldtrump,world/north-korea,us-news/us-news,world/asia-pacific,world/world,world/nuclear-weapons","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/julianborger","isPaidContent":false,"hasYouTubeAtom":true,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Donald Trump,North Korea,US news,Asia Pacific,World news,Nuclear weapons","contentId":"us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","nonKeywordTagIds":"type/article,tone/news,profile/julianborger,publication/theguardian,theguardian/mainsection,theguardian/mainsection/international,tracking/commissioningdesk/us-news","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"0f26b728dfd8cbeab9d0ad2951a24c579ea20574","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[{"id":"dccb0e4e-bcd9-4614-9ddf-37715d603b8d","name":"ContributionsEpicBrexit_2017_01","rules":[{"requiredTags":["us-news/trump-administration","world/donald-trump-inauguration","us-news/donaldtrump","world/series/global-laundromat"],"lackingTags":["world/series/guardian-morning-briefing"],"matchAllTags":false}],"priority":0,"activeFrom":1483660800000,"activeUntil":1583020800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_brexit_2017_01","_type":"epic"}},{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4122078","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"The Guardian","sentryHost":"app.getsentry.com/35463","buildNumber":"15238","atomTypes":{"guide":false,"storyquestions":false,"profile":false,"timeline":false,"qanda":true},"sharedAdTargeting":{"ct":"article","co":["julianborger"],"url":"/us-news/2017/nov/29/north-korea-trump-threatens-major-sanctions-after-latest-missile-test","su":["0"],"edition":"int","tn":["news"],"p":"ng","k":["asia-pacific","world","north-korea","nuclear-weapons","us-news","donaldtrump"],"sh":"https://gu.com/p/7kbbf"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Us","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","atoms":["5506cf3d-8aab-4774-b90e-e8938965c695","441b1747-4245-468b-b75e-f5610aae9ef5","5c2207f8-3658-4c42-be2d-b7ba73ea75c4","ec820614-d66e-4573-921b-d775d9628f26"],"isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abAcquisitionsEpicParadise":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"profileShowContributorTab":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
-@*/(function(documentElement,window,navigator){var docClass=documentElement.className;var testCssSupportForPropertyAndValue=function(supportsSupports){return supportsSupports?nativeCSSSupports:shimCSSSupports()}("CSS"in window&&"supports"in window.CSS);function nativeCSSSupports(prop,value){return window.CSS.supports(prop,value)}function shimCSSSupports(){var cssToDOMRegExp=/([a-z])-([a-z])/g;var testElem=document.createElement("test");function cssToDOM(name){return name.replace(cssToDOMRegExp,cssToDOMReplacer).replace(/^-/,"")}function cssToDOMReplacer(str,m1,m2){return m1+m2.toUpperCase()}return function(prop,value){try{prop=cssToDOM(prop);var originalValue=testElem.style[prop];if(originalValue===undefined)return false;if(originalValue===value)return true;testElem.style[prop]=value;return testElem.style[prop]!==originalValue}catch(e){return false}}}function testAndAddClass(tests){docClass+=" "+tests.map(function(test){return(test.props.some(function(prop){return test.values.some(function(value){return testCssSupportForPropertyAndValue(prop,value)})})?"has-":"has-no-")+test.feature}).join(" ")}function getCookieValue(name){var val=document.cookie.match("(^|;)\\s*"+name+"\\s*\x3d\\s*([^;]+)");return val?val.pop():undefined}function isRecentContributor(){var value=getCookieValue("gu.contributions.contrib-timestamp");if(!value)return false;var now=(new Date).getTime();var lastContribution=(new Date(value)).getTime();var diffDays=Math.ceil((now-lastContribution)/(1E3*3600*24));return diffDays<=180}function isPayingMember(){return getCookieValue("gu_paying_member")==="true"}if(!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect)docClass+=" svg";else docClass+=" no-svg";testAndAddClass([{feature:"flex",props:["flex","-ms-flex","-webkit-flex","-moz-box-flex","-webkit-box-flex"],values:["inherit"]},{feature:"flex-wrap",props:["flex-wrap","-ms-flex-wrap","-webkit-flex-wrap"],values:["inherit"]},{feature:"fixed",props:["position"],values:["fixed"]},{feature:"sticky",props:["position"],values:["sticky","-webkit-sticky"]}]);if(window.guardian.isEnhanced)docClass=docClass.replace(/\bis-not-modern\b/g,"is-modern");if(window.location.hash!=="#no-kern")docClass+=" should-kern";var baseFontSize=null;if("getComputedStyle"in window)baseFontSize=window.getComputedStyle(documentElement).getPropertyValue("font-size");if(baseFontSize&&parseInt(baseFontSize,10)!==16)documentElement.style.fontSize=baseFontSize;if(isPayingMember())docClass+=" is-paying-member";if(isRecentContributor())docClass+=" is-recent-contributor";documentElement.className=docClass.replace(/\bjs-off\b/g,"js-on")})(document.documentElement,window,navigator);(function(window,document){var ua=navigator.userAgent;var fontHinting=function(){var windowsNT=/Windows NT (\d\.\d+)/.exec(ua);var hinting="Off";try{if(windowsNT){var version=parseFloat(windowsNT[1],10);if(version>=5.1&&version<=6.1)if(/Chrome/.exec(ua)&&version<6)hinting="Auto";else hinting="Cleartype"}}catch(e){}return hinting}();function loadFontsFromStorage(){try{if("localStorage"in window){var saveFont=function(fontName,fontHash,css){for(var i=0,totalItems=localStorage.length;i<totalItems-1;i++){var key=localStorage.key(i);if(key.indexOf(fontStorageKey(fontName))!==-1){localStorage.removeItem(key);break}}localStorage.setItem(fontStorageKey(fontName,fontHash),JSON.stringify({value:css}))};var fetchFont=function(url,el,fontName,fontHash){var xhr=new XMLHttpRequest;this["guFont"]=function(fontData){return fontData.css};xhr.open("GET",url,true);xhr.onreadystatechange=function(){if(xhr.readyState===4&&xhr.status===200){var css=eval(xhr.responseText);useFont(el,css);saveFont(fontName,fontHash,css)}};xhr.send()};var useFont=function(el,css){el.innerHTML=css};var fontStorageKey=function(fontName,fontHash){fontHash=fontHash===undefined?"":fontHash;return"gu.fonts."+fontName+"."+fontHash};var fontFormat=function(){var formatStorageKey="gu.fonts.format";var format=localStorage.getItem(formatStorageKey);function supportsWoff2(){if("FontFace"in window)try{var f=new window.FontFace("t",'url("data:application/font-woff2,") format("woff2")',{});f.load()["catch"](function(){});if(f.status==="loading")return true}catch(e){}if(!/edge\/([0-9]+)/.test(ua.toLowerCase())){var browser=/(chrome|firefox)\/([0-9]+)/.exec(ua.toLowerCase());var supportsWoff2$0={"chrome":36,"firefox":39};return!!browser&&supportsWoff2$0[browser[1]]<parseInt(browser[2],10)}return false}if(/value/.test(format)){format=JSON.parse(format).value;localStorage.setItem(formatStorageKey,format)}if(!format){format=supportsWoff2()?"woff2":ua.indexOf("android")>-1?"ttf":"woff";localStorage.setItem(formatStorageKey,format)}return format}();var fonts=document.querySelectorAll(".webfont");var hinting=fontHinting==="Off"?"":"hinted-"+fontHinting+"-";var urlAttribute="data-cache-file-"+hinting+fontFormat;for(var i=0,j=fonts.length;i<j;++i){var font=fonts[i];var fontURL=font.getAttribute(urlAttribute);var fontInfo=fontURL.match(/fonts\/([^/]*?)\/?([^/]*)\.(woff2|woff|ttf).json$/);var fontName=fontInfo[2];var fontHash=fontInfo[1];var fontData=localStorage.getItem(fontStorageKey(fontName,fontHash));if(fontData)useFont(font,JSON.parse(fontData).value);else fetchFont(fontURL,font,fontName,fontHash)}return true}}catch(e){}return false}function loadFontsAsynchronously(){try{var scripts=document.getElementsByTagName("script");var thisScript=scripts[scripts.length-1];var fonts=document.createElement("link");fonts.rel="stylesheet";fonts.className="webfonts";fonts.href=window.guardian.config.stylesheets.fonts["hinting"+fontHinting].kerningOn;window.setTimeout(function(){thisScript.parentNode.insertBefore(fonts,thisScript)})}catch(e){}}function fontSmoothingEnabled(){try{var saveFontSmoothing=function(state){state=state?"on":"off";document.cookie="GU_fonts_smoothing\x3d "+state+"; domain\x3d"+location.hostname+"; path\x3d/; max-age\x3d"+60*60*24*30};if(document.cookie.indexOf("GU_fonts_smoothing")!==-1&&window.location.hash!=="#check-smoothing")return document.cookie.indexOf("GU_fonts_smoothing\x3don")!==-1;if(/Windows NT (\d\.\d+)/.exec(ua)&&!/MSIE|Trident/.exec(ua)){try{var canvasNode=document.createElement("canvas");canvasNode.width="35";canvasNode.height="35";canvasNode.style.display="none";document.documentElement.appendChild(canvasNode);var ctx=canvasNode.getContext("2d");ctx.textBaseline="top";ctx.font="32px Arial";ctx.fillStyle="black";ctx.strokeStyle="black";ctx.fillText("@",0,0);for(var x=0;x<=16;x++)for(var y=0;y<=16;y++){var alpha=ctx.getImageData(x,y,1,1).data[3];if(alpha>0&&alpha<255){saveFontSmoothing(true);return true}}}catch(e){}saveFontSmoothing(false);return false}else return true}catch(e$1){}}var fontCookie="GU_fonts\x3doff; domain\x3d"+location.hostname+"; path\x3d/";function disableFonts(){document.cookie=fontCookie+"; max-age\x3d"+60*60*24*365}function enableFonts(){document.cookie=fontCookie+"; expires\x3dThu, 01 Jan 1970 00:00:00 GMT"}function checkUserFontDisabling(){if(window.location.hash==="#fonts-off")disableFonts();else if(window.location.hash==="#fonts-on"||window.location.hash==="#check-smoothing")enableFonts()}var fontsEnabled=document.cookie.indexOf("GU_fonts\x3doff")===-1;function loadFonts(){checkUserFontDisabling();if(fontsEnabled)if(fontSmoothingEnabled())loadFontsFromStorage()||loadFontsAsynchronously();else disableFonts()}loadFonts()})(window,document);(function(styleSheetLinks,documentStyleSheets){function setMedia(styleSheet){for(var i=0,totalSheets=documentStyleSheets.length;i<totalSheets;i++){var sheet=documentStyleSheets[i];if(sheet.href&&sheet.href.indexOf(styleSheet.href)>-1){styleSheet.media="screen";window.guardian.css.loaded=true;try{window.guardian.css.onLoad()}catch(e){}return true}}setTimeout(function(){setMedia(styleSheet)})}function useCss(){for(var i=0,totalStyleSheetLinks=styleSheetLinks.length;i<totalStyleSheetLinks;i++)if(styleSheetLinks[i].getAttribute("media")==="only x")setMedia(styleSheetLinks[i])}useCss()})(document.getElementsByTagName("link"),window.document.styleSheets);function guardianPolyfilled(){try{window.guardian.polyfilled=true}catch(e){}}(function(document,window){var src;var script;var pendingScripts=[];var firstScript=document.scripts[0];var scripts=["https://assets.guim.co.uk/polyfill.io/v2/polyfill.min.js?rum\x3d0\x26features\x3des6,es7,es2017,default-3.6,HTMLPictureElement,IntersectionObserver,IntersectionObserverEntry\x26flags\x3dgated\x26callback\x3dguardianPolyfilled\x26unknown\x3dpolyfill","https://assets.guim.co.uk/javascripts/359b02d16544e7ecd7dc/graun.standard.js"];function stateChange(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScript.parentNode.insertBefore(pendingScript,firstScript)}}while(src=scripts.shift())if("async"in firstScript){script=document.createElement("script");script.async=false;script.src=src;document.head.appendChild(script)}else if(firstScript.readyState){script=document.createElement("script");pendingScripts.push(script);script.onreadystatechange=stateChange;script.src=src}else document.write('\x3cscript src\x3d"'+src+'" defer\x3e\x3c/'+"script\x3e")})(document,window);</script>
+@*/(function(documentElement,window,navigator){var docClass=documentElement.className;var testCssSupportForPropertyAndValue=function(supportsSupports){return supportsSupports?nativeCSSSupports:shimCSSSupports()}("CSS"in window&&"supports"in window.CSS);function nativeCSSSupports(prop,value){return window.CSS.supports(prop,value)}function shimCSSSupports(){var cssToDOMRegExp=/([a-z])-([a-z])/g;var testElem=document.createElement("test");function cssToDOM(name){return name.replace(cssToDOMRegExp,cssToDOMReplacer).replace(/^-/,"")}function cssToDOMReplacer(str,m1,m2){return m1+m2.toUpperCase()}return function(prop,value){try{prop=cssToDOM(prop);var originalValue=testElem.style[prop];if(originalValue===undefined)return false;if(originalValue===value)return true;testElem.style[prop]=value;return testElem.style[prop]!==originalValue}catch(e){return false}}}function testAndAddClass(tests){docClass+=" "+tests.map(function(test){return(test.props.some(function(prop){return test.values.some(function(value){return testCssSupportForPropertyAndValue(prop,value)})})?"has-":"has-no-")+test.feature}).join(" ")}function getCookieValue(name){var val=document.cookie.match("(^|;)\\s*"+name+"\\s*\x3d\\s*([^;]+)");return val?val.pop():undefined}function isRecentContributor(){var value=getCookieValue("gu.contributions.contrib-timestamp");if(!value)return false;var now=(new Date).getTime();var lastContribution=(new Date(value)).getTime();var diffDays=Math.ceil((now-lastContribution)/(1E3*3600*24));return diffDays<=180}function isPayingMember(){return getCookieValue("gu_paying_member")==="true"}if(!!document.createElementNS&&!!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect)docClass+=" svg";else docClass+=" no-svg";testAndAddClass([{feature:"flex",props:["flex","-ms-flex","-webkit-flex","-moz-box-flex","-webkit-box-flex"],values:["inherit"]},{feature:"flex-wrap",props:["flex-wrap","-ms-flex-wrap","-webkit-flex-wrap"],values:["inherit"]},{feature:"fixed",props:["position"],values:["fixed"]},{feature:"sticky",props:["position"],values:["sticky","-webkit-sticky"]}]);if(window.guardian.isEnhanced)docClass=docClass.replace(/\bis-not-modern\b/g,"is-modern");if(window.location.hash!=="#no-kern")docClass+=" should-kern";var baseFontSize=null;if("getComputedStyle"in window)baseFontSize=window.getComputedStyle(documentElement).getPropertyValue("font-size");if(baseFontSize&&parseInt(baseFontSize,10)!==16)documentElement.style.fontSize=baseFontSize;if(isPayingMember())docClass+=" is-paying-member";if(isRecentContributor())docClass+=" is-recent-contributor";documentElement.className=docClass.replace(/\bjs-off\b/g,"js-on")})(document.documentElement,window,navigator);(function(window,document){var ua=navigator.userAgent;var fontHinting=function(){var windowsNT=/Windows NT (\d\.\d+)/.exec(ua);var hinting="Off";try{if(windowsNT){var version=parseFloat(windowsNT[1],10);if(version>=5.1&&version<=6.1)if(/Chrome/.exec(ua)&&version<6)hinting="Auto";else hinting="Cleartype"}}catch(e){}return hinting}();function loadFontsFromStorage(){try{if("localStorage"in window){var saveFont=function(fontName,fontHash,css){for(var i=0,totalItems=localStorage.length;i<totalItems-1;i++){var key=localStorage.key(i);if(key.indexOf(fontStorageKey(fontName))!==-1){localStorage.removeItem(key);break}}localStorage.setItem(fontStorageKey(fontName,fontHash),JSON.stringify({value:css}))};var fetchFont=function(url,el,fontName,fontHash){var xhr=new XMLHttpRequest;this["guFont"]=function(fontData){return fontData.css};xhr.open("GET",url,true);xhr.onreadystatechange=function(){if(xhr.readyState===4&&xhr.status===200){var css=eval(xhr.responseText);useFont(el,css);saveFont(fontName,fontHash,css)}};xhr.send()};var useFont=function(el,css){el.innerHTML=css};var fontStorageKey=function(fontName,fontHash){fontHash=fontHash===undefined?"":fontHash;return"gu.fonts."+fontName+"."+fontHash};var fontFormat=function(){var formatStorageKey="gu.fonts.format";var format=localStorage.getItem(formatStorageKey);function supportsWoff2(){if("FontFace"in window)try{var f=new window.FontFace("t",'url("data:application/font-woff2,") format("woff2")',{});f.load()["catch"](function(){});if(f.status==="loading")return true}catch(e){}if(!/edge\/([0-9]+)/.test(ua.toLowerCase())){var browser=/(chrome|firefox)\/([0-9]+)/.exec(ua.toLowerCase());var supportsWoff2$0={"chrome":36,"firefox":39};return!!browser&&supportsWoff2$0[browser[1]]<parseInt(browser[2],10)}return false}if(/value/.test(format)){format=JSON.parse(format).value;localStorage.setItem(formatStorageKey,format)}if(!format){format=supportsWoff2()?"woff2":ua.indexOf("android")>-1?"ttf":"woff";localStorage.setItem(formatStorageKey,format)}return format}();var fonts=document.querySelectorAll(".webfont");var hinting=fontHinting==="Off"?"":"hinted-"+fontHinting+"-";var urlAttribute="data-cache-file-"+hinting+fontFormat;for(var i=0,j=fonts.length;i<j;++i){var font=fonts[i];var fontURL=font.getAttribute(urlAttribute);var fontInfo=fontURL.match(/fonts\/([^/]*?)\/?([^/]*)\.(woff2|woff|ttf).json$/);var fontName=fontInfo[2];var fontHash=fontInfo[1];var fontData=localStorage.getItem(fontStorageKey(fontName,fontHash));if(fontData)useFont(font,JSON.parse(fontData).value);else fetchFont(fontURL,font,fontName,fontHash)}return true}}catch(e){}return false}function loadFontsAsynchronously(){try{var scripts=document.getElementsByTagName("script");var thisScript=scripts[scripts.length-1];var fonts=document.createElement("link");fonts.rel="stylesheet";fonts.className="webfonts";fonts.href=window.guardian.config.stylesheets.fonts["hinting"+fontHinting].kerningOn;window.setTimeout(function(){thisScript.parentNode.insertBefore(fonts,thisScript)})}catch(e){}}function fontSmoothingEnabled(){try{var saveFontSmoothing=function(state){state=state?"on":"off";document.cookie="GU_fonts_smoothing\x3d "+state+"; domain\x3d"+location.hostname+"; path\x3d/; max-age\x3d"+60*60*24*30};if(document.cookie.indexOf("GU_fonts_smoothing")!==-1&&window.location.hash!=="#check-smoothing")return document.cookie.indexOf("GU_fonts_smoothing\x3don")!==-1;if(/Windows NT (\d\.\d+)/.exec(ua)&&!/MSIE|Trident/.exec(ua)){try{var canvasNode=document.createElement("canvas");canvasNode.width="35";canvasNode.height="35";canvasNode.style.display="none";document.documentElement.appendChild(canvasNode);var ctx=canvasNode.getContext("2d");ctx.textBaseline="top";ctx.font="32px Arial";ctx.fillStyle="black";ctx.strokeStyle="black";ctx.fillText("@",0,0);for(var x=0;x<=16;x++)for(var y=0;y<=16;y++){var alpha=ctx.getImageData(x,y,1,1).data[3];if(alpha>0&&alpha<255){saveFontSmoothing(true);return true}}}catch(e){}saveFontSmoothing(false);return false}else return true}catch(e$1){}}var fontCookie="GU_fonts\x3doff; domain\x3d"+location.hostname+"; path\x3d/";function disableFonts(){document.cookie=fontCookie+"; max-age\x3d"+60*60*24*365}function enableFonts(){document.cookie=fontCookie+"; expires\x3dThu, 01 Jan 1970 00:00:00 GMT"}function checkUserFontDisabling(){if(window.location.hash==="#fonts-off")disableFonts();else if(window.location.hash==="#fonts-on"||window.location.hash==="#check-smoothing")enableFonts()}var fontsEnabled=document.cookie.indexOf("GU_fonts\x3doff")===-1;function loadFonts(){checkUserFontDisabling();if(fontsEnabled)if(fontSmoothingEnabled())loadFontsFromStorage()||loadFontsAsynchronously();else disableFonts()}loadFonts()})(window,document);(function(styleSheetLinks,documentStyleSheets){function setMedia(styleSheet){for(var i=0,totalSheets=documentStyleSheets.length;i<totalSheets;i++){var sheet=documentStyleSheets[i];if(sheet.href&&sheet.href.indexOf(styleSheet.href)>-1){styleSheet.media="screen";window.guardian.css.loaded=true;try{window.guardian.css.onLoad()}catch(e){}return true}}setTimeout(function(){setMedia(styleSheet)})}function useCss(){for(var i=0,totalStyleSheetLinks=styleSheetLinks.length;i<totalStyleSheetLinks;i++)if(styleSheetLinks[i].getAttribute("media")==="only x")setMedia(styleSheetLinks[i])}useCss()})(document.getElementsByTagName("link"),window.document.styleSheets);function guardianPolyfilled(){try{window.guardian.polyfilled=true}catch(e){}}(function(document,window){var src;var script;var pendingScripts=[];var firstScript=document.scripts[0];var scripts=["https://assets.guim.co.uk/polyfill.io/v2/polyfill.min.js?rum\x3d0\x26features\x3des6,es7,es2017,default-3.6,HTMLPictureElement,IntersectionObserver,IntersectionObserverEntry\x26flags\x3dgated\x26callback\x3dguardianPolyfilled\x26unknown\x3dpolyfill","https://assets.guim.co.uk/javascripts/7711e47dd14933aedddb/graun.standard.js"];function stateChange(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScript.parentNode.insertBefore(pendingScript,firstScript)}}while(src=scripts.shift())if("async"in firstScript){script=document.createElement("script");script.async=false;script.src=src;document.head.appendChild(script)}else if(firstScript.readyState){script=document.createElement("script");pendingScripts.push(script);script.onreadystatechange=stateChange;script.src=src}else document.write('\x3cscript src\x3d"'+src+'" defer\x3e\x3c/'+"script\x3e")})(document,window);</script>
 </head>
 <body id="top" class="has-localnav" itemscope itemtype="http://schema.org/WebPage">
 <div class="site-message js-site-message is-hidden" data-link-name="release message" role="dialog" aria-label="welcome" aria-describedby="site-message__message">
@@ -231,7 +231,13 @@
 <input type="checkbox" id="edition-picker-toggle" aria-controls="edition-dropdown-menu" class="u-h dropdown-menu-fallback js-enhance-checkbox" data-link-name="nav2 : topbar : edition-picker: toggle">
 <ul class="dropdown-menu js-edition-dropdown-menu" id="edition-dropdown-menu" aria-hidden="true">
 <li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="dropdown-menu__title dropdown-menu__title--active">
+<a data-link-name="nav2 : topbar : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="dropdown-menu__title dropdown-menu__title--active">
+<span class="u-h">switch to the </span>
+International edition
+</a>
+</li>
+<li class="dropdown-menu__item">
+<a data-link-name="nav2 : topbar : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="dropdown-menu__title ">
 <span class="u-h">switch to the </span>
 UK edition
 </a>
@@ -248,19 +254,13 @@ US edition
 Australia edition
 </a>
 </li>
-<li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="dropdown-menu__title ">
-<span class="u-h">switch to the </span>
-International edition
-</a>
-</li>
 </ul>
 <label for="edition-picker-toggle" class="top-bar__item top-bar__item--dropdown js-edition-picker-trigger" data-link-name="nav2 : topnav : edition-picker: toggle">
 <span class="u-h">current edition: </span>
-UK edition
+International edition
 </label>
 </div>
-<a href="https://www.theguardian.com/uk" class="new-header__logo" data-link-name="nav2 : logo">
+<a href="https://www.theguardian.com/international" class="new-header__logo" data-link-name="nav2 : logo">
 <span class="u-h">The Guardian - Back to home</span>
 <span class="inline-guardian-logo-160 inline-logo new-header__logo">
 <svg width="160" height="30" viewbox="0 0 320 60" class="new-header__logo__svg inline-guardian-logo-160__svg inline-logo__svg">
@@ -270,16 +270,16 @@ UK edition
 </span>
 </a>
 <div class="new-header__top-bar hide-until-mobile">
-<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="uk" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D">
+<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="int" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D">
 <span class="top-bar__item--cta--circle"></span>
 <span class="top-bar__item--cta--text">
 become a <br>supporter
 </span>
 </a>
-<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="uk" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D">
+<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="int" href="https://subscribe.theguardian.com?INTCMP=subs_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;subs_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;subs_int_web_newheader&quot;%7D">
 subscribe
 </a>
-<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="uk" href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader">
+<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="int" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader">
 <span class="hide-until-tablet">find a job</span>
 <span class="hide-from-tablet">jobs</span>
 </a>
@@ -327,7 +327,7 @@ search
 <input type="checkbox" id="main-menu-toggle" class="veggie-burger-fallback js-enhance-checkbox u-h" data-link-name="nav2 : veggie-burger : show" aria-controls="main-menu">
 <ul class="pillars">
 <li class="pillars__item">
-<a class="pillar-link pillar-link--current-section" href="https://www.theguardian.com/uk" data-link-name="nav2 : primary : news">
+<a class="pillar-link pillar-link--current-section" href="https://www.theguardian.com/international" data-link-name="nav2 : primary : news">
 news
 </a>
 </li>
@@ -371,9 +371,9 @@ sections
 <i class="menu-item__toggle"></i>
 news
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu news" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu news" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk" data-link-name="nav2 : secondary : headlines">
+<a class="menu-item__title" href="https://www.theguardian.com/international" data-link-name="nav2 : secondary : headlines">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -383,38 +383,13 @@ headlines
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
-UK news
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/world" data-link-name="nav2 : secondary : world news">
 world news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : secondary : business">
-business
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
-football
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
-environment
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
-tech
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/politics" data-link-name="nav2 : secondary : UK politics">
-UK politics
+<a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
+UK news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -423,13 +398,33 @@ science
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
+cities
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/global-development" data-link-name="nav2 : secondary : global development">
 global development
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
-cities
+<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
+football
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
+tech
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : secondary : business">
+business
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
+environment
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -444,7 +439,7 @@ obituaries
 <i class="menu-item__toggle"></i>
 opinion
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu opinion" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu opinion" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav2 : secondary : opinion home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -487,7 +482,7 @@ letters
 <i class="menu-item__toggle"></i>
 sport
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu sport" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu sport" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/sport" data-link-name="nav2 : secondary : sport home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -529,23 +524,13 @@ F1
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav2 : secondary : rugby league">
-rugby league
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/horse-racing" data-link-name="nav2 : secondary : racing">
-racing
+<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
+golf
 </a>
 </li>
 <li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav2 : secondary : US sports">
 US sports
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
-golf
 </a>
 </li>
 </ul>
@@ -555,7 +540,7 @@ golf
 <i class="menu-item__toggle"></i>
 arts
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu arts" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu arts" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/culture" data-link-name="nav2 : secondary : culture home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -567,8 +552,8 @@ culture home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
-tv &amp; radio
+<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
+books
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -577,23 +562,8 @@ music
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
-film
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
-stage
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
-books
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
-games
+<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
+tv &amp; radio
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -602,8 +572,23 @@ art &amp; design
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
+film
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
+games
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : secondary : classical">
 classical
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
+stage
 </a>
 </li>
 </ul>
@@ -613,7 +598,7 @@ classical
 <i class="menu-item__toggle"></i>
 lifestyle
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="uk" aria-label="Submenu lifestyle" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu lifestyle" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
 <span class="inline-home inline-icon menu-item__icon">
@@ -640,23 +625,8 @@ recipes
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
-travel
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/love-and-sex" data-link-name="nav2 : secondary : love &amp; sex">
 love &amp; sex
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
-family
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
-home &amp; garden
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -665,8 +635,23 @@ health &amp; fitness
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
+home &amp; garden
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav2 : secondary : women">
 women
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
+family
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
+travel
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -696,13 +681,13 @@ money
 </form>
 </div>
 <ul class="menu-group menu-group--membership" role="menubar">
-<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : become a supporter">
+<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D" data-link-name="nav2 : become a supporter">
 become a supporter
 </a>
 </li>
-<li class="menu-item hide-from-desktop" data-edition="uk" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="nav2 : subscribe">
+<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_int_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
 subscribe
 </a>
 </li>
@@ -749,9 +734,15 @@ Sign out
 <li class="menu-item js-navigation-item">
 <button class="menu-item__title js-navigation-toggle" data-link-name="nav2 : edition picker" aria-haspopup="true" aria-expanded="true">
 <i class="menu-item__toggle"></i>
-UK edition
+International edition
 </button>
 <ul class="menu-group">
+<li class="menu-item">
+<a data-link-name="nav2 : edition-picker: UK" href="https://www.theguardian.com/preference/edition/uk" class="menu-item__title">
+<span class="u-h">switch to the </span>
+UK edition
+</a>
+</li>
 <li class="menu-item">
 <a data-link-name="nav2 : edition-picker: US" href="https://www.theguardian.com/preference/edition/us" class="menu-item__title">
 <span class="u-h">switch to the </span>
@@ -764,38 +755,27 @@ US edition
 Australia edition
 </a>
 </li>
-<li class="menu-item">
-<a data-link-name="nav2 : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="menu-item__title">
-<span class="u-h">switch to the </span>
-International edition
-</a>
-</li>
 </ul>
 </li>
 </ul>
-<ul class="menu-group menu-group--footer" data-edition="uk" role="menubar">
+<ul class="menu-group menu-group--footer" data-edition="int" role="menubar">
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" data-link-name="nav2 : jobs">
+<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" data-link-name="nav2 : jobs">
 jobs
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" data-link-name="nav2 : dating">
+<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" data-link-name="nav2 : dating">
 dating
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" data-link-name="nav2 : holidays">
+<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" data-link-name="nav2 : holidays">
 holidays
 </a>
 </li>
-<li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" data-link-name="nav2 : masterclasses">
-masterclasses
-</a>
-</li>
 <li class="hide-from-desktop menu-item" role="menuitem">
-<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_uk_web_newheader" data-link-name="nav2 : the guardian app">
+<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_int_web_newheader" data-link-name="nav2 : the guardian app">
 the guardian app
 </a>
 </li>
@@ -835,11 +815,6 @@ digital archive
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/guardian-professional" data-link-name="nav2 : professional networks">
-professional networks
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/crosswords" data-link-name="nav2 : crosswords">
 crosswords
 </a>
@@ -876,23 +851,18 @@ Twitter
 </span>
 <ul class="menu-brand-extensions__list">
 <li class="menu-brand-extensions__list-item">
-<a href="https://jobs.theguardian.com?INTCMP=jobs_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
+<a href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : jobs">
 jobs
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://soulmates.theguardian.com?INTCMP=soulmates_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
+<a href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : dating">
 dating
 </a>
 </li>
 <li class="menu-brand-extensions__list-item">
-<a href="https://holidays.theguardian.com?INTCMP=holidays_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
+<a href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : holidays">
 holidays
-</a>
-</li>
-<li class="menu-brand-extensions__list-item">
-<a href="https://membership.theguardian.com/masterclasses?INTCMP=masterclasses_uk_web_newheader" class="menu-brand-extensions-item" data-link-name="nav2 : brand extension : masterclasses">
-masterclasses
 </a>
 </li>
 </ul>
@@ -904,38 +874,13 @@ masterclasses
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="news">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
-UK
-</a>
-</li>
-<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/world" data-link-name="nav2 : subnav : world news">
 world
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
-business
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
-football
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
-environment
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
-tech
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/politics" data-link-name="nav2 : subnav : UK politics">
-UK politics
+<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
+UK
 </a>
 </li>
 <li class="subnav__item">
@@ -944,13 +889,33 @@ science
 </a>
 </li>
 <li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
+cities
+</a>
+</li>
+<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/global-development" data-link-name="nav2 : subnav : global development">
 global development
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
-cities
+<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
+football
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
+tech
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
+business
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
+environment
 </a>
 </li>
 <li class="subnav__item">
@@ -1020,12 +985,12 @@ Sign out</a>
 <path d="M21.3 8.8c0-4.9-1.5-5.7-3.3-5.7-1.8 0-3.2.7-3.2 5.7s1.5 5.5 3.2 5.5c1.8-.1 3.3-.6 3.3-5.5m-6.5 18.8c-2.3 0-2.9 1.7-2.9 2.9 0 1.8 1.6 3.4 6.3 3.4 5.3 0 6.8-1.5 6.8-3.4 0-1.7-1.3-2.9-3.4-2.9h-6.8zM10.5 2.4C4.3 5.2 0 11.4 0 18.7c0 4.9 2 9.4 5.2 12.6V31c0-3.2 3.1-4.4 5.9-5-2.6-.6-3.9-2.5-3.9-4.4 0-2.6 2.9-4.8 4.3-5.8l-.2-.1c-2.5-1.4-4.1-3.8-4.1-7 0-2.7 1.2-4.9 3.3-6.3M36 18.8C36 11.4 31.5 5 25.1 2.3c2.1 1.4 3.4 3.5 3.5 6.3l.1.6c0 5.4-4.4 8.2-10.7 8.2-1.6 0-2.7-.1-4.1-.5-.6.4-1.1 1.1-1.1 1.8 0 .9.8 1.6 1.8 1.6h8.8c5.5 0 8.2 2.2 8.2 7.1 0 1.6-.3 3.1-1 4.3 3.3-3.4 5.4-7.9 5.4-12.9"/>
 </svg>
 </span>
-<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
+<a href="https://membership.theguardian.com/supporter?INTCMP=DOTCOM_HEADER_BECOMEMEMBER_INT&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;,&quot;campaignCode&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
 <span class="control__info js-control-info control__info--supporting">
 become a supporter
 </span>
 </a>
-<a href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_header&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_header&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_header&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="uk : topNav : subscribe">
+<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_INT_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="int : topNav : subscribe">
 <span class="control__info js-control-info">subscribe</span>
 </a>
 </div>
@@ -1041,10 +1006,10 @@ become a supporter
 </div>
 <div class="brand-bar__item--right" data-component="guardian-services">
 <div class="brand-bar__item brand-bar__item--jobs hide-until-tablet hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_JOBS">find a job</a>
+<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
 </div>
 <div class="brand-bar__item brand-bar__item--soulmates hide-until-desktop hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--more">
 <a class="brand-bar__item--action popup__toggle" data-toggle="top-bar__popup--more" data-link-name="topNav : more" aria-haspopup="true" aria-controls="guardian-services-top-menu">
@@ -1065,41 +1030,24 @@ become a supporter
 <h3 class="popup__group-header">from the guardian:</h3>
 <ul class="popup__group">
 <li class="popup__item brand-bar__popup--soulmates hide-from-desktop show-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_UK_GU_SOULMATES">dating</a>
+<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
 </li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : masterclasses" href="https://membership.theguardian.com/masterclasses?INTCMP=NGW_TOPNAV_UK_GU_MASTERCLASSES">masterclasses</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : courses" href="https://courses.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_COURSES">courses</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : holidays" href="https://holidays.theguardian.com/?utm_source=theguardian&amp;utm_medium=guardian-links&amp;utm_campaign=topnav&amp;INTCMP=topnav">holidays</a>
+<li class="popup__item brand-bar__popup--jobs">
+<a class="brand-bar__item--action" data-link-name="int: topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
 </li>
 </ul>
-<div class="brand-bar__popup--membership hide-from-desktop show-on-slim-header">
-<h3 class="popup__group-header">support us:</h3>
-<ul class="popup__group">
-<li class="popup__item">
-<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : membership" href="https://membership.theguardian.com/supporter?INTCMP=NGW_TOPNAV_UK_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_MEMBERSHIP&quot;%7D">membership</a>
-</li>
-<li class="popup__item">
-<a class="brand-bar__item--action js-acquisition-link" data-link-name="uk : topNav : subscribe" href="https://subscribe.theguardian.com?INTCMP=NGW_TOPNAV_UK_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_TOPNAV_UK_GU_SUBSCRIBE&quot;%7D">subscribe</a>
-</li>
-</ul>
-</div>
 <div class="brand-bar__popup--edition mobile-only show-on-slim-header">
 <h3 class="popup__group-header">change edition:</h3>
 <ul class="popup__group">
 <li class="popup__item">
+<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
+<span class="u-h">switch to the </span> UK <span class="u-h"> edition</span>
+</a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span> US <span class="u-h"> edition</span>
 </a>
 <a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="AU" data-link-name="switch to AU edition" href="https://www.theguardian.com/preference/edition/au" title="Switch to the AU edition">
 <span class="u-h">switch to the </span> AU <span class="u-h"> edition</span>
-</a>
-<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
-<span class="u-h">switch to the </span> INT <span class="u-h"> edition</span>
 </a>
 </li>
 </ul>
@@ -1108,9 +1056,15 @@ become a supporter
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--edition hide-until-tablet hide-on-slim-header" data-component="edition">
 <a class="brand-bar__item--action popup__toggle" data-link-name="topNav : edition" data-toggle="top-bar__popup--edition" aria-haspopup="true" aria-controls="guardian-edition-menu">
-UK edition
+International edition
 </a>
 <ul class="popup popup--default popup__group is-off top-bar__popup--edition" id="guardian-edition-menu">
+<li class="popup__item">
+<a class="brand-bar__item--action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
+<span class="u-h">switch to the </span>
+<span class="brand-bar__edition-name">UK edition</span>
+</a>
+</li>
 <li class="popup__item">
 <a class="brand-bar__item--action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span>
@@ -1123,12 +1077,6 @@ UK edition
 <span class="brand-bar__edition-name">Australia edition</span>
 </a>
 </li>
-<li class="popup__item">
-<a class="brand-bar__item--action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
-<span class="u-h">switch to the </span>
-<span class="brand-bar__edition-name">International edition</span>
-</a>
-</li>
 </ul>
 </div>
 </div>
@@ -1136,7 +1084,7 @@ UK edition
 </div>
 <div class="popup popup--default popup--search js-search-old js-search-popup is-off"><div class="js-search-placeholder"></div></div>
 <div class="l-header-main">
-<a href="https://www.theguardian.com/uk" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
+<a href="https://www.theguardian.com/international" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
 <span class="u-h">The Guardian - Back to home</span>
 <!--[if (gt IE 8)|(IEMobile)]><!-->
 <span class="inline-guardian-logo-320 inline-logo ">
@@ -1159,7 +1107,7 @@ UK edition
 <nav class="navigation__container navigation__container--first" data-component="nav" role="navigation" aria-label="Current section">
 <ul class="signposting">
 <li class="signposting__item signposting__item--home">
-<a class="signposting__action" href="https://www.theguardian.com/uk" data-link-name="nav : signposting : home">home</a>
+<a class="signposting__action" href="https://www.theguardian.com/international" data-link-name="nav : signposting : home">home</a>
 </li>
 <li class="signposting__item signposting__item--parent">
 <span class="signposting__separator" aria-hidden="true"><span class="signposting__separator__inner">›</span></span>
@@ -1200,7 +1148,7 @@ UK edition
 <nav class="navigation__container navigation__container--second" data-component="nav" role="navigation" aria-label="Guardian sections">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -1208,11 +1156,6 @@ UK edition
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
-politics
 </a>
 </li>
 <li class="top-navigation__item top-navigation__item--current">
@@ -1338,53 +1281,35 @@ North Korea: Trump threatens 'major sanctions' after latest missile test
 <div class="content__main-column content__main-column--article js-content-main-column ">
 <div class="js-score"></div>
 <div class="js-sport-tabs football-tabs content__mobile-full-width"></div>
-<figure itemprop="associatedMedia image" itemscope itemtype="http://schema.org/ImageObject" data-component="image" class="media-primary media-content()  " data-media-id="01e393625b52a662bde3f87ae1f86545ef73fd27" id="img-1">
-<meta itemprop="representativeOfPage" content="true">
-<meta itemprop="url" content="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=700&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=2008cd265bc894772ea0bfd430365a59">
-<meta itemprop="width" content="3500">
-<meta itemprop="height" content="2099">
-<a href="#img-1" class="article__img-container js-gallerythumbs" data-link-name="Launch Article Lightbox" data-is-ajax>
-<div class="u-responsive-ratio" style="padding-bottom: 59.97%">
-<picture>
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="620px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=620&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=9cf6692d4d25e0df54e63268be633230 1240w"/>
-<source media="(min-width: 980px)" sizes="620px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=620&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=5a5e0323abca486b92dd4ca4e5187a07 620w"/>
-<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="700px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=700&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=cc5ed298fb0278133de90039358aeb03 1400w"/>
-<source media="(min-width: 740px)" sizes="700px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=700&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=2008cd265bc894772ea0bfd430365a59 700w"/>
-<source media="(min-width: 660px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 660px) and (min-resolution: 120dpi)" sizes="620px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=620&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=9cf6692d4d25e0df54e63268be633230 1240w"/>
-<source media="(min-width: 660px)" sizes="620px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=620&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=5a5e0323abca486b92dd4ca4e5187a07 620w"/>
-<source media="(min-width: 480px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 480px) and (min-resolution: 120dpi)" sizes="645px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=645&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=5ad2adb7685cce534b46f097a40369c6 1290w"/>
-<source media="(min-width: 480px)" sizes="645px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=645&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=b9ce3eae82c84b807bd8afdd5eda6fb7 645w"/>
-<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="465px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=465&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=1bd0fa9b1c98e268782c80a2c5e8ae14 930w"/>
-<source media="(min-width: 0px)" sizes="465px" srcset="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=465&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=20ef8b22f4c7ff161218be54d78e4cb2 465w"/>
-<!--[if IE 9]></video><![endif]-->
-<img class="maxed responsive-img" itemprop="contentUrl" alt="Donald Trump at the White House on Tuesday." src="https://i.guim.co.uk/img/media/01e393625b52a662bde3f87ae1f86545ef73fd27/0_126_3500_2099/master/3500.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=557e8ca6de448d3e7513d7b6a327f0c2"/>
-</picture>
+<div class="media-primary">
+<figure class="element element-atom element-atom--main-media element-atom--media" data-atom-id="441b1747-4245-468b-b75e-f5610aae9ef5" data-atom-type="media">
+<div data-media-atom-id="441b1747-4245-468b-b75e-f5610aae9ef5" class="u-responsive-ratio u-responsive-ratio--hd youtube-media-atom" data-end-slate="/video/end-slate/section/us-news.json?shortUrl=https://gu.com/p/7kbbf">
+<iframe class="youtube-media-atom__iframe" id="youtube-7aemFQv7De0" width="100%" height="100%" src="https://www.youtube.com/embed/7aemFQv7De0?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;origin=https://www.theguardian.com" frameborder="0" allowfullscreen> </iframe>
+<div class="vjs-big-play-button youtube-media-atom__overlay" style="background-image: url(https://i.guim.co.uk/img/media/e03e95ea188411dd479f8cf7d08ed61a27e3173f/0_235_3500_1968/3500.jpg?w=700&amp;h=394&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=a42ec3ddd126203c64aaa75e5995c41e)">
+<div class="youtube-media-atom__play-button vjs-control-text">
+Play Video
 </div>
-<span class="inline-expand-image inline-icon centered-icon rounded-icon article__fullscreen modern-visible">
-<svg width="22" height="22" viewbox="0 0 22 22" class="centered-icon__svg rounded-icon__svg article__fullscreen__svg modern-visible__svg inline-expand-image__svg inline-icon__svg">
-<path d="M3.4 20.2L9 14.5 7.5 13l-5.7 5.6L1 14H0v7.5l.5.5H8v-1l-4.6-.8M18.7 1.9L13 7.6 14.4 9l5.7-5.7.5 4.7h1.2V.6l-.5-.5H14v1.2l4.7.6"/>
-</svg>
-</span>
-</a>
-<input type="checkbox" id="show-caption" class="mobile-only u-h reveal-caption__checkbox">
-<label class="mobile-only reveal-caption reveal-caption--img" for="show-caption">
-<span class="inline-information inline-icon reveal-caption-icon centered-icon">
-<svg width="6" height="14" viewbox="0 0 6 14" class="reveal-caption-icon__svg centered-icon__svg inline-information__svg inline-icon__svg">
+<div class="youtube-media-atom__bottom-bar">
+<div class="youtube-media-atom__bottom-bar__icon">
+<span class="inline-video-icon inline-icon ">
+<svg width="36" height="23" viewbox="0 0 36 23" class="inline-video-icon__svg inline-icon__svg">
+<path d="M3.2 0L0 3.3v16.4L3.3 23H22V0H3.2m30.4 1L25 9v5l8.6 8H36V1h-2.4"/>
+</svg> </span>
+</div>
+<div class="youtube-media-atom__bottom-bar__duration">
+0:22
+</div>
+</div>
+</div>
+</div>
+<figcaption class="caption caption--img caption--main" itemprop="description">
+<span class="inline-information inline-icon reveal-caption-icon centered-icon rounded-icon">
+<svg width="6" height="14" viewbox="0 0 6 14" class="reveal-caption-icon__svg centered-icon__svg rounded-icon__svg inline-information__svg inline-icon__svg">
 <path d="M4.6 12l-.4 1.4c-.7.2-1.9.6-3 .6-.7 0-1.2-.2-1.2-.9 0-.2 0-.3.1-.5l2-6.7H.7l.4-1.5 4.2-.6h.2L3 12h1.6zm-.3-9.2c-.9 0-1.4-.5-1.4-1.3C2.9.5 3.7 0 4.6 0 5.4 0 6 .5 6 1.3c0 1-.8 1.5-1.7 1.5z"/>
-</svg>
-</span>
-</label>
-<figcaption class="caption caption--main caption--img" itemprop="description">
-<span class="inline-information inline-icon rounded-icon centered-icon hide-until-tablet">
-<svg width="6" height="14" viewbox="0 0 6 14" class="rounded-icon__svg centered-icon__svg hide-until-tablet__svg inline-information__svg inline-icon__svg">
-<path d="M4.6 12l-.4 1.4c-.7.2-1.9.6-3 .6-.7 0-1.2-.2-1.2-.9 0-.2 0-.3.1-.5l2-6.7H.7l.4-1.5 4.2-.6h.2L3 12h1.6zm-.3-9.2c-.9 0-1.4-.5-1.4-1.3C2.9.5 3.7 0 4.6 0 5.4 0 6 .5 6 1.3c0 1-.8 1.5-1.7 1.5z"/>
-</svg>
-</span>
-Donald Trump at the White House on Tuesday.
-Photograph: UPI/Barcroft Images
+</svg> </span> Donald Trump calls Kim Jong-un 'a sick puppy' during tax policy speech – video
 </figcaption>
 </figure>
+</div>
 <div class="mobile-only">
 <header class="content__head tonal__head tonal__head--tone-news
     
@@ -1550,7 +1475,7 @@ Wednesday 29 November 2017 <span class="content__dateline-time">23.25 GMT</span
 First published on Wednesday 29 November 2017 <span class="content__dateline-time">16.22 GMT</span>
 </time>
 </p>
-<meta itemprop="dateModified" content="2017-11-29T23:25:34+0000">
+<meta itemprop="dateModified" content="2017-11-30T12:46:57+0000">
 </div>
 <div class="content__article-body from-content-api js-article__body" itemprop="articleBody" data-test-id="article-review-body">
 <p><a href="https://www.theguardian.com/us-news/donaldtrump" data-link-name="auto-linked-tag" data-component="auto-linked-tag" class="u-underline">Donald Trump</a> threatened to impose major sanctions on North Korea in response to Pyongyang’s latest test of a ballistic missile, that appeared capable of reaching most if not all of the US mainland.</p>
@@ -1576,12 +1501,12 @@ Read more
 </div>
 </div>
 </aside>
-<p>Trump said in <a href="https://twitter.com/realDonaldTrump/status/935881037254725632" data-link-name="in body link" class="u-underline">a tweet</a> he had spoken with Chinese leader Xi Jinping about “the provocative actions of North Korea”, and promised: “Additional major sanctions will be imposed on North Korea today. This situation will be handled!” </p>
-<p>In remarks later on Wednesday at a public event in Missouri, Trump departed from a speech about tax cuts to aim a barb at the North Korean leader Kim Jong-un, who he has previously referred to as “Little Rocket Man”. “Little Rocket Man, he is a sick puppy,” the president said.</p>
+<p>Trump said in <a href="https://twitter.com/realDonaldTrump/status/935881037254725632" data-link-name="in body link" class="u-underline">a tweet</a> he had spoken with the Chinese leader, Xi Jinping, about “the provocative actions of North Korea”, and promised: “Additional major sanctions will be imposed on North Korea today. This situation will be handled!” </p>
+<p>In remarks later on Wednesday at a public event in Missouri, Trump departed from a speech about tax cuts to aim a barb at the North Korean leader, Kim Jong-un, who he has previously referred to as “Little Rocket Man”. “Little Rocket Man, he is a sick puppy,” the president said.</p>
 <p>Later Wednesday, at the UN, Haley said if war comes as a result of further acts of “aggression” like the latest launch “make no mistake the North Korean regime will be utterly destroyed”.</p>
-<p>Haley says the Trump administration warned <a href="https://www.theguardian.com/world/north-korea" data-link-name="auto-linked-tag" data-component="auto-linked-tag" class="u-underline">North Korea</a> that its future is in the hands of its leaders and the choice was theirs. With Tuesday’s launch, she said, Kim Jong Un’s regime made a choice “and with this choice comes a critical choice for the rest of the world.”</p>
+<p>Haley says the Trump administration warned <a href="https://www.theguardian.com/world/north-korea" data-link-name="auto-linked-tag" data-component="auto-linked-tag" class="u-underline">North Korea</a> that its future is in the hands of its leaders and the choice was theirs. With Tuesday’s launch, she said, Kim’s regime made a choice “and with this choice comes a critical choice for the rest of the world”.</p>
 <p>She called on all countries to cut all ties to North Korea.</p>
-<p>The security council was meeting in New York to discuss possible new measures, and the US secretary of state, Rex Tillerson, made clear that the US would press for tougher measures allowing North Korean shipping to be stopped and searched at high sea.<br></p>
+<p>The security council was meeting in New York to discuss possible new measures, and the US secretary of state, Rex Tillerson, made clear that the US would press for tougher measures allowing North Korean shipping to be stopped and searched on the high seas.<br tabindex="-1"></p>
 <p> A White House statement about the phone conversation said Trump made clear “the determination of the United States to defend ourselves and our allies”.</p>
 <p>Trump also apparently “emphasized the need for China to use all available levers to convince North Korea to end its provocations and return to the path of denuclearization”.</p>
 <figure class="element element-atom" data-atom-id="5c2207f8-3658-4c42-be2d-b7ba73ea75c4" data-atom-type="qanda">
@@ -1637,10 +1562,37 @@ Thank you for your feedback.
 </footer>
 </details>
 </figure>
-<p>After two and a half months of relative quiet, North Korea said it successfully fired a “significantly more” powerful, nuclear-capable intercontinental ballistic missile early Wednesday. Outside governments and analysts concurred it had made a jump in capability. </p>
-<p>The ICBM launched early Wednesday morning was described as the Hwasong-15, with the capability to carry a nuclear warhead and with “significantly more” power than missiles it’s tested earlier. The missile rose more than 4,000 km into space in an almost vertical trajectory and splashed down off the west coast of Japan about 1,000km from where it was fired, reportedly from a mobile launcher. Independent analysts said that with a more normal, flatter trajectory the missile could travel up to 13,000km, putting all of the US mainland in range, though it was unclear how much that reach would be reduced if the missile was carrying a nuclear warhead.</p>
+<p>After two and a half months of relative quiet, North Korea said it successfully fired a “significantly more” powerful, nuclear-capable intercontinental ballistic missile early Wednesday. Outside governments and analysts concurred it had marked a jump in capability. </p>
+<figure class="element element-atom element-atom--media" data-atom-id="5506cf3d-8aab-4774-b90e-e8938965c695" data-atom-type="media">
+<div data-media-atom-id="5506cf3d-8aab-4774-b90e-e8938965c695" class="u-responsive-ratio u-responsive-ratio--hd youtube-media-atom">
+<iframe class="youtube-media-atom__iframe" id="youtube-M5pKRfYMFsU" width="100%" height="100%" src="https://www.youtube.com/embed/M5pKRfYMFsU?enablejsapi=1&amp;rel=0&amp;showinfo=0&amp;origin=https://www.theguardian.com" frameborder="0" allowfullscreen> </iframe>
+<div class="vjs-big-play-button youtube-media-atom__overlay" style="background-image: url(https://i.guim.co.uk/img/media/3f7a7df69935837b4bff2fcfea37183409526548/2_178_1604_902/1604.jpg?w=700&amp;h=394&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=2d1ebcdf2132ce3047ab9417cf74f589)">
+<div class="youtube-media-atom__play-button vjs-control-text">
+Play Video
+</div>
+<div class="youtube-media-atom__bottom-bar">
+<div class="youtube-media-atom__bottom-bar__icon">
+<span class="inline-video-icon inline-icon ">
+<svg width="36" height="23" viewbox="0 0 36 23" class="inline-video-icon__svg inline-icon__svg">
+<path d="M3.2 0L0 3.3v16.4L3.3 23H22V0H3.2m30.4 1L25 9v5l8.6 8H36V1h-2.4"/>
+</svg> </span>
+</div>
+<div class="youtube-media-atom__bottom-bar__duration">
+1:04
+</div>
+</div>
+</div>
+</div>
+<figcaption class="caption caption--img caption caption--img" itemprop="description">
+<span class="inline-information inline-icon reveal-caption-icon centered-icon rounded-icon">
+<svg width="6" height="14" viewbox="0 0 6 14" class="reveal-caption-icon__svg centered-icon__svg rounded-icon__svg inline-information__svg inline-icon__svg">
+<path d="M4.6 12l-.4 1.4c-.7.2-1.9.6-3 .6-.7 0-1.2-.2-1.2-.9 0-.2 0-.3.1-.5l2-6.7H.7l.4-1.5 4.2-.6h.2L3 12h1.6zm-.3-9.2c-.9 0-1.4-.5-1.4-1.3C2.9.5 3.7 0 4.6 0 5.4 0 6 .5 6 1.3c0 1-.8 1.5-1.7 1.5z"/>
+</svg> </span> North Korean TV broadcast video of Kim Jong-un monitoring the latest missile launch - video
+</figcaption>
+</figure>
+<p>The ICBM launched early on Wednesday morning was described as the Hwasong-15, with the capability to carry a nuclear warhead and with “significantly more” power than missiles it’s tested earlier. The missile rose more than 4,000km into space in an almost vertical trajectory and splashed down off the west coast of Japan about 1,000km from where it was fired, reportedly from a mobile launcher. Independent analysts said that with a more normal, flatter trajectory the missile could travel up to 13,000km, putting all of the US mainland in range, though it was unclear how much that reach would be reduced if the missile was carrying a nuclear warhead.</p>
 <p>Most observers doubted that another set of UN sanctions would stop the North Korean missile and nuclear programmes, but predicted that once the regime felt it had perfected its weapons, it might be ready to talk.</p>
-<p>“This confirms that North Korea is hell bent on advancing their nuclear and missile programmes they believe are essential to their survival,” said Mintaro Oba, a former state department official. “It looks like they advanced their technology with this launch but there are still questions about re-entry capability for example.” </p>
+<p>“This confirms that North Korea is hell-bent on advancing their nuclear and missile programmes they believe are essential to their survival,” said Mintaro Oba, a former state department official. “It looks like they advanced their technology with this launch but there are still questions about re-entry capability for example.” </p>
 <p>“Even if there are major new sanctions, it will only increase the North Koreans’ resolve to show they are not affected. They will continue to test and increase their capabilities. They want to get to the point of us accepting they have this nuclear weapons programme,” Oba said. “It’s a poker game that North Korea seems to be winning.” </p>
 <p>China’s foreign ministry said Beijing was “seriously concerned about and opposed to” North Korea’s latest missile test.<br></p>
 <p>Ministry spokesman Geng Shuang said on Wednesday that China “strongly urges” the North to abide by security council resolutions and cease actions that might escalate tensions.</p>
@@ -1700,9 +1652,9 @@ Thank you for your feedback.
 </figure>
 <p>China is North Korea’s only significant ally and biggest source of trade and aid, but has backed increasingly harsh UN security council resolutions in hopes of convincing Pyongyang to return to talks.</p>
 <p>It has called on the North to cease its missile tests and nuclear activities in return for the US and South Korea suspending large-scale military exercises.</p>
-<p>However, Beijing has rejected measures that could destabilize Kim Jong-un’s regime and says military force is cannot be an option in dealing with the tensions.</p>
-<p>South Korea’s president, Moon Jae-in, spoke to Japan’s prime minister Shinzo Abe about North Korea’s test and pledged joint efforts to strengthen sanctions and pressure on Pyongyang over its nuclear ambitions.</p>
-<p>Moon’s office said the leaders agreed during the phone conversation Wednesday that the threat posed by North Korea’s expanding nuclear program should no longer be tolerated and vowed to push for stronger measures against the North at an upcoming UN security council meeting.</p>
+<p>However, Beijing has rejected measures that could destabilize Kim’s regime and says military force is cannot be an option in dealing with the tensions.</p>
+<p>South Korea’s president, Moon Jae-in, spoke to Japan’s prime minister, Shinzō Abe, about North Korea’s test and pledged joint efforts to strengthen sanctions and pressure on Pyongyang over its nuclear ambitions.</p>
+<p>Moon’s office said the leaders agreed during the phone conversation on Wednesday that the threat posed by North Korea’s expanding nuclear programme should no longer be tolerated and vowed to push for stronger measures against the North at an upcoming UN security council meeting.</p>
 <aside class="element element-rich-link element--thumbnail element-rich-link--not-upgraded" data-component="rich-link" data-link-name="rich-link-2 | 2">
 <div class="rich-link">
 <div class="rich-link__container">
@@ -1869,7 +1821,326 @@ news
 </div>
 </article>
 <div class="content-footer ">
-<aside class="related js-related hide-on-childrens-books-site" role="complementary" data-test-id="related-content">
+<aside class="related more-on-this-story js-outbrain-anchor" role="complementary" aria-labelledby="related-content-head">
+<section id="more-on-this-story" class="fc-container fc-container--will-have-toggle js-container--toggle " data-link-name="container-3 | more-on-this-story" data-id="more-on-this-story" data-component="more-on-this-story" aria-expanded="true">
+<div class="fc-container__inner">
+<div class="fc-container__header
+                js-container__header
+                ">
+<div class="fc-container__header__title">
+<span tabindex="0">more on this story</span>
+</div>
+</div>
+<div class="fc-container--rolled-up-hide fc-container__body fc-show-more--hidden fc-show-more--mobile-only js-container--fc-show-more" data-title="more on this story" data-id="more-on-this-story">
+<div class="fc-slice-wrapper">
+<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--q-q-q-q">
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-analysis--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="analysis | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="us-news/2017/nov/30/donald-trump-menacing-talk-north-korea-us-isolated" data-loyalty-short-url="/p/7kf94">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/3fa6e68192cae7896c3c5a4abae3a65c3f88d072/0_22_4321_2593/master/4321.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=b167eb521a5c9db0cd7303701c576197 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/3fa6e68192cae7896c3c5a4abae3a65c3f88d072/0_22_4321_2593/master/4321.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6e1fce1c17f220cadf2d95da120a0aef 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/3fa6e68192cae7896c3c5a4abae3a65c3f88d072/0_22_4321_2593/master/4321.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=d08c4e87c7db7e045476ad4249f24009 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/3fa6e68192cae7896c3c5a4abae3a65c3f88d072/0_22_4321_2593/master/4321.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=d346ad008f3f2fac0b29bf7b0baf228e 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/3fa6e68192cae7896c3c5a4abae3a65c3f88d072/0_22_4321_2593/master/4321.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=17327efb8e64306dc008e6e56138007b 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/3fa6e68192cae7896c3c5a4abae3a65c3f88d072/0_22_4321_2593/master/4321.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=82628b6576bdaeb63630cb9b74760236 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/us-news/2017/nov/30/donald-trump-menacing-talk-north-korea-us-isolated" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Trump's menacing talk on North Korea is leaving the US isolated</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">The US president’s obliviousness to the consequences of war is the main reason why international support is weakening</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-30T12:44:24+0000" data-timestamp="1512045864000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>30 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/us-news/2017/nov/30/donald-trump-menacing-talk-north-korea-us-isolated" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Trump's menacing talk on North Korea is leaving the US isolated</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/28/north-korea-has-fired-ballistic-missile-say-reports-in-south-korea" data-loyalty-short-url="/p/7k7e6">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/1398720ae4f104e059de2739ad040afab26636ef/0_35_3500_2100/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=4f2e5b638af5deab73c791839dfd25d4 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/1398720ae4f104e059de2739ad040afab26636ef/0_35_3500_2100/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=bfa07f6a5da89a634579572036ddb757 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/1398720ae4f104e059de2739ad040afab26636ef/0_35_3500_2100/master/3500.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=5e7ae5128bab71025def8b1276676f83 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/1398720ae4f104e059de2739ad040afab26636ef/0_35_3500_2100/master/3500.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=4ae640306cb9f88d7bfb5d295e79bdc7 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/1398720ae4f104e059de2739ad040afab26636ef/0_35_3500_2100/master/3500.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=04121abdabe173afae214664b5846051 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/1398720ae4f104e059de2739ad040afab26636ef/0_35_3500_2100/master/3500.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=21384dc06a26bfe77395bd2d093fc739 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/28/north-korea-has-fired-ballistic-missile-say-reports-in-south-korea" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">North Korea missile launch: regime says new rocket can hit anywhere in US</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">Pyongyang has conducted its first ballistic test launch in two months, reigniting tensions in the region</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-29T09:04:21+0000" data-timestamp="1511946261000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>29 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/28/north-korea-has-fired-ballistic-missile-say-reports-in-south-korea" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">North Korea missile launch: regime says new rocket can hit anywhere in US</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-analysis--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="analysis | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/sep/11/how-has-north-koreas-nuclear-programme-advanced-in-2017" data-loyalty-short-url="/p/76e9q">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/579015f52072429df25a1c0e67e4b4595b2f2d61/7_0_1913_1148/master/1913.png?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=79736a6413ba544568a4f08f51713a71 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/579015f52072429df25a1c0e67e4b4595b2f2d61/7_0_1913_1148/master/1913.png?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=c3e466cd81bef31d79f4b7d5bf9da95f 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/579015f52072429df25a1c0e67e4b4595b2f2d61/7_0_1913_1148/master/1913.png?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=1569c162c5bc8ac8e5cf90b720e12c7b 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/579015f52072429df25a1c0e67e4b4595b2f2d61/7_0_1913_1148/master/1913.png?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=9c6820fd951fa58b9115f386050703c7 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/579015f52072429df25a1c0e67e4b4595b2f2d61/7_0_1913_1148/master/1913.png?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=0a08463994deae11c00bb9e8601d6f4c 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/579015f52072429df25a1c0e67e4b4595b2f2d61/7_0_1913_1148/master/1913.png?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=66dbcd7e926a2cee2a9ebd9a5934dfe5 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/sep/11/how-has-north-koreas-nuclear-programme-advanced-in-2017" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">A guide to North Korea's advance toward nuclear weapons – in maps and charts</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">As North Korea’s latest launch shows increased missile capability, we chart the country’s progress in developing a nuclear weapon that can credibly threaten the US</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-29T13:50:16+0000" data-timestamp="1511963416000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>29 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/sep/11/how-has-north-koreas-nuclear-programme-advanced-in-2017" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">A guide to North Korea's advance toward nuclear weapons – in maps and charts</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/20/donald-trump-to-declare-north-korea-state-sponsor-of-terror" data-loyalty-short-url="/p/7tpzt">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/7983d2aefbc5654bf53875c866a8650178a2c161/0_0_4896_2938/master/4896.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=165a93b0aacc2750c0c5d89d21a90460 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/7983d2aefbc5654bf53875c866a8650178a2c161/0_0_4896_2938/master/4896.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=931d2b00f8750bd7eda6d905fccd7691 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/7983d2aefbc5654bf53875c866a8650178a2c161/0_0_4896_2938/master/4896.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=a7880f2d663f01996def0e91dc89af8c 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/7983d2aefbc5654bf53875c866a8650178a2c161/0_0_4896_2938/master/4896.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=60c343b01e03b65baaa1ca327032bd85 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/7983d2aefbc5654bf53875c866a8650178a2c161/0_0_4896_2938/master/4896.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=1f79a65e663b021f6ddfacbebf16b65d 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/7983d2aefbc5654bf53875c866a8650178a2c161/0_0_4896_2938/master/4896.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=ca489a5245ad6fccf8378a7eca591d6d 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/20/donald-trump-to-declare-north-korea-state-sponsor-of-terror" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Donald Trump plans to declare North Korea a state sponsor of terror</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">President says move is part of US ‘maximum pressure campaign’ with US officials citing killing of Kim Jong-un’s half-brother at Malaysian airport</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-20T21:12:03+0000" data-timestamp="1511212323000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>20 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/20/donald-trump-to-declare-north-korea-state-sponsor-of-terror" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Donald Trump plans to declare North Korea a state sponsor of terror</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="fc-slice-wrapper">
+<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--ql-ql-ql-ql">
+<li class="fc-slice__item l-row__item l-row__item--span-4">
+<ul class="u-unstyled l-list l-list--columns-4 l-list--rows-1">
+<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/13/north-korea-us-is-escalating-tension-with-military-exercises-in-peninsula" data-loyalty-short-url="/p/7hyyz">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/13/north-korea-us-is-escalating-tension-with-military-exercises-in-peninsula" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">North Korea: US is 'escalating tension' with military exercises in peninsula</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-13T21:05:13+0000" data-timestamp="1510607113000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>13 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/13/north-korea-us-is-escalating-tension-with-military-exercises-in-peninsula" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">North Korea: US is 'escalating tension' with military exercises in peninsula</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-6" data-item-visibility="all" data-test-id="facia-card" data-id="us-news/2017/nov/15/trump-asia-trip-white-house-speech-america" data-loyalty-short-url="/p/7t4cz">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/us-news/2017/nov/15/trump-asia-trip-white-house-speech-america" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Donald Trump hails Asia trip as 'tremendous success' and declares: 'America is back'</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-16T07:42:18+0000" data-timestamp="1510818138000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>16 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/us-news/2017/nov/15/trump-asia-trip-white-house-speech-america" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Donald Trump hails Asia trip as 'tremendous success' and declares: 'America is back'</a>
+</div>
+</div>
+</li>
+<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-7" data-item-visibility="desktop" data-test-id="facia-card" data-id="world/2017/nov/13/soldier-shot-by-north-korean-guards-as-he-defects-to-south" data-loyalty-short-url="/p/7hkyc">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/13/soldier-shot-by-north-korean-guards-as-he-defects-to-south" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Soldier shot by North Korean guards as he defects to South</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-13T13:12:42+0000" data-timestamp="1510578762000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>13 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/13/soldier-shot-by-north-korean-guards-as-he-defects-to-south" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Soldier shot by North Korean guards as he defects to South</a>
+</div>
+</div>
+</li>
+<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-8" data-item-visibility="desktop" data-test-id="facia-card" data-id="us-news/2017/nov/15/north-korea-sentences-trump-to-death-for-insulting-kim-jong-un" data-loyalty-short-url="/p/7txz9">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/us-news/2017/nov/15/north-korea-sentences-trump-to-death-for-insulting-kim-jong-un" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">North Korea 'sentences Trump to death' for insulting Kim Jong-un</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-15T06:54:53+0000" data-timestamp="1510728893000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>15 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/us-news/2017/nov/15/north-korea-sentences-trump-to-death-for-insulting-kim-jong-un" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">North Korea 'sentences Trump to death' for insulting Kim Jong-un</a>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="js-show-more-placeholder"></div>
+<button class="button button--medium button--primary button--show-more collection__show-more js-show-more-button modern-visible" data-test-id="show-more" data-link-name="more">
+<span class="inline-plus inline-icon ">
+<svg width="18" height="18" viewbox="0 0 18 18" class="inline-plus__svg inline-icon__svg">
+<path d="M8.2 0h1.6l.4 7.8 7.8.4v1.6l-7.8.4-.4 7.8H8.2l-.4-7.8L0 9.8V8.2l7.8-.4.4-7.8z"/>
+</svg>
+</span>
+<span class="inline-minus inline-icon ">
+<svg width="32" height="32" viewbox="0 0 32 32" class="inline-minus__svg inline-icon__svg">
+<path d="M5 15h22v3H5z"/>
+</svg>
+</span>
+<span class="js-button-text">More more on this story</span>
+</button>
+</div>
+</div>
+</section>
 </aside>
 <aside id="onward" class="onward js-onward facia-container facia-container--layout-content  js-outbrain-anchor" role="complementary"></aside>
 <aside id="more-in-section" class="more-in-section js-more-in-section facia-container facia-container--layout-content " role="complementary"></aside>
@@ -1900,7 +2171,7 @@ news
 <div class="l-footer__primary hide-on-mobile">
 <div id="footer-nav" class="gs-container">
 <div class="brand-bar modern-visible u-cf">
-<a href="https://www.theguardian.com/uk" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
+<a href="https://www.theguardian.com/international" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
 <span class="u-h">The Guardian</span>
 <i class="i i-guardian-logo-160"></i>
 </a>
@@ -1923,7 +2194,7 @@ news
 <div class="navigation__container navigation__container--second" data-component="footer-nav">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/uk" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
@@ -1931,11 +2202,6 @@ news
 <li class="top-navigation__item">
 <a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
 UK
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/politics" data-link-name="nav : primary : politics">
-politics
 </a>
 </li>
 <li class="top-navigation__item top-navigation__item--current">
@@ -2012,7 +2278,7 @@ travel
 <nav role="navigation" aria-label="All sections">
 <ul class="global-navigation js-global-navigation">
 <li class="global-navigation__section global-navigation__section--home">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk" data-link-name="nav : globalTop : home">
+<a class="global-navigation__title" href="https://www.theguardian.com/international" data-link-name="nav : globalTop : home">
 home
 </a>
 </li>
@@ -2057,11 +2323,6 @@ northern ireland
 </a>
 </li>
 </ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/politics" data-link-name="nav : globalTop : politics">
-politics
-</a>
 </li>
 <li class="global-navigation__section global-navigation__section--current">
 <a class="global-navigation__title" href="https://www.theguardian.com/world" data-link-name="nav : globalTop : world">
@@ -2170,11 +2431,6 @@ racing
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav : globalSub : rugby league">
 rugby league
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav : globalSub : US sports">
-US sports
 </a>
 </li>
 </ul>
@@ -2313,11 +2569,6 @@ markets
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/business/series/project-syndicate-economists" data-link-name="nav : globalSub : project syndicate">
 project syndicate
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/business-to-business" data-link-name="nav : globalSub : business to business">
-business to business
 </a>
 </li>
 </ul>
@@ -2640,38 +2891,13 @@ digital archive
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="news">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
-UK
-</a>
-</li>
-<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/world" data-link-name="nav2 : subnav : world news">
 world
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
-business
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
-football
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
-environment
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
-tech
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/politics" data-link-name="nav2 : subnav : UK politics">
-UK politics
+<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
+UK
 </a>
 </li>
 <li class="subnav__item">
@@ -2680,13 +2906,33 @@ science
 </a>
 </li>
 <li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
+cities
+</a>
+</li>
+<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/global-development" data-link-name="nav2 : subnav : global development">
 global development
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
-cities
+<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
+football
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
+tech
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
+business
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
+environment
 </a>
 </li>
 <li class="subnav__item">
@@ -2713,41 +2959,35 @@ obituaries
 <div class="l-footer__secondary js-footer__secondary  gs-container" role="contentinfo">
 <div class="colophon u-cf">
 <div class="footer__email-container js-footer__email-container">
-<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-uk" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
+<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-int" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
 </div>
 <div class="colophon__lists-container">
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">
-jobs</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">
-dating</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://membership.theguardian.com/supporter?INTCMP=NGW_FOOTER_INT_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;%7D">
 become a supporter</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://contribute.theguardian.com?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
 make a contribution</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : guardian labs" href="https://www.theguardian.com/guardian-labs">
-Guardian labs</a>
+<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
+securedrop</a>
+</li>
+<li class="colophon__item"><a data-link-name="tech feedback" class="international : footer : js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
+ask for help</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : about us" href="https://www.theguardian.com/about">
-about us</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : work for us" href="https://workforus.theguardian.com/locations/london">
-work for us</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : advertise with us" href="https://advertising.theguardian.com">
+<li class="colophon__item"><a data-link-name="international : footer : advertise with us" href="https://advertising.theguardian.com">
 advertise with us</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contact us" href="https://www.theguardian.com/help/contact-us">
+<li class="colophon__item"><a data-link-name="international : footer : work for us" href="https://workforus.theguardian.com">
+work for us</a>
+</li>
+<li class="colophon__item"><a data-link-name="international : footer : contact us" href="https://www.theguardian.com/help/contact-us">
 contact us</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : tech feedback" class="js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
-ask for help</a>
+<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
+complaints &amp; corrections</a>
 </li>
 </ul>
 <ul class="colophon__list">
@@ -2755,39 +2995,26 @@ ask for help</a>
 terms &amp; conditions</a>
 </li>
 <li class="colophon__item"><a data-link-name="privacy" href="https://www.theguardian.com/info/privacy">
-privacy policy</a>
-</li>
+privacy policy</a></li>
 <li class="colophon__item"><a data-link-name="cookie" href="https://www.theguardian.com/info/cookies">
 cookie policy</a>
-</li>
-<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
-securedrop</a>
 </li>
 <li class="colophon__item"><a data-link-name="digital newspaper archive" href="https://theguardian.newspapers.com">
 digital newspaper archive</a>
 </li>
-<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
-complaints &amp; corrections</a>
-</li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
+<li class="colophon__item"><a data-link-name="international : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
 all topics</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : all contributors" href="https://www.theguardian.com/index/contributors">
+<li class="colophon__item"><a data-link-name="international : footer : all contributors" href="https://www.theguardian.com/index/contributors">
 all contributors</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : modern slavery act statement" href="https://www.theguardian.com/info/2016/jul/27/modern-slavery-and-our-supply-chains?INTCMP=NGW_FOOTER_UK_GU_MODERN_SLAVERY_ACT">
-modern slavery act</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : facebook" href="https://www.facebook.com/theguardian">
+<li class="colophon__item"><a data-link-name="international : footer : facebook" href="https://www.facebook.com/theguardian">
 Facebook</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : twitter" href="https://twitter.com/guardian">
+<li class="colophon__item"><a data-link-name="international : footer : twitter" href="https://twitter.com/guardian">
 Twitter</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : subscribe" class="js-acquisition-link" href="https://support.theguardian.com/uk?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
-subscribe</a>
 </li>
 </ul>
 </div>
