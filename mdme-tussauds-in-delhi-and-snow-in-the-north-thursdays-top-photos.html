@@ -203,7 +203,7 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"Madame Tussaud's in Delhi and snow in the north: Thursday's top photos","isImmersive":true,"author":"Guy Lane","series":"Best photographs of the day","toneIds":"","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-pictures-guardian-news","webPublicationDate":1512047075000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Madame Tussaud's in Delhi and snow in the north: Thursday's top photos","isFront":false,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","showRelatedContent":true,"lightboxImages":{"id":"news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","headline":"Madame Tussaud's in Delhi and snow in the north: Thursday's top photos","shouldHideAdverts":false,"standfirst":"<p>The Guardian’s picture editors bring you a selection of photo highlights from around the world</p>","images":[{"caption":"<strong>Midhurst, England</strong> Queen Elizabeth II watches a demonstration by a Labrador as it helps to undress its disabled owner at the offices of the Canine Partners charity","credit":"Photograph: WPA Pool/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=421146c8fdd2fd54f80faefec216d9d2","srcsets":"https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=5cc12c0fbe9a7ab5348f7b6b35d94373 1920w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=674554296474d2e222c7d768ab75cdc0 1225w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=231042438cecc142965e513e4868b4c3 1065w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=4b375e9f8d92eff02d52a4632002adf6 965w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=8019cb25f033ccf587449d5a95277d76 725w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=f23e6dfeefdfbd2d46dceaaba7b19bea 645w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=20b7f852385fba054563a8d77a97fee1 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4601568429041234,"role":"None"},{"caption":"<strong>Cox’s Bazar, Bangladesh</strong> A Rohingya refugee endures cramped conditions while waiting for relief aid at Balukhali refugee camp near Cox’s Bazar","credit":"Photograph: Susana Vera/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=78fa46397715cce0c3ad45aee189252d","srcsets":"https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=a19addb9fe256aa1a4d061aa4a34b839 1920w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=fca915fdcca0e6d62da48e01d61a29cc 1225w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=56108ebfad90a30754a51e07b4739a2d 1065w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=3dc2dddbcd01ba851e45f3e866bd5ed4 965w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=3ea0c608adca12ee402ab15d43d7cef9 725w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=f02cfaf674a62ae61a2e37f951be01fd 645w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=f5e69981ffa4fd46958e66d4d1b5122e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.502145922746781,"role":"None"},{"caption":"<strong>Tegucigalpa, Honduras</strong> Supporters of the presidential candidate Salvador Nasralla chant slogans against the president, Juan Orlando Hernández, who is running for re-election, as they protest against what they allege was electoral fraud","credit":"Photograph: Rodrigo Abd/AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=633cfbf2ee01148bd70ffbb4440e681c","srcsets":"https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=fd9432fd554a7e20749c807b9a5eb6e4 1920w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=b8929994f1084738e985512a9f4ed322 1225w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=6f010a90074d9d0d83832147d580cb15 1065w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=53cab49e6438ee9f13b007532db3e5af 965w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=4ba44b05bbc96591c12635b6b7f9e8bc 725w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=a0be2959a8e57e29794b58549cc16d99 645w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=cd707cf3299425eb3adf32736981fcd8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5,"role":"None"},{"caption":"<strong>Bali, Indonesia</strong> Tourists gather to look at Mount Agung at Amed beach in Karangasem. Thousands of foreign tourists were expected to leave Bali by plane following a near three-day airport shutdown","credit":"Photograph: Juni Kriswanto/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=4965f15c917fc469156e1cdede1c4e1c","srcsets":"https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=134e323d0fa6b1838ace5347d4f0204b 1920w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=b1ae0c138adea3cc84e67e2d02afcdc2 1225w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=3ebacd6b4ebc07e62a81b3fa15e77b10 1065w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d4aa754a8db4e259bc2df4e4e9830017 965w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=5e4f59bca31b4d7a1a7e310e0c13540e 725w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=22d4849dc3b30d711cb89d2fe5036f0a 645w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=7f0176d1a1e359c67dfcf11a88787a28 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.502824858757062,"role":"None"},{"caption":"<strong>Dhaka, Bangladesh</strong> Pope Francis arrives at the airport in the Bangladeshi capital","credit":"Photograph: Max Rossi/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=1f10854f11ef504d72e6c5ece53164e1","srcsets":"https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=dc37fea386f8b248185d672445a17451 1920w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=2ad32f835f36d5846a5bc006dca9537a 1225w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cecddae435424f6c8c85f9cac12abf9e 1065w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=34231a335f2c60e7a63a06114860d9f8 965w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=66cf3f0ae4613ea3e85275a155f2a60c 725w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=0376e221e4e1a3d99769faa60770978c 645w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=90b60d0c2458101c4855bf1cad5736f8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.3513513513513513,"role":"None"},{"caption":"<strong>Shenzhen, China</strong> Soldiers attend a military discharge ceremony in Guangdong province","credit":"Photograph: VCG/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=7d2b189e05ff8b14a3333c747251386d","srcsets":"https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=3d8824f634116488b253ca6b885983f6 1920w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=94cc1f2c208dbc2888e5e0ad18c53e27 1225w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=6bccd475be4b0c2f869d81f59de7933b 1065w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=1e77226e0e56ed9ed55662f3c70fe736 965w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=7327a7af05310380fa6aea95d107d66e 725w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=9647eba614c2b364ae0253032eb3f56b 645w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=8c0c529a381a0343a87570dde9264cf5 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5649452269170578,"role":"None"},{"caption":"<strong>Inuyama, Japan</strong> A chimpanzee looks at visitors during a cognitive test at the Primate Research Institute of Kyoto University. The institute is marking its 50th anniversary this year","credit":"Photograph: Kimimasa Mayama/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=525b7300932a808f092197db990b5b5a","srcsets":"https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=beb33b5b6d199bf7ca3f407e927bd192 1920w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=4eae15b8915d15eb7f6f10d588cf70d5 1225w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=1ffa944f314271354bec31a5999c79d6 1065w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=b37a5b1ac0caffd112ea752bb17c578f 965w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=732eba1695413ab28150be863505a94a 725w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=0a21e2bb5fc41e14073fbe64d719d2b7 645w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=562dcf6a2ce467f77e9a9f68e1212be8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5,"role":"None"},{"caption":"<strong>Cali, Colombia</strong> An elderly woman models a creation during the Walkway Inclusion fashion show","credit":"Photograph: Luis Robayo/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=32fd01229272afa421206ec74a2273d3","srcsets":"https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=384c0281f5ef03a1400840f80884ca61 1920w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=d6916e10d0739ca659745311dbd0a244 1225w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=e7611e6c8ecd3fde89304170c12c20b2 1065w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=82c5da530d066951540404643c14d756 965w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=748fa0bdf3a416a81a6734249e8c3bc2 725w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=723fbd7abfe20245943116441989e21f 645w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=cfde8a64a6007b8ccb36a8a2d61a76a6 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5002261420171867,"role":"None"},{"caption":"<strong>Amman, Jordan</strong> Theresa May arrives for a meeting with King Abdullah at the Royal Palace","credit":"Photograph: Toby Melville/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=07a76556558dd7214231d50dc0f99f67","srcsets":"https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=5b4a5e732634deffbddb3cd77213156e 1920w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=b2f66ab9e16a365805dd8bd06c0a2243 1225w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fb9e454299e5e7b08f528fc8cac01af8 1065w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d752ebd8ff427abe0e10a6a398973a87 965w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=c3bc3633ccbb110b7eb63d968ffb11e9 725w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=f3f1f27d6835ad27f1b07da173221556 645w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=2ee1553e167437a345985ec6c32733ea 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4989293361884368,"role":"None"},{"caption":"<strong>Manila, Philippines</strong> Protesters burn effigies of Rodrigo Duterte and Donald Trump during a rally near the Presidential Palace to mark the 154th anniversary of the birth of the country’s revolutionary hero Andres Bonifacio","credit":"Photograph: Bullit Marquez/AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=0d3c7ee26b467be3447a342306b510d3","srcsets":"https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=b5e1c322808862cfbec401e1258d99fb 1920w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=cbd3972265308440965fc62e7d6ebf53 1225w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=1aa37812975b4fcaba653d20ce5db114 1065w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=7c54c38665f25ba4b152a77661fac686 965w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=6e07c8dd3128fcb459f15702f9ee629c 725w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=ac9f16cc51b24cc54f3494f678996266 645w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=9c9cf5ad26cbfc3034fd3a3ca3b32c7b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6223231667748215,"role":"None"},{"caption":"<strong>Hawaii</strong> Tamayo Perry enters the tube off the north shore of Oahu to surf the first big waves of the season in Hawaii","credit":"Photograph: Brian Bielmann/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=b5f0983b96760ac99498d6ed1ceed206","srcsets":"https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=874554dece9541291a78ec770d794874 1920w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=dea3f081944eb7ab972e4843c6f01ba0 1225w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fbb1bd81bff0419225c7f9d504ea39f5 1065w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d9e1ba30e8fcd15db0e5210fee099ce8 965w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=65a58d756b726687c39e976ea724d06f 725w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=a17fa5142c53c086f83c4ef77f6a701b 645w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=6c2d88350238cd9b7be12d3111a65237 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4997014925373133,"role":"None"},{"caption":"<strong>Tokyo, Japan</strong> A kimono-clad robot is displayed at an exhibition in Tokyo","credit":"Photograph: Franck Robichon/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=69039147cb4a4aaf27a38879d654cac0","srcsets":"https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=e98f264c06d15cb9131d55004cd8477f 1920w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=16b3cd2fc7b766fb66ce882ac902a1d6 1225w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=b4412f2bf105ff7164f04eb905078919 1065w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=02008451a4aedaaf068bff8247cf3243 965w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=a9a3f0caaaff6e437e3a3cc91d48e3d0 725w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=439dd81b8b7722f12fdba809f7afbdf2 645w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=a4843e3f3d7fed7c2f3977f943c2a4bc 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.530090684253916,"role":"None"},{"caption":"<strong>Kiev, Ukraine</strong> Pedestrians pass a mural named ‘Rise Up in the Dirt’ created by New York-based street artist BK Foxx","credit":"Photograph: Sergey Dolzhenko/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=33b9215fee971d46d63736109e34b426","srcsets":"https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=c5469c997b82d8053d2e31bf47789f49 1920w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=dc208b9070bca31a308e28dc8271704a 1225w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=efb9de7df4519b3e06382c8f06429976 1065w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=3a6e2491a9f621c8e8d0b141f1f8fe2d 965w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=56d064fda65fcc9974c0d20eaa3dce07 725w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=0ba4faa66b6bcdef988cda8d7509cfbd 645w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e51897e3e1613731c9957861f26fa18c 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6375766318067075,"role":"None"},{"caption":"<strong>Delhi, India</strong> A museum official retouches a wax figure of Australian actor Nicole Kidman at the Madame Tussauds wax museum","credit":"Photograph: Rajat Gupta/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d2ccf234976af0bbad44883f069412a4","srcsets":"https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=f29303fce2d695d2ec40e0c2d718920e 1920w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=4ddfb77027bce7b41ebea1ba5f970fe2 1225w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=df1b6e2000525ab36b9e0fb622214203 1065w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=8c755f5907bf1ed891972b25fb018303 965w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=fdefbd664c1afdadda457ea537e177af 725w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=ee950425eea8b20bcdc1351b01c8c8ba 645w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=339151c2debf3ddc221d285c53a56c6e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.500528262017961,"role":"None"},{"caption":"<strong>Gateshead, England</strong> A couple walk next to the Angel of North sculpture near Gateshead as forecasters warn of possible disruption and plunging temperatures","credit":"Photograph: Lee Smith/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=4e6b6bb8774b0e175d20f5aedc823731","srcsets":"https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2507a865ff6df562b9c2013e4941a027 1920w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=04a0bf9f4cd24b4685f42edb1eb23afb 1225w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=0b21598415ee81d39144337fe19dadba 1065w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d1130e66b7d1286fd820e5e17bb264f1 965w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=193cb92f6317c5e053bf4794532479ba 725w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=450fdbfc7aa905e569895a83214f1f57 645w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=a1bfde676fed8316733bb057a22ba13a 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5255530129672006,"role":"None"},{"caption":"<strong>Rome, Italy</strong> The work Flash Forward, made of Lego bricks, is displayed at the preview of the exhibition The Art Of The Brick: DC Super Heroes, by artist Nathan Sawaya at the Palazzo degli Esami in Trastevere","credit":"Photograph: Alessandro Di Meo/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=69b28ba87de32196a0f28f618d7e7e53","srcsets":"https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=27b6acf7455c834f425efc47a604cee3 1920w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=63cb9cb64bb8f42b8c2736bfb48c6b25 1225w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=80d415d3640a021062c6dc7de5976db4 1065w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=e4af1c4277bb2624dbc25765e7cc65a4 965w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=b69c8118465c8dfcd41b4d6e8c83f0bc 725w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=1dca5dababdd08e40c9d5565b6a9f35f 645w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=c257ef46e3e02dfd2f0ee9ae7d4af543 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.500732779677577,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"","idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Pictures Guardian News","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"News","fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7kf7v","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":412,"cardStyle":"media","gallerySize":16,"adUnit":"/59666047/theguardian.com/news/gallery/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"news","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7kf7v","thumbnail":"https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/283_520_5163_3097/500.jpg?q=55&auto=format&usm=12&fit=max&s=c0b700794c5439555219b4cbfe696fd4","pageId":"news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/world,artanddesign/photography","contentType":"Gallery","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/guy-lane","isPaidContent":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"World news,Photography","contentId":"news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","nonKeywordTagIds":"news/series/ten-best-photographs-of-the-day,type/gallery,profile/guy-lane,tracking/commissioningdesk/uk-pictures-guardian-news","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"seriesTags":"Best photographs of the day","revisionNumber":"2a13a70c9f4674d5f2dfeae0d3d5cd9503cbb254","seriesId":"news/series/ten-best-photographs-of-the-day","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[],"pageCode":"4124871","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15274","sharedAdTargeting":{"se":["ten-best-photographs-of-the-day"],"ct":"gallery","co":["guy-lane"],"url":"/news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","su":["0"],"edition":"int","p":"ng","k":["world","photography"],"sh":"https://gu.com/p/7kf7v"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"Madame Tussaud's in Delhi and snow in the north: Thursday's top photos","isImmersive":true,"author":"Guy Lane","series":"Best photographs of the day","toneIds":"","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-pictures-guardian-news","webPublicationDate":1512047075000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Madame Tussaud's in Delhi and snow in the north: Thursday's top photos","isFront":false,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","showRelatedContent":true,"lightboxImages":{"id":"news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","headline":"Madame Tussaud's in Delhi and snow in the north: Thursday's top photos","shouldHideAdverts":false,"standfirst":"<p>The Guardian’s picture editors bring you a selection of photo highlights from around the world</p>","images":[{"caption":"<strong>Midhurst, England</strong> Queen Elizabeth II watches a demonstration by a Labrador as it helps to undress its disabled owner at the offices of the Canine Partners charity","credit":"Photograph: WPA Pool/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=421146c8fdd2fd54f80faefec216d9d2","srcsets":"https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=5cc12c0fbe9a7ab5348f7b6b35d94373 1920w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=674554296474d2e222c7d768ab75cdc0 1225w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=231042438cecc142965e513e4868b4c3 1065w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=4b375e9f8d92eff02d52a4632002adf6 965w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=8019cb25f033ccf587449d5a95277d76 725w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=f23e6dfeefdfbd2d46dceaaba7b19bea 645w, https://i.guim.co.uk/img/media/e0d965d7283dab7164af6c70f5fa3c0c153ff8e0/0_0_5772_3953/master/5772.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=20b7f852385fba054563a8d77a97fee1 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4601568429041234,"role":"None"},{"caption":"<strong>Cox’s Bazar, Bangladesh</strong> A Rohingya refugee endures cramped conditions while waiting for relief aid at Balukhali refugee camp near Cox’s Bazar","credit":"Photograph: Susana Vera/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=78fa46397715cce0c3ad45aee189252d","srcsets":"https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=a19addb9fe256aa1a4d061aa4a34b839 1920w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=fca915fdcca0e6d62da48e01d61a29cc 1225w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=56108ebfad90a30754a51e07b4739a2d 1065w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=3dc2dddbcd01ba851e45f3e866bd5ed4 965w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=3ea0c608adca12ee402ab15d43d7cef9 725w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=f02cfaf674a62ae61a2e37f951be01fd 645w, https://i.guim.co.uk/img/media/8e5884967fa8df3f9b5d3a55d608091b556c6eba/0_0_3500_2330/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=f5e69981ffa4fd46958e66d4d1b5122e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.502145922746781,"role":"None"},{"caption":"<strong>Tegucigalpa, Honduras</strong> Supporters of the presidential candidate Salvador Nasralla chant slogans against the president, Juan Orlando Hernández, who is running for re-election, as they protest against what they allege was electoral fraud","credit":"Photograph: Rodrigo Abd/AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=633cfbf2ee01148bd70ffbb4440e681c","srcsets":"https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=fd9432fd554a7e20749c807b9a5eb6e4 1920w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=b8929994f1084738e985512a9f4ed322 1225w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=6f010a90074d9d0d83832147d580cb15 1065w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=53cab49e6438ee9f13b007532db3e5af 965w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=4ba44b05bbc96591c12635b6b7f9e8bc 725w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=a0be2959a8e57e29794b58549cc16d99 645w, https://i.guim.co.uk/img/media/e5741907450fb726a94d671699370d955a41b610/0_0_5760_3840/master/5760.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=cd707cf3299425eb3adf32736981fcd8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5,"role":"None"},{"caption":"<strong>Bali, Indonesia</strong> Tourists gather to look at Mount Agung at Amed beach in Karangasem. Thousands of foreign tourists were expected to leave Bali by plane following a near three-day airport shutdown","credit":"Photograph: Juni Kriswanto/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=4965f15c917fc469156e1cdede1c4e1c","srcsets":"https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=134e323d0fa6b1838ace5347d4f0204b 1920w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=b1ae0c138adea3cc84e67e2d02afcdc2 1225w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=3ebacd6b4ebc07e62a81b3fa15e77b10 1065w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d4aa754a8db4e259bc2df4e4e9830017 965w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=5e4f59bca31b4d7a1a7e310e0c13540e 725w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=22d4849dc3b30d711cb89d2fe5036f0a 645w, https://i.guim.co.uk/img/media/654c2090275f49af9b05448595483fe762de4a91/0_0_4256_2832/master/4256.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=7f0176d1a1e359c67dfcf11a88787a28 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.502824858757062,"role":"None"},{"caption":"<strong>Dhaka, Bangladesh</strong> Pope Francis arrives at the airport in the Bangladeshi capital","credit":"Photograph: Max Rossi/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=1f10854f11ef504d72e6c5ece53164e1","srcsets":"https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=dc37fea386f8b248185d672445a17451 1920w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=2ad32f835f36d5846a5bc006dca9537a 1225w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cecddae435424f6c8c85f9cac12abf9e 1065w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=34231a335f2c60e7a63a06114860d9f8 965w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=66cf3f0ae4613ea3e85275a155f2a60c 725w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=0376e221e4e1a3d99769faa60770978c 645w, https://i.guim.co.uk/img/media/1daf7435654d3b642705e703dd0f8dd02953bdf2/0_0_3500_2590/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=90b60d0c2458101c4855bf1cad5736f8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.3513513513513513,"role":"None"},{"caption":"<strong>Shenzhen, China</strong> Soldiers attend a military discharge ceremony in Guangdong province","credit":"Photograph: VCG/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=7d2b189e05ff8b14a3333c747251386d","srcsets":"https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=3d8824f634116488b253ca6b885983f6 1920w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=94cc1f2c208dbc2888e5e0ad18c53e27 1225w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=6bccd475be4b0c2f869d81f59de7933b 1065w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=1e77226e0e56ed9ed55662f3c70fe736 965w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=7327a7af05310380fa6aea95d107d66e 725w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=9647eba614c2b364ae0253032eb3f56b 645w, https://i.guim.co.uk/img/media/9468f154cf6b0a2328b02f93f58882bae004760b/0_0_3000_1917/master/3000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=8c0c529a381a0343a87570dde9264cf5 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5649452269170578,"role":"None"},{"caption":"<strong>Inuyama, Japan</strong> A chimpanzee looks at visitors during a cognitive test at the Primate Research Institute of Kyoto University. The institute is marking its 50th anniversary this year","credit":"Photograph: Kimimasa Mayama/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=525b7300932a808f092197db990b5b5a","srcsets":"https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=beb33b5b6d199bf7ca3f407e927bd192 1920w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=4eae15b8915d15eb7f6f10d588cf70d5 1225w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=1ffa944f314271354bec31a5999c79d6 1065w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=b37a5b1ac0caffd112ea752bb17c578f 965w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=732eba1695413ab28150be863505a94a 725w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=0a21e2bb5fc41e14073fbe64d719d2b7 645w, https://i.guim.co.uk/img/media/895dec4236b9acb8fedbaa48e658fa0b57628684/0_0_6720_4480/master/6720.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=562dcf6a2ce467f77e9a9f68e1212be8 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5,"role":"None"},{"caption":"<strong>Cali, Colombia</strong> An elderly woman models a creation during the Walkway Inclusion fashion show","credit":"Photograph: Luis Robayo/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=32fd01229272afa421206ec74a2273d3","srcsets":"https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=384c0281f5ef03a1400840f80884ca61 1920w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=d6916e10d0739ca659745311dbd0a244 1225w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=e7611e6c8ecd3fde89304170c12c20b2 1065w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=82c5da530d066951540404643c14d756 965w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=748fa0bdf3a416a81a6734249e8c3bc2 725w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=723fbd7abfe20245943116441989e21f 645w, https://i.guim.co.uk/img/media/5108fd55d3259ffb96f4e0ad1ba7b078b42ea55f/0_0_3317_2211/master/3317.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=cfde8a64a6007b8ccb36a8a2d61a76a6 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5002261420171867,"role":"None"},{"caption":"<strong>Amman, Jordan</strong> Theresa May arrives for a meeting with King Abdullah at the Royal Palace","credit":"Photograph: Toby Melville/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=07a76556558dd7214231d50dc0f99f67","srcsets":"https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=5b4a5e732634deffbddb3cd77213156e 1920w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=b2f66ab9e16a365805dd8bd06c0a2243 1225w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fb9e454299e5e7b08f528fc8cac01af8 1065w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d752ebd8ff427abe0e10a6a398973a87 965w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=c3bc3633ccbb110b7eb63d968ffb11e9 725w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=f3f1f27d6835ad27f1b07da173221556 645w, https://i.guim.co.uk/img/media/21c307e205f4128400874b14509b42c26541d43e/0_0_3500_2335/master/3500.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=2ee1553e167437a345985ec6c32733ea 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4989293361884368,"role":"None"},{"caption":"<strong>Manila, Philippines</strong> Protesters burn effigies of Rodrigo Duterte and Donald Trump during a rally near the Presidential Palace to mark the 154th anniversary of the birth of the country’s revolutionary hero Andres Bonifacio","credit":"Photograph: Bullit Marquez/AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=0d3c7ee26b467be3447a342306b510d3","srcsets":"https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=b5e1c322808862cfbec401e1258d99fb 1920w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=cbd3972265308440965fc62e7d6ebf53 1225w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=1aa37812975b4fcaba653d20ce5db114 1065w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=7c54c38665f25ba4b152a77661fac686 965w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=6e07c8dd3128fcb459f15702f9ee629c 725w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=ac9f16cc51b24cc54f3494f678996266 645w, https://i.guim.co.uk/img/media/7d5bef011bce3bf1b9ae10db3166ac91c6150fa4/0_0_5000_3082/master/5000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=9c9cf5ad26cbfc3034fd3a3ca3b32c7b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6223231667748215,"role":"None"},{"caption":"<strong>Hawaii</strong> Tamayo Perry enters the tube off the north shore of Oahu to surf the first big waves of the season in Hawaii","credit":"Photograph: Brian Bielmann/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=b5f0983b96760ac99498d6ed1ceed206","srcsets":"https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=874554dece9541291a78ec770d794874 1920w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=dea3f081944eb7ab972e4843c6f01ba0 1225w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fbb1bd81bff0419225c7f9d504ea39f5 1065w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d9e1ba30e8fcd15db0e5210fee099ce8 965w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=65a58d756b726687c39e976ea724d06f 725w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=a17fa5142c53c086f83c4ef77f6a701b 645w, https://i.guim.co.uk/img/media/e48dcd535b00af9f691b338fc2faf37e5337a2e5/0_0_5024_3350/master/5024.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=6c2d88350238cd9b7be12d3111a65237 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.4997014925373133,"role":"None"},{"caption":"<strong>Tokyo, Japan</strong> A kimono-clad robot is displayed at an exhibition in Tokyo","credit":"Photograph: Franck Robichon/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=69039147cb4a4aaf27a38879d654cac0","srcsets":"https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=e98f264c06d15cb9131d55004cd8477f 1920w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=16b3cd2fc7b766fb66ce882ac902a1d6 1225w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=b4412f2bf105ff7164f04eb905078919 1065w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=02008451a4aedaaf068bff8247cf3243 965w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=a9a3f0caaaff6e437e3a3cc91d48e3d0 725w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=439dd81b8b7722f12fdba809f7afbdf2 645w, https://i.guim.co.uk/img/media/09dc0a39b44c842d12593f71102f611510f59ce0/0_0_5568_3639/master/5568.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=a4843e3f3d7fed7c2f3977f943c2a4bc 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.530090684253916,"role":"None"},{"caption":"<strong>Kiev, Ukraine</strong> Pedestrians pass a mural named ‘Rise Up in the Dirt’ created by New York-based street artist BK Foxx","credit":"Photograph: Sergey Dolzhenko/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=33b9215fee971d46d63736109e34b426","srcsets":"https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=c5469c997b82d8053d2e31bf47789f49 1920w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=dc208b9070bca31a308e28dc8271704a 1225w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=efb9de7df4519b3e06382c8f06429976 1065w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=3a6e2491a9f621c8e8d0b141f1f8fe2d 965w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=56d064fda65fcc9974c0d20eaa3dce07 725w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=0ba4faa66b6bcdef988cda8d7509cfbd 645w, https://i.guim.co.uk/img/media/ddccf2037b676d9e461079397dc7807d579f4462/0_0_4541_2773/master/4541.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e51897e3e1613731c9957861f26fa18c 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6375766318067075,"role":"None"},{"caption":"<strong>Delhi, India</strong> A museum official retouches a wax figure of Australian actor Nicole Kidman at the Madame Tussauds wax museum","credit":"Photograph: Rajat Gupta/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d2ccf234976af0bbad44883f069412a4","srcsets":"https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=f29303fce2d695d2ec40e0c2d718920e 1920w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=4ddfb77027bce7b41ebea1ba5f970fe2 1225w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=df1b6e2000525ab36b9e0fb622214203 1065w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=8c755f5907bf1ed891972b25fb018303 965w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=fdefbd664c1afdadda457ea537e177af 725w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=ee950425eea8b20bcdc1351b01c8c8ba 645w, https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/0_0_5681_3786/master/5681.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=339151c2debf3ddc221d285c53a56c6e 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.500528262017961,"role":"None"},{"caption":"<strong>Gateshead, England</strong> A couple walk next to the Angel of North sculpture near Gateshead as forecasters warn of possible disruption and plunging temperatures","credit":"Photograph: Lee Smith/Reuters","displayCredit":true,"src":"https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=4e6b6bb8774b0e175d20f5aedc823731","srcsets":"https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2507a865ff6df562b9c2013e4941a027 1920w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=04a0bf9f4cd24b4685f42edb1eb23afb 1225w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=0b21598415ee81d39144337fe19dadba 1065w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d1130e66b7d1286fd820e5e17bb264f1 965w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=193cb92f6317c5e053bf4794532479ba 725w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=450fdbfc7aa905e569895a83214f1f57 645w, https://i.guim.co.uk/img/media/48214e1ef6adf21d641154de5e6ca299d232e12a/0_0_2000_1311/master/2000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=a1bfde676fed8316733bb057a22ba13a 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.5255530129672006,"role":"None"},{"caption":"<strong>Rome, Italy</strong> The work Flash Forward, made of Lego bricks, is displayed at the preview of the exhibition The Art Of The Brick: DC Super Heroes, by artist Nathan Sawaya at the Palazzo degli Esami in Trastevere","credit":"Photograph: Alessandro Di Meo/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=69b28ba87de32196a0f28f618d7e7e53","srcsets":"https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=27b6acf7455c834f425efc47a604cee3 1920w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=63cb9cb64bb8f42b8c2736bfb48c6b25 1225w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=80d415d3640a021062c6dc7de5976db4 1065w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=e4af1c4277bb2624dbc25765e7cc65a4 965w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=b69c8118465c8dfcd41b4d6e8c83f0bc 725w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=1dca5dababdd08e40c9d5565b6a9f35f 645w, https://i.guim.co.uk/img/media/cbb0e4fcc6677bc5cfccf94935d8d89e850d98bf/0_0_3072_2047/master/3072.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=c257ef46e3e02dfd2f0ee9ae7d4af543 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.500732779677577,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"","idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Pictures Guardian News","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"News","fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7kf7v","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":412,"cardStyle":"media","gallerySize":16,"adUnit":"/59666047/theguardian.com/news/gallery/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"AU","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"news","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7kf7v","thumbnail":"https://i.guim.co.uk/img/media/a0e1fdb0dec0cb977eb12df26c5bf9788eba00ec/283_520_5163_3097/500.jpg?q=55&auto=format&usm=12&fit=max&s=c0b700794c5439555219b4cbfe696fd4","pageId":"news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/world,artanddesign/photography","contentType":"Gallery","isDev":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/guy-lane","isPaidContent":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"World news,Photography","contentId":"news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","nonKeywordTagIds":"news/series/ten-best-photographs-of-the-day,type/gallery,profile/guy-lane,tracking/commissioningdesk/uk-pictures-guardian-news","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"seriesTags":"Best photographs of the day","revisionNumber":"2a13a70c9f4674d5f2dfeae0d3d5cd9503cbb254","seriesId":"news/series/ten-best-photographs-of-the-day","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[],"pageCode":"4124871","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15274","sharedAdTargeting":{"se":["ten-best-photographs-of-the-day"],"ct":"gallery","co":["guy-lane"],"url":"/news/gallery/2017/nov/30/mdme-tussauds-in-delhi-and-snow-in-the-north-thursdays-top-photos","su":["0"],"edition":"au","p":"ng","k":["world","photography"],"sh":"https://gu.com/p/7kf7v"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeaderControl":false,"abNewDesktopHeaderVariant":true,"commercialPaidContentControl":true,"commercialPaidContentVariant":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
@@ -243,7 +243,7 @@
 </div>
 <header class="new-header new-header--slim" role="banner">
 <nav class="new-header__inner gs-container" data-component="nav2" aria-label="Guardian sections">
-<a href="https://www.theguardian.com/international" class="new-header__logo" data-link-name="nav2 : logo">
+<a href="https://www.theguardian.com/au" class="new-header__logo" data-link-name="nav2 : logo">
 <span class="u-h">The Guardian - Back to home</span>
 <span class="inline-guardian-logo-160 inline-logo new-header__logo">
 <svg width="160" height="30" viewbox="0 0 320 60" class="new-header__logo__svg inline-guardian-logo-160__svg inline-logo__svg">
@@ -258,27 +258,27 @@
 <input type="checkbox" id="main-menu-toggle" class="veggie-burger-fallback js-enhance-checkbox u-h" data-link-name="nav2 : veggie-burger : show" aria-controls="main-menu">
 <ul class="pillars">
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/international" data-link-name="nav2 : primary : news">
+<a class="pillar-link" href="https://www.theguardian.com/au" data-link-name="nav2 : primary : news">
 news
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav2 : primary : opinion">
+<a class="pillar-link" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav2 : primary : opinion">
 opinion
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/uk/sport" data-link-name="nav2 : primary : sport">
+<a class="pillar-link" href="https://www.theguardian.com/au/sport" data-link-name="nav2 : primary : sport">
 sport
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/uk/culture" data-link-name="nav2 : primary : arts">
+<a class="pillar-link" href="https://www.theguardian.com/au/culture" data-link-name="nav2 : primary : arts">
 arts
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav2 : primary : lifestyle">
+<a class="pillar-link" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav2 : primary : lifestyle">
 lifestyle
 </a>
 </li>
@@ -310,9 +310,9 @@ sections
 <i class="menu-item__toggle"></i>
 news
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu news" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu news" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/international" data-link-name="nav2 : secondary : headlines">
+<a class="menu-item__title" href="https://www.theguardian.com/au" data-link-name="nav2 : secondary : headlines">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -322,28 +322,23 @@ headlines
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news" data-link-name="nav2 : secondary : australia news">
+australia news
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/world" data-link-name="nav2 : secondary : world news">
 world news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : secondary : UK news">
-UK news
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav2 : secondary : politics">
+politics
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/science" data-link-name="nav2 : secondary : science">
-science
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/cities" data-link-name="nav2 : secondary : cities">
-cities
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/global-development" data-link-name="nav2 : secondary : global development">
-global development
+<a class="menu-item__title" href="https://www.theguardian.com/au/environment" data-link-name="nav2 : secondary : environment">
+environment
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -352,23 +347,18 @@ football
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : secondary : tech">
-tech
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news/indigenous-australians" data-link-name="nav2 : secondary : indigenous australia">
+indigenous australia
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : secondary : business">
-business
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news/australian-immigration-and-asylum" data-link-name="nav2 : secondary : immigration">
+immigration
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : secondary : environment">
-environment
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/tone/obituaries" data-link-name="nav2 : secondary : obituaries">
-obituaries
+<a class="menu-item__title" href="https://www.theguardian.com/au/media" data-link-name="nav2 : secondary : media">
+media
 </a>
 </li>
 </ul>
@@ -378,9 +368,9 @@ obituaries
 <i class="menu-item__toggle"></i>
 opinion
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu opinion" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu opinion" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav2 : secondary : opinion home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav2 : secondary : opinion home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -390,12 +380,7 @@ opinion home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/profile/editorial" data-link-name="nav2 : secondary : the guardian view">
-the guardian view
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/index/contributors" data-link-name="nav2 : secondary : columnists">
+<a class="menu-item__title" href="https://www.theguardian.com/au/index/contributors" data-link-name="nav2 : secondary : columnists">
 columnists
 </a>
 </li>
@@ -405,8 +390,13 @@ cartoons
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/commentisfree/series/comment-is-free-weekly" data-link-name="nav2 : secondary : opinion videos">
-opinion videos
+<a class="menu-item__title" href="https://www.theguardian.com/commentisfree/series/indigenousx" data-link-name="nav2 : secondary : Indigenous">
+Indigenous
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/profile/editorial" data-link-name="nav2 : secondary : editorials">
+editorials
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -421,9 +411,9 @@ letters
 <i class="menu-item__toggle"></i>
 sport
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu sport" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu sport" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/sport" data-link-name="nav2 : secondary : sport home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/sport" data-link-name="nav2 : secondary : sport home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -438,8 +428,18 @@ football
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/rugby-union" data-link-name="nav2 : secondary : rugby union">
-rugby union
+<a class="menu-item__title" href="https://www.theguardian.com/sport/afl" data-link-name="nav2 : secondary : AFL">
+AFL
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/sport/nrl" data-link-name="nav2 : secondary : NRL">
+NRL
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/football/a-league" data-link-name="nav2 : secondary : a-league">
+a-league
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -448,28 +448,13 @@ cricket
 </a>
 </li>
 <li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/sport/rugby-union" data-link-name="nav2 : secondary : rugby union">
+rugby union
+</a>
+</li>
+<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/sport/tennis" data-link-name="nav2 : secondary : tennis">
 tennis
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/cycling" data-link-name="nav2 : secondary : cycling">
-cycling
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/formulaone" data-link-name="nav2 : secondary : F1">
-F1
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/golf" data-link-name="nav2 : secondary : golf">
-golf
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/us-sport" data-link-name="nav2 : secondary : US sports">
-US sports
 </a>
 </li>
 </ul>
@@ -479,9 +464,9 @@ US sports
 <i class="menu-item__toggle"></i>
 arts
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu arts" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu arts" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/culture" data-link-name="nav2 : secondary : culture home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/culture" data-link-name="nav2 : secondary : culture home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -491,8 +476,8 @@ culture home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
-books
+<a class="menu-item__title" href="https://www.theguardian.com/au/film" data-link-name="nav2 : secondary : film">
+film
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -501,7 +486,12 @@ music
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
+<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
+books
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/au/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
 tv &amp; radio
 </a>
 </li>
@@ -511,8 +501,8 @@ art &amp; design
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/film" data-link-name="nav2 : secondary : film">
-film
+<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
+stage
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -525,11 +515,6 @@ games
 classical
 </a>
 </li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/stage" data-link-name="nav2 : secondary : stage">
-stage
-</a>
-</li>
 </ul>
 </li>
 <li class="menu-item js-navigation-item" data-section-name="lifestyle" role="menuitem">
@@ -537,9 +522,9 @@ stage
 <i class="menu-item__toggle"></i>
 lifestyle
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="int" aria-label="Submenu lifestyle" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu lifestyle" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -549,18 +534,28 @@ lifestyle home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/fashion" data-link-name="nav2 : secondary : fashion">
-fashion
+<a class="menu-item__title" href="https://www.theguardian.com/au/travel" data-link-name="nav2 : secondary : travel">
+travel
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/food-and-drink" data-link-name="nav2 : secondary : food">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/food-and-drink" data-link-name="nav2 : secondary : food">
 food
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/tone/recipes" data-link-name="nav2 : secondary : recipes">
-recipes
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/relationships" data-link-name="nav2 : secondary : relationships">
+relationships
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/fashion" data-link-name="nav2 : secondary : fashion">
+fashion
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/health-and-wellbeing" data-link-name="nav2 : secondary : health &amp; fitness">
+health &amp; fitness
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -569,33 +564,13 @@ love &amp; sex
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/health-and-wellbeing" data-link-name="nav2 : secondary : health &amp; fitness">
-health &amp; fitness
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
-home &amp; garden
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav2 : secondary : women">
-women
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
 family
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav2 : secondary : travel">
-travel
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/uk/money" data-link-name="nav2 : secondary : money">
-money
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
+home &amp; garden
 </a>
 </li>
 </ul>
@@ -620,13 +595,13 @@ money
 </form>
 </div>
 <ul class="menu-group menu-group--membership" role="menubar">
-<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://membership.theguardian.com/supporter?INTCMP=mem_int_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_int_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_int_web_newheader&quot;%7D" data-link-name="nav2 : become a supporter">
+<li class="menu-item hide-from-desktop" data-edition="au" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://membership.theguardian.com/supporter?INTCMP=mem_au_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_au_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_au_web_newheader&quot;%7D" data-link-name="nav2 : become a supporter">
 become a supporter
 </a>
 </li>
-<li class="menu-item hide-from-desktop" data-edition="int" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_int_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_int_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
+<li class="menu-item hide-from-desktop" data-edition="au" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_au_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_au_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_au_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
 subscribe
 </a>
 </li>
@@ -673,7 +648,7 @@ Sign out
 <li class="menu-item js-navigation-item">
 <button class="menu-item__title js-navigation-toggle" data-link-name="nav2 : edition picker" aria-haspopup="true" aria-expanded="true">
 <i class="menu-item__toggle"></i>
-International edition
+Australia edition
 </button>
 <ul class="menu-group">
 <li class="menu-item">
@@ -689,32 +664,27 @@ US edition
 </a>
 </li>
 <li class="menu-item">
-<a data-link-name="nav2 : edition-picker: AU" href="https://www.theguardian.com/preference/edition/au" class="menu-item__title">
+<a data-link-name="nav2 : edition-picker: INT" href="https://www.theguardian.com/preference/edition/int" class="menu-item__title">
 <span class="u-h">switch to the </span>
-Australia edition
+International edition
 </a>
 </li>
 </ul>
 </li>
 </ul>
-<ul class="menu-group menu-group--footer" data-edition="int" role="menubar">
+<ul class="menu-group menu-group--footer" data-edition="au" role="menubar">
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" data-link-name="nav2 : jobs">
+<a class="menu-item__title" href="https://jobs.theguardian.com/landingpage/2868291/jobs-australia-html/?INTCMP=jobs_au_web_newheader" data-link-name="nav2 : jobs">
 jobs
 </a>
 </li>
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" data-link-name="nav2 : dating">
-dating
-</a>
-</li>
-<li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" data-link-name="nav2 : holidays">
-holidays
+<a class="menu-item__title" href="https://www.theguardian.com/guardian-live-australia" data-link-name="nav2 : events">
+events
 </a>
 </li>
 <li class="hide-from-desktop menu-item" role="menuitem">
-<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_int_web_newheader" data-link-name="nav2 : the guardian app">
+<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_au_web_newheader" data-link-name="nav2 : the guardian app">
 the guardian app
 </a>
 </li>
@@ -736,16 +706,6 @@ pictures
 <li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/email-newsletters" data-link-name="nav2 : newsletters">
 newsletters
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/theguardian" data-link-name="nav2 : today&#x27;s paper">
-today&#x27;s paper
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/observer" data-link-name="nav2 : the observer">
-the observer
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -781,18 +741,13 @@ Twitter
 </ul>
 <ul class="menu-group menu-group--brand-extensions hide-until-desktop">
 <li class="menu-item--brand-extension">
-<a href="https://jobs.theguardian.com?INTCMP=jobs_int_web_newheader" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : jobs">
+<a href="https://jobs.theguardian.com/landingpage/2868291/jobs-australia-html/?INTCMP=jobs_au_web_newheader" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : jobs">
 jobs
 </a>
 </li>
 <li class="menu-item--brand-extension">
-<a href="https://soulmates.theguardian.com?INTCMP=soulmates_int_web_newheader" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : dating">
-dating
-</a>
-</li>
-<li class="menu-item--brand-extension">
-<a href="https://holidays.theguardian.com?INTCMP=holidays_int_web_newheader" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : holidays">
-holidays
+<a href="https://www.theguardian.com/guardian-live-australia" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : events">
+events
 </a>
 </li>
 </ul>
@@ -850,12 +805,12 @@ Sign out</a>
 <path d="M21.3 8.8c0-4.9-1.5-5.7-3.3-5.7-1.8 0-3.2.7-3.2 5.7s1.5 5.5 3.2 5.5c1.8-.1 3.3-.6 3.3-5.5m-6.5 18.8c-2.3 0-2.9 1.7-2.9 2.9 0 1.8 1.6 3.4 6.3 3.4 5.3 0 6.8-1.5 6.8-3.4 0-1.7-1.3-2.9-3.4-2.9h-6.8zM10.5 2.4C4.3 5.2 0 11.4 0 18.7c0 4.9 2 9.4 5.2 12.6V31c0-3.2 3.1-4.4 5.9-5-2.6-.6-3.9-2.5-3.9-4.4 0-2.6 2.9-4.8 4.3-5.8l-.2-.1c-2.5-1.4-4.1-3.8-4.1-7 0-2.7 1.2-4.9 3.3-6.3M36 18.8C36 11.4 31.5 5 25.1 2.3c2.1 1.4 3.4 3.5 3.5 6.3l.1.6c0 5.4-4.4 8.2-10.7 8.2-1.6 0-2.7-.1-4.1-.5-.6.4-1.1 1.1-1.1 1.8 0 .9.8 1.6 1.8 1.6h8.8c5.5 0 8.2 2.2 8.2 7.1 0 1.6-.3 3.1-1 4.3 3.3-3.4 5.4-7.9 5.4-12.9"/>
 </svg>
 </span>
-<a href="https://membership.theguardian.com/supporter?INTCMP=DOTCOM_HEADER_BECOMEMEMBER_INT&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;,&quot;campaignCode&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_INT&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
+<a href="https://membership.theguardian.com/supporter?INTCMP=DOTCOM_HEADER_BECOMEMEMBER_AU&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_AU&quot;,&quot;campaignCode&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_AU&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
 <span class="control__info js-control-info control__info--supporting">
 become a supporter
 </span>
 </a>
-<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_INT_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_INT_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="int : topNav : subscribe">
+<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_AU_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_AU_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_AU_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="au : topNav : subscribe">
 <span class="control__info js-control-info">subscribe</span>
 </a>
 </div>
@@ -870,58 +825,12 @@ become a supporter
 </a>
 </div>
 <div class="brand-bar__item--right" data-component="guardian-services">
-<div class="brand-bar__item brand-bar__item--jobs hide-until-tablet hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="uk : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
-</div>
-<div class="brand-bar__item brand-bar__item--soulmates hide-until-desktop hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
-</div>
-<div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--more">
-<a class="brand-bar__item--action popup__toggle" data-toggle="top-bar__popup--more" data-link-name="topNav : more" aria-haspopup="true" aria-controls="guardian-services-top-menu">
-<span class="rounded-icon control__icon-wrapper">
-<!--[if (gt IE 8)&(IEMobile)]><!-->
-<span class="inline-ellipsis-36 inline-icon ">
-<svg viewbox="0 0 24 18" width="24" height="18" fill="#fff" class="inline-ellipsis-36__svg inline-icon__svg">
-<circle cx="3" cy="10" r="3"/>
-<circle cx="12" cy="10" r="3"/>
-<circle cx="21" cy="10" r="3"/>
-</svg>
-</span>
-<!--<![endif]-->
-</span>
-<span class="control__info" data-test-id="sign-in-name">more</span>
-</a>
-<div class="popup popup--default is-off top-bar__popup--more" id="guardian-services-top-menu">
-<h3 class="popup__group-header">from the guardian:</h3>
-<ul class="popup__group">
-<li class="popup__item brand-bar__popup--soulmates hide-from-desktop show-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="int : topNav : soulmates" href="https://soulmates.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_SOULMATES">dating</a>
-</li>
-<li class="popup__item brand-bar__popup--jobs">
-<a class="brand-bar__item--action" data-link-name="int: topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_INT_GU_JOBS">find a job</a>
-</li>
-</ul>
-<div class="brand-bar__popup--edition mobile-only show-on-slim-header">
-<h3 class="popup__group-header">change edition:</h3>
-<ul class="popup__group">
-<li class="popup__item">
-<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="UK" data-link-name="switch to UK edition" href="https://www.theguardian.com/preference/edition/uk" title="Switch to the UK edition">
-<span class="u-h">switch to the </span> UK <span class="u-h"> edition</span>
-</a>
-<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
-<span class="u-h">switch to the </span> US <span class="u-h"> edition</span>
-</a>
-<a class="brand-bar__item--action brand-bar__item--inline-action" data-edition="AU" data-link-name="switch to AU edition" href="https://www.theguardian.com/preference/edition/au" title="Switch to the AU edition">
-<span class="u-h">switch to the </span> AU <span class="u-h"> edition</span>
-</a>
-</li>
-</ul>
-</div>
-</div>
+<div class="brand-bar__item brand-bar__item--masterclasses hide-until-tablet hide-on-slim-header">
+<a class="brand-bar__item--action" data-link-name="au : topNav : events" href="https://www.theguardian.com/guardian-live-australia">events</a>
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--edition hide-until-tablet hide-on-slim-header" data-component="edition">
 <a class="brand-bar__item--action popup__toggle" data-link-name="topNav : edition" data-toggle="top-bar__popup--edition" aria-haspopup="true" aria-controls="guardian-edition-menu">
-International edition
+Australia edition
 </a>
 <ul class="popup popup--default popup__group is-off top-bar__popup--edition" id="guardian-edition-menu">
 <li class="popup__item">
@@ -937,9 +846,9 @@ International edition
 </a>
 </li>
 <li class="popup__item">
-<a class="brand-bar__item--action" data-edition="AU" data-link-name="switch to AU edition" href="https://www.theguardian.com/preference/edition/au" title="Switch to the AU edition">
+<a class="brand-bar__item--action" data-edition="INT" data-link-name="switch to INT edition" href="https://www.theguardian.com/preference/edition/int" title="Switch to the INT edition">
 <span class="u-h">switch to the </span>
-<span class="brand-bar__edition-name">Australia edition</span>
+<span class="brand-bar__edition-name">International edition</span>
 </a>
 </li>
 </ul>
@@ -949,7 +858,7 @@ International edition
 </div>
 <div class="popup popup--default popup--search js-search-old js-search-popup is-off"><div class="js-search-placeholder"></div></div>
 <div class="l-header-main">
-<a href="https://www.theguardian.com/international" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
+<a href="https://www.theguardian.com/au" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
 <span class="u-h">The Guardian - Back to home</span>
 <!--[if (gt IE 8)|(IEMobile)]><!-->
 <span class="inline-guardian-logo-160 inline-logo ">
@@ -976,21 +885,21 @@ International edition
 <nav class="navigation__container navigation__container--first" data-component="nav" role="navigation" aria-label="Current section">
 <ul class="signposting">
 <li class="signposting__item signposting__item--home">
-<a class="signposting__action" href="https://www.theguardian.com/international" data-link-name="nav : signposting : home">home</a>
+<a class="signposting__action" href="https://www.theguardian.com/au" data-link-name="nav : signposting : home">home</a>
 </li>
 </ul>
 </nav>
 <nav class="navigation__container navigation__container--second" data-component="nav" role="navigation" aria-label="Guardian sections">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/au" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
-UK
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news" data-link-name="nav : primary : australia">
+australia
 </a>
 </li>
 <li class="top-navigation__item">
@@ -999,7 +908,17 @@ world
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/sport" data-link-name="nav : primary : sport">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav : primary : opinion">
+opinion
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav : primary : politics">
+politics
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/sport" data-link-name="nav : primary : sport">
 sport
 </a>
 </li>
@@ -1009,42 +928,37 @@ football
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav : primary : opinion">
-opinion
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/culture" data-link-name="nav : primary : culture">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/culture" data-link-name="nav : primary : culture">
 culture
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/business" data-link-name="nav : primary : business">
-business
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav : primary : lifestyle">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav : primary : lifestyle">
 lifestyle
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/fashion" data-link-name="nav : primary : fashion">
-fashion
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/environment" data-link-name="nav : primary : environment">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/environment" data-link-name="nav : primary : environment">
 environment
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/technology" data-link-name="nav : primary : tech">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/business" data-link-name="nav : primary : economy">
+economy
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/media" data-link-name="nav : primary : media">
+media
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/technology" data-link-name="nav : primary : tech">
 tech
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/travel" data-link-name="nav : primary : travel">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/travel" data-link-name="nav : primary : travel">
 travel
 </a>
 </li>
@@ -1251,14 +1165,14 @@ Madame Tussaud's in Delhi and snow in the north: Thursday's top photos
 <p class="byline" data-link-name="byline" data-component="meta-byline"><span itemscope="" itemtype="http://schema.org/Person" itemprop="author">
 <a rel="author" class="tone-colour" itemprop="sameAs" data-link-name="auto tag link" href="https://www.theguardian.com/profile/guy-lane"><span itemprop="name">Guy Lane</span></a></span></p>
 <p class="content__dateline" aria-hidden="true">
-<time itemprop="datePublished" datetime='2017-11-30T13:04:35+0000' data-timestamp="1512047075000" class="content__dateline-wpd js-wpd">
-Thursday 30 November 2017 <span class="content__dateline-time">13.04 GMT</span>
+<time itemprop="datePublished" datetime='2017-12-01T00:04:35+1100' data-timestamp="1512047075000" class="content__dateline-wpd js-wpd">
+Friday 1 December 2017 <span class="content__dateline-time">00.04 AEDT</span>
 </time>
-<time datetime='2017-11-30T16:30:42+0000' data-timestamp="1512059442000" class="content__dateline-lm js-lm u-h" itemprop="dateModified">
-Last modified on Thursday 30 November 2017 <span class="content__dateline-time">16.30 GMT</span>
+<time datetime='2017-12-01T03:30:42+1100' data-timestamp="1512059442000" class="content__dateline-lm js-lm u-h" itemprop="dateModified">
+Last modified on Friday 1 December 2017 <span class="content__dateline-time">03.30 AEDT</span>
 </time>
 </p>
-<meta itemprop="dateModified" content="2017-11-30T16:30:42+0000">
+<meta itemprop="dateModified" content="2017-12-01T03:30:42+1100">
 </div>
 </div>
 </header>
@@ -2467,7 +2381,7 @@ Best photographs of the day
 <div class="l-footer__primary hide-on-mobile">
 <div id="footer-nav" class="gs-container">
 <div class="brand-bar modern-visible u-cf">
-<a href="https://www.theguardian.com/international" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
+<a href="https://www.theguardian.com/au" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
 <span class="u-h">The Guardian</span>
 <i class="i i-guardian-logo-160"></i>
 </a>
@@ -2490,14 +2404,14 @@ Best photographs of the day
 <div class="navigation__container navigation__container--second" data-component="footer-nav">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/international" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/au" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : primary : UK">
-UK
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news" data-link-name="nav : primary : australia">
+australia
 </a>
 </li>
 <li class="top-navigation__item">
@@ -2506,7 +2420,17 @@ world
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/sport" data-link-name="nav : primary : sport">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav : primary : opinion">
+opinion
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav : primary : politics">
+politics
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/sport" data-link-name="nav : primary : sport">
 sport
 </a>
 </li>
@@ -2516,42 +2440,37 @@ football
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav : primary : opinion">
-opinion
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/culture" data-link-name="nav : primary : culture">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/culture" data-link-name="nav : primary : culture">
 culture
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/business" data-link-name="nav : primary : business">
-business
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav : primary : lifestyle">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav : primary : lifestyle">
 lifestyle
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/fashion" data-link-name="nav : primary : fashion">
-fashion
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/environment" data-link-name="nav : primary : environment">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/environment" data-link-name="nav : primary : environment">
 environment
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/technology" data-link-name="nav : primary : tech">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/business" data-link-name="nav : primary : economy">
+economy
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/media" data-link-name="nav : primary : media">
+media
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/technology" data-link-name="nav : primary : tech">
 tech
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/uk/travel" data-link-name="nav : primary : travel">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/travel" data-link-name="nav : primary : travel">
 travel
 </a>
 </li>
@@ -2573,51 +2492,14 @@ travel
 <nav role="navigation" aria-label="All sections">
 <ul class="global-navigation js-global-navigation">
 <li class="global-navigation__section global-navigation__section--home">
-<a class="global-navigation__title" href="https://www.theguardian.com/international" data-link-name="nav : globalTop : home">
+<a class="global-navigation__title" href="https://www.theguardian.com/au" data-link-name="nav : globalTop : home">
 home
 </a>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk-news" data-link-name="nav : globalTop : UK">
-UK
+<a class="global-navigation__title" href="https://www.theguardian.com/australia-news" data-link-name="nav : globalTop : australia">
+australia
 </a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/education" data-link-name="nav : globalSub : education">
-education
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/media" data-link-name="nav : globalSub : media">
-media
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/society" data-link-name="nav : globalSub : society">
-society
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/law" data-link-name="nav : globalSub : law">
-law
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/scotland" data-link-name="nav : globalSub : scotland">
-scotland
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/wales" data-link-name="nav : globalSub : wales">
-wales
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/northernireland" data-link-name="nav : globalSub : northern ireland">
-northern ireland
-</a>
-</li>
-</ul>
 </li>
 <li class="global-navigation__section">
 <a class="global-navigation__title" href="https://www.theguardian.com/world" data-link-name="nav : globalTop : world">
@@ -2625,8 +2507,8 @@ world
 </a>
 <ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/world/europe-news" data-link-name="nav : globalSub : europe">
-europe
+<a class="global-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : globalSub : UK">
+UK
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2635,18 +2517,18 @@ US
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/world/americas" data-link-name="nav : globalSub : americas">
-americas
-</a>
-</li>
-<li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/world/asia" data-link-name="nav : globalSub : asia">
 asia
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/australia-news" data-link-name="nav : globalSub : australia">
-australia
+<a class="global-navigation__action" href="https://www.theguardian.com/world/europe-news" data-link-name="nav : globalSub : europe">
+europe
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/world/americas" data-link-name="nav : globalSub : americas">
+americas
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2659,23 +2541,55 @@ africa
 middle east
 </a>
 </li>
+</ul>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav : globalTop : opinion">
+opinion
+</a>
+<ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/cities" data-link-name="nav : globalSub : cities">
-cities
+<a class="global-navigation__action" href="https://www.theguardian.com/tone/letters" data-link-name="nav : globalSub : letters">
+letters
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/global-development" data-link-name="nav : globalSub : development">
-development
+<a class="global-navigation__action" href="https://www.theguardian.com/tone/editorials" data-link-name="nav : globalSub : editorials">
+editorials
 </a>
 </li>
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/sport" data-link-name="nav : globalTop : sport">
+<a class="global-navigation__title" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav : globalTop : politics">
+politics
+</a>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/sport" data-link-name="nav : globalTop : sport">
 sport
 </a>
 <ul class="global-navigation__children">
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/australia-sport" data-link-name="nav : globalSub : australia sport">
+australia sport
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/afl" data-link-name="nav : globalSub : AFL">
+AFL
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/nrl" data-link-name="nav : globalSub : NRL">
+NRL
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/football/a-league" data-link-name="nav : globalSub : a-league">
+a-league
+</a>
+</li>
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/football" data-link-name="nav : globalSub : football">
 football
@@ -2692,18 +2606,8 @@ rugby union
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/formulaone" data-link-name="nav : globalSub : F1">
-F1
-</a>
-</li>
-<li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/sport/tennis" data-link-name="nav : globalSub : tennis">
 tennis
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/golf" data-link-name="nav : globalSub : golf">
-golf
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2716,16 +2620,6 @@ cycling
 boxing
 </a>
 </li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/horse-racing" data-link-name="nav : globalSub : racing">
-racing
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/rugbyleague" data-link-name="nav : globalSub : rugby league">
-rugby league
-</a>
-</li>
 </ul>
 </li>
 <li class="global-navigation__section">
@@ -2733,6 +2627,11 @@ rugby league
 football
 </a>
 <ul class="global-navigation__children">
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/football/a-league" data-link-name="nav : globalSub : a-league">
+a-league
+</a>
+</li>
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/football/live" data-link-name="nav : globalSub : live scores">
 live scores
@@ -2766,40 +2665,13 @@ clubs
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/commentisfree" data-link-name="nav : globalTop : opinion">
-opinion
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/index/contributors" data-link-name="nav : globalSub : columnists">
-columnists
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/tone/letters" data-link-name="nav : globalSub : letters">
-letters
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/tone/editorials" data-link-name="nav : globalSub : editorials">
-editorials
-</a>
-</li>
-</ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/culture" data-link-name="nav : globalTop : culture">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/culture" data-link-name="nav : globalTop : culture">
 culture
 </a>
 <ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/film" data-link-name="nav : globalSub : film">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/film" data-link-name="nav : globalSub : film">
 film
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/uk/tv-and-radio" data-link-name="nav : globalSub : tv &amp; radio">
-tv & radio
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2815,6 +2687,11 @@ games
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/books" data-link-name="nav : globalSub : books">
 books
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/tv-and-radio" data-link-name="nav : globalSub : tv &amp; radio">
+tv & radio
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2835,28 +2712,77 @@ classical
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/business" data-link-name="nav : globalTop : business">
-business
+<a class="global-navigation__title" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav : globalTop : lifestyle">
+lifestyle
 </a>
 <ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/business/economics" data-link-name="nav : globalSub : economics">
-economics
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/food-and-drink" data-link-name="nav : globalSub : food">
+food
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/business/banking" data-link-name="nav : globalSub : banking">
-banking
+<a class="global-navigation__action" href="https://www.theguardian.com/tone/recipes" data-link-name="nav : globalSub : recipes">
+recipes
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/business/retail" data-link-name="nav : globalSub : retail">
-retail
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/relationships" data-link-name="nav : globalSub : relationships">
+relationships
 </a>
 </li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/fashion" data-link-name="nav : globalSub : fashion">
+fashion
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/health-and-wellbeing" data-link-name="nav : globalSub : health &amp; fitness">
+health & fitness
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav : globalSub : women">
+women
+</a>
+</li>
+</ul>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/environment" data-link-name="nav : globalTop : environment">
+environment
+</a>
+<ul class="global-navigation__children">
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/cities" data-link-name="nav : globalSub : cities">
+cities
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/global-development" data-link-name="nav : globalSub : development">
+development
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/sustainable-business" data-link-name="nav : globalSub : sustainable business">
+sustainable business
+</a>
+</li>
+</ul>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/business" data-link-name="nav : globalTop : economy">
+economy
+</a>
+<ul class="global-navigation__children">
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/business/stock-markets" data-link-name="nav : globalSub : markets">
 markets
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/money" data-link-name="nav : globalSub : money">
+money
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2867,89 +2793,30 @@ project syndicate
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/lifeandstyle" data-link-name="nav : globalTop : lifestyle">
-lifestyle
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/food-and-drink" data-link-name="nav : globalSub : food">
-food
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/tone/recipes" data-link-name="nav : globalSub : recipes">
-recipes
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/health-and-wellbeing" data-link-name="nav : globalSub : health &amp; fitness">
-health & fitness
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/love-and-sex" data-link-name="nav : globalSub : love &amp; sex">
-love & sex
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav : globalSub : family">
-family
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/women" data-link-name="nav : globalSub : women">
-women
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav : globalSub : home &amp; garden">
-home & garden
-</a>
-</li>
-</ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/fashion" data-link-name="nav : globalTop : fashion">
-fashion
+<a class="global-navigation__title" href="https://www.theguardian.com/au/media" data-link-name="nav : globalTop : media">
+media
 </a>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/environment" data-link-name="nav : globalTop : environment">
-environment
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/climate-change" data-link-name="nav : globalSub : climate change">
-climate change
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/wildlife" data-link-name="nav : globalSub : wildlife">
-wildlife
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/energy" data-link-name="nav : globalSub : energy">
-energy
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/pollution" data-link-name="nav : globalSub : pollution">
-pollution
-</a>
-</li>
-</ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/technology" data-link-name="nav : globalTop : tech">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/technology" data-link-name="nav : globalTop : tech">
 tech
 </a>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/travel" data-link-name="nav : globalTop : travel">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/travel" data-link-name="nav : globalTop : travel">
 travel
 </a>
 <ul class="global-navigation__children">
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/travel/australasia" data-link-name="nav : globalSub : australasia">
+australasia
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/travel/asia" data-link-name="nav : globalSub : asia">
+asia
+</a>
+</li>
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/travel/uk" data-link-name="nav : globalSub : UK">
 UK
@@ -2968,105 +2835,14 @@ US
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/uk/money" data-link-name="nav : globalTop : money">
-money
+<a class="global-navigation__title" href="https://www.theguardian.com/fashion" data-link-name="nav : globalTop : fashion">
+fashion
 </a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/money/property" data-link-name="nav : globalSub : property">
-property
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/money/savings" data-link-name="nav : globalSub : savings">
-savings
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/money/pensions" data-link-name="nav : globalSub : pensions">
-pensions
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/money/debt" data-link-name="nav : globalSub : borrowing">
-borrowing
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/money/work-and-careers" data-link-name="nav : globalSub : careers">
-careers
-</a>
-</li>
-</ul>
 </li>
 <li class="global-navigation__section">
 <a class="global-navigation__title" href="https://www.theguardian.com/science" data-link-name="nav : globalTop : science">
 science
 </a>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/guardian-professional" data-link-name="nav : globalTop : professional networks">
-professional networks
-</a>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/observer" data-link-name="nav : globalTop : the observer">
-the observer
-</a>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/theguardian" data-link-name="nav : globalTop : today&#x27;s paper">
-today's paper
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/tone/obituaries" data-link-name="nav : globalSub : obituaries">
-obituaries
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/theguardian/g2" data-link-name="nav : globalSub : g2">
-g2
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/theguardian/weekend" data-link-name="nav : globalSub : weekend">
-weekend
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/theguardian/theguide" data-link-name="nav : globalSub : the guide">
-the guide
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/theguardian/guardianreview" data-link-name="nav : globalSub : saturday review">
-saturday review
-</a>
-</li>
-</ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/theobserver" data-link-name="nav : globalTop : sunday&#x27;s paper">
-sunday's paper
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/theobserver/news/comment" data-link-name="nav : globalSub : comment">
-comment
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/theobserver/new-review" data-link-name="nav : globalSub : the new review">
-the new review
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/theobserver/magazine" data-link-name="nav : globalSub : observer magazine">
-observer magazine
-</a>
-</li>
-</ul>
 </li>
 <li class="global-navigation__section">
 <a class="global-navigation__title" href="https://www.theguardian.com/membership" data-link-name="nav : globalTop : membership">
@@ -3178,28 +2954,23 @@ digital archive
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="">
 <li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/australia-news" data-link-name="nav2 : subnav : australia news">
+australia
+</a>
+</li>
+<li class="subnav__item">
 <a class="subnav-link" href="https://www.theguardian.com/world" data-link-name="nav2 : subnav : world news">
 world
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk-news" data-link-name="nav2 : subnav : UK news">
-UK
+<a class="subnav-link" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav2 : subnav : politics">
+AU politics
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/science" data-link-name="nav2 : subnav : science">
-science
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/cities" data-link-name="nav2 : subnav : cities">
-cities
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/global-development" data-link-name="nav2 : subnav : global development">
-global development
+<a class="subnav-link" href="https://www.theguardian.com/au/environment" data-link-name="nav2 : subnav : environment">
+environment
 </a>
 </li>
 <li class="subnav__item">
@@ -3208,23 +2979,18 @@ football
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/technology" data-link-name="nav2 : subnav : tech">
-tech
+<a class="subnav-link" href="https://www.theguardian.com/australia-news/indigenous-australians" data-link-name="nav2 : subnav : indigenous australia">
+indigenous australia
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/business" data-link-name="nav2 : subnav : business">
-business
+<a class="subnav-link" href="https://www.theguardian.com/australia-news/australian-immigration-and-asylum" data-link-name="nav2 : subnav : immigration">
+immigration
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/uk/environment" data-link-name="nav2 : subnav : environment">
-environment
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/tone/obituaries" data-link-name="nav2 : subnav : obituaries">
-obituaries
+<a class="subnav-link" href="https://www.theguardian.com/au/media" data-link-name="nav2 : subnav : media">
+media
 </a>
 </li>
 </ul>
@@ -3246,35 +3012,41 @@ obituaries
 <div class="l-footer__secondary js-footer__secondary  gs-container" role="contentinfo">
 <div class="colophon u-cf">
 <div class="footer__email-container js-footer__email-container">
-<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/37" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-int" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
+<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/1506" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-au" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
 </div>
 <div class="colophon__lists-container">
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://membership.theguardian.com/supporter?INTCMP=NGW_FOOTER_INT_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_INT_GU_MEMBERSHIP&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://membership.theguardian.com/supporter?INTCMP=NGW_FOOTER_AU_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_AU_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_AU_GU_MEMBERSHIP&quot;%7D">
 become a supporter</a>
 </li>
 <li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://contribute.theguardian.com?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
 make a contribution</a>
 </li>
-<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
-securedrop</a>
+<li class="colophon__item"><a data-link-name="au : footer : uk-jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_FOOTER_AU_GU_JOBS">
+UK jobs</a>
 </li>
-<li class="colophon__item"><a data-link-name="tech feedback" class="international : footer : js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
-ask for help</a>
+<li class="colophon__item"><a data-link-name="au : footer : vacancies" href="https://www.theguardian.com/info/2015/aug/04/guardian-australia-job-vacancies">
+vacancies</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : masterclasses" href="https://www.theguardian.com/guardian-masterclasses/guardian-masterclasses-australia">
+masterclasses</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="international : footer : advertise with us" href="https://advertising.theguardian.com">
-advertise with us</a>
+<li class="colophon__item"><a data-link-name="au : footer : about us" href="https://www.theguardian.com/info/about-guardian-australia">
+about us</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : work for us" href="https://workforus.theguardian.com">
-work for us</a>
-</li>
-<li class="colophon__item"><a data-link-name="international : footer : contact us" href="https://www.theguardian.com/help/contact-us">
+<li class="colophon__item"><a data-link-name="au : footer : contact us" href="https://www.theguardian.com/info/2013/may/26/contact-guardian-australia">
 contact us</a>
 </li>
-<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
-complaints &amp; corrections</a>
+<li class="colophon__item"><a data-link-name="au : footer : advertise with us" href="https://advertising.theguardian.com">
+advertise with us</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : advertising" href="https://www.theguardian.com/advertising/guardian-australia-advertising">
+advertising</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : guardian labs" href="https://www.theguardian.com/guardian-labs-australia">
+Guardian labs</a>
 </li>
 </ul>
 <ul class="colophon__list">
@@ -3282,26 +3054,39 @@ complaints &amp; corrections</a>
 terms &amp; conditions</a>
 </li>
 <li class="colophon__item"><a data-link-name="privacy" href="https://www.theguardian.com/info/privacy">
-privacy policy</a></li>
+privacy policy</a>
+</li>
 <li class="colophon__item"><a data-link-name="cookie" href="https://www.theguardian.com/info/cookies">
 cookie policy</a>
 </li>
-<li class="colophon__item"><a data-link-name="digital newspaper archive" href="https://theguardian.newspapers.com">
-digital newspaper archive</a>
+<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
+securedrop</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : tech feedback" class="js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
+ask for help</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : information" href="https://www.theguardian.com/info">
+information</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="international : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
+<li class="colophon__item"><a data-link-name="au : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
 all topics</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : all contributors" href="https://www.theguardian.com/index/contributors">
+<li class="colophon__item"><a data-link-name="au : footer : all contributors" href="https://www.theguardian.com/index/contributors">
 all contributors</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : facebook" href="https://www.facebook.com/theguardian">
+<li class="colophon__item"><a data-link-name="au : footer : facebook" href="https://www.facebook.com/theguardianaustralia">
 Facebook</a>
 </li>
-<li class="colophon__item"><a data-link-name="international : footer : twitter" href="https://twitter.com/guardian">
+<li class="colophon__item"><a data-link-name="au : footer : twitter" href="https://twitter.com/GuardianAus">
 Twitter</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : subscribe" class="js-acquisition-link" href="https://subscribe.theguardian.com?INTCMP=NGW_FOOTER_AU_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_AU_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_AU_GU_SUBSCRIBE&quot;%7D">
+subscribe</a>
+</li>
+<li class="colophon__item"><a data-link-name="digital newspaper archive" href="https://theguardian.newspapers.com">
+digital newspaper archive</a>
 </li>
 </ul>
 </div>
