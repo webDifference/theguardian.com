@@ -26,13 +26,13 @@
 
 
 
-<script src="https://polyfill.guim.co.uk/v2/polyfill.min.js?features=default-3.6,Element.prototype.dataset,Array.prototype.includes,fetch"></script>
+<script src="https://polyfill.guim.co.uk/v2/polyfill.min.js?features=default-3.6,Element.prototype.dataset,Array.prototype.includes,Array.find,fetch"></script>
 
 
 <script id="gu">
     var guardian = JSON.parse('{"user":{"isSignedIn":false,"ignorePageLoadTracking":false},"currency":"GBP","country":null}');
     guardian.analyticsEnabled = true;
-    guardian.buildNumber = '11066';
+    guardian.buildNumber = '11089';
     guardian.isDev = false;
     guardian.supplierCode = '';
     guardian.googleAnalytics = {
@@ -118,7 +118,7 @@
             if (data) {
                 inlineSvg(data);
             } else {
-                loadData("/assets/dist/images/c6efb617/svg-sprite.svg", function (xhr) {
+                loadData("/assets/dist/images/49a7da97/svg-sprite.svg", function (xhr) {
                     inlineSvg(xhr.responseText);
                     updateLocalStorage('icons', xhr.responseText);
                 });
@@ -132,12 +132,12 @@
 </script>
 
 
-<link rel="stylesheet" href="/assets/dist/stylesheets/8fbd87ef/main.min.css"/>
+<link rel="stylesheet" href="/assets/dist/stylesheets/694dd979/main.min.css"/>
 <!--[if (IE 9)]>
-    <link rel="stylesheet" href="/assets/dist/stylesheets/635d6715/ie9.min.css"/>
+    <link rel="stylesheet" href="/assets/dist/stylesheets/1cf46f08/ie9.min.css"/>
 <![endif]-->
 <!--[if (lt IE 9)]>
-    <link rel="stylesheet" href="/assets/dist/stylesheets/de7eee21/ie-old.min.css"/>
+    <link rel="stylesheet" href="/assets/dist/stylesheets/47538d2e/ie-old.min.css"/>
 <![endif]-->
 
 
@@ -319,8 +319,6 @@
         <ul class="block__list">
             <li class="block__list-item">14-day free trial</li>
             
-                <li class="block__list-item"><strong>Plus, save 50% for the first 3 months</strong></li>
-            
             <li class="block__list-item">Access to the Daily Edition and the advert-free Guardian App Premium Tier</li>
             <li class="block__list-item">All supplements Monday to Sunday</li>
             <li class="block__list-item">Available on Apple, Android and Kindle Fire</li>
@@ -328,7 +326,7 @@
         </ul>
     </div>
     <div class="block__footer">
-        <a class="button button--large button--primary" href="/p/DBQ80F?edition=int" data-test-id="subscriptions-int-digital">Subscribe now</a>
+        <a class="button button--large button--primary" href="/p/DHOMEINT1?edition=int" data-test-id="subscriptions-int-digital">Subscribe now</a>
     </div>
 </div>
 
@@ -451,9 +449,9 @@
             </p>
             <small class="global-footer__copyright">
                 &copy; 2017 Guardian News and Media Limited or its affiliated companies.
-                All rights reserved. Build #11066
+                All rights reserved. Build #11089
             </small>
-            <!-- build-commit-id: 4355247934a314c96387001abe127a02e5ef6656 -->
+            <!-- build-commit-id: 4ddd69142e3f79768aaf0941ef1950b3c601ef8d -->
         </div>
     </div>
 
@@ -464,7 +462,7 @@
     (function(isModern) {
         if (isModern) {
             var s = document.createElement('script');
-            s.src = '/assets/dist/javascripts/d2938d3f/main.min.js'; s.async = true;
+            s.src = '/assets/dist/javascripts/289ef4f7/main.min.js'; s.async = true;
             document.getElementsByTagName("head")[0].appendChild(s);
         }
     })(guardian.isModernBrowser);
