@@ -189,7 +189,7 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"‘This is hell out here’: how Behrouz Boochani's diaries expose Australia’s refugee shame","isImmersive":false,"author":"Behrouz Boochani","toneIds":"tone/features","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"australia-opinion,uk-g2-features","webPublicationDate":1512365401000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"‘This is hell out here’: how Behrouz Boochani's diaries expose Australia’s refugee shame","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":8,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":0,"showRelatedContent":true,"lightboxImages":{"id":"world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","headline":"‘This is hell out here’: how Behrouz Boochani's diaries expose Australia’s refugee shame","shouldHideAdverts":false,"standfirst":"<p>The journalist fled Iran for Australia in 2013, and was sent to a detention centre on Manus Island, where he has been held ever since. His dispatches for the Guardian reveal the true horror of conditions at the Papua New Guinea camp</p>","images":[{"caption":"‘Starvation, thirst and terror slowly but surely dominate the prison’ … Behrouz Boochani on Manus Island.","credit":"Photograph: Jason Garman/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d109f061b1982e2a8d3c768fc0d8f5e6","srcsets":"https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=ef5ec68b5856b321013b354293f8f1d0 1920w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=43b93976c80ff545380a15d2d2b706ed 1225w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=0f008719f1162031ffe525cc3f1a1161 1065w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=2ab496f2aeabdc5e83176f174b2ddb95 965w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=5579fac5b7ceef6b28950c800f62f7cc 725w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=3bce4032cedad742ede4a981d8f9d2d7 645w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e936fc1fdcb93a63b9b1fed797311e22 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6666666666666667,"role":"Some(showcase)"},{"caption":"Refugees sit under a battery-powered light.","credit":"Photograph: Ben Doherty for the Guardian","displayCredit":true,"src":"https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=37e2d7431d9ce2a72178f685aedaa5d0","srcsets":"https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=716c68ace7132b4e749bfc5502e8c203 1920w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=78993012cddc0cb4fac7e24a973e74a9 1225w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=934c50a5bbe45a73a52742b2c71a59b8 1065w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=e961e9e89983014a681e34b1645028c9 965w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=4f3e59df04041eeb134fbdbe4721ad16 725w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=c9bf3c3a4c8af6a8ef0426cfc06847ca 645w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=4cac42509094f2767c30818d2e581071 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6662468513853905,"role":"Some(showcase)"},{"caption":"Refugees sleeping in bunkbeds.","credit":"Photograph: AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=ca416ced378ea8575d907e0e05b73fb9","srcsets":"https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=0e56cbde2654cb09883932a9d7be65b7 1920w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=c0b2a6f931ea8f88dec31e27f4a9b830 1225w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=45f2c3564eaa1889f2a01fe379fdfee2 1065w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=a16f5fe4083306af125450f39a25a4e4 965w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=8411b6f006723380d7596185efbb4b5c 725w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=96cff0f99b0d4bd8a154bcb6b3e9ed12 645w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=1ff08957984768dc00290ff3066f6a9d 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.665741254858412,"role":"None"},{"caption":"Police and detainees.","credit":"Photograph: Abdul, refugee on Manus/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d864946173782f646be523de75b70a03","srcsets":"https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=25fb474c11f53aa0a6a3e598fc369d08 1920w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=a30e7602498ab63832952c16fd4ca392 1225w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cff1bb149fb72e4cd60375cef61064f9 1065w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=74a758cb8fb3aa1508c6097381cadcc9 965w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=35d428077180ecd38d6360471158c12a 725w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=be736f16a65292599d45a9d0f06cee31 645w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=d611abc406f7af69e372995efd455b54 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6653333333333333,"role":"Some(showcase)"},{"caption":"Toilets inside the camp.","credit":"Photograph: Ben Doherty for the Guardian","displayCredit":true,"src":"https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d96d6248726c5acc3a2d33eeda76425b","srcsets":"https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=f31cce9b78b5cc2fe31eec4e55243888 1920w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=eecc5b535ad5e7388965410e1d20c6ee 1225w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=22e37c508bb067157cda86518c479bc9 1065w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=8a36fd88e5001703d4683722cf2f5f27 965w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=cc1bee54a882909c50aced94fa865228 725w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=af83cdc5282cff33e92d247b9aee2e6a 645w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=265714a4a393068141a1c07185da6c91 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6671388101983002,"role":"Some(supporting)"},{"caption":"Police entering the prison.","credit":"Photograph: AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=e8b4e5a243c8c224780e9586f09d6d42","srcsets":"https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=3f713c530e5cabf39717fd1497521d57 1920w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=302eb687d2653e53b878ad61c458c32d 1225w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=f6faa898bd145ccc29eb5f7d18549d72 1065w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=4bbe239c542fe9ba753db1ebe63dec06 965w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=9db568b0f1f13372e9c7579daa9b04e2 725w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=e997433043a32a1c9b188143b1110cf2 645w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=9eedada673cd3127d3add74b91e7ec8b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6673040152963672,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"Features","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"Australia Opinion,UK G2 Features","host":"https://www.theguardian.com","hasShowcaseMainElement":true,"blogIds":"","sectionName":"World news","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7kdd5","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":2766,"cardStyle":"feature","adUnit":"/59666047/theguardian.com/world/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"US","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"world","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7kdd5","thumbnail":"https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/500.jpg?q=55&auto=format&usm=12&fit=max&s=e9aaf1eddbdf6e60430fa06c89b52446","pageId":"world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","references":[{"rich-link":"https://www.theguardian.com/info/2015/dec/08/daily-email-au"}],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/refugees,australia-news/manus-island,australia-news/australian-immigration-and-asylum,world/migration,world/world,australia-news/australia-news","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/behrouz-boochani","isPaidContent":false,"hasYouTubeAtom":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Refugees,Manus Island,Australian immigration and asylum,Migration,World news,Australia news","contentId":"world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","nonKeywordTagIds":"type/article,tone/features,profile/behrouz-boochani,publication/theguardian,theguardian/g2,theguardian/g2/features,tracking/commissioningdesk/australia-opinion,tracking/commissioningdesk/uk-g2-features","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"d09ff75c4736f72931f5605307162a4da02fb5b8","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"https://www.theguardian.com/info/2015/dec/08/daily-email-au","campaigns":[{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4123580","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"The Guardian","sentryHost":"app.getsentry.com/35463","buildNumber":"15334","sharedAdTargeting":{"ct":"article","co":["behrouz-boochani"],"url":"/world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","su":["5"],"edition":"us","tn":["features"],"p":"ng","k":["world","refugees","australia-news","manus-island","australian-immigration-and-asylum","migration"],"sh":"https://gu.com/p/7kdd5"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Aus","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsEpicEndOfYearCountdown":true,"abAcquisitionsEpicTestimonialsGroup":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeader":true,"commercialPaidContent":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"‘This is hell out here’: how Behrouz Boochani's diaries expose Australia’s refugee shame","isImmersive":false,"author":"Behrouz Boochani","toneIds":"tone/features","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"australia-opinion,uk-g2-features","webPublicationDate":1512365401000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"‘This is hell out here’: how Behrouz Boochani's diaries expose Australia’s refugee shame","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":8,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":0,"showRelatedContent":true,"lightboxImages":{"id":"world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","headline":"‘This is hell out here’: how Behrouz Boochani's diaries expose Australia’s refugee shame","shouldHideAdverts":false,"standfirst":"<p>The journalist fled Iran for Australia in 2013, and was sent to a detention centre on Manus Island, where he has been held ever since. His dispatches for the Guardian reveal the true horror of conditions at the Papua New Guinea camp</p>","images":[{"caption":"‘Starvation, thirst and terror slowly but surely dominate the prison’ … Behrouz Boochani on Manus Island.","credit":"Photograph: Jason Garman/AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d109f061b1982e2a8d3c768fc0d8f5e6","srcsets":"https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=ef5ec68b5856b321013b354293f8f1d0 1920w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=43b93976c80ff545380a15d2d2b706ed 1225w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=0f008719f1162031ffe525cc3f1a1161 1065w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=2ab496f2aeabdc5e83176f174b2ddb95 965w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=5579fac5b7ceef6b28950c800f62f7cc 725w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=3bce4032cedad742ede4a981d8f9d2d7 645w, https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/master/1780.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e936fc1fdcb93a63b9b1fed797311e22 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6666666666666667,"role":"Some(showcase)"},{"caption":"Refugees sit under a battery-powered light.","credit":"Photograph: Ben Doherty for the Guardian","displayCredit":true,"src":"https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=37e2d7431d9ce2a72178f685aedaa5d0","srcsets":"https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=716c68ace7132b4e749bfc5502e8c203 1920w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=78993012cddc0cb4fac7e24a973e74a9 1225w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=934c50a5bbe45a73a52742b2c71a59b8 1065w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=e961e9e89983014a681e34b1645028c9 965w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=4f3e59df04041eeb134fbdbe4721ad16 725w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=c9bf3c3a4c8af6a8ef0426cfc06847ca 645w, https://i.guim.co.uk/img/media/a1b85bc6a38820712e9780625d6eeecff1ee1245/0_129_2646_1588/master/2646.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=4cac42509094f2767c30818d2e581071 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6662468513853905,"role":"Some(showcase)"},{"caption":"Refugees sleeping in bunkbeds.","credit":"Photograph: AFP/Getty Images","displayCredit":true,"src":"https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=ca416ced378ea8575d907e0e05b73fb9","srcsets":"https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=0e56cbde2654cb09883932a9d7be65b7 1920w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=c0b2a6f931ea8f88dec31e27f4a9b830 1225w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=45f2c3564eaa1889f2a01fe379fdfee2 1065w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=a16f5fe4083306af125450f39a25a4e4 965w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=8411b6f006723380d7596185efbb4b5c 725w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=96cff0f99b0d4bd8a154bcb6b3e9ed12 645w, https://i.guim.co.uk/img/media/9c4f423eeca11c370900ed304f65fb44c691840a/0_202_3000_1801/master/3000.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=1ff08957984768dc00290ff3066f6a9d 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.665741254858412,"role":"None"},{"caption":"Police and detainees.","credit":"Photograph: Abdul, refugee on Manus/EPA","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d864946173782f646be523de75b70a03","srcsets":"https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=25fb474c11f53aa0a6a3e598fc369d08 1920w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=a30e7602498ab63832952c16fd4ca392 1225w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=cff1bb149fb72e4cd60375cef61064f9 1065w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=74a758cb8fb3aa1508c6097381cadcc9 965w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=35d428077180ecd38d6360471158c12a 725w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=be736f16a65292599d45a9d0f06cee31 645w, https://i.guim.co.uk/img/media/f7ad4db79297ec46e7bbfb1bed2edff10a7637b6/171_0_2498_1500/master/2498.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=d611abc406f7af69e372995efd455b54 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6653333333333333,"role":"Some(showcase)"},{"caption":"Toilets inside the camp.","credit":"Photograph: Ben Doherty for the Guardian","displayCredit":true,"src":"https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=d96d6248726c5acc3a2d33eeda76425b","srcsets":"https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=f31cce9b78b5cc2fe31eec4e55243888 1920w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=eecc5b535ad5e7388965410e1d20c6ee 1225w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=22e37c508bb067157cda86518c479bc9 1065w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=8a36fd88e5001703d4683722cf2f5f27 965w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=cc1bee54a882909c50aced94fa865228 725w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=af83cdc5282cff33e92d247b9aee2e6a 645w, https://i.guim.co.uk/img/media/58ddd632539ab13f5610045cda8cf4143ed19163/600_557_2354_1412/master/2354.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=265714a4a393068141a1c07185da6c91 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6671388101983002,"role":"Some(supporting)"},{"caption":"Police entering the prison.","credit":"Photograph: AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=e8b4e5a243c8c224780e9586f09d6d42","srcsets":"https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=3f713c530e5cabf39717fd1497521d57 1920w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=302eb687d2653e53b878ad61c458c32d 1225w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=f6faa898bd145ccc29eb5f7d18549d72 1065w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=4bbe239c542fe9ba753db1ebe63dec06 965w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=9db568b0f1f13372e9c7579daa9b04e2 725w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=e997433043a32a1c9b188143b1110cf2 645w, https://i.guim.co.uk/img/media/f3db3a53db43ec56eb31e37a6feb63d883e47e04/0_0_4360_2615/master/4360.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=9eedada673cd3127d3add74b91e7ec8b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6673040152963672,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"Features","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"Australia Opinion,UK G2 Features","host":"https://www.theguardian.com","hasShowcaseMainElement":true,"blogIds":"","sectionName":"World news","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7kdd5","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":2766,"cardStyle":"feature","adUnit":"/59666047/theguardian.com/world/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"AU","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"world","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7kdd5","thumbnail":"https://i.guim.co.uk/img/media/e384f2abcaa4258ae2d292f5ac0740c34e88ec6b/0_0_1780_1068/500.jpg?q=55&auto=format&usm=12&fit=max&s=e9aaf1eddbdf6e60430fa06c89b52446","pageId":"world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","references":[{"rich-link":"https://www.theguardian.com/info/2015/dec/08/daily-email-au"}],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/refugees,australia-news/manus-island,australia-news/australian-immigration-and-asylum,world/migration,world/world,australia-news/australia-news","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/behrouz-boochani","isPaidContent":false,"hasYouTubeAtom":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Refugees,Manus Island,Australian immigration and asylum,Migration,World news,Australia news","contentId":"world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","nonKeywordTagIds":"type/article,tone/features,profile/behrouz-boochani,publication/theguardian,theguardian/g2,theguardian/g2/features,tracking/commissioningdesk/australia-opinion,tracking/commissioningdesk/uk-g2-features","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"d09ff75c4736f72931f5605307162a4da02fb5b8","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"https://www.theguardian.com/info/2015/dec/08/daily-email-au","campaigns":[{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4123580","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"The Guardian","sentryHost":"app.getsentry.com/35463","buildNumber":"15334","sharedAdTargeting":{"ct":"article","co":["behrouz-boochani"],"url":"/world/2017/dec/04/this-is-hell-behrouz-boochani-diaries-expose-australia-refugee-shame","su":["5"],"edition":"au","tn":["features"],"p":"ng","k":["world","refugees","australia-news","manus-island","australian-immigration-and-asylum","migration"],"sh":"https://gu.com/p/7kdd5"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Aus","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsEpicEndOfYearCountdown":true,"abAcquisitionsEpicTestimonialsGroup":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeader":true,"commercialPaidContent":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
@@ -232,9 +232,9 @@
 <input type="checkbox" id="edition-picker-toggle" aria-controls="edition-dropdown-menu" class="u-h dropdown-menu-fallback js-enhance-checkbox" data-link-name="nav2 : topbar : edition-picker: toggle">
 <ul class="dropdown-menu js-edition-dropdown-menu" id="edition-dropdown-menu" aria-hidden="true">
 <li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: US" href="https://www.theguardian.com/preference/edition/us" class="dropdown-menu__title dropdown-menu__title--active">
+<a data-link-name="nav2 : topbar : edition-picker: AU" href="https://www.theguardian.com/preference/edition/au" class="dropdown-menu__title dropdown-menu__title--active">
 <span class="u-h">switch to the </span>
-US edition
+Australia edition
 </a>
 </li>
 <li class="dropdown-menu__item">
@@ -244,9 +244,9 @@ UK edition
 </a>
 </li>
 <li class="dropdown-menu__item">
-<a data-link-name="nav2 : topbar : edition-picker: AU" href="https://www.theguardian.com/preference/edition/au" class="dropdown-menu__title ">
+<a data-link-name="nav2 : topbar : edition-picker: US" href="https://www.theguardian.com/preference/edition/us" class="dropdown-menu__title ">
 <span class="u-h">switch to the </span>
-Australia edition
+US edition
 </a>
 </li>
 <li class="dropdown-menu__item">
@@ -258,10 +258,10 @@ International edition
 </ul>
 <label for="edition-picker-toggle" class="top-bar__item top-bar__item--dropdown js-edition-picker-trigger" data-link-name="nav2 : topnav : edition-picker: toggle">
 <span class="u-h">current edition: </span>
-US edition
+Australia edition
 </label>
 </div>
-<a href="https://www.theguardian.com/us" class="new-header__logo" data-link-name="nav2 : logo">
+<a href="https://www.theguardian.com/au" class="new-header__logo" data-link-name="nav2 : logo">
 <span class="u-h">The Guardian - Back to home</span>
 <span class="inline-guardian-logo-160 inline-logo new-header__logo">
 <svg width="160" height="30" viewbox="0 0 320 60" class="new-header__logo__svg inline-guardian-logo-160__svg inline-logo__svg">
@@ -271,16 +271,16 @@ US edition
 </span>
 </a>
 <div class="new-header__top-bar hide-until-mobile">
-<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="us" href="https://support.theguardian.com/us/contribute?acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;%7D">
+<a class="top-bar__item top-bar__item--cta js-change-become-member-link js-acquisition-link" data-link-name="nav2 : supporter-cta" data-edition="au" href="https://membership.theguardian.com/supporter?INTCMP=mem_au_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_au_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_au_web_newheader&quot;%7D">
 <span class="top-bar__item--cta--circle"></span>
 <span class="top-bar__item--cta--text">
-make a <br>contribution
+become a <br>supporter
 </span>
 </a>
-<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="us" href="https://subscribe.theguardian.com?INTCMP=subs_us_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;subs_us_web_newheader&quot;,&quot;campaignCode&quot;:&quot;subs_us_web_newheader&quot;%7D">
+<a class="top-bar__item hide-until-tablet js-change-subscribe-link js-acquisition-link" data-link-name="nav2 : subscribe-cta" data-edition="au" href="https://subscribe.theguardian.com?INTCMP=subs_au_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;subs_au_web_newheader&quot;,&quot;campaignCode&quot;:&quot;subs_au_web_newheader&quot;%7D">
 subscribe
 </a>
-<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="us" href="https://jobs.theguardian.com?INTCMP=jobs_us_web_newheader">
+<a class="top-bar__item hide-until-tablet" data-link-name="nav2 : job-cta" data-edition="au" href="https://jobs.theguardian.com/landingpage/2868291/jobs-australia-html/?INTCMP=jobs_au_web_newheader">
 <span class="hide-until-tablet">find a job</span>
 <span class="hide-from-tablet">jobs</span>
 </a>
@@ -328,27 +328,27 @@ search
 <input type="checkbox" id="main-menu-toggle" class="veggie-burger-fallback js-enhance-checkbox u-h" data-link-name="nav2 : veggie-burger : show" aria-controls="main-menu">
 <ul class="pillars">
 <li class="pillars__item">
-<a class="pillar-link pillar-link--current-section" href="https://www.theguardian.com/us" data-link-name="nav2 : primary : news">
+<a class="pillar-link pillar-link--current-section" href="https://www.theguardian.com/au" data-link-name="nav2 : primary : news">
 news
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/us/commentisfree" data-link-name="nav2 : primary : opinion">
+<a class="pillar-link" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav2 : primary : opinion">
 opinion
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/us/sport" data-link-name="nav2 : primary : sport">
+<a class="pillar-link" href="https://www.theguardian.com/au/sport" data-link-name="nav2 : primary : sport">
 sport
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/us/culture" data-link-name="nav2 : primary : arts">
+<a class="pillar-link" href="https://www.theguardian.com/au/culture" data-link-name="nav2 : primary : arts">
 arts
 </a>
 </li>
 <li class="pillars__item">
-<a class="pillar-link" href="https://www.theguardian.com/us/lifeandstyle" data-link-name="nav2 : primary : lifestyle">
+<a class="pillar-link" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav2 : primary : lifestyle">
 lifestyle
 </a>
 </li>
@@ -380,9 +380,9 @@ sections
 <i class="menu-item__toggle"></i>
 news
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="us" aria-label="Submenu news" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu news" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us" data-link-name="nav2 : secondary : headlines">
+<a class="menu-item__title" href="https://www.theguardian.com/au" data-link-name="nav2 : secondary : headlines">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -392,8 +392,8 @@ headlines
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us-news" data-link-name="nav2 : secondary : US news">
-US news
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news" data-link-name="nav2 : secondary : australia news">
+australia news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -402,43 +402,33 @@ world news
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/environment" data-link-name="nav2 : secondary : environment">
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav2 : secondary : politics">
+politics
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/au/environment" data-link-name="nav2 : secondary : environment">
 environment
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : soccer">
-soccer
+<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
+football
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us-news/us-politics" data-link-name="nav2 : secondary : US politics">
-US politics
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news/indigenous-australians" data-link-name="nav2 : secondary : indigenous australia">
+indigenous australia
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/business" data-link-name="nav2 : secondary : business">
-business
+<a class="menu-item__title" href="https://www.theguardian.com/australia-news/australian-immigration-and-asylum" data-link-name="nav2 : secondary : immigration">
+immigration
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/science" data-link-name="nav2 : secondary : science">
-science
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/money" data-link-name="nav2 : secondary : money">
-money
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/technology" data-link-name="nav2 : secondary : tech">
-tech
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/tone/obituaries" data-link-name="nav2 : secondary : obituaries">
-obituaries
+<a class="menu-item__title" href="https://www.theguardian.com/au/media" data-link-name="nav2 : secondary : media">
+media
 </a>
 </li>
 </ul>
@@ -448,9 +438,9 @@ obituaries
 <i class="menu-item__toggle"></i>
 opinion
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="us" aria-label="Submenu opinion" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu opinion" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/commentisfree" data-link-name="nav2 : secondary : opinion home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav2 : secondary : opinion home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -460,28 +450,28 @@ opinion home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/profile/editorial" data-link-name="nav2 : secondary : the guardian view">
-the guardian view
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/index/contributors" data-link-name="nav2 : secondary : columnists">
+<a class="menu-item__title" href="https://www.theguardian.com/au/index/contributors" data-link-name="nav2 : secondary : columnists">
 columnists
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/tone/letters" data-link-name="nav2 : secondary : letters">
-letters
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/commentisfree/series/comment-is-free-weekly" data-link-name="nav2 : secondary : opinion videos">
-opinion videos
 </a>
 </li>
 <li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/cartoons/archive" data-link-name="nav2 : secondary : cartoons">
 cartoons
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/commentisfree/series/indigenousx" data-link-name="nav2 : secondary : Indigenous">
+Indigenous
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/profile/editorial" data-link-name="nav2 : secondary : editorials">
+editorials
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/tone/letters" data-link-name="nav2 : secondary : letters">
+letters
 </a>
 </li>
 </ul>
@@ -491,9 +481,9 @@ cartoons
 <i class="menu-item__toggle"></i>
 sport
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="us" aria-label="Submenu sport" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu sport" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/sport" data-link-name="nav2 : secondary : sport home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/sport" data-link-name="nav2 : secondary : sport home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -503,38 +493,38 @@ sport home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : soccer">
-soccer
+<a class="menu-item__title" href="https://www.theguardian.com/football" data-link-name="nav2 : secondary : football">
+football
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/nfl" data-link-name="nav2 : secondary : NFL">
-NFL
+<a class="menu-item__title" href="https://www.theguardian.com/sport/afl" data-link-name="nav2 : secondary : AFL">
+AFL
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/sport/nrl" data-link-name="nav2 : secondary : NRL">
+NRL
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/football/a-league" data-link-name="nav2 : secondary : a-league">
+a-league
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/sport/cricket" data-link-name="nav2 : secondary : cricket">
+cricket
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/sport/rugby-union" data-link-name="nav2 : secondary : rugby union">
+rugby union
 </a>
 </li>
 <li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/sport/tennis" data-link-name="nav2 : secondary : tennis">
 tennis
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/mlb" data-link-name="nav2 : secondary : MLB">
-MLB
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/football/mls" data-link-name="nav2 : secondary : MLS">
-MLS
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/nba" data-link-name="nav2 : secondary : NBA">
-NBA
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/sport/nhl" data-link-name="nav2 : secondary : NHL">
-NHL
 </a>
 </li>
 </ul>
@@ -544,9 +534,9 @@ NHL
 <i class="menu-item__toggle"></i>
 arts
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="us" aria-label="Submenu arts" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu arts" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/culture" data-link-name="nav2 : secondary : culture home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/culture" data-link-name="nav2 : secondary : culture home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -556,13 +546,8 @@ culture home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/film" data-link-name="nav2 : secondary : film">
+<a class="menu-item__title" href="https://www.theguardian.com/au/film" data-link-name="nav2 : secondary : film">
 film
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
-books
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -571,13 +556,18 @@ music
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/artanddesign" data-link-name="nav2 : secondary : art &amp; design">
-art &amp; design
+<a class="menu-item__title" href="https://www.theguardian.com/books" data-link-name="nav2 : secondary : books">
+books
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
+<a class="menu-item__title" href="https://www.theguardian.com/au/tv-and-radio" data-link-name="nav2 : secondary : tv &amp; radio">
 tv &amp; radio
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/artanddesign" data-link-name="nav2 : secondary : art &amp; design">
+art &amp; design
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -586,13 +576,13 @@ stage
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : secondary : classical">
-classical
+<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
+games
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/games" data-link-name="nav2 : secondary : games">
-games
+<a class="menu-item__title" href="https://www.theguardian.com/music/classicalmusicandopera" data-link-name="nav2 : secondary : classical">
+classical
 </a>
 </li>
 </ul>
@@ -602,9 +592,9 @@ games
 <i class="menu-item__toggle"></i>
 lifestyle
 </button>
-<ul class="menu-group menu-group--secondary" data-edition="us" aria-label="Submenu lifestyle" role="menu">
+<ul class="menu-group menu-group--secondary" data-edition="au" aria-label="Submenu lifestyle" role="menu">
 <li class="menu-item menu-item--home" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav2 : secondary : lifestyle home">
 <span class="inline-home inline-icon menu-item__icon">
 <svg width="15" height="18" viewbox="0 0 15 18" class="menu-item__icon__svg inline-home__svg inline-icon__svg">
 <path d="M7.9 0h-1L0 7v10.1l.9.9h4.2v-6.6h4.7V18h4.3l.9-1V7z"/>
@@ -614,18 +604,28 @@ lifestyle home
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/fashion" data-link-name="nav2 : secondary : fashion">
-fashion
+<a class="menu-item__title" href="https://www.theguardian.com/au/travel" data-link-name="nav2 : secondary : travel">
+travel
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/food-and-drink" data-link-name="nav2 : secondary : food">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/food-and-drink" data-link-name="nav2 : secondary : food">
 food
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/tone/recipes" data-link-name="nav2 : secondary : recipes">
-recipes
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/relationships" data-link-name="nav2 : secondary : relationships">
+relationships
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/fashion" data-link-name="nav2 : secondary : fashion">
+fashion
+</a>
+</li>
+<li class="menu-item" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/au/lifeandstyle/health-and-wellbeing" data-link-name="nav2 : secondary : health &amp; fitness">
+health &amp; fitness
 </a>
 </li>
 <li class="menu-item" role="menuitem">
@@ -634,28 +634,13 @@ love &amp; sex
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
-home &amp; garden
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/health-and-wellbeing" data-link-name="nav2 : secondary : health &amp; fitness">
-health &amp; fitness
-</a>
-</li>
-<li class="menu-item" role="menuitem">
 <a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav2 : secondary : family">
 family
 </a>
 </li>
 <li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/travel" data-link-name="nav2 : secondary : travel">
-travel
-</a>
-</li>
-<li class="menu-item" role="menuitem">
-<a class="menu-item__title" href="https://www.theguardian.com/us/money" data-link-name="nav2 : secondary : money">
-money
+<a class="menu-item__title" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav2 : secondary : home &amp; garden">
+home &amp; garden
 </a>
 </li>
 </ul>
@@ -680,13 +665,13 @@ money
 </form>
 </div>
 <ul class="menu-group menu-group--membership" role="menubar">
-<li class="menu-item hide-from-desktop" data-edition="us" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://support.theguardian.com/us/contribute?acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;%7D" data-link-name="nav2 : become a supporter">
+<li class="menu-item hide-from-desktop" data-edition="au" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://membership.theguardian.com/supporter?INTCMP=mem_au_web_newheader&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;mem_au_web_newheader&quot;,&quot;campaignCode&quot;:&quot;mem_au_web_newheader&quot;%7D" data-link-name="nav2 : become a supporter">
 become a supporter
 </a>
 </li>
-<li class="menu-item hide-from-desktop" data-edition="us" role="menuitem">
-<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_us_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_us_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_us_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
+<li class="menu-item hide-from-desktop" data-edition="au" role="menuitem">
+<a class="menu-item__title js-change-membership-item" href="https://subscribe.theguardian.com?INTCMP=NGW_NEWHEADER_au_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_NEWHEADER_au_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_NEWHEADER_au_GU_SUBSCRIBE&quot;%7D" data-link-name="nav2 : subscribe">
 subscribe
 </a>
 </li>
@@ -733,7 +718,7 @@ Sign out
 <li class="menu-item js-navigation-item">
 <button class="menu-item__title js-navigation-toggle" data-link-name="nav2 : edition picker" aria-haspopup="true" aria-expanded="true">
 <i class="menu-item__toggle"></i>
-US edition
+Australia edition
 </button>
 <ul class="menu-group">
 <li class="menu-item">
@@ -743,9 +728,9 @@ UK edition
 </a>
 </li>
 <li class="menu-item">
-<a data-link-name="nav2 : edition-picker: AU" href="https://www.theguardian.com/preference/edition/au" class="menu-item__title">
+<a data-link-name="nav2 : edition-picker: US" href="https://www.theguardian.com/preference/edition/us" class="menu-item__title">
 <span class="u-h">switch to the </span>
-Australia edition
+US edition
 </a>
 </li>
 <li class="menu-item">
@@ -757,14 +742,19 @@ International edition
 </ul>
 </li>
 </ul>
-<ul class="menu-group menu-group--footer" data-edition="us" role="menubar">
+<ul class="menu-group menu-group--footer" data-edition="au" role="menubar">
 <li class="menu-item hide-from-desktop" role="menuitem">
-<a class="menu-item__title" href="https://jobs.theguardian.com?INTCMP=jobs_us_web_newheader" data-link-name="nav2 : jobs">
+<a class="menu-item__title" href="https://jobs.theguardian.com/landingpage/2868291/jobs-australia-html/?INTCMP=jobs_au_web_newheader" data-link-name="nav2 : jobs">
 jobs
 </a>
 </li>
+<li class="menu-item hide-from-desktop" role="menuitem">
+<a class="menu-item__title" href="https://www.theguardian.com/guardian-live-australia" data-link-name="nav2 : events">
+events
+</a>
+</li>
 <li class="hide-from-desktop menu-item" role="menuitem">
-<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_us_web_newheader" data-link-name="nav2 : the guardian app">
+<a class="menu-item__title" href="https://app.adjust.com/f8qm1x_8q69t7?campaign=NewHeader&amp;amp;adgroup=Mobile&amp;amp;creative=generic?INTCMP=apps_au_web_newheader" data-link-name="nav2 : the guardian app">
 the guardian app
 </a>
 </li>
@@ -821,8 +811,13 @@ Twitter
 </ul>
 <ul class="menu-group menu-group--brand-extensions hide-until-desktop">
 <li class="menu-item--brand-extension">
-<a href="https://jobs.theguardian.com?INTCMP=jobs_us_web_newheader" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : jobs">
+<a href="https://jobs.theguardian.com/landingpage/2868291/jobs-australia-html/?INTCMP=jobs_au_web_newheader" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : jobs">
 jobs
+</a>
+</li>
+<li class="menu-item--brand-extension">
+<a href="https://www.theguardian.com/guardian-live-australia" class="menu-item__title menu-item__title--brand-extension" data-link-name="nav2 : brand extension : events">
+events
 </a>
 </li>
 </ul>
@@ -833,8 +828,8 @@ jobs
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="news">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us-news" data-link-name="nav2 : subnav : US news">
-US
+<a class="subnav-link" href="https://www.theguardian.com/australia-news" data-link-name="nav2 : subnav : australia news">
+australia
 </a>
 </li>
 <li class="subnav__item">
@@ -843,43 +838,33 @@ world
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/environment" data-link-name="nav2 : subnav : environment">
+<a class="subnav-link" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav2 : subnav : politics">
+AU politics
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/au/environment" data-link-name="nav2 : subnav : environment">
 environment
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : soccer">
-soccer
+<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
+football
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us-news/us-politics" data-link-name="nav2 : subnav : US politics">
-US politics
+<a class="subnav-link" href="https://www.theguardian.com/australia-news/indigenous-australians" data-link-name="nav2 : subnav : indigenous australia">
+indigenous australia
+</a>
+</li>
+<li class="subnav__item subnav__item--current-section">
+<a class="subnav-link subnav-link--current-section" href="https://www.theguardian.com/australia-news/australian-immigration-and-asylum" data-link-name="nav2 : subnav : immigration">
+immigration
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/business" data-link-name="nav2 : subnav : business">
-business
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/science" data-link-name="nav2 : subnav : science">
-science
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/money" data-link-name="nav2 : subnav : money">
-money
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/technology" data-link-name="nav2 : subnav : tech">
-tech
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/tone/obituaries" data-link-name="nav2 : subnav : obituaries">
-obituaries
+<a class="subnav-link" href="https://www.theguardian.com/au/media" data-link-name="nav2 : subnav : media">
+media
 </a>
 </li>
 </ul>
@@ -944,12 +929,12 @@ Sign out</a>
 <path d="M21.3 8.8c0-4.9-1.5-5.7-3.3-5.7-1.8 0-3.2.7-3.2 5.7s1.5 5.5 3.2 5.5c1.8-.1 3.3-.6 3.3-5.5m-6.5 18.8c-2.3 0-2.9 1.7-2.9 2.9 0 1.8 1.6 3.4 6.3 3.4 5.3 0 6.8-1.5 6.8-3.4 0-1.7-1.3-2.9-3.4-2.9h-6.8zM10.5 2.4C4.3 5.2 0 11.4 0 18.7c0 4.9 2 9.4 5.2 12.6V31c0-3.2 3.1-4.4 5.9-5-2.6-.6-3.9-2.5-3.9-4.4 0-2.6 2.9-4.8 4.3-5.8l-.2-.1c-2.5-1.4-4.1-3.8-4.1-7 0-2.7 1.2-4.9 3.3-6.3M36 18.8C36 11.4 31.5 5 25.1 2.3c2.1 1.4 3.4 3.5 3.5 6.3l.1.6c0 5.4-4.4 8.2-10.7 8.2-1.6 0-2.7-.1-4.1-.5-.6.4-1.1 1.1-1.1 1.8 0 .9.8 1.6 1.8 1.6h8.8c5.5 0 8.2 2.2 8.2 7.1 0 1.6-.3 3.1-1 4.3 3.3-3.4 5.4-7.9 5.4-12.9"/>
 </svg>
 </span>
-<a href="https://support.theguardian.com/us/contribute?acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
+<a href="https://membership.theguardian.com/supporter?INTCMP=DOTCOM_HEADER_BECOMEMEMBER_AU&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_AU&quot;,&quot;campaignCode&quot;:&quot;DOTCOM_HEADER_BECOMEMEMBER_AU&quot;%7D" data-link-name="Register link" class="brand-bar__item--action brand-bar__item--split--first js-become-member js-acquisition-link">
 <span class="control__info js-control-info control__info--supporting">
 become a supporter
 </span>
 </a>
-<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_US_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_US_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_US_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="us : topNav : subscribe">
+<a href="https://subscribe.theguardian.com?INTCMP=NGW_HEADER_AU_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_HEADER&quot;,&quot;componentId&quot;:&quot;NGW_HEADER_AU_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_HEADER_AU_GU_SUBSCRIBE&quot;%7D" class="brand-bar__item--action brand-bar__item--split--last js-subscribe js-change-subscribe-link js-acquisition-link" data-link-name="au : topNav : subscribe">
 <span class="control__info js-control-info">subscribe</span>
 </a>
 </div>
@@ -964,12 +949,12 @@ become a supporter
 </a>
 </div>
 <div class="brand-bar__item--right" data-component="guardian-services">
-<div class="brand-bar__item brand-bar__item--jobs hide-until-tablet hide-on-slim-header">
-<a class="brand-bar__item--action" data-link-name="us : topNav : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_TOPNAV_US_GU_JOBS">find a job</a>
+<div class="brand-bar__item brand-bar__item--masterclasses hide-until-tablet hide-on-slim-header">
+<a class="brand-bar__item--action" data-link-name="au : topNav : events" href="https://www.theguardian.com/guardian-live-australia">events</a>
 </div>
 <div class="brand-bar__item has-popup brand-bar__item--has-control brand-bar__item--edition hide-until-tablet hide-on-slim-header" data-component="edition">
 <a class="brand-bar__item--action popup__toggle" data-link-name="topNav : edition" data-toggle="top-bar__popup--edition" aria-haspopup="true" aria-controls="guardian-edition-menu">
-US edition
+Australia edition
 </a>
 <ul class="popup popup--default popup__group is-off top-bar__popup--edition" id="guardian-edition-menu">
 <li class="popup__item">
@@ -979,9 +964,9 @@ US edition
 </a>
 </li>
 <li class="popup__item">
-<a class="brand-bar__item--action" data-edition="AU" data-link-name="switch to AU edition" href="https://www.theguardian.com/preference/edition/au" title="Switch to the AU edition">
+<a class="brand-bar__item--action" data-edition="US" data-link-name="switch to US edition" href="https://www.theguardian.com/preference/edition/us" title="Switch to the US edition">
 <span class="u-h">switch to the </span>
-<span class="brand-bar__edition-name">Australia edition</span>
+<span class="brand-bar__edition-name">US edition</span>
 </a>
 </li>
 <li class="popup__item">
@@ -997,7 +982,7 @@ US edition
 </div>
 <div class="popup popup--default popup--search js-search-old js-search-popup is-off"><div class="js-search-placeholder"></div></div>
 <div class="l-header-main">
-<a href="https://www.theguardian.com/us" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
+<a href="https://www.theguardian.com/au" data-link-name="site logo" id="logo" class="logo-wrapper" data-component="logo">
 <span class="u-h">The Guardian - Back to home</span>
 <!--[if (gt IE 8)|(IEMobile)]><!-->
 <span class="inline-guardian-logo-320 inline-logo ">
@@ -1020,7 +1005,7 @@ US edition
 <nav class="navigation__container navigation__container--first" data-component="nav" role="navigation" aria-label="Current section">
 <ul class="signposting">
 <li class="signposting__item signposting__item--home">
-<a class="signposting__action" href="https://www.theguardian.com/us" data-link-name="nav : signposting : home">home</a>
+<a class="signposting__action" href="https://www.theguardian.com/au" data-link-name="nav : signposting : home">home</a>
 </li>
 <li class="signposting__item signposting__item--parent">
 <span class="signposting__separator" aria-hidden="true"><span class="signposting__separator__inner">›</span></span>
@@ -1032,47 +1017,36 @@ US edition
 <a class="local-navigation__action" href="https://www.theguardian.com/uk-news" data-link-name="nav : secondary : UK">UK</a>
 </li>
 <li class="local-navigation__item">
+<a class="local-navigation__action" href="https://www.theguardian.com/us-news" data-link-name="nav : secondary : US">US</a>
+</li>
+<li class="local-navigation__item">
+<a class="local-navigation__action" href="https://www.theguardian.com/world/asia" data-link-name="nav : secondary : asia">asia</a>
+</li>
+<li class="local-navigation__item">
 <a class="local-navigation__action" href="https://www.theguardian.com/world/europe-news" data-link-name="nav : secondary : europe">europe</a>
 </li>
 <li class="local-navigation__item">
 <a class="local-navigation__action" href="https://www.theguardian.com/world/americas" data-link-name="nav : secondary : americas">americas</a>
 </li>
 <li class="local-navigation__item">
-<a class="local-navigation__action" href="https://www.theguardian.com/world/asia" data-link-name="nav : secondary : asia">asia</a>
-</li>
-<li class="local-navigation__item">
-<a class="local-navigation__action" href="https://www.theguardian.com/world/middleeast" data-link-name="nav : secondary : middle east">middle east</a>
-</li>
-<li class="local-navigation__item">
 <a class="local-navigation__action" href="https://www.theguardian.com/world/africa" data-link-name="nav : secondary : africa">africa</a>
 </li>
 <li class="local-navigation__item">
-<a class="local-navigation__action" href="https://www.theguardian.com/australia-news" data-link-name="nav : secondary : australia">australia</a>
-</li>
-<li class="local-navigation__item">
-<a class="local-navigation__action" href="https://www.theguardian.com/cities" data-link-name="nav : secondary : cities">cities</a>
-</li>
-<li class="local-navigation__item">
-<a class="local-navigation__action" href="https://www.theguardian.com/global-development" data-link-name="nav : secondary : development">development</a>
+<a class="local-navigation__action" href="https://www.theguardian.com/world/middleeast" data-link-name="nav : secondary : middle east">middle east</a>
 </li>
 </ul>
 </nav>
 <nav class="navigation__container navigation__container--second" data-component="nav" role="navigation" aria-label="Guardian sections">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/us" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/au" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us-news" data-link-name="nav : primary : US">
-US
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us-news/us-politics" data-link-name="nav : primary : politics">
-politics
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news" data-link-name="nav : primary : australia">
+australia
 </a>
 </li>
 <li class="top-navigation__item top-navigation__item--current">
@@ -1082,53 +1056,58 @@ world
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/commentisfree" data-link-name="nav : primary : opinion">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav : primary : opinion">
 opinion
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/sport" data-link-name="nav : primary : sports">
-sports
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav : primary : politics">
+politics
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/football" data-link-name="nav : primary : soccer">
-soccer
+<a class="top-navigation__action" href="https://www.theguardian.com/au/sport" data-link-name="nav : primary : sport">
+sport
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/technology" data-link-name="nav : primary : tech">
-tech
+<a class="top-navigation__action" href="https://www.theguardian.com/football" data-link-name="nav : primary : football">
+football
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/culture" data-link-name="nav : primary : arts">
-arts
+<a class="top-navigation__action" href="https://www.theguardian.com/au/culture" data-link-name="nav : primary : culture">
+culture
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/lifeandstyle" data-link-name="nav : primary : lifestyle">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav : primary : lifestyle">
 lifestyle
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/fashion" data-link-name="nav : primary : fashion">
-fashion
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/business" data-link-name="nav : primary : business">
-business
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/travel" data-link-name="nav : primary : travel">
-travel
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/environment" data-link-name="nav : primary : environment">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/environment" data-link-name="nav : primary : environment">
 environment
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/business" data-link-name="nav : primary : economy">
+economy
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/media" data-link-name="nav : primary : media">
+media
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/technology" data-link-name="nav : primary : tech">
+tech
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/travel" data-link-name="nav : primary : travel">
+travel
 </a>
 </li>
 </ul>
@@ -1423,11 +1402,11 @@ Refugees
 </a>
 </div>
 <p class="content__dateline" aria-hidden="true">
-<time itemprop="datePublished" datetime='2017-12-04T00:30:01-0500' data-timestamp="1512365401000" class="content__dateline-wpd js-wpd">
-Monday 4 December 2017 <span class="content__dateline-time">00.30 EST</span>
+<time itemprop="datePublished" datetime='2017-12-04T16:30:01+1100' data-timestamp="1512365401000" class="content__dateline-wpd js-wpd">
+Monday 4 December 2017 <span class="content__dateline-time">16.30 AEDT</span>
 </time>
 </p>
-<meta itemprop="dateModified" content="2017-12-04T00:30:01-0500">
+<meta itemprop="dateModified" content="2017-12-04T16:30:01+1100">
 </div>
 <div class="content__article-body from-content-api js-article__body" itemprop="articleBody" data-test-id="article-review-body">
 <p><span class="drop-cap"><span class="drop-cap__inner">I</span></span>n 2013, the journalist Behrouz Boochani, an ethnic Kurd, fled Iran after several of his colleagues were arrested. The decisions he took then have defined his life and in turn led to him becoming the essential witness to Australia’s hardline refugee policy.</p>
@@ -1910,7 +1889,7 @@ features
 </div>
 <div class="content__secondary-column js-secondary-column" aria-hidden="true">
 <div class="ad-slot-container">
-<div id="dfp-ad--right" class="js-ad-slot ad-slot ad-slot--right ad-slot--mpu-banner-ad js-sticky-mpu" data-link-name="ad slot right" data-name="right" data-mobile="1,1|2,2|300,250|300,600|fluid|300,1050"> </div>
+<div id="dfp-ad--right" class="js-ad-slot ad-slot ad-slot--right ad-slot--mpu-banner-ad js-sticky-mpu" data-link-name="ad slot right" data-name="right" data-mobile="1,1|2,2|300,250|300,600|fluid"> </div>
 </div>
 <div class="js-components-container"></div>
 </div>
@@ -1949,7 +1928,7 @@ features
 <div class="l-footer__primary hide-on-mobile">
 <div id="footer-nav" class="gs-container">
 <div class="brand-bar modern-visible u-cf">
-<a href="https://www.theguardian.com/us" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
+<a href="https://www.theguardian.com/au" data-link-name="site logo" class="guardian-logo-footer hide-on-mobile">
 <span class="u-h">The Guardian</span>
 <i class="i i-guardian-logo-160"></i>
 </a>
@@ -1972,19 +1951,14 @@ features
 <div class="navigation__container navigation__container--second" data-component="footer-nav">
 <ul class="top-navigation js-top-navigation">
 <li class="top-navigation__item top-navigation__item--home">
-<a href="https://www.theguardian.com/us" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
+<a href="https://www.theguardian.com/au" class="top-navigation__action top-navigation__action--has-icon" data-link-name="nav : primary : home" title="Back to homepage">
 <span class="top-navigation__icon top-navigation__icon--home"></span>
 <span class="u-h">home</span>
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us-news" data-link-name="nav : primary : US">
-US
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us-news/us-politics" data-link-name="nav : primary : politics">
-politics
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news" data-link-name="nav : primary : australia">
+australia
 </a>
 </li>
 <li class="top-navigation__item top-navigation__item--current">
@@ -1994,53 +1968,58 @@ world
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/commentisfree" data-link-name="nav : primary : opinion">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav : primary : opinion">
 opinion
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/sport" data-link-name="nav : primary : sports">
-sports
+<a class="top-navigation__action" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav : primary : politics">
+politics
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/football" data-link-name="nav : primary : soccer">
-soccer
+<a class="top-navigation__action" href="https://www.theguardian.com/au/sport" data-link-name="nav : primary : sport">
+sport
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/technology" data-link-name="nav : primary : tech">
-tech
+<a class="top-navigation__action" href="https://www.theguardian.com/football" data-link-name="nav : primary : football">
+football
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/culture" data-link-name="nav : primary : arts">
-arts
+<a class="top-navigation__action" href="https://www.theguardian.com/au/culture" data-link-name="nav : primary : culture">
+culture
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/lifeandstyle" data-link-name="nav : primary : lifestyle">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav : primary : lifestyle">
 lifestyle
 </a>
 </li>
 <li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/fashion" data-link-name="nav : primary : fashion">
-fashion
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/business" data-link-name="nav : primary : business">
-business
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/travel" data-link-name="nav : primary : travel">
-travel
-</a>
-</li>
-<li class="top-navigation__item">
-<a class="top-navigation__action" href="https://www.theguardian.com/us/environment" data-link-name="nav : primary : environment">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/environment" data-link-name="nav : primary : environment">
 environment
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/business" data-link-name="nav : primary : economy">
+economy
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/media" data-link-name="nav : primary : media">
+media
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/technology" data-link-name="nav : primary : tech">
+tech
+</a>
+</li>
+<li class="top-navigation__item">
+<a class="top-navigation__action" href="https://www.theguardian.com/au/travel" data-link-name="nav : primary : travel">
+travel
 </a>
 </li>
 </ul>
@@ -2061,18 +2040,13 @@ environment
 <nav role="navigation" aria-label="All sections">
 <ul class="global-navigation js-global-navigation">
 <li class="global-navigation__section global-navigation__section--home">
-<a class="global-navigation__title" href="https://www.theguardian.com/us" data-link-name="nav : globalTop : home">
+<a class="global-navigation__title" href="https://www.theguardian.com/au" data-link-name="nav : globalTop : home">
 home
 </a>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us-news" data-link-name="nav : globalTop : US">
-US
-</a>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us-news/us-politics" data-link-name="nav : globalTop : politics">
-politics
+<a class="global-navigation__title" href="https://www.theguardian.com/australia-news" data-link-name="nav : globalTop : australia">
+australia
 </a>
 </li>
 <li class="global-navigation__section global-navigation__section--current">
@@ -2087,6 +2061,16 @@ UK
 </a>
 </li>
 <li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/us-news" data-link-name="nav : globalSub : US">
+US
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/world/asia" data-link-name="nav : globalSub : asia">
+asia
+</a>
+</li>
+<li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/world/europe-news" data-link-name="nav : globalSub : europe">
 europe
 </a>
@@ -2097,8 +2081,8 @@ americas
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/world/asia" data-link-name="nav : globalSub : asia">
-asia
+<a class="global-navigation__action" href="https://www.theguardian.com/world/africa" data-link-name="nav : globalSub : africa">
+africa
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2106,30 +2090,10 @@ asia
 middle east
 </a>
 </li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/world/africa" data-link-name="nav : globalSub : africa">
-africa
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/australia-news" data-link-name="nav : globalSub : australia">
-australia
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/cities" data-link-name="nav : globalSub : cities">
-cities
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/global-development" data-link-name="nav : globalSub : development">
-development
-</a>
-</li>
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/commentisfree" data-link-name="nav : globalTop : opinion">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/commentisfree" data-link-name="nav : globalTop : opinion">
 opinion
 </a>
 <ul class="global-navigation__children">
@@ -2146,47 +2110,77 @@ editorials
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/sport" data-link-name="nav : globalTop : sports">
-sports
+<a class="global-navigation__title" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav : globalTop : politics">
+politics
+</a>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/sport" data-link-name="nav : globalTop : sport">
+sport
 </a>
 <ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/football" data-link-name="nav : globalSub : soccer">
-soccer
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/australia-sport" data-link-name="nav : globalSub : australia sport">
+australia sport
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/football/mls" data-link-name="nav : globalSub : MLS">
-MLS
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/afl" data-link-name="nav : globalSub : AFL">
+AFL
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/nfl" data-link-name="nav : globalSub : NFL">
-NFL
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/nrl" data-link-name="nav : globalSub : NRL">
+NRL
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/mlb" data-link-name="nav : globalSub : MLB">
-MLB
+<a class="global-navigation__action" href="https://www.theguardian.com/football/a-league" data-link-name="nav : globalSub : a-league">
+a-league
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/nba" data-link-name="nav : globalSub : NBA">
-NBA
+<a class="global-navigation__action" href="https://www.theguardian.com/football" data-link-name="nav : globalSub : football">
+football
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/sport/nhl" data-link-name="nav : globalSub : NHL">
-NHL
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/cricket" data-link-name="nav : globalSub : cricket">
+cricket
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/rugby-union" data-link-name="nav : globalSub : rugby union">
+rugby union
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/tennis" data-link-name="nav : globalSub : tennis">
+tennis
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/cycling" data-link-name="nav : globalSub : cycling">
+cycling
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/sport/boxing" data-link-name="nav : globalSub : boxing">
+boxing
 </a>
 </li>
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/football" data-link-name="nav : globalTop : soccer">
-soccer
+<a class="global-navigation__title" href="https://www.theguardian.com/football" data-link-name="nav : globalTop : football">
+football
 </a>
 <ul class="global-navigation__children">
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/football/a-league" data-link-name="nav : globalSub : a-league">
+a-league
+</a>
+</li>
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/football/live" data-link-name="nav : globalSub : live scores">
 live scores
@@ -2220,23 +2214,13 @@ clubs
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/technology" data-link-name="nav : globalTop : tech">
-tech
-</a>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/culture" data-link-name="nav : globalTop : arts">
-arts
+<a class="global-navigation__title" href="https://www.theguardian.com/au/culture" data-link-name="nav : globalTop : culture">
+culture
 </a>
 <ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/us/film" data-link-name="nav : globalSub : movies">
-movies
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/us/tv-and-radio" data-link-name="nav : globalSub : tv &amp; radio">
-tv & radio
+<a class="global-navigation__action" href="https://www.theguardian.com/au/film" data-link-name="nav : globalSub : film">
+film
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2252,6 +2236,11 @@ games
 <li class="global-navigation__child">
 <a class="global-navigation__action" href="https://www.theguardian.com/books" data-link-name="nav : globalSub : books">
 books
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/tv-and-radio" data-link-name="nav : globalSub : tv &amp; radio">
+tv & radio
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2272,12 +2261,12 @@ classical
 </ul>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/lifeandstyle" data-link-name="nav : globalTop : lifestyle">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/lifeandstyle" data-link-name="nav : globalTop : lifestyle">
 lifestyle
 </a>
 <ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/food-and-drink" data-link-name="nav : globalSub : food">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/food-and-drink" data-link-name="nav : globalSub : food">
 food
 </a>
 </li>
@@ -2287,18 +2276,18 @@ recipes
 </a>
 </li>
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/health-and-wellbeing" data-link-name="nav : globalSub : health &amp; fitness">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/relationships" data-link-name="nav : globalSub : relationships">
+relationships
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/fashion" data-link-name="nav : globalSub : fashion">
+fashion
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/lifeandstyle/health-and-wellbeing" data-link-name="nav : globalSub : health &amp; fitness">
 health & fitness
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/love-and-sex" data-link-name="nav : globalSub : love &amp; sex">
-love & sex
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/family" data-link-name="nav : globalSub : family">
-family
 </a>
 </li>
 <li class="global-navigation__child">
@@ -2306,9 +2295,90 @@ family
 women
 </a>
 </li>
+</ul>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/environment" data-link-name="nav : globalTop : environment">
+environment
+</a>
+<ul class="global-navigation__children">
 <li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/lifeandstyle/home-and-garden" data-link-name="nav : globalSub : home &amp; garden">
-home & garden
+<a class="global-navigation__action" href="https://www.theguardian.com/cities" data-link-name="nav : globalSub : cities">
+cities
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/global-development" data-link-name="nav : globalSub : development">
+development
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/sustainable-business" data-link-name="nav : globalSub : sustainable business">
+sustainable business
+</a>
+</li>
+</ul>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/business" data-link-name="nav : globalTop : economy">
+economy
+</a>
+<ul class="global-navigation__children">
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/business/stock-markets" data-link-name="nav : globalSub : markets">
+markets
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/au/money" data-link-name="nav : globalSub : money">
+money
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/business/series/project-syndicate-economists" data-link-name="nav : globalSub : project syndicate">
+project syndicate
+</a>
+</li>
+</ul>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/media" data-link-name="nav : globalTop : media">
+media
+</a>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/technology" data-link-name="nav : globalTop : tech">
+tech
+</a>
+</li>
+<li class="global-navigation__section">
+<a class="global-navigation__title" href="https://www.theguardian.com/au/travel" data-link-name="nav : globalTop : travel">
+travel
+</a>
+<ul class="global-navigation__children">
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/travel/australasia" data-link-name="nav : globalSub : australasia">
+australasia
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/travel/asia" data-link-name="nav : globalSub : asia">
+asia
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/travel/uk" data-link-name="nav : globalSub : UK">
+UK
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/travel/europe" data-link-name="nav : globalSub : europe">
+europe
+</a>
+</li>
+<li class="global-navigation__child">
+<a class="global-navigation__action" href="https://www.theguardian.com/travel/usa" data-link-name="nav : globalSub : US">
+US
 </a>
 </li>
 </ul>
@@ -2319,89 +2389,13 @@ fashion
 </a>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/business" data-link-name="nav : globalTop : business">
-business
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/business/economics" data-link-name="nav : globalSub : economics">
-economics
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/us/sustainable-business" data-link-name="nav : globalSub : sustainable business">
-sustainable business
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/business/diversity-and-equality" data-link-name="nav : globalSub : diversity &amp; equality in business">
-diversity & equality in business
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/business/us-small-business" data-link-name="nav : globalSub : small business">
-small business
-</a>
-</li>
-</ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/travel" data-link-name="nav : globalTop : travel">
-travel
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/travel/usa" data-link-name="nav : globalSub : USA">
-USA
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/travel/europe" data-link-name="nav : globalSub : europe">
-europe
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/travel/uk" data-link-name="nav : globalSub : UK">
-UK
-</a>
-</li>
-</ul>
-</li>
-<li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/environment" data-link-name="nav : globalTop : environment">
-environment
-</a>
-<ul class="global-navigation__children">
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/climate-change" data-link-name="nav : globalSub : climate change">
-climate change
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/wildlife" data-link-name="nav : globalSub : wildlife">
-wildlife
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/energy" data-link-name="nav : globalSub : energy">
-energy
-</a>
-</li>
-<li class="global-navigation__child">
-<a class="global-navigation__action" href="https://www.theguardian.com/environment/pollution" data-link-name="nav : globalSub : pollution">
-pollution
-</a>
-</li>
-</ul>
-</li>
-<li class="global-navigation__section">
 <a class="global-navigation__title" href="https://www.theguardian.com/science" data-link-name="nav : globalTop : science">
 science
 </a>
 </li>
 <li class="global-navigation__section">
-<a class="global-navigation__title" href="https://www.theguardian.com/us/media" data-link-name="nav : globalTop : media">
-media
+<a class="global-navigation__title" href="https://www.theguardian.com/membership" data-link-name="nav : globalTop : membership">
+membership
 </a>
 </li>
 <li class="global-navigation__section">
@@ -2509,8 +2503,8 @@ digital archive
 <div class="gs-container">
 <ul class="subnav__list js-get-last-child-subnav" data-pillar-title="news">
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us-news" data-link-name="nav2 : subnav : US news">
-US
+<a class="subnav-link" href="https://www.theguardian.com/australia-news" data-link-name="nav2 : subnav : australia news">
+australia
 </a>
 </li>
 <li class="subnav__item">
@@ -2519,43 +2513,33 @@ world
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/environment" data-link-name="nav2 : subnav : environment">
+<a class="subnav-link" href="https://www.theguardian.com/australia-news/australian-politics" data-link-name="nav2 : subnav : politics">
+AU politics
+</a>
+</li>
+<li class="subnav__item">
+<a class="subnav-link" href="https://www.theguardian.com/au/environment" data-link-name="nav2 : subnav : environment">
 environment
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : soccer">
-soccer
+<a class="subnav-link" href="https://www.theguardian.com/football" data-link-name="nav2 : subnav : football">
+football
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us-news/us-politics" data-link-name="nav2 : subnav : US politics">
-US politics
+<a class="subnav-link" href="https://www.theguardian.com/australia-news/indigenous-australians" data-link-name="nav2 : subnav : indigenous australia">
+indigenous australia
+</a>
+</li>
+<li class="subnav__item subnav__item--current-section">
+<a class="subnav-link subnav-link--current-section" href="https://www.theguardian.com/australia-news/australian-immigration-and-asylum" data-link-name="nav2 : subnav : immigration">
+immigration
 </a>
 </li>
 <li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/business" data-link-name="nav2 : subnav : business">
-business
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/science" data-link-name="nav2 : subnav : science">
-science
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/money" data-link-name="nav2 : subnav : money">
-money
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/us/technology" data-link-name="nav2 : subnav : tech">
-tech
-</a>
-</li>
-<li class="subnav__item">
-<a class="subnav-link" href="https://www.theguardian.com/tone/obituaries" data-link-name="nav2 : subnav : obituaries">
-obituaries
+<a class="subnav-link" href="https://www.theguardian.com/au/media" data-link-name="nav2 : subnav : media">
+media
 </a>
 </li>
 </ul>
@@ -2577,41 +2561,44 @@ obituaries
 <div class="l-footer__secondary js-footer__secondary  gs-container" role="contentinfo">
 <div class="colophon u-cf">
 <div class="footer__email-container js-footer__email-container">
-<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/1493" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-us" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
+<iframe title="Guardian Email Sign-up Form" src="/email/form/footer/1506" scrolling="no" seamless id="footer__email-form" frameborder="0" class="iframed--overflow-hidden email-sub__iframe js-email-sub__iframe" data-form-campaign-code="footer-daily-email-au" data-form-success-desc="We will send you our picks of the most important headlines tomorrow morning."></iframe>
 </div>
 <div class="colophon__lists-container">
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="us : footer : jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_FOOTER_US_GU_JOBS">
-jobs</a>
-</li>
-<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://support.theguardian.com/us/contribute?acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : membership" class="js-acquisition-link" href="https://membership.theguardian.com/supporter?INTCMP=NGW_FOOTER_AU_GU_MEMBERSHIP&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_AU_GU_MEMBERSHIP&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_AU_GU_MEMBERSHIP&quot;%7D">
 become a supporter</a>
 </li>
-<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://support.theguardian.com/us/contribute?acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;%7D">
+<li class="colophon__item"><a data-link-name="uk : footer : contribute" class="js-acquisition-link" href="https://contribute.theguardian.com?INTCMP=gdnwb_copts_memco_dotcom_footer&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;,&quot;campaignCode&quot;:&quot;gdnwb_copts_memco_dotcom_footer&quot;%7D">
 make a contribution</a>
 </li>
-<li class="colophon__item"><a data-link-name="us : footer : guardian labs" href="https://www.theguardian.com/guardian-labs-us">
-guardian labs</a>
+<li class="colophon__item"><a data-link-name="au : footer : uk-jobs" href="https://jobs.theguardian.com/?INTCMP=NGW_FOOTER_AU_GU_JOBS">
+UK jobs</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : vacancies" href="https://www.theguardian.com/info/2015/aug/04/guardian-australia-job-vacancies">
+vacancies</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : masterclasses" href="https://www.theguardian.com/guardian-masterclasses/guardian-masterclasses-australia">
+masterclasses</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="us : footer : about us" href="https://www.theguardian.com/info/about-guardian-us">
+<li class="colophon__item"><a data-link-name="au : footer : about us" href="https://www.theguardian.com/info/about-guardian-australia">
 about us</a>
 </li>
-<li class="colophon__item"><a data-link-name="us : footer : work for us" href="https://workforus.theguardian.com/locations/new-york">
-work for us</a>
-</li>
-<li class="colophon__item"><a data-link-name="us : footer : contact us" href="https://www.theguardian.com/info/about-guardian-us/contact">
+<li class="colophon__item"><a data-link-name="au : footer : contact us" href="https://www.theguardian.com/info/2013/may/26/contact-guardian-australia">
 contact us</a>
 </li>
-<li class="colophon__item"><a data-link-name="us : footer : advertise with us" href="https://advertising.theguardian.com">
+<li class="colophon__item"><a data-link-name="au : footer : advertise with us" href="https://advertising.theguardian.com">
 advertise with us</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : advertising" href="https://www.theguardian.com/advertising/guardian-australia-advertising">
+advertising</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : guardian labs" href="https://www.theguardian.com/guardian-labs-australia">
+Guardian labs</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="us : footer : tech feedback" class="js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
-ask for help</a>
-</li>
 <li class="colophon__item"><a data-link-name="terms" href="https://www.theguardian.com/help/terms-of-service">
 terms &amp; conditions</a>
 </li>
@@ -2624,24 +2611,27 @@ cookie policy</a>
 <li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">
 securedrop</a>
 </li>
-<li class="colophon__item"><a data-link-name="complaints" href="https://www.theguardian.com/info/complaints-and-corrections">
-complaints &amp; corrections</a>
+<li class="colophon__item"><a data-link-name="au : footer : tech feedback" class="js-tech-feedback-report" href="https://www.theguardian.com/info/tech-feedback">
+ask for help</a>
+</li>
+<li class="colophon__item"><a data-link-name="au : footer : information" href="https://www.theguardian.com/info">
+information</a>
 </li>
 </ul>
 <ul class="colophon__list">
-<li class="colophon__item"><a data-link-name="us : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
+<li class="colophon__item"><a data-link-name="au : footer : all topics" href="https://www.theguardian.com/index/subjects/a">
 all topics</a>
 </li>
-<li class="colophon__item"><a data-link-name="us : footer : all contributors" href="https://www.theguardian.com/index/contributors">
+<li class="colophon__item"><a data-link-name="au : footer : all contributors" href="https://www.theguardian.com/index/contributors">
 all contributors</a>
 </li>
-<li class="colophon__item"><a data-link-name="us : footer : facebook" href="https://www.facebook.com/GuardianUs">
+<li class="colophon__item"><a data-link-name="au : footer : facebook" href="https://www.facebook.com/theguardianaustralia">
 Facebook</a>
 </li>
-<li class="colophon__item"><a data-link-name="us : footer : twitter" href="https://twitter.com/GuardianUs">
+<li class="colophon__item"><a data-link-name="au : footer : twitter" href="https://twitter.com/GuardianAus">
 Twitter</a>
 </li>
-<li class="colophon__item"><a data-link-name="us : footer : subscribe" class="js-acquisition-link" href="https://subscribe.theguardian.com?INTCMP=NGW_FOOTER_US_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_US_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_US_GU_SUBSCRIBE&quot;%7D">
+<li class="colophon__item"><a data-link-name="au : footer : subscribe" class="js-acquisition-link" href="https://subscribe.theguardian.com?INTCMP=NGW_FOOTER_AU_GU_SUBSCRIBE&amp;acquisitionData=%7B&quot;source&quot;:&quot;GUARDIAN_WEB&quot;,&quot;componentType&quot;:&quot;ACQUISITIONS_FOOTER&quot;,&quot;componentId&quot;:&quot;NGW_FOOTER_AU_GU_SUBSCRIBE&quot;,&quot;campaignCode&quot;:&quot;NGW_FOOTER_AU_GU_SUBSCRIBE&quot;%7D">
 subscribe</a>
 </li>
 <li class="colophon__item"><a data-link-name="digital newspaper archive" href="https://theguardian.newspapers.com">
