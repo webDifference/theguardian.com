@@ -1,711 +1,83 @@
 
 
 
-    
-    
-        
-            
+
 
 
 <!DOCTYPE html>
-<html lang="en-GB" class="js-off id--signed-out">
-    <head>
-        <meta charset="utf-8">
-        <title>Support the Guardian | Contribute today</title>
-        <meta name="viewport"                     content="width=device-width, initial-scale=1.0"/>
-        <meta name="HandheldFriendly"             content="true"/>
-        <meta name="apple-touch-fullscreen"       content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="description" content="By making a contribution, you’ll be supporting independent journalism that speaks truth to power"/>
-        <meta name="rating" content="general"/>
-        <meta http-equiv="imagetoolbar" content="no"/>
-        <meta name="Rating" content="general"/>
-        <meta name="Distribution" content="Global"/>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="IU-vqTBscxkgU3J_f5i10_i624mvE3IjvYpeVPB2A98" />
 
-        <meta property="og:title" content="Support the Guardian | Contribute today"/>
-        <meta property="og:description" content="By making a contribution, you’ll be supporting independent journalism that speaks truth to power"/>
+	
+		<meta name="description" content="Help us deliver the independent journalism the world needs. Support the Guardian by making a contribution or getting a subscription." />
+		<meta property="og:description" content="Help us deliver the independent journalism the world needs. Support the Guardian by making a contribution or getting a subscription." />
+	
 
-        
-            <meta property="og:image" content="https://contribute.theguardian.com/assets/dist/images/0405a6e6f7ad98d8/twitter-card.png" />
-            <meta name="twitter:image" content="https://contribute.theguardian.com/assets/dist/images/0405a6e6f7ad98d8/twitter-card.png" />
-        
+	<title>Support the Guardian</title>
+	<meta property="og:title" content="Support the Guardian"/>
 
-        <meta property="og:url" content="https://contribute.theguardian.com/uk"/>
-
-        <meta property="og:type" content="website"/>
-        <meta property="fb:app_id" content="180444840287"/>
-
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@guardian" />
-        <meta name="twitter:title" content="Support the Guardian | Contribute today" />
-        <meta name="twitter:description" content="By making a contribution, you’ll be supporting independent journalism that speaks truth to power" />
-
-        <meta name="google-site-verification" content="qf7V0ceP_mY_0jTl7R7C1wZSKn2gK7TlharWVLr8Ea0" />
-
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "name": "Contribute",
-                "url": "https://contribute.theguardian.com",
-                "logo": "https://contribute.theguardian.com/assets/dist/images/favicons/76653302acc38359/152x152.png",
-                "sameAs" : [
-                    "https://www.youtube.com/user/guardianmembership",
-                    "https://plus.google.com/+guardianmembership/",
-                    "https://www.twitter.com/guardian"
-                ]
-            }
-        </script>
+	<link rel="stylesheet" href="/assets/stylesheets/styles.a1994245696b49f8c96cdf40a393dff2.css">
+	<link rel="shortcut icon" type="image/png" href="/assets/images/favicons/32x32.7283d7efd04b48b5e0f7abb3fe90c7ec.ico">
+	<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/152x152.708bf4beac267451702a6eae1de5fd57.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/144x144.229d6b1d220d66c876b2c27bd214faf5.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/120x120.a836886100e1c4ddf1877f330fa51d1d.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/114x114.ba3093491b7c0797cb089acf64083745.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/72x72.aea221e503c7de829cc5c7537e04d158.png">
+	<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/57x57.3ae7440eb3279df8551a78b9ea8b812d.png">
 
 
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "Organization",
+			"name": "Support the Guardian",
+			"url": "https://support.theguardian.com",
+			"logo": "https://support.theguardian.com/assets/images/favicons/152x152.708bf4beac267451702a6eae1de5fd57.png"
+		}
+	</script>
 
-        
+	
+		<script async type="text/javascript" src="/assets/javascripts/googleTagManagerScript.0532e2273366079b4737.js"></script>
+	
 
-        
-
-    
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script src="https://checkout.stripe.com/checkout.js"></script>
-
-    <!--[if IE 9]>
-        <script src="/assets/dist/javascripts/lib/740675b864adfab2/polyfills.min.js"></script>
-    <![endif]-->
-
-<script id="gu">
-    var guardian = {
-        isModernBrowser: (
-        'querySelector' in document
-        && 'addEventListener' in window
-        && 'localStorage' in window
-        && localStorage !== null
-        && 'sessionStorage' in window
-        && 'bind' in Function
-        && (('XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest())
-        || 'XDomainRequest' in window)),
-        css: {
-            loaded: false
-        },
-        
-        stripe: {
-            defaultPublicKey: 'pk_live_auSwLB4KBzbN3JOUVHvKMe6f',
-            image: '/assets/dist/images/436c6c9da9ca7025/gu.png'
-        },
-        
-        membership: {
-            buildNumber: '1590',
-            svgSprite: "/assets/dist/images/c3d3c24c462c384b/svg-sprite.svg"
-        },
-        googleAnalytics: {
-            trackingId: 'UA-51507017-5',
-            cookieDomain:  'auto' 
-        },
-        analyticsEnabled: true,
-        isDev: false
-    };
-
-    (function (isModern) {
-        
-        var htmlClassNames = ['js-on']; // we know we have JS
-        document.documentElement.className = document.documentElement.className.replace(/\bjs-off\b/g, '') + ' ' + htmlClassNames.join(' ');
-        if (!isModern) {
-            // we add this class so it's off by default (avoiding FOUC)
-            document.documentElement.className += ' js-ancient-browser';
-        }
-        var areClipPathShapesSupported = (function () {
-            var base = 'clipPath',
-                prefixes = ['webkit', 'moz', 'ms', 'o'],
-                properties = [base],
-                testElement = document.createElement('testelement'),
-                attribute = 'polygon(50% 0%, 0% 100%, 100% 100%)';
-            for (var i = 0, l = prefixes.length; i < l; i++) {
-                var prefixedProperty = prefixes[i] + base.charAt(0).toUpperCase() + base.slice(1);
-                properties.push(prefixedProperty);
-            }
-            for (var i = 0, l = properties.length; i < l; i++) {
-                var property = properties[i];
-                if (testElement.style[property] === '') {
-                    testElement.style[property] = attribute;
-                    if (testElement.style[property] !== '') {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }());
-        if (areClipPathShapesSupported) {
-            document.documentElement.className += ' supports-clippath-shapes';
-        }
-        
-        window.lazySizesConfig = window.lazySizesConfig || {};
-        window.lazySizesConfig.init = false;
-        
-        
-        /**
-         * Simple XHR abstraction
-         */
-        function loadData(url, cb) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    if (cb) {
-                        cb.call(this, xhr);
-                    }
-                }
-            }
-            xhr.timeout = 5000;
-            xhr.send();
-        }
-
-        /**
-         * Add data to local storage, with buildNumber key
-         * Break cache if buildNumber has changed.
-         */
-        function updateLocalStorage(prefix, data) {
-            var expr = new RegExp('^' + prefix + '.', 'g');
-            Object.keys(localStorage).forEach(function (key) {
-                if (key.match(expr)) {
-                    try {
-                        localStorage.removeItem(key);
-                    } catch (e) {
-                    }
-                }
-            });
-            try {
-                localStorage.setItem(prefix + '.' + guardian.membership.buildNumber, data);
-            } catch (e) {
-            }
-        }
-
-        /**
-         * Insert SVG sprite into document
-         */
-        function inlineSvg(data) {
-            var el = document.createElement('div');
-            el.innerHTML = data;
-            var ref = document.getElementsByTagName('script')[0];
-            ref.parentNode.insertBefore(el, ref);
-        }
-
-        function loadSvgIcons() {
-            var data = !guardian.isDev && localStorage.getItem('icons.' + guardian.membership.buildNumber);
-            if (data) {
-                inlineSvg(data);
-            } else {
-                loadData(guardian.membership.svgSprite, function (xhr) {
-                    inlineSvg(xhr.responseText);
-                    updateLocalStorage('icons', xhr.responseText);
-                });
-            }
-        }
-
-        if (isModern) {
-            loadSvgIcons();
-        }
-    })(guardian.isModernBrowser);
-
-    // find polyfill from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
-    if (!Array.prototype.find) {
-      Array.prototype.find = function(predicate) {
-        'use strict';
-        if (this == null) {
-          throw new TypeError('Array.prototype.find called on null or undefined');
-        }
-        if (typeof predicate !== 'function') {
-          throw new TypeError('predicate must be a function');
-        }
-        var list = Object(this);
-        var length = list.length >>> 0;
-        var thisArg = arguments[1];
-        var value;
-
-        for (var i = 0; i < length; i++) {
-          value = list[i];
-          if (predicate.call(thisArg, value, i, list)) {
-            return value;
-          }
-        }
-        return undefined;
-      };
-    }
+	<link rel="preload"  as="script" href="/assets/javascripts/bundlesLandingPage.9bcb4b0277f429900e40.js">
 
 
-    // promise polyfill
-    if (!window.Promise) {
-        !function(e){function n(){}function t(e,n){return function(){e.apply(n,arguments)}}function o(e){if("object"!=typeof this)throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=void 0,this._deferreds=[],s(e,this)}function i(e,n){for(;3===e._state;)e=e._value;return 0===e._state?void e._deferreds.push(n):(e._handled=!0,void o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null===t)return void(1===e._state?r:u)(n.promise,e._value);var o;try{o=t(e._value)}catch(i){return void u(n.promise,i)}r(n.promise,o)}))}function r(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var i=n.then;if(n instanceof o)return e._state=3,e._value=n,void f(e);if("function"==typeof i)return void s(t(i,n),e)}e._state=1,e._value=n,f(e)}catch(r){u(e,r)}}function u(e,n){e._state=2,e._value=n,f(e)}function f(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;n<t;n++)i(e,e._deferreds[n]);e._deferreds=null}function c(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}function s(e,n){var t=!1;try{e(function(e){t||(t=!0,r(n,e))},function(e){t||(t=!0,u(n,e))})}catch(o){if(t)return;t=!0,u(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,t){var o=new this.constructor(n);return i(this,new c(e,t,o)),o},o.all=function(e){var n=Array.prototype.slice.call(e);return new o(function(e,t){function o(r,u){try{if(u&&("object"==typeof u||"function"==typeof u)){var f=u.then;if("function"==typeof f)return void f.call(u,function(e){o(r,e)},t)}n[r]=u,0===--i&&e(n)}catch(c){t(c)}}if(0===n.length)return e([]);for(var i=n.length,r=0;r<n.length;r++)o(r,n[r])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(n,t){for(var o=0,i=e.length;o<i;o++)e[o].then(n,t)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){"undefined"!=typeof console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)},o._setImmediateFn=function(e){o._immediateFn=e},o._setUnhandledRejectionFn=function(e){o._unhandledRejectionFn=e},"undefined"!=typeof module&&module.exports?module.exports=o:e.Promise||(e.Promise=o)}(this);
-    }
-
-    // Array.from polyfill, from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Polyfill
-    if (!Array.from) {
-        Array.from = (function () {
-            var toStr = Object.prototype.toString;
-            var isCallable = function (fn) {
-                return typeof fn === 'function' || toStr.call(fn) === '[object Function]';
-            };
-            var toInteger = function (value) {
-                var number = Number(value);
-                if (isNaN(number)) { return 0; }
-                if (number === 0 || !isFinite(number)) { return number; }
-                return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
-            };
-            var maxSafeInteger = Math.pow(2, 53) - 1;
-            var toLength = function (value) {
-                var len = toInteger(value);
-                return Math.min(Math.max(len, 0), maxSafeInteger);
-            };
-
-            // The length property of the from method is 1.
-            return function from(arrayLike/*, mapFn, thisArg */) {
-                // 1. Let C be the this value.
-                var C = this;
-
-                // 2. Let items be ToObject(arrayLike).
-                var items = Object(arrayLike);
-
-                // 3. ReturnIfAbrupt(items).
-                if (arrayLike == null) {
-                    throw new TypeError("Array.from requires an array-like object - not null or undefined");
-                }
-
-                // 4. If mapfn is undefined, then let mapping be false.
-                var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
-                var T;
-                if (typeof mapFn !== 'undefined') {
-                    // 5. else
-                    // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
-                    if (!isCallable(mapFn)) {
-                        throw new TypeError('Array.from: when provided, the second argument must be a function');
-                    }
-
-                    // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
-                    if (arguments.length > 2) {
-                        T = arguments[2];
-                    }
-                }
-
-                // 10. Let lenValue be Get(items, "length").
-                // 11. Let len be ToLength(lenValue).
-                var len = toLength(items.length);
-
-                // 13. If IsConstructor(C) is true, then
-                // 13. a. Let A be the result of calling the [[Construct]] internal method of C with an argument list containing the single item len.
-                // 14. a. Else, Let A be ArrayCreate(len).
-                var A = isCallable(C) ? Object(new C(len)) : new Array(len);
-
-                // 16. Let k be 0.
-                var k = 0;
-                // 17. Repeat, while k < len… (also steps a - h)
-                var kValue;
-                while (k < len) {
-                    kValue = items[k];
-                    if (mapFn) {
-                        A[k] = typeof T === 'undefined' ? mapFn(kValue, k) : mapFn.call(T, kValue, k);
-                    } else {
-                        A[k] = kValue;
-                    }
-                    k += 1;
-                }
-                // 18. Let putStatus be Put(A, "length", len, true).
-                A.length = len;
-                // 20. Return A.
-                return A;
-            };
-        }());
-    }
-</script>
-
-
-
-
-            <!--[if (gt IE 9) | (IEMobile)]><!-->
-        <link rel="stylesheet" media="all" href="/assets/dist/stylesheets/85817e32e9e631d3/style.css">
-            <!--<![endif]-->
-
-            <!--[if (IE 9)&(!IEMobile)]>
-        <link rel="stylesheet" type="text/css" href="/assets/dist/stylesheets/525094a88583dd02/ie9.css" />
-            <![endif]-->
-
-
-        <link rel="shortcut icon" type="image/png" href="/assets/dist/images/favicons/7283d7efd04b48b5/32x32.ico">
-        <link rel="apple-touch-icon" sizes="152x152" href="/assets/dist/images/favicons/76653302acc38359/152x152.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="/assets/dist/images/favicons/96d94ea9131ba423/144x144.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="/assets/dist/images/favicons/b867afed7075cbae/120x120.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/assets/dist/images/favicons/7b4d3654cdc9bffe/114x114.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/assets/dist/images/favicons/405a87aba0ea4c1c/72x72.png">
-        <link rel="apple-touch-icon-precomposed" href="/assets/dist/images/favicons/0e1060e51c91a93a/57x57.png">
-        <meta name="msapplication-TileColor" content="#214583">
-        <meta name="msapplication-TileImage" content="/assets/dist/images/favicons/f06f6996e193d1dd/windows_tile_144_b.png">
-
-
-    </head>
-    <body id="top">
-        <a class="u-h skip" href="#container">Skip to main content</a>
-        <noscript>
-            <div class="warning-message copy hidden-print">
-                Please enable JavaScript &ndash; we use it to enhance behaviour for Guardian Members.
-                <a href="http://www.enable-javascript.com/">Click here for instructions to do so in your browser</a>.
-            </div>
-        </noscript>
-        <div class="browser-warning warning-message copy hidden-print">
-            You are using an <strong>outdated</strong> browser.
-            Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+	
+</head>
+<body>
+	<noscript>
+        <div style="text-align: center;
+                    font-size: 30px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    background-color: #e9e939;">
+            Please enable JavaScript - we use it to provide the best experience for Guardian&nbsp;Supporters.<br/>
+            <a href="https://www.enable-javascript.com/">Click here for instructions to do so in your browser.</a>
         </div>
-        <div class="container-global container-global--giraffe">
-            <header class="global-header hidden-print js-header" role="banner">
-                <div class="global-header__inner">
-                    <div class="global-header__branding l-constrained">
-                        <div class="global-header__primary">
-                        
+    </noscript>
+	
+    <main id="bundles-landing-page" class="gu-content-wrapper"></main>
 
-
-<ul class="nav-control u-cf" role="menubar">
-    <li class="nav-control__item">
-        <a href="https://profile.theguardian.com/signin?skipConfirmation=true"
-        class="control js-dropdown js-identity-menu-toggle"
-        data-dropdown-menu="js-identity-menu"
-        id="qa-identity-control"
-        title="Your account"
-        role="menuitem"
-        >
-            <span class="control__item">
-                <span class="control__icon icon-holder icon-holder--large icon-holder--neutral">
-                
-
-<svg class="icon-inline ">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-user"></use>
-</svg>
-
-                </span>
-            </span>
-            <span class="control__item hidden-tablet js-user-detail">
-                <span class="control__info">
-                    <span class="case--lower js-user-displayname">Sign in</span>
-                    <span class="u-h u-parentheses js-user-tier"></span>
-                </span>
-            </span>
-        </a>
-        
-        <nav id="js-identity-menu" role="navigation" class="nav-popup is-hidden js-dropdown-menu" aria-label="Profile menu">
-            <ul class="nav-popup__list">
-                <li class="nav-popup__item">
-                    <a href="https://profile.theguardian.com/user/id/" class="nav-popup__link js-identity-menu-comment-activity">Comment activity</a>
-                </li>
-                <li class="nav-popup__item">
-                    <a class="nav-popup__link js-identity-menu-edit-profile"
-                    id="qa-identity-nav-edit"
-                    href="https://profile.theguardian.com/public/edit"
-                    data-member-href="https://profile.theguardian.com/membership/edit">Edit profile</a>
-                </li>
-                <li class="nav-popup__item">
-                    <a href="https://profile.theguardian.com/email-prefs" class="nav-popup__link">Email preferences</a>
-                </li>
-                <li class="nav-popup__item">
-                    <a href="https://profile.theguardian.com/password/change" class="nav-popup__link">Change password</a>
-                </li>
-                <li class="nav-popup__item">
-                    <a href="https://profile.theguardian.com/signout?returnUrl=https://contribute.theguardian.com/uk" class="nav-popup__link">Sign out</a>
-                </li>
-            </ul>
-        </nav>
-    </li>
-    
-        <li class="nav-control__item">
-            <a href="#" class="control js-dropdown" data-dropdown-menu="js-country-switcher" title="Choose country" role="menuitem">
-                <span class="control__item">
-                    <span class="control__icon icon-holder icon-holder--large icon-holder--neutral">
-                    
-
-<svg class="icon-inline ">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-globe"></use>
-</svg>
-
-                    </span>
-                </span>
-                <span class="control__item hidden-mobile js-user-detail">
-                    <span class="control__info" id="js-country-name">United Kingdom (£)</span>
-                </span>
-            </a>
-            <nav id="js-country-switcher" role="navigation" class="js-dropdown-menu nav-popup is-hidden" aria-label="Country switcher">
-                <ul class="nav-popup__list">
-                
-                    <li class="nav-popup__item">
-                        <a  href="/uk"
-                            class="nav-popup__link"
-                            data-country-group="{&quot;name&quot;:&quot;United Kingdom&quot;,&quot;id&quot;:&quot;uk&quot;,&quot;currency&quot;:{&quot;symbol&quot;:&quot;£&quot;,&quot;prefix&quot;:null,&quot;identifier&quot;:&quot;£&quot;,&quot;code&quot;:&quot;gbp&quot;},&quot;postalCode&quot;:&quot;Postcode&quot;}"
-                            data-max-amount="2000"
-                            data-stripe-key="pk_live_auSwLB4KBzbN3JOUVHvKMe6f">
-                            United Kingdom (£)
-                        </a>
-                    </li>
-                
-                    <li class="nav-popup__item">
-                        <a  href="/uk?countryGroup=eu"
-                            class="nav-popup__link"
-                            data-country-group="{&quot;name&quot;:&quot;Europe&quot;,&quot;id&quot;:&quot;eu&quot;,&quot;currency&quot;:{&quot;symbol&quot;:&quot;€&quot;,&quot;prefix&quot;:null,&quot;identifier&quot;:&quot;€&quot;,&quot;code&quot;:&quot;eur&quot;},&quot;postalCode&quot;:&quot;Postcode&quot;}"
-                            data-max-amount="2000"
-                            data-stripe-key="pk_live_auSwLB4KBzbN3JOUVHvKMe6f">
-                            Europe (€)
-                        </a>
-                    </li>
-                
-                    <li class="nav-popup__item">
-                        <a  href="/uk?countryGroup=us"
-                            class="nav-popup__link"
-                            data-country-group="{&quot;name&quot;:&quot;United States&quot;,&quot;id&quot;:&quot;us&quot;,&quot;currency&quot;:{&quot;symbol&quot;:&quot;$&quot;,&quot;prefix&quot;:&quot;US&quot;,&quot;identifier&quot;:&quot;US$&quot;,&quot;code&quot;:&quot;usd&quot;},&quot;postalCode&quot;:&quot;Zip code&quot;}"
-                            data-max-amount="2000"
-                            data-stripe-key="pk_live_auSwLB4KBzbN3JOUVHvKMe6f">
-                            United States (US$)
-                        </a>
-                    </li>
-                
-                    <li class="nav-popup__item">
-                        <a  href="/uk?countryGroup=au"
-                            class="nav-popup__link"
-                            data-country-group="{&quot;name&quot;:&quot;Australia&quot;,&quot;id&quot;:&quot;au&quot;,&quot;currency&quot;:{&quot;symbol&quot;:&quot;$&quot;,&quot;prefix&quot;:&quot;AU&quot;,&quot;identifier&quot;:&quot;AU$&quot;,&quot;code&quot;:&quot;aud&quot;},&quot;postalCode&quot;:&quot;Postcode&quot;}"
-                            data-max-amount="16000"
-                            data-stripe-key="pk_live_HRYGcMzpbqY7ehLuUkdqvIDE">
-                            Australia (AU$)
-                        </a>
-                    </li>
-                
-                </ul>
-            </nav>
-        </li>
-    
-    <li class="nav-control__item nav-control__item--last hidden-tablet">
-        <a class="control" href="http://theguardian.com/" role="menuitem">
-            <span class="control__item">
-            
-
-<svg class="icon-inline icon-inline--large">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-g-mark"></use>
-</svg>
-
-            </span>
-            <span class="control__item">
-                <span class="control__info">the guardian</span>
-            </span>
-        </a>
-    </li>
-</ul>
-
-                        </div>
-                        
-                        <div class="global-header__logo">
-                            <a href="http://theguardian.com/" class="global-header__logo__link" id="qa-header-logo">
-                                <div class="inline-svg global-header__logo__image" role="img">
-                                <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-                                    <svg
-                                    version="1.1"
-                                    id="svg4203"
-                                    viewBox="0 0 320 60">
-                                        <metadata
-                                        id="metadata4213">
-                                            <rdf:RDF>
-                                                <cc:Work
-                                                rdf:about="">
-                                                    <dc:format>image/svg+xml</dc:format>
-                                                    <dc:type
-                                                    rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                                                    <dc:title></dc:title>
-                                                </cc:Work>
-                                            </rdf:RDF>
-                                        </metadata>
-                                        <defs
-                                        id="defs4211" />
-                                        <path
-                                        id="path4205"
-                                        d="M284 45h16v-3l-3-1.5v-20c1.2-.9 2.8-1.1 4.3-1.1 2.8 0 3.7.9 3.7 4.1v17l-3 1.5v3h16v-3l-3-1.5v-19c0-5.7-2.1-8.3-7.1-8.3-4.1 0-8.1 1.5-10.8 4V13h-1l-12.4 2.2v2.7l3.3 1.6v21l-3 1.5v3zM245.3.4c-3 0-5.4 2.4-5.4 5.5 0 3 2.4 5.4 5.4 5.4 2.9 0 5.4-2.4 5.4-5.4-.1-3.1-2.5-5.5-5.4-5.5zM237 15.1v2.8l3 1.6v20.9l-3 1.5V45h16v-3.1l-3-1.5V13.1h-1l-12 2zM223 39c-.7.6-1.7 1.1-3.2 1.1-4 0-5.9-3.3-5.9-10.9 0-8.7 2.4-11.6 5.6-11.6 1.8 0 2.8.6 3.5 1.4v20zm0-24.4c-1.2-.9-3.3-1.4-5-1.4-7.4 0-14.5 4.4-14.5 16.8 0 11.9 7.1 15.7 11.8 15.7 3.8 0 6.4-1.7 7.6-3.4h.3v3.3h.9l11.9-1.4v-2.3l-3-1.8V.6h-1l-12.6 2v2.8l3.6 1.5v7.7zM181 18l3 1.5v20.9l-3 1.5V45h17v-3.1l-4-1.5V24.1c1.8-1.4 4.1-1.9 6.8-1.9.9 0 1.6.2 2.2.3v-9c-.3-.1-.7-.2-1.2-.2-3.3 0-6 2.2-7.8 6.2V13h-1l-12 2v3zm-19.3-.8c3.9 0 5.3 2 5.3 5.9v3.5l-6.1 1.1c-5.9 1.1-10.4 2.9-10.4 9.3 0 5.1 3.5 8.7 8.3 8.7 3.8 0 7.4-1.7 8.7-4.4h.3c.5 3.3 3.3 4.4 6.4 4.4 2.4 0 4.8-.6 5.7-1.6v-2l-2.9-1.5v-18c0-7-5.2-9.4-13.3-9.4-5.3 0-8.6 1.3-11.4 2.6v7.8h4.7l2-6c1.1-.4 2.3-.4 2.7-.4zm2.3 22.9c-1.9 0-4-1.1-4-4.6 0-2.4 2.4-4.7 4.8-5l2.2-.5v8.5s-1.9 1.6-3 1.6zm100.7-22.9c3.9 0 5.3 2 5.3 5.9v3.5l-6.1 1.1c-5.9 1.1-10.4 2.9-10.4 9.3 0 5.1 3.5 8.7 8.3 8.7 3.8 0 7.4-1.7 8.7-4.4h.3c.5 3.3 3.3 4.4 6.4 4.4 2.4 0 4.8-.6 5.7-1.6v-2l-2.9-1.5v-18c0-7-5.2-9.4-13.3-9.4-5.3 0-8.6 1.3-11.4 2.6v7.8h4.7l2-6c1.1-.4 2.3-.4 2.7-.4zm2.3 22.9c-1.9 0-4-1.1-4-4.6 0-2.4 2.4-4.7 4.8-5l2.2-.5v8.5s-1.9 1.6-3 1.6zm-138.7 5.6c.4 0 .9 0 1.3-.1 3.5-.3 6.7-2 8.4-4.2v4.1l12-1.5v-2l-3-2V13h-1l-12 2.3V18l4 1.7V38c-1.1.8-2.4 1.3-4.2 1.3-2.5 0-4.8-.8-4.8-4.3V13h-1l-12 2.5v2.6l4 1.6V36c0 5.4 2.2 9.7 8.3 9.7zM96 38c-1.2 0-2.5-.8-2.5-1.9 0-.8.6-1.7 1.4-2.3 1.6.5 3 .6 5 .6 7.8 0 13.2-3.7 13.2-10.4 0-3-1.3-4.6-3.2-6.4L115 19v-6l-8.2 1.6c-1.9-.7-4.5-1.6-7-1.6-7.8 0-13.2 4.1-13.2 10.8 0 4.1 2 7.1 5 8.8l.2.2c-1.7 1.2-5.3 4-5.3 7.2 0 2.4 1.5 4.8 4.8 5.5-3.4.8-7.3 2.5-7.3 6.5 0 4.1 5.9 8 15.5 8 11.8 0 16.5-5.7 16.5-13 0-6.1-2.8-9-9.5-9H96zm7.5-14c0 5.7-1.3 6.5-3.5 6.5s-4-.8-4-6.5c0-5.8 1.8-7.5 4-7.5s3.5 2 3.5 7.5zM92 50.9c.1-1.5 1.1-3.4 3.7-3.6h8.6c2.5 0 3.7 2 3.7 3.6 0 3.2-2 4.4-8.3 4.4-5.5 0-7.8-2.2-7.7-4.4z"
-                                        fill="#fff" />
-                                        <path
-                                        id="path4207"
-                                        d="M83 30c0-13-5.1-16.9-13-16.9-9 0-15 6.2-15 16.4 0 10.5 5.5 16.2 15.8 16.2 5.6 0 9.7-2.7 11.2-4.7v-3c-2.1.7-3.9 1.2-7.7 1.2-5.6 0-9.3-3.2-9.3-9.2h18zM69.9 16.6c2.5 0 3.8 1.8 3.8 9.6l-8.4.7c.1-7.9 1.8-10.3 4.6-10.3zM37 45v-3l-3-1.5V21c1.2-.9 3.2-1.7 4.8-1.7 2.8 0 4.3 1.6 4.2 4.2v17L40 42v3h16v-3l-3-1.5v-19c0-5.7-3.3-8.3-7.7-8.3-4.1 0-8.6 1.3-11.3 3.8V0h-1L21 2v3l4 1.5v34L22 42v3h15zM4 36.4c0 5.7 2.8 9.3 8.9 9.3 3.1 0 6.2-.8 8.1-2.3v-3.8c-.8.3-1.9.5-2.9.5-2.9 0-4.1-1.6-4.1-4.6V19h7v-5h-7V6.5L4 8v6l-4 1v4h4v17.4z"
-                                        fill="#AADCE6" />
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-
-<button role="menuitem" class="mobile-menu mobile-only js-menu-icon" title="Menu">
-    <span class="mobile-menu__icon">
-        <i></i><i></i><i></i>
-    </span>
-</button>
-
-<nav role="navigation" class="global-navigation js-global-nav">
-    <div class="global-navigation__scroll l-constrained">
-        <ul class="global-navigation__list">
-            <li class="global-navigation__item global-navigation__item--home">
-                <a href="http://theguardian.com/" class="global-navigation__link js-nav-link-home">
-                    
-
-<svg class="icon-inline ">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-home"></use>
-</svg>
-
-                    <span class="u-h">Home</span>
-                </a>
-            </li>
-
-            <li class="global-navigation__item global-navigation__item--right">
-            </li>
-        </ul>
-    </div>
-</nav>
-
-            </header>
-
-            <div id="container" class="giraffe-container">
-                
-    <main class="contributions__wrapper currency-gbp">
-
-        
-
-        <section class="contributions__inner page-slice l-constrained flex-horizontal-from-tablet">
-            <div class="contributions__inner-wrapper">
-                <div class="contributions__landing">
-                    <hr />
-                    <h2 class="contributions__intro--landing">Now that you’re here …</h2>
-
-                    <p>… we’d like to explain why we need your support. Advertising revenues across the media are falling fast. And unlike many news organisations, we haven’t put up a paywall – we want to keep our journalism as open as we can. The Guardian's independent, investigative journalism takes a lot of time, money and hard work to produce.</p>
-                    <p>If everyone who reads our reporting, who likes it, helps to support it, our future would be much more secure. Reader contributions support the Guardian’s editorial operations.</p>
-                </div>
-
-                <div class="contributions__landing-headers">
-                    <h1 class="contributions__heading--main contributions__heading--landing">
-                        Support the Guardian’s journalism.</h1>
-                    <h2 class="contributions__heading--sub contributions__heading--landing">
-                        Make a one-off contribution today.</h2>
-                </div>
-            </div>
-
-            
-        <!-- react injects its components here -->
-        <section id="contribute" class="contribute-container"
-        data-ab-tests="[{&quot;testName&quot;:&quot;Stripe checkout&quot;,&quot;testSlug&quot;:&quot;stripe-checkout&quot;,&quot;variantName&quot;:&quot;stripe&quot;,&quot;variantSlug&quot;:&quot;stripe&quot;},{&quot;testName&quot;:&quot;Landing page&quot;,&quot;testSlug&quot;:&quot;landing-page&quot;,&quot;variantName&quot;:&quot;with-copy&quot;,&quot;variantSlug&quot;:&quot;with-copy&quot;}]"
-        data-country-group="{&quot;name&quot;:&quot;United Kingdom&quot;,&quot;id&quot;:&quot;uk&quot;,&quot;currency&quot;:{&quot;symbol&quot;:&quot;£&quot;,&quot;prefix&quot;:null,&quot;identifier&quot;:&quot;£&quot;,&quot;code&quot;:&quot;gbp&quot;},&quot;postalCode&quot;:&quot;Postcode&quot;}"
-        data-max-amount="2000"
-        data-csrf-token="5da0c63308ddb51ddf6d74fb3ea3516be7b955fd-1512401041795-9cf4fd73b0fd1538a9b68307"
-            
-            
-                data-int-cmp-code="gdnwb_copts_memco_nugget_election"
-            
-            
-            
-                data-referrer-url="https://contribute.theguardian.com/?INTCMP=gdnwb_copts_memco_nugget_election"
-                
-        data-disable-stripe="false"
-
-            
-
-            
-
-            
-
-            
-        >
-        </section>
-
-    
-        </section>
-    </main>
-
-    <section class="disclaimer">
-        <div class="support-wrapper page-slice page-slice__feedback l-constrained currency-gbp">
-            <div class="feedback">
-                <p>
-                    The ultimate owner of the Guardian is The Scott Trust Limited, whose role it is to secure the editorial and financial independence of the Guardian in perpetuity. Reader contributions support the Guardian’s journalism.
-                </p>
-
-                <p data-shown="gbp aud eur">
-                    Please note that your support of the Guardian’s journalism does not constitute a charitable donation, as such your contribution is not eligible for Gift Aid in the UK nor a tax-deduction elsewhere.
-                </p>
-
-                <p data-shown="usd">
-                    Please note that the Guardian is not a charity, will not use your support for charitable
-                    programs, and your support of the Guardian’s journalism does not constitute a
-                    charitable donation. As such your contribution is not eligible to be treated as a
-                    charitable deduction for federal or state taxes in the United States or elsewhere.
-                </p>
-
-                <p>
-                    If you have any questions about contributing to the Guardian, please <a href="mailto:contribution.support@theguardian.com" class="support-thanks__link">
-                    contact us here</a>.
-                </p>
-            </div>
-        </div>
-    </section>
-
-            </div>
-        </div>
-
-        <footer class="global-footer hidden-print global-footer--giraffe" role="contentinfo">
-
-            <div class="global-brandbar">
-                <div class="global-brandbar__inner l-constrained">
-                    <div class="global-brandbar__top">
-                        
-                        <a class="control" href="#top">
-                            <span class="control__item">
-                                <span class="control__icon icon-holder icon-holder--large">
-                                
-
-<svg class="icon-inline ">
-    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-up"></use>
-</svg>
-
-                                </span>
-                            </span>
-                            <span class="control__item">
-                                <span class="control__info">back to top</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="global-footer__info">
-                <div class="global-footer__info__inner l-constrained">
-                    <ul class="colophon">
-
-                    </ul>
-                    <small class="global-footer__copyright">
-                            &copy; 2017 Guardian News and Media Limited or its affiliated companies.
-                        All rights reserved.
-                    </small>
-                </div>
-            </div>
-        </footer>
-        
-
-
-    <script>
-        (function (isModern) {
-            if (isModern) {
-                // only load JS if the browser cuts the mustard
-                var newElm = document.createElement('script');
-                newElm.src = '/assets/dist/javascripts/7a5da0aeac9fcd0b/contributePage.js';
-                document.getElementsByTagName("head")[0].appendChild(newElm);
-            }
-        })(guardian.isModernBrowser);
+	<script src="https://polyfill.guim.co.uk/v2/polyfill.min.js?features=default,Array.prototype.find,fetch,Array.prototype.includes"></script>
+	<script defer src="https://js.stripe.com/v3/"></script>
+	<script type="text/javascript">
+		window.guardian = window.guardian || {};
+        window.guardian.gitCommitId = '14906e4e81bd447f618a7d0ba10544dc5d283dc7';
+	</script>
+	
+    <script type="text/javascript">
+        window.guardian = window.guardian || {};
+        window.guardian.contributionsPayPalEndpoint = "https://contribute.theguardian.com/paypal/auth";
     </script>
 
-
-<script async src="https://cdn.krxd.net/controltag?confid=JglooLwn"></script>
-
-<noscript><img src="//bat.bing.com/action/0?ti=5039324&Ver=2" height="0" width="0" style="display: none; visibility: hidden;" /></noscript>
-
-
-
-            <!-- build-commit-id: f4b9ad6a0e8b3566e9422fb0140590c0756449f4 -->
-    </body>
+	 <!-- This script is intentionally at the bottom of the file. Please check
+	      all the critical flows work correctly if you change its position -->
+	<script type="text/javascript" src="/assets/javascripts/bundlesLandingPage.9bcb4b0277f429900e40.js"></script>
+	<!-- build-commit-id: 14906e4e81bd447f618a7d0ba10544dc5d283dc7 -->
+</body>
 </html>
-
-
-        
-    
-
 
