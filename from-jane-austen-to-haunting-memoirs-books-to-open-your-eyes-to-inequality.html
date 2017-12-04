@@ -72,7 +72,7 @@
 <meta property="article:tag" content="Inequality,Books,Culture,Income inequality,Poverty,Society"/>
 <meta property="al:ios:app_name" content="The Guardian"/>
 <meta property="og:site_name" content="the Guardian"/>
-<meta property="article:modified_time" content="2017-12-04T11:16:24.000Z"/>
+<meta property="article:modified_time" content="2017-12-04T12:25:56.000Z"/>
 <meta name="twitter:app:id:iphone" content="409128287"/>
 <meta name="twitter:app:name:googleplay" content="The Guardian"/>
 <meta name="twitter:app:name:ipad" content="The Guardian"/>
@@ -194,7 +194,7 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"From Jane Austen to haunting memoirs: books to open your eyes to inequality","isImmersive":false,"author":"Sarah Perry,Jeffrey Sachs,Monica Ali,Richard Wilkinson,Julian Baggini,Kate Pickett,Afua Hirsch","toneIds":"tone/features","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-inequality,observer-new-review","webPublicationDate":1512370803000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"From Jane Austen to haunting memoirs: books to open your eyes to inequality","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":7,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":8,"showRelatedContent":true,"lightboxImages":{"id":"inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","headline":"From Jane Austen to haunting memoirs: books to open your eyes to inequality","shouldHideAdverts":false,"standfirst":"<p>In the second part of our series, we asked Sarah Perry, Jeffrey Sachs, Sebastian Barry, Monica Ali, Richard Wilkinson, Julian Baggini, Kate Pickett and Afua Hirsch to tell us which titles helped shape their views on inequality</p><ul><li><a href=\"https://www.theguardian.com/inequality/2017/dec/03/willy-wonka-to-wind-in-the-willows-how-childrens-books-reveal-inequality\">From Willy Wonka to Wind in the Willows: how children’s books reveal inequality</a></li></ul>","images":[{"caption":"Jane Austen taught Monica Ali that money is always an issue – even for those who have it. ","credit":"Photograph: Allstar/BBC","displayCredit":true,"src":"https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=c4c6c317509e8665db76045f338b5073","srcsets":"https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2bcbd16b56788563fe09968dadea1fd7 1920w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=5d5e4dc2c250da133bb6e34daa9a922a 1225w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fd93d7b17b3a87d8cff286619d81e675 1065w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d8b37b6f7587289b6d459af0bafd1f48 965w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=7a37e0d6dc46aafde8331acdca6e73d2 725w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=cc6f8d4a2a645540a00c8c325de6fa84 645w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e43dd882de1988d7ed7acadd1836e22f 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6666666666666667,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"Features","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":true,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Inequality,Observer New Review","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"Inequality","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7gx5e","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":1953,"cardStyle":"feature","adUnit":"/59666047/theguardian.com/inequality/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"inequality","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7gx5e","thumbnail":"https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/500.jpg?q=55&auto=format&usm=12&fit=max&s=1411a33962e21bc6236db43009d1757c","pageId":"inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","references":[{"rich-link":"https://www.theguardian.com/info/ng-interactive/2017/mar/30/sign-up-for-the-bookmarks-email"}],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"inequality/inequality,books/books,culture/culture,inequality/income-inequality,society/poverty,society/society","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","sponsorshipType":"foundation","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/sarah-perry,profile/jeffreysachs,profile/monica-ali,profile/richard-wilkinson,profile/julianbaggini,profile/kate-pickett,profile/afuahirsch","isPaidContent":false,"hasYouTubeAtom":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Inequality,Books,Culture,Income inequality,Poverty,Society","contentId":"inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","nonKeywordTagIds":"type/article,tone/features,profile/sarah-perry,profile/jeffreysachs,profile/monica-ali,profile/richard-wilkinson,profile/julianbaggini,profile/kate-pickett,profile/afuahirsch,tracking/commissioningdesk/uk-inequality,tracking/commissioningdesk/observer-new-review","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"d09ff75c4736f72931f5605307162a4da02fb5b8","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"https://www.theguardian.com/info/ng-interactive/2017/mar/30/sign-up-for-the-bookmarks-email","campaigns":[{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4035893","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15334","sharedAdTargeting":{"ct":"article","co":["richard-wilkinson","julianbaggini","kate-pickett","afuahirsch","monica-ali","sarah-perry","jeffreysachs"],"url":"/inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","br":"f","su":["0"],"edition":"int","tn":["features"],"p":"ng","k":["society","culture","inequality","books","income-inequality","poverty"],"sh":"https://gu.com/p/7gx5e"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsEpicEndOfYearCountdown":true,"abAcquisitionsEpicTestimonialsGroup":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeader":true,"commercialPaidContent":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"From Jane Austen to haunting memoirs: books to open your eyes to inequality","isImmersive":false,"author":"Sarah Perry,Jeffrey Sachs,Monica Ali,Richard Wilkinson,Julian Baggini,Kate Pickett,Afua Hirsch","toneIds":"tone/features","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-inequality,observer-new-review","webPublicationDate":1512370803000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"From Jane Austen to haunting memoirs: books to open your eyes to inequality","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":7,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":8,"showRelatedContent":true,"lightboxImages":{"id":"inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","headline":"From Jane Austen to haunting memoirs: books to open your eyes to inequality","shouldHideAdverts":false,"standfirst":"<p>In the second part of our series, we asked Sarah Perry, Jeffrey Sachs, Sebastian Barry, Monica Ali, Richard Wilkinson, Julian Baggini, Kate Pickett and Afua Hirsch to tell us which titles helped shape their views on inequality</p><ul><li><a href=\"https://www.theguardian.com/inequality/2017/dec/03/willy-wonka-to-wind-in-the-willows-how-childrens-books-reveal-inequality\">From Willy Wonka to Wind in the Willows: how children’s books reveal inequality</a></li></ul>","images":[{"caption":"Jane Austen taught Monica Ali that money is always an issue – even for those who have it. ","credit":"Photograph: Allstar/BBC","displayCredit":true,"src":"https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=c4c6c317509e8665db76045f338b5073","srcsets":"https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=2bcbd16b56788563fe09968dadea1fd7 1920w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=5d5e4dc2c250da133bb6e34daa9a922a 1225w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=fd93d7b17b3a87d8cff286619d81e675 1065w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=d8b37b6f7587289b6d459af0bafd1f48 965w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=7a37e0d6dc46aafde8331acdca6e73d2 725w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=cc6f8d4a2a645540a00c8c325de6fa84 645w, https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/master/2400.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=e43dd882de1988d7ed7acadd1836e22f 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6666666666666667,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"Features","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":true,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Inequality,Observer New Review","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"Inequality","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7gx5e","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":1953,"cardStyle":"feature","adUnit":"/59666047/theguardian.com/inequality/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"inequality","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7gx5e","thumbnail":"https://i.guim.co.uk/img/media/b0dbdf45bdb9da48e967946439203f222612d71d/0_24_2400_1440/500.jpg?q=55&auto=format&usm=12&fit=max&s=1411a33962e21bc6236db43009d1757c","pageId":"inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","references":[{"rich-link":"https://www.theguardian.com/info/ng-interactive/2017/mar/30/sign-up-for-the-bookmarks-email"}],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":true,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"inequality/inequality,books/books,culture/culture,inequality/income-inequality,society/poverty,society/society","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","sponsorshipType":"foundation","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/sarah-perry,profile/jeffreysachs,profile/monica-ali,profile/richard-wilkinson,profile/julianbaggini,profile/kate-pickett,profile/afuahirsch","isPaidContent":false,"hasYouTubeAtom":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Inequality,Books,Culture,Income inequality,Poverty,Society","contentId":"inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","nonKeywordTagIds":"type/article,tone/features,profile/sarah-perry,profile/jeffreysachs,profile/monica-ali,profile/richard-wilkinson,profile/julianbaggini,profile/kate-pickett,profile/afuahirsch,tracking/commissioningdesk/uk-inequality,tracking/commissioningdesk/observer-new-review","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"d09ff75c4736f72931f5605307162a4da02fb5b8","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"https://www.theguardian.com/info/ng-interactive/2017/mar/30/sign-up-for-the-bookmarks-email","campaigns":[{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4035893","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15334","sharedAdTargeting":{"ct":"article","co":["richard-wilkinson","julianbaggini","kate-pickett","afuahirsch","monica-ali","sarah-perry","jeffreysachs"],"url":"/inequality/2017/dec/04/from-jane-austen-to-haunting-memoirs-books-to-open-your-eyes-to-inequality","br":"f","su":["0"],"edition":"int","tn":["features"],"p":"ng","k":["society","culture","inequality","books","income-inequality","poverty"],"sh":"https://gu.com/p/7gx5e"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsEpicEndOfYearCountdown":true,"abAcquisitionsEpicTestimonialsGroup":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeader":true,"commercialPaidContent":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
@@ -1463,7 +1463,7 @@ The Inequality Project is supported by
 <div class="meta__numbers">
 <div class="u-h meta__number js-sharecount">
 </div>
-<div class="u-h meta__number" data-discussion-id="/p/7gx5e" data-commentcount-format="content" data-discussion-closed="true">
+<div class="u-h meta__number" data-discussion-id="/p/7gx5e" data-commentcount-format="content" data-discussion-closed="false">
 </div>
 </div>
 </div>
@@ -1481,11 +1481,11 @@ The Inequality Project is supported by
 <time itemprop="datePublished" datetime='2017-12-04T07:00:03+0000' data-timestamp="1512370803000" class="content__dateline-wpd js-wpd">
 Monday 4 December 2017 <span class="content__dateline-time">07.00 GMT</span>
 </time>
-<time datetime='2017-12-04T11:16:24+0000' data-timestamp="1512386184000" class="content__dateline-lm js-lm u-h" itemprop="dateModified">
-Last modified on Monday 4 December 2017 <span class="content__dateline-time">11.16 GMT</span>
+<time datetime='2017-12-04T12:25:56+0000' data-timestamp="1512390356000" class="content__dateline-lm js-lm u-h" itemprop="dateModified">
+Last modified on Monday 4 December 2017 <span class="content__dateline-time">12.25 GMT</span>
 </time>
 </p>
-<meta itemprop="dateModified" content="2017-12-04T11:16:24+0000">
+<meta itemprop="dateModified" content="2017-12-04T12:25:56+0000">
 </div>
 <div class="content__article-body from-content-api js-article__body" itemprop="articleBody" data-test-id="article-review-body">
 <h2>Sarah Perry</h2>
@@ -1852,10 +1852,188 @@ features
 </div>
 </article>
 <div class="content-footer ">
+<div id="comments" class="discussion discussion--not-staff discussion--loading js-comments
+        discussion--open
+        u-cf" data-discussion-key="/p/7gx5e" data-discussion-closed="false" data-component="discussion">
+<div class="discussion__top-border gs-container">
+<div class="content__main-column">
+<div class="modern-hidden">
+<div class="discussion__heading">
+<div class="container__meta modern-hidden">
+<h2 class="container__meta__title">
+<a href="https://www.theguardian.com/discussion/p/7gx5e" data-link-name="View all comments">
+View all comments &gt;</a>
+</h2>
+</div>
+</div>
+</div>
+<div class="modern-visible">
+<div class="discussion__heading js-discussion-external-frontend"></div>
+<div class="discussion__comment-box js-discussion-comment-box--top"></div>
+<div class="discussion__top-comments js-discussion-top-comments"></div>
+<div class="discussion__toolbar js-discussion-toolbar u-cf">
+<div class="discussion__toolbar-item js-comment-order-dropdown">
+<button class="u-button-reset popup__toggle" data-toggle="popup--comments-order" aria-haspopup="true" aria-controls="comments-order-popup">Order by <span class="js-comment-order"></span></button>
+<ul id="comments-order-popup" class="popup popup--default popup__group popup--comments-order is-off">
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-order="newest" data-link-name="comments-newest">newest</button>
+</li>
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-order="oldest" data-link-name="comments-oldest">oldest</button>
+</li>
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-order="recommendations" data-link-name="comments-recommendations">recommendations</button>
+</li>
+</ul>
+</div>
+<div class="discussion__toolbar-item hide-until-tablet js-comment-pagesize-dropdown sign-in-required">
+<button class="u-button-reset popup__toggle" data-toggle="popup--comments-pagesize" aria-haspopup="true" aria-controls="comments-pagesize-popup">Show <span class="js-comment-pagesize">25</span></button>
+<ul id="comments-pagesize-popup" class="popup popup--default popup__group popup--comments-pagesize is-off">
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-pagesize="25" data-link-name="comments-pagesize-25">25</button>
+</li>
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-pagesize="50" data-link-name="comments-pagesize-50">50</button>
+</li>
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-pagesize="100" data-link-name="comments-pagesize-100">100</button>
+</li>
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-pagesize="All" data-link-name="comments-pagesize-All">All</button>
+</li>
+</ul>
+</div>
+<div class="discussion__toolbar-item js-comment-threading-dropdown">
+<button class="u-button-reset popup__toggle" data-toggle="popup--comments-threading" aria-haspopup="true" aria-controls="comments-order-threading">Threads <span class="js-comment-threading"></span></button>
+<ul id="comments-order-threading" class="popup popup--default popup__group popup--comments-threading is-off">
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-threading="collapsed" data-link-name="comments-threading-collapsed">collapsed</button>
+</li>
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-threading="expanded" data-link-name="comments-threading-expanded">expanded</button>
+</li>
+<li class="popup__item">
+<button class="u-button-reset popup__action" data-threading="unthreaded" data-link-name="comments-threading-unthreaded">unthreaded</button>
+</li>
+</ul>
+</div>
+<div class="discussion__pagination discussion__pagination--top js-discussion-pagination"></div>
+</div>
+<div class="preload-msg discussion__loader">Loading comments… <a href=/discussion/p/7gx5e class="accessible-link">Trouble loading?</a><div class="is-updating"></div></div>
+<div class="discussion__main-comments js-discussion-main-comments"></div>
+<div class="discussion__comment-box discussion__comment-box--bottom discussion__comment-box--bottom--hidden js-discussion-comment-box--bottom"></div>
+<button class="discussion__show-button button--show-more button button--large button--primary js-discussion-show-button modern-visible" data-link-name="more-comments">
+<span class="inline-plus inline-icon ">
+<svg width="18" height="18" viewbox="0 0 18 18" class="inline-plus__svg inline-icon__svg">
+<path d="M8.2 0h1.6l.4 7.8 7.8.4v1.6l-7.8.4-.4 7.8H8.2l-.4-7.8L0 9.8V8.2l7.8-.4.4-7.8z"/>
+</svg>
+</span>
+View more comments
+</button>
+<script type="text/template" id="tmpl-comment-box">
+                        
+<form class="component js-comment-box d-comment-box">
+
+    <div class="d-comment-box__meta">
+        <span class="d-comment-box__avatar-wrapper"></span>
+        <div class="d-comment-box__meta-text">
+            <span class="d-comment-box__author-label">Signed in as</span>
+            <span class="d-comment-box__author"></span>
+            
+
+
+<span  class="inline-reply inline-icon grey">
+    
+        <svg width="18" height="18" class="grey__svg inline-reply__svg inline-icon__svg">
+ <path d="M10.1 5l.9-1 4 4.5v1L11 14l-.9-1 2.5-3H4L3 9V6.5h2V8h7.6l-2.5-3z" />
+</svg>
+    
+</span>
+
+            <span class="d-comment-box__reply-to-author"></span>
+            <span class="u-fauxlink d-comment-box__show-parent" role="button">Show comment</span>
+            <span class="u-fauxlink d-comment-box__hide-parent" role="button">Hide comment</span>
+        </div>
+    </div>
+    <div class="d-comment-box__parent-comment-wrapper">
+        <div class="d-comment-box__parent-comment-spout"></div>
+        <div class="d-comment-box__parent-comment">
+            <span class="d-comment-box__parent-comment-author"></span>
+            <div class="d-comment-box__parent-comment-body"></div>
+            <span class="u-fauxlink d-comment-box__hide-parent" role="button">Hide comment</span>
+        </div>
+    </div>
+
+    <div class="d-comment-box__onboarding">
+        <h3>Welcome <span class="d-comment-box__onboarding-author"></span>, you’re about to make your first comment!</h3>
+        <p>Before you post, we’d like to thank you for joining the debate - we’re glad you’ve chosen to participate and we value your opinions and experiences.</p>
+
+        <div class="d-comment-box__onboarding-username">
+            <p>Please choose your username under which you would like all your comments to show up. You can only set your username once.</p>
+            <label class="d-comment-box__onboarding-username-label" for="usernameInput">Username: </label>
+            <span>Must be 6-20 characters, letters and/or numbers only, no spaces.</span>
+            <input type="text" id="usernameInput" class="d-comment-box__onboarding-username-input" placeholder="" value=""/>
+            <p class="d-comment-box__onboarding-username-error-message is-hidden"></p>
+        </div>
+
+        <p>Please keep your posts respectful and abide by the <a target="_blank" href="/community-standards">community guidelines</a> - and if you spot a comment you think doesn’t adhere to the guidelines, please use the ‘Report’ link next to it to let us know.</p>
+        <p>Please preview your comment below and click ‘post’ when you’re happy with it.</p>
+        <div class="d-comment-box__onboarding-preview-body"></div>
+        <button type="submit" class="u-button-reset button button--large button--primary submit-input--behaviour d-comment-box__onboarding-submit">Post your comment</button>
+        <button type="button" class="u-button-reset button button--large button--primary submit-input--behaviour d-comment-box__onboarding-cancel">Cancel</button>
+    </div>
+
+    <div class="d-comment-box__content">
+        <div class="d-comment-box__messages"></div>
+        <div class="d-discussion__error d-comment-box__premod">
+            
+
+
+<span  class="inline-status-alert inline-icon ">
+    
+        <svg width="18" height="18" viewbox="0 0 18 18" class="inline-status-alert__svg inline-icon__svg">
+ <circle fill="#d61d00" cx="9" cy="9" r="9" />
+ <path fill="#fff" d="M9.7 11.3H8.3L6.9 3.6l.7-.7h2.8l.7.8-1.4 7.6zM9 15.4c-.8 0-1.4-.6-1.4-1.4 0-.8.6-1.4 1.4-1.4s1.4.6 1.4 1.4c0 .8-.6 1.4-1.4 1.4z" />
+</svg>
+    
+</span>
+
+            <span class="d-discussion__error-text">Your comments are currently being pre-moderated (<a href="/community-faqs#311" target="_blank">why?</a>)</span>
+        </div>
+
+        <div class="d-comment-box__community-standards">Please keep comments respectful and abide by the <a href="/community-standards">community guidelines</a>.</div>
+        <label for="d-comment-box" class="u-h">Enter comment</label>
+        <textarea name="body" class="textarea d-comment-box__body" placeholder="Join the discussion…" id="d-comment-box"></textarea>
+        <button type="submit" data-link-name="post comment" class="u-button-reset button button--large button--primary submit-input--behaviour d-comment-box__submit">Post your comment</button>
+        <span class="u-fauxlink d-comment-box__preview" role="button">Preview</span>
+        <span class="u-fauxlink d-comment-box__hide-preview" role="button">Hide preview</span>
+        <span class="u-fauxlink d-comment-box__cancel" role="button">Cancel</span>
+        <ul class="d-comment-box__formatting-controls">
+            <li class="d-comment-box__formatting-bold" title="Bold">B</li>
+            <li class="d-comment-box__formatting-italic" title="Italic">i</li>
+            <li class="d-comment-box__formatting-quote" title="Quote">&#8221;</li>
+            <li class="d-comment-box__formatting-link" title="Link">Link</li>
+        </ul>
+        <div class="d-comment-box__preview-wrapper">
+            <div class="d-comment-box__preview-spout"></div>
+            <div class="d-comment-box__preview-block">
+                <div class="d-comment-box__preview-body"></div>
+            </div>
+        </div>
+    </div>
+</form>
+
+                        </script>
+</div>
+<div class="js-discussion__ad-slot discussion__ad-slot"></div>
+</div>
+</div>
+</div>
 <aside class="related js-related hide-on-childrens-books-site" role="complementary" data-test-id="related-content">
 </aside>
 <aside id="onward" class="onward js-onward facia-container facia-container--layout-content  js-outbrain-anchor" role="complementary"></aside>
 <aside id="more-in-section" class="more-in-section js-more-in-section facia-container facia-container--layout-content " role="complementary"></aside>
+<div class="js-repositioned-comments content__repositioned-comments"></div>
 <section class="fc-container fc-container--has-toggle js-most-popular-footer" data-link-name="most-popular" data-component="most-popular">
 <div class="fc-container__inner">
 <div class="fc-container__header js-container__header">
