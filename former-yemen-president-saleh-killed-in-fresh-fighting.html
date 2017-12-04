@@ -66,7 +66,7 @@
 <meta property="article:tag" content="Yemen,Middle East and North Africa,World news,Saudi Arabia"/>
 <meta property="al:ios:app_name" content="The Guardian"/>
 <meta property="og:site_name" content="the Guardian"/>
-<meta property="article:modified_time" content="2017-12-04T14:14:57.000Z"/>
+<meta property="article:modified_time" content="2017-12-04T14:50:12.000Z"/>
 <meta name="twitter:app:id:iphone" content="409128287"/>
 <meta name="twitter:app:name:googleplay" content="The Guardian"/>
 <meta name="twitter:app:name:ipad" content="The Guardian"/>
@@ -188,7 +188,7 @@
     window.setInterval = f(window.setInterval);
 })(function(f){return function(c,t){var a=[].slice.call(arguments,2);return f(function(){c.apply(this,a)},t)}});
     @end
-@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"Former Yemen president Saleh 'killed in fresh fighting'","isImmersive":false,"author":"Patrick Wintour","toneIds":"tone/news","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-foreign","webPublicationDate":1512396809000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Former Yemen president Saleh 'killed in fresh fighting'","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":3,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":1,"showRelatedContent":true,"lightboxImages":{"id":"world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","headline":"Former Yemen president Saleh 'killed in fresh fighting'","shouldHideAdverts":false,"standfirst":"<p>Houthi rebels blow up home of erstwhile ally Ali Abdullah Saleh, prompting unconfirmed reports he has been killed</p>","images":[{"caption":"Former Yemeni president Ali Abdullah Saleh severed his alliance with the Houthis at the weekend.","credit":"Photograph: Hani Mohammed/AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=ad2f91011b4573c15ab2f1ac21d39c73","srcsets":"https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=6f1497e6d6f316aa327f411e56a23a94 1920w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=71789341c3132319662744c749b2e621 1225w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=53292245a8c21d6a4ec9032b950e39f2 1065w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=332be5c12434f79a18ed1d0423239257 965w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=462474aba4c51ab6b8fe558458a570e0 725w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=9d4b5641d5e7c8ba53947851324806a6 645w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=d389052571600ced7bc97ac66d09e67b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6660919540229886,"role":"None"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"News","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Foreign","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"World news","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7y29y","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":844,"cardStyle":"news","adUnit":"/59666047/theguardian.com/world/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"world","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7y29y","thumbnail":"https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/500.jpg?q=55&auto=format&usm=12&fit=max&s=730af4153584cd10ff81d46d948e8cb3","pageId":"world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/yemen,world/middleeast,world/world,world/saudiarabia","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/patrickwintour","isPaidContent":false,"hasYouTubeAtom":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Yemen,Middle East and North Africa,World news,Saudi Arabia","contentId":"world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","nonKeywordTagIds":"type/article,tone/news,profile/patrickwintour,tracking/commissioningdesk/uk-foreign","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"5011d4c6e8af1709f553ae769726d8d2e50108dc","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4135152","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15342","atomTypes":{"guide":false,"storyquestions":false,"profile":false,"timeline":true,"qanda":false},"sharedAdTargeting":{"ct":"article","co":["patrickwintour"],"url":"/world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","su":["0"],"edition":"int","tn":["news"],"p":"ng","k":["saudiarabia","yemen","world","middleeast"],"sh":"https://gu.com/p/7y29y"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","atoms":["20f5d058-4dcd-4a1a-a17a-8995f20b799d"],"isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsEpicEndOfYearCountdown":true,"abAcquisitionsEpicTestimonialsGroup":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeader":true,"commercialPaidContent":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
+@*/(function(window){var lastTime,vendors;if(!window.requestAnimationFrame){lastTime=0;vendors=["ms","moz","webkit","o"];for(var x=0;x<vendors.length&&!window.requestAnimationFrame;++x){window.requestAnimationFrame=window[vendors[x]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[vendors[x]+"CancelAnimationFrame"]||window[vendors[x]+"CancelRequestAnimationFrame"]}window.requestAnimationFrame=function(callback,element){var currTime=(new Date).getTime();var timeToCall=Math.max(0,16-(currTime-lastTime));var id=window.setTimeout(function(){callback(currTime+timeToCall)},timeToCall);lastTime=currTime+timeToCall;return id}}if(!window.cancelAnimationFrame)window.cancelAnimationFrame=function(id){clearTimeout(id)}})(window);(function(window,document){var weShouldPolyfill=!("open"in document.createElement("details"));function toggleDetailsState(details){if(details.hasAttribute("open"))details.removeAttribute("open");else details.setAttribute("open","open")}function handleEvent(event){var targetNode=event.target;while(targetNode.nodeName.toLowerCase()!=="summary"&&targetNode!==document)targetNode=targetNode.parentNode;if(targetNode.nodeName.toLowerCase()==="summary")toggleDetailsState(targetNode.parentNode)}function bindEvents(){document.addEventListener("click",handleEvent,true);document.addEventListener("keypress",function(event){if(event.key&&(event.key===" "||event.key==="Enter"))handleEvent(event);else if(event.keyCode===32||event.keyCode===13)handleEvent(event)},true)}function appendCss(){if(document.querySelector("#details-polyfill-css")===null){var style=document.createElement("style");style.id="details-polyfill-css";style.textContent="details:not([open]) \x3e *:not(summary) {display: none;}";document.head.insertBefore(style,document.head.firstChild)}}if(weShouldPolyfill){bindEvents();appendCss()}})(window,document);(function(window){var location=window.location;var hash=location.hash;var navigator=window.navigator;var platform=navigator.platform;var isFront=false;var enhancedKey="gu.prefs.enhanced";var preferEnhanced;try{preferEnhanced=JSON.parse(localStorage.getItem(enhancedKey)).value}catch(e){preferEnhanced=null}function mustEnhance(){if(hash==="#enhanced"||hash==="#"+enhancedKey+"\x3dtrue")return true;if(preferEnhanced)return true;return false}function mustNotEnhance(){return hash==="#standard"||hash==="#"+enhancedKey+"\x3dfalse"}function couldEnhance(){return preferEnhanced!==false}function weWantToEnhance(){if(isOlderIOSDevice())return false;if(isFront)return!isIpad();return true}function isOlderIOSDevice(){return/.*(iPhone|iPad|iPod; CPU) OS ([34567])_\d+.*/.test(navigator.userAgent)}function isIpad(){return platform==="iPad"}window.shouldEnhance=mustNotEnhance()?false:mustEnhance()?true:couldEnhance()&&weWantToEnhance()})(window);var isModernBrowser="querySelector"in document&&"addEventListener"in window&&"localStorage"in window&&"sessionStorage"in window&&"bind"in Function&&(("XMLHttpRequest"in window&&"withCredentials"in new XMLHttpRequest())||"XDomainRequest"in window);window.guardian={isModernBrowser:isModernBrowser,isEnhanced:window.shouldEnhance&&isModernBrowser,css:{loaded:false},polyfilled:false,adBlockers:{active:undefined,onDetect:[]},config:{"page":{"avatarApiUrl":"https://avatar.theguardian.com","membershipUrl":"https://membership.theguardian.com","headline":"Former Yemen president Saleh 'killed in fresh fighting'","isImmersive":false,"author":"Patrick Wintour","toneIds":"tone/news","isProd":true,"discussionFrontendUrl":"https://assets.guim.co.uk/discussion/discussion-frontend.preact.iife.8bdbd9194e.js","membershipAccess":"","allowUserGeneratedContent":false,"commissioningDesks":"uk-foreign","webPublicationDate":1512396809000,"forecastsapiurl":"/weatherapi/forecast","idOAuthUrl":"https://oauth.theguardian.com","supportUrl":"https://support.theguardian.com","webTitle":"Former Yemen president Saleh 'killed in fresh fighting'","isPhotoEssay":false,"isFront":false,"inBodyInternalLinkCount":2,"idWebAppUrl":"https://oauth.theguardian.com","googleSearchUrl":"//www.google.co.uk/cse/cse.js","inBodyExternalLinkCount":0,"showRelatedContent":true,"lightboxImages":{"id":"world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","headline":"Former Yemen president Saleh 'killed in fresh fighting'","shouldHideAdverts":false,"standfirst":"<p>Houthi rebels blow up home of erstwhile ally Ali Abdullah Saleh, prompting unconfirmed reports he has been killed</p>","images":[{"caption":"Former Yemeni president Ali Abdullah Saleh severed his alliance with the Houthis at the weekend.","credit":"Photograph: Hani Mohammed/AP","displayCredit":true,"src":"https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=ad2f91011b4573c15ab2f1ac21d39c73","srcsets":"https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=6f1497e6d6f316aa327f411e56a23a94 1920w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=71789341c3132319662744c749b2e621 1225w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=53292245a8c21d6a4ec9032b950e39f2 1065w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=332be5c12434f79a18ed1d0423239257 965w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=462474aba4c51ab6b8fe558458a570e0 725w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=9d4b5641d5e7c8ba53947851324806a6 645w, https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/master/2899.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=d389052571600ced7bc97ac66d09e67b 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":1.6660919540229886,"role":"None"},{"caption":"A still image taken from footage that purports to show the corpse of Ali Abdullah Saleh.","credit":"Photograph: Reuters via Taiz News via social media","displayCredit":true,"src":"https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=700&q=55&auto=format&usm=12&fit=max&s=c0a7f0fc4947a0402efdde0f650c5251","srcsets":"https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=1920&q=55&auto=format&usm=12&fit=max&s=e8530dbe91178d87917f688f5b04efab 1920w, https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=1225&q=55&auto=format&usm=12&fit=max&s=b979bdb21e722b617badae1b39ce737f 1225w, https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=1065&q=55&auto=format&usm=12&fit=max&s=f9f03c57c81b24862e4fde832da5c13b 1065w, https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=965&q=55&auto=format&usm=12&fit=max&s=a3ebea095f3b407dd0513c27a0fb7b7d 965w, https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=725&q=55&auto=format&usm=12&fit=max&s=c94c0f2bae3f21f176b2659709a80b29 725w, https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=645&q=55&auto=format&usm=12&fit=max&s=7b3a126fdd2617adec7f749a8d26a4e1 645w, https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=465&q=55&auto=format&usm=12&fit=max&s=338b4ed57c245b6bd8c382da6a9f2257 465w","sizes":"(min-width: 1300px) 1920px, (min-width: 1140px) 1225px, (min-width: 980px) 1065px, (min-width: 740px) 965px, (min-width: 660px) 725px, (min-width: 480px) 645px, 465px","ratio":0.7994041708043694,"role":"Some(supporting)"}]},"googleSearchId":"007466294097402385199:m2ealvuxh1i","tones":"News","shouldHideReaderRevenue":false,"idUrl":"https://profile.theguardian.com","hasStoryPackage":false,"hasInlineMerchandise":false,"omnitureAmpAccount":"guardiangu-thirdpartyapps","dfpAdUnitRoot":"theguardian.com","trackingNames":"UK Foreign","host":"https://www.theguardian.com","hasShowcaseMainElement":false,"blogIds":"","sectionName":"World news","hasMultipleVideosInPage":false,"fbAppId":"180444840287","isContent":true,"shortUrlId":"/p/7y29y","dfpAccountId":"59666047","plistaPublicApiKey":"462925f4f131001fd974bebe","wordCount":700,"cardStyle":"news","adUnit":"/59666047/theguardian.com/world/article/ng","discussionApiUrl":"https://discussion.theguardian.com/discussion-api","isSensitive":false,"ophanEmbedJsUrl":"//j.ophan.co.uk/ophan.embed","edition":"INT","userAttributesApiUrl":"https://members-data-api.theguardian.com/user-attributes","videoDuration":null,"blogs":"","discussionApiClientHeader":"nextgen","hasSuperStickyBanner":false,"section":"world","dfpHost":"pubads.g.doubleclick.net","weatherapiurl":"/weatherapi/city","sentryPublicApiKey":"344003a8d11c41d8800fbad8383fdc50","shortUrl":"https://gu.com/p/7y29y","thumbnail":"https://i.guim.co.uk/img/media/d5b6abfaa604d076d87a630ebcc08b46328fa0ae/0_87_2899_1740/500.jpg?q=55&auto=format&usm=12&fit=max&s=730af4153584cd10ff81d46d948e8cb3","pageId":"world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","references":[],"sonobiHeaderBiddingJsUrl":"//api.nextgen.guardianapps.co.uk/morpheus.theguardian.12919.js","beaconUrl":"//beacon.gu-web.net","commentable":false,"discussionD2Uid":"zHoBy6HNKsk","ophanJsUrl":"//j.ophan.co.uk/ophan.ng","keywordIds":"world/yemen,world/middleeast,world/world,world/saudiarabia","contentType":"Article","isDev":false,"isHosted":false,"facebookIaAdUnitRoot":"facebook-instant-articles","stripePublicToken":"pk_live_2O6zPMHXNs2AGea4bAmq5R7Z","omnitureAccount":"guardiangu-network","locationapiurl":"/weatherapi/locations?query=","authorIds":"profile/patrickwintour","isPaidContent":false,"hasYouTubeAtom":false,"externalEmbedHost":"https://embed.theguardian.com","thirdPartyAppsAccount":"guardiangu-thirdpartyapps","ajaxUrl":"https://api.nextgen.guardianapps.co.uk","keywords":"Yemen,Middle East and North Africa,World news,Saudi Arabia","contentId":"world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","nonKeywordTagIds":"type/article,tone/news,profile/patrickwintour,tracking/commissioningdesk/uk-foreign","mobileAppsAdUnitRoot":"beta-guardian-app","hasPageSkin":false,"requiresMembershipAccess":false,"revisionNumber":"5011d4c6e8af1709f553ae769726d8d2e50108dc","assetsPath":"https://assets.guim.co.uk/","isLive":false,"richLink":"","campaigns":[{"id":"593eca89-4902-494f-8f2e-b45b19efc31f","name":"Epic Always Ask strategy","rules":[{"requiredTags":[],"lackingTags":["society/guardian-and-observer-charity-appeal-2016","world/series/guardian-morning-briefing","uk-news/westminster-attack--news-"],"matchAllTags":true}],"priority":0,"activeFrom":1481068800000,"activeUntil":1577836800000,"displayOnSensitive":false,"fields":{"campaignId":"epic_always_ask_strategy","_type":"epic"}}],"isLiveBlog":false,"pageCode":"4135152","avatarImagesUrl":"https://avatar.guim.co.uk","publication":"theguardian.com","sentryHost":"app.getsentry.com/35463","buildNumber":"15342","atomTypes":{"guide":false,"storyquestions":false,"profile":false,"timeline":true,"qanda":false},"sharedAdTargeting":{"ct":"article","co":["patrickwintour"],"url":"/world/2017/dec/04/former-yemen-president-saleh-killed-in-fresh-fighting","su":["2","3","4","5"],"edition":"int","tn":["news"],"p":"ng","k":["saudiarabia","yemen","world","middleeast"],"sh":"https://gu.com/p/7y29y"},"onwardWebSocket":"ws://api.nextgen.guardianapps.co.uk/recently-published","productionOffice":"Uk","shouldHideAdverts":false,"googletagJsUrl":"//www.googletagservices.com/tag/js/gpt.js","idApiUrl":"https://idapi.theguardian.com","atoms":["20f5d058-4dcd-4a1a-a17a-8995f20b799d"],"isPreview":false},"switches":{"boostGaUserTimingFidelity":false,"thirdPartyEmbedTracking":true,"scrollDepth":true,"enableSentryReporting":true,"ophan":true,"discussionPageSize":true,"externalVideoEmbeds":true,"relatedContent":true,"autoRefresh":true,"lazyLoadContainers":true,"enableDiscussionSwitch":true,"registerWithPhone":false,"discussionAllowAnonymousRecommendsSwitch":false,"discussionAllPageSize":true,"sonobiHeaderBidding":true,"kruxVideoTracking":false,"adblock":false,"membershipEngagementBannerBlockAu":false,"membershipEngagementBannerBlockUs":false,"membershipEngagementBannerBlockUk":false,"membershipEngagementBanner":true,"simpleReach":true,"remarketing":true,"doubleclickYoutubeAdFree":true,"krux":true,"adomik":true,"imrWorldwide":true,"tourismAustralia":true,"adFreeStrictExpiryEnforcement":false,"adFreeSubscriptionTrial":true,"blockIas":false,"surveys":false,"iasAdTargeting":true,"keepVideoAdSlotsOpen":false,"commercial":true,"abAcquisitionsEpicEndOfYearCountdown":true,"abAcquisitionsEpicTestimonialsGroup":true,"abAcquisitionsBannerShorterCopy":true,"abUnrulyPerformanceTest":true,"abAcquisitionsUsGunCampaign2017":true,"abOutstreamFrequencyCap":false,"abAcquisitionsEpicThankYou":true,"abAcquisitionsEpicAlwaysAskElection":false,"abAcquisitionsEpicAlwaysAskIfTagged":true,"abPaidContentVsOutbrain2":false,"abAcquisitionsElectionInteractiveSlice":true,"abAcquisitionsInteractiveEnd":true,"abAcquisitionsEpicLiveblog":true,"abContributionsEpicAskFourEarning":true,"abContributionsEpicAlwaysAskStrategy":true,"garnett":true,"abNewDesktopHeader":true,"commercialPaidContent":true,"commercialClientLogging":true,"profileShowCancelContributor":false,"weAreHiring":true,"usSupporterTrafficToNewSupportFrontend":true,"ukSupporterTrafficToNewSupportFrontend":true,"useTailorEndpoints":true,"targeting":true,"sharingComments":true,"smartAppBanner":true,"emailSignupEuRef":true,"emailSignupLabNotes":true,"emailInArticleOutbrain":true,"emailInArticleGtoday":true,"emailInArticle":true,"emailInlineInFooter":true,"crosswordSvgThumbnails":true,"historyTags":true,"weather":true,"breakingNews":true,"enhancedVideoPlayer":true,"enhanceTweets":true,"idCookieRefresh":true,"idProfileNavigation":true,"googleSearch":true,"webFonts":true,"geoMostPopular":true,"plistaForOutbrainAu":true,"outbrain":true,"serverShareCounts":true},"tests":{},"modules":{},"images":{"commercial":{"ab-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/504a6bc5825d269eaf8ffdc77ad1f5b8\/ab-icon.png","abp-icon":"https:\/\/assets.guim.co.uk\/images\/commercial\/15fa8f9f99ce2a6b804097d348622727\/abp-icon.png","abp-whitelist-instruction-chrome":"https:\/\/assets.guim.co.uk\/images\/commercial\/862b03a008061af5c3b77c1f2dd52dd4\/ad-block-instructions-chrome.png"},"membership":{"adblock-coins":"https:\/\/assets.guim.co.uk\/images\/membership\/6b077732beb2d9bf9dcbb78c953a3de5\/adblock-coins.png","adblock-coins-us":"https:\/\/assets.guim.co.uk\/images\/membership\/103510d0b88a6444f383b492d556c539\/adblock-coins-us.png"},"acquisitions":{"paypal-and-credit-card":"https:\/\/assets.guim.co.uk\/images\/acquisitions\/4dcda1b007df2fdc413eb33dc5215f82\/paypal-and-credit-card.png"}},"stylesheets":{"fonts":{"hintingCleartype":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/9f78997fd3b37533007e55334c9e7c8b\/webfonts-hinting-cleartype-kerning-on.css"},"hintingOff":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/50441b3bda46af4af85a3f0a1b61f8bb\/webfonts-hinting-off-kerning-on.css"},"hintingAuto":{"kerningOn":"https:\/\/assets.guim.co.uk\/stylesheets\/4f3512b7ca058a60dea4f4b994ab4ebc\/webfonts-hinting-auto-kerning-on.css"}}},"googleAnalytics":{"trackers":{"editorialTest":"guardianTestPropertyTracker","editorialProd":"allEditorialPropertyTracker","editorial":"allEditorialPropertyTracker"},"timingEvents":[]},"libs":{"googletag":"\/\/www.googletagservices.com\/tag\/js\/gpt.js","sonobi":"\/\/api.nextgen.guardianapps.co.uk\/morpheus.theguardian.12919.js"}}};if(window.esi&&window.esi.viewId){window.guardian.config.ophan={pageViewId:window.esi.viewId};}else{window.guardian.config.ophan={pageViewId:new Date().getTime().toString(36)+'xxxxxxxxxxxx'.replace(/x/g,function(){return Math.floor(Math.random()*36).toString(36);})};}/*@cc_on
 @if (@_jscript_version <= 9)
     guardian.config.page.ajaxUrl = guardian.config.page.ajaxUrl.replace(/^https:/, '');
 @end
@@ -1487,11 +1487,11 @@ Former Yemen president Saleh 'killed in fresh fighting'
 <time itemprop="datePublished" datetime='2017-12-04T14:13:29+0000' data-timestamp="1512396809000" class="content__dateline-wpd js-wpd">
 Monday 4 December 2017 <span class="content__dateline-time">14.13 GMT</span>
 </time>
-<time datetime='2017-12-04T14:14:57+0000' data-timestamp="1512396897000" class="content__dateline-lm js-lm u-h" itemprop="dateModified">
-Last modified on Monday 4 December 2017 <span class="content__dateline-time">14.14 GMT</span>
+<time datetime='2017-12-04T14:50:12+0000' data-timestamp="1512399012000" class="content__dateline-lm js-lm u-h" itemprop="dateModified">
+Last modified on Monday 4 December 2017 <span class="content__dateline-time">14.50 GMT</span>
 </time>
 </p>
-<meta itemprop="dateModified" content="2017-12-04T14:14:57+0000">
+<meta itemprop="dateModified" content="2017-12-04T14:50:12+0000">
 </div>
 <div class="content__article-body from-content-api js-article__body" itemprop="articleBody" data-test-id="article-review-body">
 <p>Saudi-led coalition war planes bombed Yemen’s capital on Monday as Houthi rebels, backed by Iran, blew up the house of former president Ali Abdullah Saleh, prompting unconfirmed reports that he had been killed.</p>
@@ -1541,34 +1541,59 @@ Thank you for your feedback.
 </figure>
 <p>More than 125 civilians have been killed and 238 injured in clashes in Sana’a in the last five days, in the latest disastrous turn for Yemen’s three-year civil war. The fresh violence comes after the sudden collapse of the political and military alliance between the Houthi rebels and forces loyal to Saleh. The two groups had held Sana’a for the past two years.</p>
 <p>The high casualty figures were given by the International Red Cross, which also warned it was struggling to keep the hospital functioning in Sana’a and access its warehouse of medical supplies. </p>
+<figure itemprop="associatedMedia image" itemscope itemtype="http://schema.org/ImageObject" data-component="image" class="element element-image img--portrait element--supporting  fig--narrow-caption fig--has-shares " data-media-id="b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93" id="img-2">
+<meta itemprop="url" content="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=700&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=c0a7f0fc4947a0402efdde0f650c5251">
+<meta itemprop="width" content="805">
+<meta itemprop="height" content="1007">
+<a href="#img-2" class="article__img-container js-gallerythumbs" data-link-name="Launch Article Lightbox" data-is-ajax>
+<div class="u-responsive-ratio" style="padding-bottom: 125.09%">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 1300px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 1300px) and (min-resolution: 120dpi)" sizes="380px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=380&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=d7d66c7a58ee5562f8046031664bdb63 760w">
+<source media="(min-width: 1300px)" sizes="380px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=380&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=174c7515533328670dac8c7ac77f9a82 380w">
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="300px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=300&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=6854187884868d6bf98a6d7725895b55 600w">
+<source media="(min-width: 980px)" sizes="300px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=17dffd16c6a85344debb86699a3c3f46 300w">
+<source media="(min-width: 660px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 660px) and (min-resolution: 120dpi)" sizes="620px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=620&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=5f498168e82a876214dc1ba5805834e5 1240w">
+<source media="(min-width: 660px)" sizes="620px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=620&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=54fda7ae4e456bc3a0d4247f148e89ac 620w">
+<source media="(min-width: 480px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 480px) and (min-resolution: 120dpi)" sizes="605px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=605&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=7447a117d197d73d6b431241a92672c0 1210w">
+<source media="(min-width: 480px)" sizes="605px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=605&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=cc9e46ff4f87f3d0e41c4bff9c338982 605w">
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="445px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=445&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=84e22179cf40a87f351db2f6c02a9d61 890w">
+<source media="(min-width: 0px)" sizes="445px" srcset="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=445&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=0395dce505b199946d20200490b199a6 445w">
+<!--[if IE 9]></video><![endif]-->
+<img class="gu-image" itemprop="contentUrl" alt="A still image taken from footage that purports to show the corpse of Ali Abdullah Saleh." src="https://i.guim.co.uk/img/media/b9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93/557_62_805_1007/master/805.jpg?w=300&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=17dffd16c6a85344debb86699a3c3f46">
+</picture>
+</div> <span class="inline-expand-image inline-icon centered-icon rounded-icon article__fullscreen modern-visible">
+<svg width="22" height="22" viewbox="0 0 22 22" class="centered-icon__svg rounded-icon__svg article__fullscreen__svg modern-visible__svg inline-expand-image__svg inline-icon__svg">
+<path d="M3.4 20.2L9 14.5 7.5 13l-5.7 5.6L1 14H0v7.5l.5.5H8v-1l-4.6-.8M18.7 1.9L13 7.6 14.4 9l5.7-5.7.5 4.7h1.2V.6l-.5-.5H14v1.2l4.7.6"/>
+</svg> </span> </a>
+<div class="block-share block-share--article  hide-on-mobile " data-link-name="block share">
+<a class="rounded-icon block-share__item block-share__item--facebook js-blockshare-link" href="https://www.facebook.com/dialog/share?app_id=180444840287&amp;href=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2017%2Fdec%2F04%2Fformer-yemen-president-saleh-killed-in-fresh-fighting%3FCMP%3Dshare_btn_fb%26page%3Dwith%3Aimg-2%23img-2&amp;picture=https%3A%2F%2Fmedia.guim.co.uk%2Fb9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93%2F557_62_805_1007%2F805.jpg" target="_blank" data-link-name="social facebook"> <span class="inline-share-facebook inline-icon ">
+<svg width="32" height="32" viewbox="-2 -2 32 32" class="inline-share-facebook__svg inline-icon__svg">
+<path d="M17.9 14h-3v8H12v-8h-2v-2.9h2V8.7C12 6.8 13.1 5 16 5c1.2 0 2 .1 2 .1v3h-1.8c-1 0-1.2.5-1.2 1.3v1.8h3l-.1 2.8z"/>
+</svg> </span> <span class="u-h">Facebook</span> </a>
+<a class="rounded-icon block-share__item block-share__item--twitter js-blockshare-link" href="https://twitter.com/intent/tweet?text=Former%20Yemen%20president%20Saleh%20'killed%20in%20fresh%20fighting'&amp;url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2017%2Fdec%2F04%2Fformer-yemen-president-saleh-killed-in-fresh-fighting%3FCMP%3Dshare_btn_tw%26page%3Dwith%3Aimg-2%23img-2" target="_blank" data-link-name="social twitter"> <span class="inline-share-twitter inline-icon ">
+<svg width="32" height="32" viewbox="-2 -2 32 32" class="inline-share-twitter__svg inline-icon__svg">
+<path d="M21.3 10.5v.5c0 4.7-3.5 10.1-9.9 10.1-2 0-3.8-.6-5.3-1.6.3 0 .6.1.8.1 1.6 0 3.1-.6 4.3-1.5-1.5 0-2.8-1-3.3-2.4.2 0 .4.1.7.1l.9-.1c-1.6-.3-2.8-1.8-2.8-3.5.5.3 1 .4 1.6.4-.9-.6-1.6-1.7-1.6-2.9 0-.6.2-1.3.5-1.8 1.7 2.1 4.3 3.6 7.2 3.7-.1-.3-.1-.5-.1-.8 0-2 1.6-3.5 3.5-3.5 1 0 1.9.4 2.5 1.1.8-.1 1.5-.4 2.2-.8-.3.8-.8 1.5-1.5 1.9.7-.1 1.4-.3 2-.5-.4.4-1 1-1.7 1.5z"/>
+</svg> </span> <span class="u-h">Twitter</span> </a>
+<a class="rounded-icon block-share__item block-share__item--pinterest js-blockshare-link" href="http://www.pinterest.com/pin/create/button/?description=Former%20Yemen%20president%20Saleh%20%27killed%20in%20fresh%20fighting%27&amp;url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2F2017%2Fdec%2F04%2Fformer-yemen-president-saleh-killed-in-fresh-fighting%3Fpage%3Dwith%3Aimg-2%23img-2&amp;media=https%3A%2F%2Fmedia.guim.co.uk%2Fb9cbb985d9bbe7e2b1b96f63911afef9d8cb3d93%2F557_62_805_1007%2F805.jpg" target="_blank" data-link-name="social pinterest"> <span class="inline-share-pinterest inline-icon ">
+<svg viewbox="0 0 32 32" class="inline-share-pinterest__svg inline-icon__svg">
+<path d="M16.363 8C12.133 8 10 11.13 10 13.74c0 1.582.58 2.988 1.823 3.512.204.086.387.003.446-.23.04-.16.137-.568.18-.737.06-.23.037-.312-.127-.513-.36-.436-.588-1-.588-1.802 0-2.322 1.684-4.402 4.384-4.402 2.39 0 3.703 1.508 3.703 3.522 0 2.65-1.136 4.887-2.822 4.887-.93 0-1.628-.795-1.405-1.77.268-1.165.786-2.42.786-3.262 0-.752-.39-1.38-1.2-1.38-.952 0-1.716 1.017-1.716 2.38 0 .867.284 1.454.284 1.454l-1.146 5.006c-.34 1.487-.05 3.31-.026 3.493.014.108.15.134.21.05.09-.117 1.223-1.562 1.61-3.006.108-.41.625-2.526.625-2.526.31.61 1.215 1.145 2.176 1.145 2.862 0 4.804-2.693 4.804-6.298C22 10.54 19.763 8 16.363 8"/>
+</svg> </span> <span class="u-h">Pinterest</span> </a>
+</div>
+<figcaption class="caption caption--img caption caption--img" itemprop="description">
+<span class="inline-information inline-icon reveal-caption-icon centered-icon rounded-icon">
+<svg width="6" height="14" viewbox="0 0 6 14" class="reveal-caption-icon__svg centered-icon__svg rounded-icon__svg inline-information__svg inline-icon__svg">
+<path d="M4.6 12l-.4 1.4c-.7.2-1.9.6-3 .6-.7 0-1.2-.2-1.2-.9 0-.2 0-.3.1-.5l2-6.7H.7l.4-1.5 4.2-.6h.2L3 12h1.6zm-.3-9.2c-.9 0-1.4-.5-1.4-1.3C2.9.5 3.7 0 4.6 0 5.4 0 6 .5 6 1.3c0 1-.8 1.5-1.7 1.5z"/>
+</svg> </span> A still image taken from footage that purports to show the corpse of Ali Abdullah Saleh. Photograph: Reuters via Taiz News via social media
+</figcaption>
+</figure>
 <p>The distribution of humanitarian aid across the country is already fraught, with seven million people dependent on aid in what the UN has described as the world’s worst humanitarian disaster. The civil war has so far claimed 10,000 lives.<br></p>
-<aside class="element element-rich-link element--thumbnail element-rich-link--not-upgraded" data-component="rich-link" data-link-name="rich-link-2 | 1">
-<div class="rich-link">
-<div class="rich-link__container">
-<div class="rich-link__header">
-<h1 class="rich-link__title">'Only God can save us': Yemeni children starve as aid is held at border</h1>
-</div>
-<div class="rich-link__read-more">
-<div class="rich-link__arrow">
-<span class="inline-arrow-in-circle inline-icon ">
-<svg width="24" height="24" viewbox="0 0 24 24" class="inline-arrow-in-circle__svg inline-icon__svg">
-<path class="rich-link__arrow-icon" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m.21 19l-.637-.668 4.888-6.326H4.996v-1.01h11.465l-4.888-6.333.637-.668L19 11.153v.685l-6.79 7.157" fill="#005689" fill-rule="evenodd"/>
-</svg> </span>
-</div>
-<div class="rich-link__read-more-text">
-Read more
-</div>
-</div>
-<a class="rich-link__link u-faux-block-link__overlay" href="https://www.theguardian.com/world/2017/nov/12/millions-on-brink-of-famine-in-yemen-as-saudi-arabia-tightens-blockade"></a>
-</div>
-</div>
-</aside>
 <p>On Saturday, Saleh gave a televised address in effect announcing that he was swapping sides in the civil war, and would be seeking a dialogue with the Saudi and United Arab Emirates-led coalition that he had been fighting alongside the Houthis since 2015. The Saudis have sought to reinstall the UN-recognised government of President Abd-Rabbu Mansour Hadi and defeat the Iranian-backed Houthi rebels.</p>
 <p>Saudi Arabia and Iran are locked in a Middle East-wide power struggle that has the potential to envelop the whole region in a war.</p>
 <p>It is widely thought that UAE diplomats persuaded the 75-year-old Saleh to swap sides. </p>
 <p>“Yemeni citizens have tried to tolerate the recklessness of the Houthi over the last two-and-a-half years but cannot anymore,” Saleh said in his TV address, and ordered forces loyal to him in the capital to stop taking instructions from the Shia Houthi rebels. </p>
 <p>The alliance of convenience between Saleh and the Houthis has been close to collapse for months, with claims that Houthis tried to kill Saleh’s son.</p>
-<aside class="element element-rich-link element--thumbnail element-rich-link--not-upgraded" data-component="rich-link" data-link-name="rich-link-2 | 2">
+<aside class="element element-rich-link element--thumbnail element-rich-link--not-upgraded" data-component="rich-link" data-link-name="rich-link-2 | 1">
 <div class="rich-link">
 <div class="rich-link__container">
 <div class="rich-link__header">
@@ -1593,12 +1618,32 @@ Read more
 <p>Saleh’s conversion was immediately welcomed by the Saudis and the UAE.</p>
 <p>It is widely thought that they had been engineering his conversion for months after they became disillusioned with Hadi’s leadership, and looked for a new way to break the political and military deadlock. Hadi has been living in exile in Riyadh, and there are reports that he now has little independence from Saudi control.</p>
 <p>Neither the UAE nor Saudi Arabia foresaw that their intervention in Yemen would prove so costly or protracted, so Saleh’s volte face could represent a political breakthrough if his forces do not capitulate to the Houthi militia in Sana’a.</p>
+<aside class="element element-rich-link element--thumbnail element-rich-link--not-upgraded" data-component="rich-link" data-link-name="rich-link-2 | 2">
+<div class="rich-link">
+<div class="rich-link__container">
+<div class="rich-link__header">
+<h1 class="rich-link__title">'Only God can save us': Yemeni children starve as aid is held at border</h1>
+</div>
+<div class="rich-link__read-more">
+<div class="rich-link__arrow">
+<span class="inline-arrow-in-circle inline-icon ">
+<svg width="24" height="24" viewbox="0 0 24 24" class="inline-arrow-in-circle__svg inline-icon__svg">
+<path class="rich-link__arrow-icon" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m.21 19l-.637-.668 4.888-6.326H4.996v-1.01h11.465l-4.888-6.333.637-.668L19 11.153v.685l-6.79 7.157" fill="#005689" fill-rule="evenodd"/>
+</svg> </span>
+</div>
+<div class="rich-link__read-more-text">
+Read more
+</div>
+</div>
+<a class="rich-link__link u-faux-block-link__overlay" href="https://www.theguardian.com/world/2017/nov/12/millions-on-brink-of-famine-in-yemen-as-saudi-arabia-tightens-blockade"></a>
+</div>
+</div>
+</aside>
 <p>Saudi-led coalition planes have been targetting Houthi-held positions in the capital for two days in a bid to force the Houthis back. Targets have included Houthi bases near the airport and the interior ministry. But the loss of Saleh’s house suggests Saudi air power is not enough to win the battle in the streets.</p>
-<p>Riyadh’s determination to crush the Houthis hardened last month after an Iranian-made missile was fired from Houthi positions at Saudi Arabia’s international airport in Riyadh, the first attack so close to a large civilian population in the Saudi capital. Saudi Arabia responded by mounting a three-week long blockade of commercial goods entering Houthi-controlled ports, prompting widespread shortages.</p>
-<p>At the weekend, the UN secretary general, Antonio Gutteres, again called for the Saudis to fully lift the blockade. <a href="https://www.reuters.com/article/us-yemen-security-aid/saudi-led-coalition-allows-first-aid-ship-into-yemens-hodeidah-port-local-officials-idUSKBN1DQ0NV" data-link-name="in body link" class="u-underline">Some humanitarian food aid has been allowed to the enter the Houthi-controlled port of Hodeidah</a>.</p>
-<p>US and UK ministers met foreign ministers from Saudi Arabia and the UAE last week to discuss Yemen, and to press for an end to the blockade. Riyadh has so far been unwilling to lift restrictions and critics claim it is part of the Saudis’ desperate push to end the war.</p>
-<p>Since the <a href="https://www.theguardian.com/world/2017/oct/24/i-will-return-saudi-arabia-moderate-islam-crown-prince" data-link-name="in body link" class="u-underline">elevation of Crown Prince Mohammed bin Salman</a>, Saudi Arabia has taken up more aggressive foreign policy positions on Lebanon, Syria, Qatar and the Palestinian territories in what it sees as a much over-due push back against Iranian expansionism.</p>
-<p>Iranian support for the Houthis is part of a pattern of interference in Syria on behalf of President Bahar al-Assad, and in Lebanon in support of Hezbollah forces.<br></p>
+<p>Riyadh’s determination to crush the Houthis hardened last month after an Iranian-made missile was fired from Houthi positions at Saudi Arabia’s international airport in Riyadh. Saudi Arabia responded by mounting a three-week long blockade of goods entering Houthi-controlled ports, prompting widespread shortages.</p>
+<p></p>
+<p></p>
+<p><br></p>
 </div>
 <div class="submeta">
 <span class="submeta__label">Topics</span>
@@ -1736,7 +1781,326 @@ news
 </div>
 </article>
 <div class="content-footer ">
-<aside class="related js-related hide-on-childrens-books-site" role="complementary" data-test-id="related-content">
+<aside class="related more-on-this-story js-outbrain-anchor" role="complementary" aria-labelledby="related-content-head">
+<section id="more-on-this-story" class="fc-container fc-container--will-have-toggle js-container--toggle " data-link-name="container-3 | more-on-this-story" data-id="more-on-this-story" data-component="more-on-this-story" aria-expanded="true">
+<div class="fc-container__inner">
+<div class="fc-container__header
+                js-container__header
+                ">
+<div class="fc-container__header__title">
+<span tabindex="0">more on this story</span>
+</div>
+</div>
+<div class="fc-container--rolled-up-hide fc-container__body fc-show-more--hidden fc-show-more--mobile-only js-container--fc-show-more" data-title="more on this story" data-id="more-on-this-story">
+<div class="fc-slice-wrapper">
+<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--q-q-q-q">
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-1" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/dec/02/yemen-rebel-alliance-disintegrates-rivals-fight-control-sanaa" data-loyalty-short-url="/p/7kndc">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/f5e0fb7b7a49c80e1c76ae013f257a0ad605d308/6_382_3150_1891/master/3150.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=578187b8922147594810ebd435da9b1d 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/f5e0fb7b7a49c80e1c76ae013f257a0ad605d308/6_382_3150_1891/master/3150.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=8c0573f11e19aedcc20d5a49f382aff5 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/f5e0fb7b7a49c80e1c76ae013f257a0ad605d308/6_382_3150_1891/master/3150.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=b12b1b0b35c3842e75191d7cedac59cc 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/f5e0fb7b7a49c80e1c76ae013f257a0ad605d308/6_382_3150_1891/master/3150.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=c07979b12ae2cc0d3163b4841af35eda 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/f5e0fb7b7a49c80e1c76ae013f257a0ad605d308/6_382_3150_1891/master/3150.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=7052ba7c0481a6622dc94b2651253be3 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/f5e0fb7b7a49c80e1c76ae013f257a0ad605d308/6_382_3150_1891/master/3150.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f92185b51fe2811f60ae1f559b03e4fa 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/dec/02/yemen-rebel-alliance-disintegrates-rivals-fight-control-sanaa" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Yemen's rebel alliance disintegrates as rivals fight for control of Sana'a</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">Iran-backed Houthi rebels battle forces loyal to former president as UN calls for end to Saudi-led coalition’s blockade</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-12-02T18:44:09+0000" data-timestamp="1512240249000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>2 Dec 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/dec/02/yemen-rebel-alliance-disintegrates-rivals-fight-control-sanaa" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Yemen's rebel alliance disintegrates as rivals fight for control of Sana'a</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-2" data-item-visibility="all" data-test-id="facia-card" data-id="politics/2017/nov/28/may-to-demand-saudi-arabia-ends-blockade-on-yemens-ports" data-loyalty-short-url="/p/7k7ke">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/12ba9a7bdcfee1d82a100b3d13406b9f3e00e479/0_56_2905_1742/master/2905.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=47931adf285f028d4d043a1d27dfa035 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/12ba9a7bdcfee1d82a100b3d13406b9f3e00e479/0_56_2905_1742/master/2905.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=07084d3aacc54bd3a0cbfb01b160fe65 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/12ba9a7bdcfee1d82a100b3d13406b9f3e00e479/0_56_2905_1742/master/2905.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=c678dc9eb323ff274b75e74e904e6eb4 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/12ba9a7bdcfee1d82a100b3d13406b9f3e00e479/0_56_2905_1742/master/2905.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=e7da213a0c9a61162f99b172379231e2 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/12ba9a7bdcfee1d82a100b3d13406b9f3e00e479/0_56_2905_1742/master/2905.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=26fa431bc7b6d33e417a5670945ba18d 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/12ba9a7bdcfee1d82a100b3d13406b9f3e00e479/0_56_2905_1742/master/2905.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6d9ec96ad7c8806ef12b779c33663d51 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/politics/2017/nov/28/may-to-demand-saudi-arabia-ends-blockade-on-yemens-ports" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">May to demand Saudi Arabia ends blockade on Yemen's ports</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">The prime minister said she will challenge the Saudi crown prince on rampant human rights abuses during Middle East trip</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-28T22:30:17+0000" data-timestamp="1511908217000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>28 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/politics/2017/nov/28/may-to-demand-saudi-arabia-ends-blockade-on-yemens-ports" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">May to demand Saudi Arabia ends blockade on Yemen's ports</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-3" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/24/saudi-arabia-continues-to-block-humanitarian-aid-to-yemen" data-loyalty-short-url="/p/7jd2a">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/b4f99c1fce7527b1b2f6944e18c6167ccfdcd60d/0_114_2642_1585/master/2642.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=8f83e0ae80403d8b5650eae13ab5a757 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/b4f99c1fce7527b1b2f6944e18c6167ccfdcd60d/0_114_2642_1585/master/2642.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f38bd37be331a0a26888be8e5a2e40c9 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/b4f99c1fce7527b1b2f6944e18c6167ccfdcd60d/0_114_2642_1585/master/2642.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=aeaf366442a4ff90d5fc13aab21b755c 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/b4f99c1fce7527b1b2f6944e18c6167ccfdcd60d/0_114_2642_1585/master/2642.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=db390fc35cf5aaab6202b7be86e56338 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/b4f99c1fce7527b1b2f6944e18c6167ccfdcd60d/0_114_2642_1585/master/2642.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=f8c3805603fbdca54b73fb8e07b3e17c 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/b4f99c1fce7527b1b2f6944e18c6167ccfdcd60d/0_114_2642_1585/master/2642.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=087689a3bc70baf53867764bfcadec24 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/24/saudi-arabia-continues-to-block-humanitarian-aid-to-yemen" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Saudi Arabia still barring aid to Yemen despite pledge to lift siege</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">Saudi-led coalition has failed to lift blockade on Yemen’s ports, leaving tens of thousands without food and medicine</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-24T07:21:04+0000" data-timestamp="1511508064000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>24 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/24/saudi-arabia-continues-to-block-humanitarian-aid-to-yemen" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Saudi Arabia still barring aid to Yemen despite pledge to lift siege</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-media-mobile fc-item--standard-tablet js-snappable" data-link-name="news | group-0 | card-4" data-item-visibility="all" data-test-id="facia-card" data-id="global-development/2017/nov/23/british-risk-complicity-yemen-famine-crime-alex-de-waal" data-loyalty-short-url="/p/7t2g8">
+<div class="fc-item__container">
+<div class="fc-item__media-wrapper">
+<div class="fc-item__image-container u-responsive-ratio ">
+<picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="(min-width: 980px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 980px) and (min-resolution: 120dpi)" sizes="220px" srcset="https://i.guim.co.uk/img/media/54b276a77adb85725d377c2ad0367b96546c429a/0_0_3500_2100/master/3500.jpg?w=220&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=c13392534d57ea206f6dab9122d82d10 440w"/>
+<source media="(min-width: 980px)" sizes="220px" srcset="https://i.guim.co.uk/img/media/54b276a77adb85725d377c2ad0367b96546c429a/0_0_3500_2100/master/3500.jpg?w=220&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=6e469fa77f483b016d526c34af98a39c 220w"/>
+<source media="(min-width: 740px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 740px) and (min-resolution: 120dpi)" sizes="160px" srcset="https://i.guim.co.uk/img/media/54b276a77adb85725d377c2ad0367b96546c429a/0_0_3500_2100/master/3500.jpg?w=160&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=eb1c98b2fa7c04365712c19e52924ad3 320w"/>
+<source media="(min-width: 740px)" sizes="160px" srcset="https://i.guim.co.uk/img/media/54b276a77adb85725d377c2ad0367b96546c429a/0_0_3500_2100/master/3500.jpg?w=160&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=f4e72a35cd1becc7310c3acc5b2b3a19 160w"/>
+<source media="(min-width: 0px) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 0px) and (min-resolution: 120dpi)" sizes="127px" srcset="https://i.guim.co.uk/img/media/54b276a77adb85725d377c2ad0367b96546c429a/0_0_3500_2100/master/3500.jpg?w=127&amp;q=20&amp;auto=format&amp;usm=12&amp;fit=max&amp;dpr=2&amp;s=ac2d3aa7c858f0e0960d45ba5187f74c 254w"/>
+<source media="(min-width: 0px)" sizes="127px" srcset="https://i.guim.co.uk/img/media/54b276a77adb85725d377c2ad0367b96546c429a/0_0_3500_2100/master/3500.jpg?w=127&amp;q=55&amp;auto=format&amp;usm=12&amp;fit=max&amp;s=fc36fc8cfd1b3e8f36f0f50dedd560cc 127w"/>
+<!--[if IE 9]></video><![endif]-->
+<img class="responsive-img" alt=""/>
+</picture>
+</div>
+</div>
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/global-development/2017/nov/23/british-risk-complicity-yemen-famine-crime-alex-de-waal" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">British risk complicity in Yemen 'famine crime', says Alex de Waal</span></span>
+</a></h2>
+</div>
+<div class="fc-item__standfirst">Africa analyst believes UN inaction makes security council members accessories to crisis in Arab nation gripped by cholera, hunger and violence</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-23T10:00:27+0000" data-timestamp="1511431227000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>23 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/global-development/2017/nov/23/british-risk-complicity-yemen-famine-crime-alex-de-waal" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">British risk complicity in Yemen 'famine crime', says Alex de Waal</a>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="fc-slice-wrapper">
+<ul class="u-unstyled l-row  l-row--cols-4 fc-slice fc-slice--ql-ql-ql-ql">
+<li class="fc-slice__item l-row__item l-row__item--span-4">
+<ul class="u-unstyled l-list l-list--columns-4 l-list--rows-1">
+<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-5" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/16/lift-yemen-blockade-to-save-children-un-agencies-tell-saudis" data-loyalty-short-url="/p/7t7xq">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/16/lift-yemen-blockade-to-save-children-un-agencies-tell-saudis" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Saudis must lift Yemen blockade or ‘untold’ thousands will die, UN agencies warn</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-16T15:41:36+0000" data-timestamp="1510846896000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>16 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/16/lift-yemen-blockade-to-save-children-un-agencies-tell-saudis" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Saudis must lift Yemen blockade or ‘untold’ thousands will die, UN agencies warn</a>
+</div>
+</div>
+</li>
+<li class="fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-feature--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="feature | group-0 | card-6" data-item-visibility="all" data-test-id="facia-card" data-id="world/2017/nov/12/millions-on-brink-of-famine-in-yemen-as-saudi-arabia-tightens-blockade" data-loyalty-short-url="/p/7hgkf">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/nov/12/millions-on-brink-of-famine-in-yemen-as-saudi-arabia-tightens-blockade" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">'Only God can save us': Yemeni children starve as aid is held at border</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-11-12T19:55:57+0000" data-timestamp="1510516557000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>12 Nov 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/nov/12/millions-on-brink-of-famine-in-yemen-as-saudi-arabia-tightens-blockade" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">'Only God can save us': Yemeni children starve as aid is held at border</a>
+</div>
+</div>
+</li>
+<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-7" data-item-visibility="desktop" data-test-id="facia-card" data-id="world/2017/oct/20/yemen-minister-send-our-children-to-war" data-loyalty-short-url="/p/7dzvn">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/oct/20/yemen-minister-send-our-children-to-war" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Close schools and send our children to war, urges Yemeni minister</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-10-20T15:37:10+0000" data-timestamp="1508513830000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>20 Oct 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/oct/20/yemen-minister-send-our-children-to-war" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Close schools and send our children to war, urges Yemeni minister</a>
+</div>
+</div>
+</li>
+<li class="fc-show-more--hide-on-mobile js-hide-on-mobile fc-slice__item l-list__item l-row__item l-row__item--span-1 u-faux-block-link">
+<div class="fc-item fc-item--has-image fc-item--has-metadata fc-item--has-timestamp js-fc-item tone-news--item fc-item--list-mobile fc-item--list-tablet js-snappable" data-link-name="news | group-0 | card-8" data-item-visibility="desktop" data-test-id="facia-card" data-id="world/2017/sep/29/yemen-un-investigation-human-rights-abuses" data-loyalty-short-url="/p/7acek">
+<div class="fc-item__container">
+<div class="fc-item__content">
+<div class="fc-item__header">
+<h2 class="fc-item__title"><a href="https://www.theguardian.com/world/2017/sep/29/yemen-un-investigation-human-rights-abuses" class="fc-item__link" data-link-name="article">
+<span class="u-faux-block-link__cta fc-item__headline">
+<span class="js-headline-text">Independent investigation will look into human rights abuses in Yemen</span></span>
+</a></h2>
+</div>
+<aside class="fc-item__meta js-item__meta">
+<time class="fc-item__timestamp js-item__timestamp" datetime="2017-09-29T17:14:40+0000" data-timestamp="1506705280000" data-relativeformat="short">
+<span class="inline-clock inline-icon ">
+<svg width="11" height="11" viewbox="0 0 11 11" class="inline-clock__svg inline-icon__svg">
+<path d="M5.4 0C2.4 0 0 2.4 0 5.4s2.4 5.4 5.4 5.4 5.4-2.4 5.4-5.4S8.4 0 5.4 0zm3 6.8H4.7V1.7h.7L6 5.4l2.4.6v.8z"/>
+</svg>
+</span>
+<span class="fc-timestamp__text">
+<span class="u-h">Published: </span>29 Sep 2017
+</span>
+</time>
+</aside>
+</div>
+<a href="https://www.theguardian.com/world/2017/sep/29/yemen-un-investigation-human-rights-abuses" class="u-faux-block-link__overlay js-headline-text" data-link-name="article" tabindex="-1">Independent investigation will look into human rights abuses in Yemen</a>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="js-show-more-placeholder"></div>
+<button class="button button--medium button--primary button--show-more collection__show-more js-show-more-button modern-visible" data-test-id="show-more" data-link-name="more">
+<span class="inline-plus inline-icon ">
+<svg width="18" height="18" viewbox="0 0 18 18" class="inline-plus__svg inline-icon__svg">
+<path d="M8.2 0h1.6l.4 7.8 7.8.4v1.6l-7.8.4-.4 7.8H8.2l-.4-7.8L0 9.8V8.2l7.8-.4.4-7.8z"/>
+</svg>
+</span>
+<span class="inline-minus inline-icon ">
+<svg width="32" height="32" viewbox="0 0 32 32" class="inline-minus__svg inline-icon__svg">
+<path d="M5 15h22v3H5z"/>
+</svg>
+</span>
+<span class="js-button-text">More more on this story</span>
+</button>
+</div>
+</div>
+</section>
 </aside>
 <aside id="onward" class="onward js-onward facia-container facia-container--layout-content  js-outbrain-anchor" role="complementary"></aside>
 <aside id="more-in-section" class="more-in-section js-more-in-section facia-container facia-container--layout-content " role="complementary"></aside>
